@@ -32,4 +32,4 @@ The vision for MER is to foster a culture of communication that is more transpar
 Sample output can be found here:
 <br><a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.json">https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.json</a>
 
-In addition to labeled highlights there is a summary statistics with total counts of manipulation styles for data analysis purposes. Also a qualitative summary text is provided.
+In addition to labeled highlights on the field `expressions` there is a summary statistics with total counts of manipulation styles for data analysis purposes on the field `counts`. Also a qualitative summary text is provided on the field `qualitative_evaluation`.
