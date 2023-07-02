@@ -21,7 +21,8 @@
     <InterpreterId>Global|PythonCore|3.10</InterpreterId>
     <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
-    <Environment>OPENAI_API_KEY=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</Environment>
+    <Environment>
+    </Environment>
     <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -39,14 +40,18 @@
     <Compile Include="Utilities.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="data\continuation_request.txt" />
     <Content Include="data\default_labels.txt" />
     <Content Include="data\open_ended_system_instruction.txt" />
     <Content Include="data\test_evaluation.json" />
     <Content Include="install_steps.txt" />
+    <Content Include="LICENSE" />
+    <Content Include="README.md" />
     <Content Include="requirements.txt" />
     <Content Include="data\closed_ended_system_instruction.txt" />
     <Content Include="data\test_input.txt" />
+    <Content Include="test_input_sources.txt" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.10" />
