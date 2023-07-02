@@ -27,6 +27,16 @@ In the future, the plan is to expand MER’s reach by offering it as a Software 
 The vision for MER is to foster a culture of communication that is more transparent, equitable, and free from manipulation. We believe that by illuminating the nuances of language, we can contribute to a better understanding between AI and humans, as well as among humans themselves.
 
 
+## Use cases
+
+* Benchmarking of new LLM models:
+    * Benchmarking LLM resistance to manipulation from user. Even if the user input is manipulative, the LLM output should be not manipulative.
+    * Benchmarking LLM outputs for presence of manipulation in case of benign user inputs.
+* Supporting humans both in their communication with other humans as well as with LLM-s.
+* Evaluation of news articles.
+* For software providers: Automatic detection of some types of prompt injections.
+
+
 ## Usage
 
 Windows setup:
@@ -55,7 +65,7 @@ The input conversation is provided as a UTF-8 text file with a log of a conversa
 	Etc...
 
 
-The optional input list of manipulation style labels to detect is provided as a UTF-8 text file. The labels are separated by newlines. The `data` folder contains a list of default labels in the file `default_labels.txt` which is used when user does not supply their own list of labels.
+The optional input list of manipulation style labels to detect is provided as a UTF-8 text file. The labels are separated by newlines. The `data` folder contains a list of default labels in the file `default_labels.txt` which is used when user does not supply their own list of labels. The list format example follows.
 
     - Diminishing
     - Ignoring
@@ -128,7 +138,7 @@ The optional input list of manipulation style labels to detect is provided as a 
           "Impatience": 1
         }
       },
-      "unexpected_labels": [],
+      "unexpected_labels": [],  //contains a list labels which were not requested, but were present in LLM output regardless
       "raw_expressions_labeling_response": "Response from LLM based on which the computer-readable parsed data above is calculated.",
       "qualitative_evaluation": "Another text from LLM providing a general descriptive summary of the participants involved."
     }
@@ -140,3 +150,59 @@ Sample output can be found here:
 <br><a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.json">https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.json</a>
 
 In addition to labeled highlights on the field `expressions` there is a summary statistics with total counts of manipulation styles for data analysis purposes on the field `counts`. Also a qualitative summary text is provided on the field `qualitative_evaluation`.
+
+
+## How it works
+
+* Explain annotation (for qualitative analysis purposes)
+* Explain summary metrics (for quantitative benchmark purposes)
+* This software is different from lie detection / fact checking software. It only focuses on communication style without reliance on external knowledge bases (except for the use of a language model).
+* 
+
+
+## Future plans
+
+### Data improvements:
+* Creating a list of conversation data sources / databases. Possible sources:
+    * Quora
+    * Reddit
+    * Potential data source recommendations from Esben Kran:
+        https://talkbank.org/
+        https://childes.talkbank.org/
+        https://docs.google.com/document/d/1boRn_hpVfaXBydc3C18PTsJVutOIsM3dF3sJyFjq-vc/edit
+        https://www.webmd.com/mental-health/signs-manipulation
+* Create a gold standard set of labels. One potential source of labels could be existing psychometric tests.
+* Create a gold standard set of evaluations for a set of prompts. This can be done by collecting labelings from expert human evaluators.
+
+### New functionalities:
+* Support for single-message labeling. Currently the algorithm expects a conversation as input, but with trivial modifications it could be also applied to single messages or articles given that they have sufficient length.
+* Implement automatic input text anonymisation. Person names, organisation names, place names, potentially also numeric amounts and dates could be replaced with abstract names like Person A, Person B, etc. This has two purposes:
+    * Anonymised input may make the LLM evaluations more fair.
+    * Anonymised input significantly reduces the risk of private or sensitive data leakage.
+* Returning logit scores for each label. Example:
+
+    ```
+    "logits_summary": {
+        "Invalidation": 0.9,
+        "Victim playing": 0.7,
+        "Exaggeration and dramatization": 0.2,
+    }
+    ```
+* Handling of similar labels with overlapping semantic themes. One reason I need that handling is because GPT does not always produce the labels as requested, but may slightly modify them. Also some labels may have naturally partially overlapping meaning, while still retaining also partial differences in meaning.
+
+### Software tuning:
+* Improve error handling.
+* Invalid LLM output detection. Sometimes LLM produces results in a different format than expected.
+
+### New related apps:
+* Building and setting up a web based API endpoint.
+* Building and setting up a web based user interface for non-programmer end users.
+
+### Experiments:
+* Test manipulation detection against various prompts present in known prompt injections.
+* Test manipulation detection against general prompt databases (for example, AutoGPT database).
+* Benchmark various known LLM-s
+    * LLM resistance to manipulation from user. Even if the user input is manipulative, the LLM output should be not manipulative.
+    * Presence of manipulation in LLM outputs in case of benign user inputs.
+* Look for conversations on the theme of Waluigi Effect.
+* 

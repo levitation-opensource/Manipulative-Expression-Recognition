@@ -253,6 +253,8 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
 
     # parse the closed ended response by extracting persons, citations, and labels
 
+    # TODO: Sometimes GPT mixes up the person names in the citations. Ensure that such incorrectly assigned citations are ignored or properly re-assigned in this script.
+
     expressions_tuples = []
     detected_persons = set()
     unexpected_labels = set()
@@ -270,7 +272,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
 
       labels = [x.strip() for x in labels.split(",")]
 
-      for x in labels:  # create debug info
+      for x in labels:  # create debug info about non-requested labels
         if x not in labels_list:
           unexpected_labels.add(x)
 
