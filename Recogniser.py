@@ -37,7 +37,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 from Utilities import init_logging, safeprint, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_txt, save_txt
 
-# init_logging(os.path.join(os.path.basename(__file__), "data"), __name__, max_old_log_rename_tries = 1)
+# init_logging(os.path.basename(__file__), __name__, max_old_log_rename_tries = 1)
 
 
 
@@ -316,7 +316,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
     #/ for person in detected_persons:
 
 
-    # sort by message indexes by start_char
+    # sort message indexes by start_char
     start_char_to_person_message_index_dict = OrderedDict(sorted(start_char_to_person_message_index_dict.items()))
 
     # compute overall message index for each person's message index
@@ -326,7 +326,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
 
 
     # compute expression locations
-    totals = defaultdict(lambda: defaultdict(int))
+    totals = defaultdict(lambda: defaultdict(int))    # defaultdict: do not report persons and labels which are not detected
     # totals = {person: {label: 0 for label in labels_list} for person in detected_persons}
     expression_dicts = []
 
@@ -334,17 +334,16 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
 
       (person, citation, labels) = expressions_tuple
       
+      # TODO: use combinatorial optimisation to do the matching with original text positions in order to ensure that repeated similar expressions get properly located as well
       nearest_message = thefuzz.process.extractOne(citation, person_messages[person])[0]
       person_message_index = person_messages[person].index(nearest_message)
       overall_message_index = overall_message_indexes[person][person_message_index]  
 
-      # TODO: use combinatorial optimisation to do the matching with original text positions in order to ensure that repeated similar expressions get properly located as well
       start_char = person_message_spans[person][person_message_index][0] + nearest_message.find(citation)  # TODO: allow fuzzy matching in case spaces or punctuation differ
       end_char = start_char + len(citation)
 
 
       for label in labels:
-        # person_totals[label] += 1
         totals[person][label] += 1
 
 
@@ -406,75 +405,14 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
 
   await save_txt(response_filename, response_json, quiet = True, make_backup = True, append = False)
 
-
-
-
-
-  #request_example = {
-  #  "version": "0.1",
-
-  #  "doc": "input",
-
-  #  "type": "conversation|message",
-
-  #  "labels": None, # will use built-in labels
-
-  #  "anonymise": True,
-  #  "allow_logging": False,
-
-  #  "stream": False,  # not supported yet
-
-  #  "openai_key": "",
-  #  "openai_model": "",
-  #  "huggingface_model": ""
-  #}
-
-
-
-  #response_example = {
-
-  #  "error_code": 0,
-  #  "error_msg": "",
-
-  #  "text": "original input",
-  #  "expressions": [
-  #      {
-  #        "start_char": 0,
-  #        "end_char": 10,
-  #        "start_sentence": 1,
-  #        "end_sentence": 1,
-  #        "text": "citation of part of input",
-  #        "labels": ["dismissing", "exaggeration"]
-  #      }
-  #    ],
-  #  "expressions_tuples": [
-  #    ("citation of part of input", ["dismissing", "exaggeration"])
-  #  ],
-
-  #  "counts": {
-  #    "person_a": {
-  #      "dismissing": 2,
-  #      "exaggeration": 1
-  #    },
-  #    "person_b": {
-  #      "dismissing": 3,
-  #      "exaggeration": 0
-  #    }
-  #  },
-
-  #  "raw_expressions_labeling_response": "evaluations text from llm with labeled citations",
-
-  #  "qualitative_evaluation": "text from llm providing a general descriptive summary of the participants involved"
-  #}
-
-
+  
 
   qqq = True  # for debugging
 
 #/ async def main():
 
 
-loop.run_until_complete(main())
 
+loop.run_until_complete(main())
 
 

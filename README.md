@@ -49,7 +49,7 @@ The input conversation is provided as a UTF-8 text file with a log of a conversa
 	Etc...
 
 
-The optional input list of labels to detect is provided as a UTF-8 text file. The labels are separated by newlines. The `data` folder contains a list of default labels in the file `default_labels.txt` which is used when user does not supply their own list of labels.
+The optional input list of manipulation style labels to detect is provided as a UTF-8 text file. The labels are separated by newlines. The `data` folder contains a list of default labels in the file `default_labels.txt` which is used when user does not supply their own list of labels.
 
     - Diminishing
     - Ignoring
