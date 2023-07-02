@@ -10,6 +10,7 @@
 print("Starting...")
 
 import os
+import sys
 
 # import spacy
 # from spacy import displacy
@@ -36,7 +37,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 from Utilities import init_logging, safeprint, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_txt, save_txt
 
-init_logging(os.path.basename(__file__), __name__, max_old_log_rename_tries = 1)
+# init_logging(os.path.join(os.path.basename(__file__), "data"), __name__, max_old_log_rename_tries = 1)
 
 
 
@@ -53,6 +54,8 @@ if is_dev_machine:
 async def completion_with_backoff(**kwargs):  # TODO: ensure that only HTTP 429 is handled here
 
   # return openai.ChatCompletion.create(**kwargs) 
+
+  qqq = True  # for debugging
 
   openai_response = await openai_async.chat_complete(
     api_key,
@@ -74,6 +77,7 @@ async def completion_with_backoff(**kwargs):  # TODO: ensure that only HTTP 429 
 async def run_llm_analysis(messages, continuation_request, enable_cache = True):
 
   if enable_cache:
+    # NB! this cache key and the cache will not contain the OpenAI key, so it is safe to publish the cache files
     cache_key = json_tricks.dumps(messages)   # json_tricks preserves dictionary orderings
     cache_key = hashlib.sha512(cache_key.encode("utf-8")).hexdigest() 
 
@@ -81,7 +85,7 @@ async def run_llm_analysis(messages, continuation_request, enable_cache = True):
     fulldirname = os.path.join(data_dir, "cache")
     os.makedirs(fulldirname, exist_ok = True)
 
-    cache_filename = "cache\cache_" + cache_key + ".dat"
+    cache_filename = os.path.join("cache", "cache_" + cache_key + ".dat")
     response = await read_file(cache_filename, default_data = None, quiet = True)
   else:
     response = None
@@ -152,17 +156,23 @@ def sanitise_input(text):
 async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
 
 
-  if False:   # TODO: NER
+  #if False:   # TODO: NER
 
-    NER = spacy.load("en_core_web_sm")
-    raw_text = "The Indian Space Research Organisation is the national space agency of India"
-    text1 = NER(raw_text)
+  #  NER = spacy.load("en_core_web_sm")
+  #  raw_text = "The Indian Space Research Organisation is the national space agency of India"
+  #  text1 = NER(raw_text)
 
+
+  labels_filename = sys.argv[3] if len(sys.argv) > 3 else None
+  if labels_filename:
+    labels_filename = os.path.join("..", labels_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+  else:
+    labels_filename = "default_labels.txt"
 
 
   closed_ended_system_instruction = (await read_txt("closed_ended_system_instruction.txt", quiet = True)).strip()
   open_ended_system_instruction = (await read_txt("open_ended_system_instruction.txt", quiet = True)).strip()
-  default_labels = (await read_txt("default_labels.txt", quiet = True)).strip()
+  default_labels = (await read_txt(labels_filename, quiet = True)).strip()
   continuation_request = (await read_txt("continuation_request.txt", quiet = True)).strip()
 
 
@@ -170,9 +180,17 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
 
 
 
-  # format user input
+  # read user input
+  input_filename = sys.argv[1] if len(sys.argv) > 1 else None
+  if input_filename:
+    input_filename = os.path.join("..", input_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+    using_user_input_filename = True
+  else:    
+    input_filename = "test_input.txt"
+    using_user_input_filename = False
 
-  user_input = (await read_txt("test_input.txt", quiet = True)).strip()
+  # format user input
+  user_input = (await read_txt(input_filename, quiet = True)).strip()
 
   # sanitise user input since []{} have special meaning in the output parsing
   user_input = sanitise_input(user_input)
@@ -379,7 +397,14 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
   }
 
   response_json = json_tricks.dumps(analysis_response, indent=2)   # json_tricks preserves dictionary orderings
-  await save_txt("test_evaluation.json", response_json, quiet = True, make_backup = True, append = False)
+
+  response_filename = sys.argv[2] if len(sys.argv) > 2 else None
+  if response_filename:
+    response_filename = os.path.join("..", response_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+  else: 
+    response_filename = os.path.splitext(input_filename)[0] + "_evaluation.json" if using_user_input_filename else "test_evaluation.json"
+
+  await save_txt(response_filename, response_json, quiet = True, make_backup = True, append = False)
 
 
 
