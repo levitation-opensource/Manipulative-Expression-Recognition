@@ -26,3 +26,10 @@ In the future, the plan is to expand MER’s reach by offering it as a Software 
 
 The vision for MER is to foster a culture of communication that is more transparent, equitable, and free from manipulation. We believe that by illuminating the nuances of language, we can contribute to a better understanding between AI and humans, as well as among humans themselves.
 
+
+## Example output
+
+Sample output can be found here:
+<br><a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.json">https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.json</a>
+
+In addition to labeled highlights there is a summary statistics with total counts of manipulation styles for data analysis purposes. Also a qualitative summary text is provided.
