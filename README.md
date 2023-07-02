@@ -31,7 +31,7 @@ The vision for MER is to foster a culture of communication that is more transpar
 
 `python Recogniser.py ["input_file.txt" ["output_file.json" ["list_of_labels.txt"]]]`
 
-If run without arguments then sample files in `data` folder are used. If the user provides input file name but no output file name then the output name will be calculated as `input filename` + `_evaluation.json`
+If run without arguments then sample files in `data` folder are used. If the user provides input file name but no output file name then the output file name will be calculated as `input filename` + `_evaluation.json`
 
 
 ## Input format example
@@ -49,7 +49,7 @@ The input conversation is provided as a UTF-8 text file with a log of a conversa
 	Etc...
 
 
-The optional input list of labels is provided as a UTF-8 text file with a list of labels separated by newlines. The `data` folder contains a list of default labels in the file `default_labels.txt` which is used when user does not supply their own list of labels.
+The optional input list of labels to detect is provided as a UTF-8 text file. The labels are separated by newlines. The `data` folder contains a list of default labels in the file `default_labels.txt` which is used when user does not supply their own list of labels.
 
     - Diminishing
     - Ignoring
@@ -124,7 +124,7 @@ The optional input list of labels is provided as a UTF-8 text file with a list o
       },
       "unexpected_labels": [],
       "raw_expressions_labeling_response": "Response from LLM based on which the computer-readable parsed data above is calculated.",
-      "qualitative_evaluation": ""
+      "qualitative_evaluation": "Another text from LLM providing a general descriptive summary of the participants involved."
     }
 
 
