@@ -29,7 +29,13 @@ The vision for MER is to foster a culture of communication that is more transpar
 
 ## Usage
 
-`python Recogniser.py ["input_file.txt" ["output_file.json" ["list_of_labels.txt"]]]`
+Windows setup:
+<br>`set OPENAI_API_KEY=<your key here>`
+<br>Linux setup:
+<br>`export OPENAI_API_KEY=<your key here>`
+
+Main command:
+<br>`python Recogniser.py ["input_file.txt" ["output_file.json" ["list_of_labels.txt"]]]`
 
 If run without arguments then sample files in `data` folder are used. If the user provides input file name but no output file name then the output file name will be calculated as `input filename` + `_evaluation.json`
 

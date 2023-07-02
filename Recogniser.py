@@ -28,7 +28,7 @@ import tenacity   # for exponential backoff
 import openai_async
 
 
-organization = "org-oFLL9tXxrcM7Y5nKxrY871Kx"
+# organization = os.getenv("OPENAI_API_ORG")
 api_key = os.getenv("OPENAI_API_KEY")
 
 # openai.organization = organization
