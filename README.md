@@ -27,6 +27,97 @@ In the future, the plan is to expand MER’s reach by offering it as a Software 
 The vision for MER is to foster a culture of communication that is more transparent, equitable, and free from manipulation. We believe that by illuminating the nuances of language, we can contribute to a better understanding between AI and humans, as well as among humans themselves.
 
 
+## Usage
+
+`python Recogniser.py "input_file.txt" "output_file.json"`
+
+
+## Input format
+
+The input is provided as a text file with a log of a conversation.
+
+	Person A: Their message.
+
+	Person B: Response text.
+
+	Person A: More messages. And more sentences in that message.
+
+	Person B: The input continues as long as conversation to be analysed.
+
+	Etc...
+
+
+## Output format
+
+    {
+      "error_code": 0,
+      "error_msg": "",
+      "sanitised_text": "Slightly modified input text",
+      "expressions": [
+        {
+          "person": "Person B",
+          "start_char": 9,
+          "end_char": 29,
+          "start_message": 0,
+          "end_message": 0,
+          "text": "Their message.",
+          "labels": [
+            "Ignoring"
+          ]
+        },
+        {
+          "person": "Person B",
+          "start_char": 109,
+          "end_char": 282,
+          "start_message": 2,
+          "end_message": 2,
+          "text": "More messages. And more sentences in that message.",
+          "labels": [
+            "Diminishing",
+            "Invalidation"
+          ]
+        },
+        ...
+      ],
+      "expressions_tuples": [   //same as in the field "expressions" but in a more succinct format.
+        [
+          "Person B",
+          "Their message.",
+          [
+            "Ignoring"
+          ]
+        ],
+        [
+          "Person B",
+          "More messages. And more sentences in that message.",
+          [
+            "Diminishing",
+            "Invalidation"
+          ]
+        ],
+        ...
+      ],
+      "counts": {
+        "Person B": {
+          "Diminishing": 8,
+          "Invalidation": 5,
+          "Victim playing": 2,
+          "Manipulation": 5,
+          "Exaggeration and dramatization": 1,
+          "Aggression": 2,
+          "Changing the topic": 1,
+          "Ignoring": 1
+        },
+        "Person A": {
+          "Impatience": 1
+        }
+      },
+      "unexpected_labels": [],
+      "raw_expressions_labeling_response": "Response from LLM based on which the computer-readable parsed data above is calculated.",
+      "qualitative_evaluation": ""
+    }
+
+
 ## Example output
 
 Sample output can be found here:
