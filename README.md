@@ -212,6 +212,7 @@ In addition to labelled highlights on the field `expressions` there is a summary
 ### New related apps:
 * Building and setting up a web based API endpoint.
 * Building and setting up a web based user interface for non-programmer end users.
+* Publishing a Slack plugin.
 
 ### Experiments:
 * Test manipulation detection against various known prompt injection prompts.
