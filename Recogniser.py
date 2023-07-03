@@ -13,7 +13,7 @@ import os
 import sys
 
 # import spacy
-# from spacy import displacy
+# from spacy import displacy    # load it only when rendering is requested, since this package loads slowly
 
 import re
 from collections import defaultdict, OrderedDict
@@ -95,7 +95,7 @@ async def run_llm_analysis(messages, continuation_request, enable_cache = True):
 
     # model_name = "gpt-3.5-turbo"
     model_name = "gpt-3.5-turbo-16k"  # TODO: auto select model based on request length
-    # model_name = "gpt-4"
+    # model_name = "gpt-4"  # TODO: command-line argument or a config file for selecting model
 
     responses = []
 
@@ -408,6 +408,63 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
   await save_txt(response_filename, response_json, quiet = True, make_backup = True, append = False)
 
   
+
+  render_output = False     # TODO: work in progress
+  if render_output:
+
+    def create_html_barchart(person, person_counts):
+
+      max_value = max(person_counts.values())
+      html =  "<div style='font-weight: bold;'>" + person + ":</div>\n"
+      html += "<div style='width: 400px; height: 400px; display: flex;'>\n"
+
+      for label, value in person_counts.items():
+          height = (value / max_value) * 100  # normalize to percentage
+          html += f"<div style='width: {100/len(person_counts)}%; height: {height}%; background: #1f77b4; margin-right: 5px;'>{label}<br>{value}</div>\n"
+
+      html += "</div>\n<br><br>\n"
+      return html
+
+    #/ def create_html_barchart(data):
+
+    bar_chart = [create_html_barchart(person, person_counts) for (person, person_counts) in totals.items()]
+
+
+    print("Loading Spacy HTML renderer...")
+    from spacy import displacy    # load it only when rendering is requested, since this package loads slowly
+
+    highlights_html = displacy.render( 
+            {
+                "text": user_input,
+                "ents": [
+                          {
+                            "start": entry["start_char"], 
+                            "end": entry["end_char"], 
+                            "label": ", ".join(entry["labels"])
+                          } 
+                          for entry 
+                          in expression_dicts
+                        ],
+                "title": None 
+            }, 
+            style="ent", manual=True
+          )
+
+    html = '<html><body>' + bar_chart + '<div style="font: 1em Arial; white-space: pre-wrap;">' + highlights_html + '</div></body></html>'
+
+
+    response_html_filename = sys.argv[4] if len(sys.argv) > 4 else None
+    if response_html_filename:
+      response_html_filename = os.path.join("..", response_html_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+    else: 
+      response_html_filename = os.path.splitext(response_filename)[0] + ".html" if using_user_input_filename else "test_evaluation.html"
+
+    await save_txt(response_html_filename, html, quiet = True, make_backup = True, append = False)
+
+  #/ if render_output:
+
+  
+
 
   qqq = True  # for debugging
 

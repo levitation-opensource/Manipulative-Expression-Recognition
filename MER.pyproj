@@ -35,7 +35,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Server.py" />
     <Compile Include="Logger.py" />
     <Compile Include="Recogniser.py" />
     <Compile Include="Utilities.py" />
@@ -46,7 +45,6 @@
     <Content Include="data\default_labels.txt" />
     <Content Include="data\open_ended_system_instruction.txt" />
     <Content Include="data\test_evaluation.json" />
-    <Content Include="install_steps.txt" />
     <Content Include="LICENSE" />
     <Content Include="README.md" />
     <Content Include="requirements.txt" />

@@ -9,7 +9,7 @@ However, with great capability comes an inherent need for responsibility and scr
 
 At the same time, in the human realm of communication, manipulative behaviours can significantly impact interpersonal relationships, business negotiations, politics, and many other areas of life. These behaviours often go unnoticed or unrecognised, leaving victims of manipulation without the support and tools needed to defend themselves.
 
-It is against this backdrop that this new software, "Manipulative Expression Recognition (MER) and Manipulativeness Benchmark," comes into the picture. In contrast to various existing fact-checking software the current software focuses on the communication style detection and labelling.
+It is against this backdrop that this new software, "Manipulative Expression Recognition (MER) and Manipulativeness Benchmark," comes into the picture. In contrast to various existing fact-checking software the current software focuses on the psychological communication style detection and labelling.
 
 
 ## Functionality
