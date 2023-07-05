@@ -213,7 +213,7 @@ The software produces output in two formats:
         }
     }
     ```
-* Handling of similar labels with overlapping semantic themes. One reason I need that handling is because GPT does not always produce the labels as requested, but may slightly modify them. Also some labels may have naturally partially overlapping meaning, while still retaining also partial differences in meaning.
+* Handling of similar labels with overlapping semantic themes. One reason I need that handling is because GPT does not always produce the labels as requested, but may slightly modify them. Also some labels may have naturally partially overlapping meaning, while still retaining also partial differences in meaning. This task may mean computing correlations between raw labels and rotating / computing independent traits from the raw labels.
 * Add support for open-source models available at HuggingFace.
 
 
