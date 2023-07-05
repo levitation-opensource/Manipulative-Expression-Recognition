@@ -446,7 +446,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
 
   
 
-  render_output = False     # TODO: work in progress
+  render_output = True     # TODO: work in progress
   if render_output:
 
     def create_html_barchart(person, person_counts):
@@ -487,7 +487,23 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
             style="ent", manual=True
           )
 
-    html = '<html><body>' + bar_chart + '<div style="font: 1em Arial; white-space: pre-wrap;">' + highlights_html + '</div></body></html>'
+    html = ('<html><body><style>                    \
+                .entities {                         \
+                  line-height: 1.5 !important;      \
+                }                                   \
+                mark {                              \
+                  line-height: 2 !important;        \
+                  background: yellow !important;    \
+                }                                   \
+                mark span {                         \
+                  background: orange !important;    \
+                  padding: 0.5em;                   \
+                }                                   \
+            </style>' 
+            # + bar_chart 
+            + '<div style="font: 1em Arial;">' 
+            + highlights_html 
+            + '</div></body></html>')
 
 
     response_html_filename = sys.argv[4] if len(sys.argv) > 4 else None
