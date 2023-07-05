@@ -24,7 +24,8 @@
     <Environment>
     </Environment>
     <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
-    <CommandLineArguments>my_input.txt my_evaluation.json my_labels.txt</CommandLineArguments>
+    <CommandLineArguments>
+    </CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,7 @@
     <Content Include="data\continuation_request.txt" />
     <Content Include="data\default_labels.txt" />
     <Content Include="data\open_ended_system_instruction.txt" />
+    <Content Include="data\test_evaluation.html" />
     <Content Include="data\test_evaluation.json" />
     <Content Include="LICENSE" />
     <Content Include="README.md" />

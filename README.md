@@ -61,9 +61,9 @@ Windows setup:
 <br>`export OPENAI_API_KEY=<your key here>`
 
 Main command:
-<br>`python Recogniser.py ["input_file.txt" ["output_file.json" ["list_of_labels.txt"]]]`
+<br>`python Recogniser.py ["input_file.txt" ["output_file.json" ["list_of_labels.txt" ["output_file.html"]]]]`
 
-The user provided files are expected to be in the same folder as the main Python script, unless an absolute path is provided. If run without arguments then sample files in the `data` folder are used. If the user provides input file name but no output file name then the output file name will be calculated as `input filename` + `_evaluation.json`
+The user provided files are expected to be in the same folder as the main Python script, unless an absolute path is provided. If run without arguments then sample files in the `data` folder are used. If the user provides input file name but no output file name then the output JSON file name will be calculated as `input filename` + `_evaluation.json` and the output HTML file name will be calculated as `input filename` + `_evaluation.html`.
 
 
 ## Input format example
@@ -93,6 +93,11 @@ See https://github.com/levitation-opensource/Manipulative-Expression-Recognition
 
 ## Output format example
 
+The software produces output in two formats:
+* HTML, which contains rendering of the conversation with highlighted relevants parts and their labels.
+* JSON, which contains the following structure:
+
+    ```
     {
       "error_code": 0,
       "error_msg": "",
@@ -160,7 +165,7 @@ See https://github.com/levitation-opensource/Manipulative-Expression-Recognition
       "raw_expressions_labeling_response": "Response from LLM based on which the computer-readable parsed data above is calculated.",
       "qualitative_evaluation": "Another text from LLM providing a general descriptive summary of the participants involved."
     }
-
+    ```
 
 ## Example output
 

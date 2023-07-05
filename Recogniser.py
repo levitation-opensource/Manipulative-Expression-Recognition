@@ -500,7 +500,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
                   padding: 0.5em;                   \
                 }                                   \
             </style>' 
-            # + bar_chart 
+            # + bar_chart     # TODO
             + '<div style="font: 1em Arial;">' 
             + highlights_html 
             + '</div></body></html>')
