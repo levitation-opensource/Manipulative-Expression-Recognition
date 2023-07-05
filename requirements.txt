@@ -5,3 +5,4 @@ json_tricks>=3.17.1
 tenacity>=8.2.2
 openai_async>=0.0.3
 pympler>=1.0.1
+spacy>=3.5.4

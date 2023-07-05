@@ -337,7 +337,28 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
       (person, citation, labels) = expressions_tuple
       
       # TODO: use combinatorial optimisation to do the matching with original text positions in order to ensure that repeated similar expressions get properly located as well
-      nearest_message = thefuzz.process.extractOne(citation, person_messages[person])[0]
+      nearest_message = None 
+      nearest_message_similarity = 0
+      nearest_person = None
+      for person2 in detected_persons:
+
+        (person2_nearest_message, similarity) = thefuzz.process.extractOne(citation, person_messages[person2])
+
+        if (similarity > nearest_message_similarity 
+          or (similarity == nearest_message_similarity and person2 == person)):  # if multiple original messages have same similarity score then prefer the message with a person that was assigned by LLM
+          nearest_message_similarity = similarity
+          nearest_message = person2_nearest_message
+          nearest_person = person2
+
+      #/ for person2 in persons:
+
+      if nearest_person != person:  # incorrectly assigned citation 
+        if True:     # TODO: configuration option for handling such cases 
+          continue
+        else:
+          person = nearest_person    
+
+
       person_message_index = person_messages[person].index(nearest_message)
       overall_message_index = overall_message_indexes[person][person_message_index]  
 
@@ -394,7 +415,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
     "counts": totals,
     "unexpected_labels": list(unexpected_labels),   # convert set() to list() for enabling conversion into json
     "raw_expressions_labeling_response": closed_ended_response,
-    "qualitative_evaluation": open_ended_response
+    "qualitative_evaluation": open_ended_response   # TODO: split person A and person B from qualitative description into separate dictionary fields
   }
 
   response_json = json_tricks.dumps(analysis_response, indent=2)   # json_tricks preserves dictionary orderings

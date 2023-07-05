@@ -5,17 +5,6 @@
   "expressions": [
     {
       "person": "Person B",
-      "start_char": 9,
-      "end_char": 29,
-      "start_message": 0,
-      "end_message": 0,
-      "text": "Hey. You better call me as soon as you get this. We need to talk.",
-      "labels": [
-        "Ignoring"
-      ]
-    },
-    {
-      "person": "Person B",
       "start_char": 109,
       "end_char": 282,
       "start_message": 2,
@@ -163,13 +152,6 @@
   "expressions_tuples": [
     [
       "Person B",
-      "Hey. You better call me as soon as you get this. We need to talk.",
-      [
-        "Ignoring"
-      ]
-    ],
-    [
-      "Person B",
       "I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it.",
       [
         "Diminishing",
@@ -274,8 +256,7 @@
       "Manipulation": 5,
       "Exaggeration and dramatization": 1,
       "Aggression": 2,
-      "Changing the topic": 1,
-      "Ignoring": 1
+      "Changing the topic": 1
     },
     "Person A": {
       "Impatience": 1
