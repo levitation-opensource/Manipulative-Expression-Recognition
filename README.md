@@ -143,10 +143,10 @@ See https://github.com/levitation-opensource/Manipulative-Expression-Recognition
       ],
       "counts": {
         "Person B": {
-          "Diminishing": 8,
+          "Diminishing": 7,
           "Invalidation": 5,
           "Victim playing": 2,
-          "Manipulation": 5,
+          "Manipulation": 4,
           "Exaggeration and dramatization": 1,
           "Aggression": 2,
           "Changing the topic": 1,

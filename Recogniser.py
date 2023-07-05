@@ -331,12 +331,17 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
     totals = defaultdict(lambda: defaultdict(int))    # defaultdict: do not report persons and labels which are not detected
     # totals = {person: {label: 0 for label in labels_list} for person in detected_persons}
     expression_dicts = []
+    # already_labelled_message_indexes = set()
+    already_labelled_message_parts = set()
 
     for expressions_tuple in expressions_tuples:
 
       (person, citation, labels) = expressions_tuple
       
+
       # TODO: use combinatorial optimisation to do the matching with original text positions in order to ensure that repeated similar expressions get properly located as well
+
+      # find nearest actual message and verify that it was expressed by the same person as in LLM's citation
       nearest_message = None 
       nearest_message_similarity = 0
       nearest_person = None
@@ -361,6 +366,17 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
 
       person_message_index = person_messages[person].index(nearest_message)
       overall_message_index = overall_message_indexes[person][person_message_index]  
+
+      #if overall_message_index in already_labelled_message_indexes:
+      #  continue    # ignore repeated citations.  # TODO: if repeated citations have different labels, take labels from all of citations
+      #else:
+      #  already_labelled_message_indexes.add(overall_message_index)
+
+      if nearest_message in already_labelled_message_parts:
+        continue  # TODO: if repeated citations have different labels, take labels from all of citations
+      else:
+        already_labelled_message_parts.add(nearest_message)
+
 
       start_char = person_message_spans[person][person_message_index][0] + nearest_message.find(citation)  # TODO: allow fuzzy matching in case spaces or punctuation differ
       end_char = start_char + len(citation)

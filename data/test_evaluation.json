@@ -126,18 +126,6 @@
       ]
     },
     {
-      "person": "Person B",
-      "start_char": 2575,
-      "end_char": 2731,
-      "start_message": 21,
-      "end_message": 21,
-      "text": "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.",
-      "labels": [
-        "Diminishing",
-        "Manipulation"
-      ]
-    },
-    {
       "person": "Person A",
       "start_char": 2743,
       "end_char": 2749,
@@ -233,14 +221,6 @@
       ]
     ],
     [
-      "Person B",
-      "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.",
-      [
-        "Diminishing",
-        "Manipulation"
-      ]
-    ],
-    [
       "Person A",
       "*sigh*",
       [
@@ -250,10 +230,10 @@
   ],
   "counts": {
     "Person B": {
-      "Diminishing": 8,
+      "Diminishing": 7,
       "Invalidation": 5,
       "Victim playing": 2,
-      "Manipulation": 5,
+      "Manipulation": 4,
       "Exaggeration and dramatization": 1,
       "Aggression": 2,
       "Changing the topic": 1
