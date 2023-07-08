@@ -75,7 +75,7 @@ Windows setup:
 <br>`export OPENAI_API_KEY=<your key here>`
 
 Main command:
-<br>`python Recogniser.py ["input_file.txt" ["output_file.json" ["list_of_labels.txt" ["output_file.html"]]]]`
+<br>`python Recogniser.py ["input_file.txt" ["output_file.json" ["list_of_labels.txt" ["output_file.html" ["output_file.svg"]]]]]`
 
 The user provided files are expected to be in the same folder as the main Python script, unless an absolute path is provided. If run without arguments then sample files in the `data` folder are used. If the user provides input file name but no output file name then the output JSON file name will be calculated as `input filename` + `_evaluation.json` and the output HTML file name will be calculated as `input filename` + `_evaluation.html`.
 

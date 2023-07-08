@@ -6,3 +6,4 @@ tenacity>=8.2.2
 openai_async>=0.0.3
 pympler>=1.0.1
 spacy>=3.5.4
+pygal>=3.0.0

@@ -35,7 +35,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 # openai.api_key = api_key
 
 
-from Utilities import init_logging, safeprint, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_txt, save_txt
+from Utilities import init_logging, safeprint, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_raw, save_raw, read_txt, save_txt
 
 # init_logging(os.path.basename(__file__), __name__, max_old_log_rename_tries = 1)
 
@@ -174,11 +174,11 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
   closed_ended_system_instruction = (await read_txt("closed_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here
   open_ended_system_instruction = (await read_txt("open_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here
   extract_names_of_participants_system_instruction = (await read_txt("extract_names_of_participants_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here
-  default_labels = (await read_txt(labels_filename, quiet = True)).strip()
+  all_labels_as_text = (await read_txt(labels_filename, quiet = True)).strip()
   continuation_request = (await read_txt("continuation_request.txt", quiet = True)).strip()
 
 
-  closed_ended_system_instruction_with_labels = closed_ended_system_instruction.replace("%default_labels%", default_labels)
+  closed_ended_system_instruction_with_labels = closed_ended_system_instruction.replace("%labels%", all_labels_as_text)
 
 
 
@@ -201,7 +201,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
 
   # parse labels    # TODO: functionality for adding comments to the labels file which will be not sent to LLM
   labels_list = []
-  lines = default_labels.splitlines(keepends=False)
+  lines = all_labels_as_text.splitlines(keepends=False)
   for line in lines:
 
     line = line.strip()
@@ -216,9 +216,10 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
 
     labels_list.append(line)
 
-  #/ for line in default_labels.splitlines(keepends=False):
+  #/ for line in all_labels_as_text.splitlines(keepends=False):
 
-  default_labels = "\n".join("- " + x for x in labels_list)
+  all_labels_as_text = "\n".join("- " + x for x in labels_list)
+  # labels_list.sort()
 
 
 
@@ -232,6 +233,8 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
       # {"role": "assistant", "content": "Who's there?"},
       # {"role": "user", "content": "Orange."},
     ]
+
+    # TODO: add temperature parameter
 
     open_ended_response = await run_llm_analysis(messages, continuation_request)
 
@@ -249,6 +252,8 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
       # {"role": "assistant", "content": "Who's there?"},
       # {"role": "user", "content": "Orange."},
     ]
+
+    # TODO: add temperature parameter
 
     closed_ended_response = await run_llm_analysis(messages, continuation_request)
 
@@ -484,26 +489,50 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
   render_output = True     # TODO: work in progress
   if render_output:
 
-    def create_html_barchart(person, person_counts):
 
-      max_value = max(person_counts.values())
-      html =  "<div style='font-weight: bold;'>" + person + ":</div>\n"
-      html += "<div style='width: 400px; height: 400px; display: flex;'>\n"
 
-      for label, value in person_counts.items():
-          height = (value / max_value) * 100  # normalize to percentage
-          html += f"<div style='width: {100/len(person_counts)}%; height: {height}%; background: #1f77b4; margin-right: 5px;'>{label}<br>{value}</div>\n"
+    import pygal
+    import pygal.style
+  
+  
+    # creating the chart object
+    style = pygal.style.DefaultStyle(
+      foreground = "rgba(0, 0, 0, .87)",              # dimension labels, plot line legend, and numbers
+      foreground_strong = "rgba(128, 128, 128, 1)",   # title and radial lines
+      # foreground_subtle = "rgba(128, 255, 128, .54)", # ?
+      guide_stroke_color = "#404040",                 # circular lines
+      major_guide_stroke_color = "#808080",           # major circular lines
+      stroke_width = 2,                               # plot line width
+    )
+    radar_chart = pygal.Radar(style=style, order_min=0)   # order_min specifies scale step in log10
+  
+    # naming the title
+    radar_chart.title = "Manipulative Expression Recognition (MER)"
+  
+    radar_chart.x_labels = labels_list
+  
+    for (person, person_counts) in totals.items():
+      series = [person_counts.get(label, 0) for label in labels_list]
+      radar_chart.add(person, series)
+  
+    svg = radar_chart.render()
+    # radar_chart.render_to_png(render_to_png='radar_chart.png')
 
-      html += "</div>\n<br><br>\n"
-      return html
 
-    #/ def create_html_barchart(data):
+    response_svg_filename = sys.argv[5] if len(sys.argv) > 5 else None
+    if response_svg_filename:
+      response_svg_filename = os.path.join("..", response_svg_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+    else: 
+      response_svg_filename = os.path.splitext(response_filename)[0] + ".svg" if using_user_input_filename else "test_evaluation.svg"
 
-    bar_chart = [create_html_barchart(person, person_counts) for (person, person_counts) in totals.items()]
+    await save_raw(response_svg_filename, svg, quiet = True, make_backup = True, append = False)
+
 
 
     print("Loading Spacy HTML renderer...")
     from spacy import displacy    # load it only when rendering is requested, since this package loads 
+    import html
+    import urllib.parse
 
     highlights_html = displacy.render( 
             {
@@ -522,7 +551,10 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
             style="ent", manual=True
           )
 
-    html = ('<html><body><style>                    \
+    html = ('<html><title>'
+            + html.escape(radar_chart.title)
+            + '</title><body>'
+            + '<style>                              \
                 .entities {                         \
                   line-height: 1.5 !important;      \
                 }                                   \
@@ -534,8 +566,8 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
                   background: orange !important;    \
                   padding: 0.5em;                   \
                 }                                   \
-            </style>' 
-            # + bar_chart     # TODO
+              </style>' 
+            + '<object data="' + urllib.parse.quote_plus(response_svg_filename) + '" type="image/svg+xml"></object>'
             + '<div style="font: 1em Arial;">' 
             + highlights_html 
             + '</div></body></html>')

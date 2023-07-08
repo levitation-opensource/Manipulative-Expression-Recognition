@@ -69,7 +69,8 @@
       "text": "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT",
       "labels": [
         "Accusation",
-        "Manipulation",
+        "Gaslighting",
+        "Manipulation"
         "Gaslighting"
       ],
       "start_message": 12,
@@ -168,8 +169,8 @@
       "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT",
       [
         "Accusation",
-        "Manipulation",
-        "Gaslighting"
+        "Gaslighting",
+        "Manipulation"
       ]
     ],
     [
@@ -212,8 +213,8 @@
       "Accusation": 3,
       "Victim playing": 3,
       "Exaggeration and dramatization": 1,
-      "Manipulation": 2,
       "Gaslighting": 1,
+      "Manipulation": 2,
       "Aggression": 2,
       "Shifting of responsibility and blame": 2,
       "Changing the topic": 1

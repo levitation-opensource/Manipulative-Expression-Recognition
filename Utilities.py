@@ -309,6 +309,61 @@ async def save_file(filename, data, quiet = False, make_backup = False):
 #/ def save_file(filename, data):
 
 
+async def read_raw(filename, default_data = None, quiet = False):
+  """Reads a raw file"""
+
+  fullfilename = os.path.join(data_dir, filename)
+
+  if not os.path.exists(fullfilename):
+    return default_data
+
+  with Timer("raw file reading : " + filename, quiet):
+
+    try:
+      async with aiofiles.open(fullfilename, 'rb', 1024 * 1024) as afh:
+        data = await afh.read() 
+    except FileNotFoundError:
+      data = default_data
+
+  #/ with Timer("file reading : " + filename):
+
+  return data
+
+#/ def read_raw(filename):
+
+
+async def save_raw(filename, data, quiet = False, make_backup = False, append = True):
+  """Writes to a raw file"""
+
+  message_template = "raw file saving {}"
+  message = message_template.format(filename)
+
+  with Timer(message, quiet):
+
+    fullfilename = os.path.join(data_dir, filename)
+
+    if (1 == 1):
+
+      async with aiofiles.open(fullfilename + ("" if append else ".tmp"), 'ab' if append else 'wb', 1024 * 1024) as afh:
+        await afh.write(data)
+        await afh.flush()
+
+    else:   #/ if (1 == 0):
+
+      with open(fullfilename + ("" if append else ".tmp"), 'ab' if append else 'wb', 1024 * 1024) as fh:
+        fh.write(data)
+        fh.flush()  # just in case
+
+    #/ if (1 == 0):
+
+    if not append:
+      await rename_temp_file(fullfilename, make_backup)
+
+  #/ with Timer("file saving {}".format(filename)):
+
+#/ def save_raw(filename, data):
+
+
 async def read_txt(filename, default_data = None, quiet = False):
   """Reads from a text file"""
 

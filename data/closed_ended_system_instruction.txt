@@ -1,5 +1,5 @@
 Please label the sentences of participants of the conversation below the "---" mark with corresponding label of conversational style where you detect either:
-%default_labels%
+%labels%
 
 For each expression that has at least one label, format the evaluations in the following way:
 [Person X]: Citation Text - {Comma separated list of detected labels}
