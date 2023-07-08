@@ -41,6 +41,7 @@ from Utilities import init_logging, safeprint, loop, debugging, is_dev_machine, 
 
 
 
+
 if __name__ == "__main__":
   os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
@@ -153,7 +154,7 @@ def sanitise_input(text):
 #/ def sanitise_input(text):
 
 
-async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
+async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, extract_message_indexes = False):
 
 
   #if False:   # TODO: NER
@@ -170,8 +171,9 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
     labels_filename = "default_labels.txt"
 
 
-  closed_ended_system_instruction = (await read_txt("closed_ended_system_instruction.txt", quiet = True)).strip()
-  open_ended_system_instruction = (await read_txt("open_ended_system_instruction.txt", quiet = True)).strip()
+  closed_ended_system_instruction = (await read_txt("closed_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here
+  open_ended_system_instruction = (await read_txt("open_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here
+  extract_names_of_participants_system_instruction = (await read_txt("extract_names_of_participants_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here
   default_labels = (await read_txt(labels_filename, quiet = True)).strip()
   continuation_request = (await read_txt("continuation_request.txt", quiet = True)).strip()
 
@@ -259,6 +261,27 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
     detected_persons = set()
     unexpected_labels = set()
 
+    if extract_message_indexes:   # TODO
+
+      messages = [
+        {"role": "system", "content": extract_names_of_participants_system_instruction},
+        {"role": "user", "content": user_input},
+        # {"role": "assistant", "content": "Who's there?"},
+        # {"role": "user", "content": "Orange."},
+      ]
+
+      names_of_participants_response = await run_llm_analysis(messages, continuation_request)
+
+      # Try to detect persons from the input text. This is necessary for preserving proper message indexing in the output in case some person is not cited by LLM at all.
+      re_matches = re.findall(r"[\r\n]+\[?([^\]\n]*)\]?", "\n" + names_of_participants_response)
+      for re_match in re_matches:
+
+        detected_persons.add(re_match)
+
+      #/ for re_match in re_matches:
+    #/ if extract_message_indexes:
+
+    # Process LLM response
     re_matches = re.findall(r"[\r\n]+\[(.*)\]:(.*)\{(.*)\}", "\n" + closed_ended_response)
     for re_match in re_matches:
 
@@ -382,19 +405,31 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
       end_char = start_char + len(citation)
 
 
+      labels.sort()
+
       for label in labels:
         totals[person][label] += 1
 
 
-      expression_dicts.append({
+      entry = {
         "person": person,
         "start_char": start_char,
         "end_char": end_char,
-        "start_message": overall_message_index, 
-        "end_message": overall_message_index,   
+        # "start_message": overall_message_index, 
+        # "end_message": overall_message_index,   
         "text": nearest_message,  # citation,   # use original text not ChatGPT citation here
         "labels": labels,
-      })
+      }
+
+      if extract_message_indexes:
+        # overall_message_index = overall_message_indexes[person][person_message_index]  
+        entry.update({
+          "start_message": overall_message_index, 
+          "end_message": overall_message_index,   
+        })
+      #/ if extract_message_indexes:
+
+      expression_dicts.append(entry)
       
     #/ for expressions_tuple in expressions_tuples:
 
@@ -468,7 +503,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
 
 
     print("Loading Spacy HTML renderer...")
-    from spacy import displacy    # load it only when rendering is requested, since this package loads slowly
+    from spacy import displacy    # load it only when rendering is requested, since this package loads 
 
     highlights_html = displacy.render( 
             {
@@ -525,6 +560,6 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True):
 
 
 
-loop.run_until_complete(main())
+loop.run_until_complete(main(extract_message_indexes = False))
 
 

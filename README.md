@@ -61,7 +61,7 @@ Sample JSON output can be found here:
 Sample HTML output can be found here:
 <br><a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.html">https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.html</a>
 
-For quick preview in GitHub, a PDF rendering of the sample HTML output is added here:
+For quick online preview, a PDF rendering of the sample HTML output is added here:
 <br><a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.pdf">https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.pdf</a>
 
 In addition to labelled highlights on the field `expressions` there is a summary statistics with total counts of manipulation styles for data analysis purposes on the field `counts`. Also a qualitative summary text is provided on the field `qualitative_evaluation`.
