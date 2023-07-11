@@ -10,7 +10,7 @@
       "text": "I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it.",
       "labels": [
         "Dismissal",
-        "Invalidation"
+        "Silent treatment"
       ],
       "start_message": 2,
       "end_message": 2
@@ -21,7 +21,7 @@
       "end_char": 497,
       "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.",
       "labels": [
-        "Diminishing"
+        "Dismissal"
       ],
       "start_message": 4,
       "end_message": 4
@@ -45,7 +45,7 @@
       "end_char": 1131,
       "text": "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!",
       "labels": [
-        "Exaggeration and dramatization",
+        "Exaggeration",
         "Victim playing"
       ],
       "start_message": 8,
@@ -57,7 +57,8 @@
       "end_char": 1257,
       "text": "I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!",
       "labels": [
-        "Accusation"
+        "Dismissal",
+        "Invalidation"
       ],
       "start_message": 10,
       "end_message": 10
@@ -69,9 +70,7 @@
       "text": "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT",
       "labels": [
         "Accusation",
-        "Gaslighting",
         "Manipulation"
-        "Gaslighting"
       ],
       "start_message": 12,
       "end_message": 12
@@ -83,7 +82,7 @@
       "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon.",
       "labels": [
         "Aggression",
-        "Shifting of responsibility and blame"
+        "Threats"
       ],
       "start_message": 14,
       "end_message": 14
@@ -95,7 +94,7 @@
       "text": "THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY.",
       "labels": [
         "Aggression",
-        "Shifting of responsibility and blame"
+        "Threats"
       ],
       "start_message": 16,
       "end_message": 16
@@ -106,7 +105,7 @@
       "end_char": 2531,
       "text": "Hey, let\u2019s get a drink.",
       "labels": [
-        "Changing the topic"
+        "Ignoring"
       ],
       "start_message": 19,
       "end_message": 19
@@ -117,8 +116,8 @@
       "end_char": 2731,
       "text": "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.",
       "labels": [
-        "Manipulation",
-        "Victim playing"
+        "Guilt tripping",
+        "Manipulation"
       ],
       "start_message": 21,
       "end_message": 21
@@ -130,14 +129,14 @@
       "I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it.",
       [
         "Dismissal",
-        "Invalidation"
+        "Silent treatment"
       ]
     ],
     [
       "Person B",
       "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.",
       [
-        "Diminishing"
+        "Dismissal"
       ]
     ],
     [
@@ -153,7 +152,7 @@
       "Person B",
       "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!",
       [
-        "Exaggeration and dramatization",
+        "Exaggeration",
         "Victim playing"
       ]
     ],
@@ -161,7 +160,8 @@
       "Person B",
       "I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!",
       [
-        "Accusation"
+        "Dismissal",
+        "Invalidation"
       ]
     ],
     [
@@ -169,7 +169,6 @@
       "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT",
       [
         "Accusation",
-        "Gaslighting",
         "Manipulation"
       ]
     ],
@@ -178,7 +177,7 @@
       "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon.",
       [
         "Aggression",
-        "Shifting of responsibility and blame"
+        "Threats"
       ]
     ],
     [
@@ -186,41 +185,43 @@
       "THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY.",
       [
         "Aggression",
-        "Shifting of responsibility and blame"
+        "Threats"
       ]
     ],
     [
       "Person B",
       "Hey, let\u2019s get a drink.",
       [
-        "Changing the topic"
+        "Ignoring"
       ]
     ],
     [
       "Person B",
       "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.",
       [
-        "Manipulation",
-        "Victim playing"
+        "Guilt tripping",
+        "Manipulation"
       ]
     ]
   ],
   "counts": {
     "Person B": {
-      "Dismissal": 1,
+      "Dismissal": 3,
+      "Silent treatment": 1,
+      "Accusation": 2,
       "Invalidation": 2,
-      "Diminishing": 1,
-      "Accusation": 3,
-      "Victim playing": 3,
-      "Exaggeration and dramatization": 1,
-      "Gaslighting": 1,
+      "Victim playing": 2,
+      "Exaggeration": 1,
       "Manipulation": 2,
       "Aggression": 2,
-      "Shifting of responsibility and blame": 2,
-      "Changing the topic": 1
+      "Threats": 2,
+      "Guilt tripping": 1,
+      "Ignoring": 1
     }
   },
-  "unexpected_labels": [],
-  "raw_expressions_labeling_response": "[Person B]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Dismissal, Invalidation}\n[Person B]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Diminishing}\n[Person B]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Invalidation, Victim playing}\n[Person B]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Exaggeration and dramatization, Victim playing}\n[Person B]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Accusation}\n[Person B]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Manipulation, Gaslighting}\n[Person B]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Aggression, Shifting of responsibility and blame}\n[Person B]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Aggression, Shifting of responsibility and blame}\n[Person B]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Manipulation, Victim playing}\n[Person B]: Hey, let\u2019s get a drink. - {Changing the topic}\n[Person B]: *sigh* - {Impatience}",
+  "unexpected_labels": [
+    "Jealousy"
+  ],
+  "raw_expressions_labeling_response": "[Person B]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Silent treatment, Dismissal}\n[Person B]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Dismissal}\n[Person B]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Victim playing, Invalidation}\n[Person B]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Exaggeration, Victim playing}\n[Person B]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Dismissal, Invalidation}\n[Person B]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Jealousy, Manipulation}\n[Person B]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Threats, Aggression}\n[Person B]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Threats, Aggression}\n[Person B]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Manipulation, Guilt tripping}\n[Person B]: Hey, let\u2019s get a drink. - {Ignoring}\n[Person B]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Manipulation, Guilt tripping}",
   "qualitative_evaluation": "Person B: Aggressive, confrontational, and accusatory.\n\nPerson A: Calm, patient, and trying to understand the issue."
 }

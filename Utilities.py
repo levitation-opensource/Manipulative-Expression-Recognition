@@ -128,6 +128,45 @@ def safeprint(text = "", is_pandas = False):
 #/ def safeprint(text):
 
 
+# need separate handling for error messages since they should not be sent to the terminal by the logger
+def safeprinterror(text = "", is_pandas = False):
+
+  if True or (is_dev_machine and debugging):
+
+    screen_width = max(39, shutil.get_terminal_size((200, 50)).columns - 1)
+    screen_height = max(19, shutil.get_terminal_size((200, 50)).lines - 1)
+
+    if False:    # TODO
+      np.set_printoptions(linewidth=screen_width, precision=2, floatmode="maxprec_equal", threshold=int((screen_height - 3) * screen_height / 2), edgeitems=int((screen_width - 3 - 4) / 5 / 2), formatter={ "bool": (lambda x: "T" if x else "_") }) # "maxprec_equal": Print at most precision fractional digits, but if every element in the array can be uniquely represented with an equal number of fewer digits, use that many digits for all elements.
+
+    if is_pandas:
+      import pd
+      pd.set_option("display.precision", 2)
+      pd.set_option("display.width", screen_width)        # pandas might fail to autodetect screen width when running under debugger
+      pd.set_option("display.max_columns", screen_width)  # setting display.width is not sufficient for some reason
+      pd.set_option("display.max_rows", 100) 
+
+
+  text = str(text).encode("utf-8", 'ignore').decode('ascii', 'ignore')
+
+  if False:
+    init_colors()
+    print(ansi_RED + ansi_INTENSE + text + ansi_RESET, file=sys.stderr)  # NB! need to concatenate ANSI colours not just use commas since otherwise the terminal.write would be called three times and write handler might override the colour for the text part
+  else:
+    print(text, file=sys.stderr)
+
+#/ def safeprinterror(text):
+
+
+def print_exception(msg):
+
+  msg = "Exception during processing " + type(msg).__name__ + " : " + str(msg)  + "\n"
+
+  safeprinterror(msg)
+
+#/ def print_exception(msg):
+
+
 # https://stackoverflow.com/questions/5849800/tic-toc-functions-analog-in-python
 class Timer(object):
 

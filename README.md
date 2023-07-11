@@ -191,8 +191,7 @@ The software produces output in two formats:
     * Potential data source recommendations from Esben Kran:
         * https://talkbank.org/
         * https://childes.talkbank.org/
-        * https://docs.google.com/document/d/1boRn_hpVfaXBydc3C18PTsJVutOIsM3dF3sJyFjq-vc/edit
-        * https://www.webmd.com/mental-health/signs-manipulation
+        * https://docs.google.com/document/d/1boRn_hpVfaXBydc3C18PTsJVutOIsM3dF3sJyFjq-vc/edit 
 * Create a gold standard set of labels of manipulation styles. One potential source of labels could be existing psychometric tests.
 * Create a gold standard set of conversations and messages potentially containing manipulative themes.
 * Create a gold standard set of evaluations for a set of prompts. This can be done by collecting labelings from expert human evaluators.

@@ -11,6 +11,7 @@ print("Starting...")
 
 import os
 import sys
+import traceback
 
 # import spacy
 # from spacy import displacy    # load it only when rendering is requested, since this package loads slowly
@@ -35,7 +36,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 # openai.api_key = api_key
 
 
-from Utilities import init_logging, safeprint, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_raw, save_raw, read_txt, save_txt
+from Utilities import init_logging, safeprint, print_exception, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_raw, save_raw, read_txt, save_txt
 
 # init_logging(os.path.basename(__file__), __name__, max_old_log_rename_tries = 1)
 
@@ -58,19 +59,27 @@ async def completion_with_backoff(**kwargs):  # TODO: ensure that only HTTP 429 
 
   qqq = True  # for debugging
 
-  openai_response = await openai_async.chat_complete(
-    api_key,
-    timeout = 60, # TODO: tune
-    payload = kwargs
-  )
+  try:
 
-  openai_response = json_tricks.loads(openai_response.text)
+    openai_response = await openai_async.chat_complete(
+      api_key,
+      timeout = 60, # TODO: tune
+      payload = kwargs
+    )
 
-  # NB! this line may also throw an exception if the OpenAI announces that it is overloaded # TODO: do not retry for all error messages
-  response_content = openai_response["choices"][0]["message"]["content"]
-  finish_reason = openai_response["choices"][0]["finish_reason"]
+    openai_response = json_tricks.loads(openai_response.text)
 
-  return (response_content, finish_reason)
+    # NB! this line may also throw an exception if the OpenAI announces that it is overloaded # TODO: do not retry for all error messages
+    response_content = openai_response["choices"][0]["message"]["content"]
+    finish_reason = openai_response["choices"][0]["finish_reason"]
+
+    return (response_content, finish_reason)
+
+  except Exception as ex:
+
+    msg = str(ex) + "\n" + traceback.format_exc()
+    print_exception(msg)
+    raise
 
 #/ async def completion_with_backoff(**kwargs):
 
@@ -94,9 +103,10 @@ async def run_llm_analysis(messages, continuation_request, enable_cache = True):
 
   if response is None:
 
+    # TODO: command-line argument or a config file for selecting model
     # model_name = "gpt-3.5-turbo"
     model_name = "gpt-3.5-turbo-16k"  # TODO: auto select model based on request length
-    # model_name = "gpt-4"  # TODO: command-line argument or a config file for selecting model
+    # model_name = "gpt-4"  
 
     responses = []
 
@@ -127,7 +137,7 @@ async def run_llm_analysis(messages, continuation_request, enable_cache = True):
 
       if too_long:
         messages.append({"role": "assistant", "content": response})
-        messages.append({"role": "assistant", "content": continuation_request})
+        messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality
       else:
         continue_analysis = False
 
@@ -529,7 +539,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
 
 
 
-    print("Loading Spacy HTML renderer...")
+    safeprint("Loading Spacy HTML renderer...")
     from spacy import displacy    # load it only when rendering is requested, since this package loads 
     import html
     import urllib.parse
@@ -551,10 +561,10 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
             style="ent", manual=True
           )
 
-    html = ('<html><title>'
+    html = ('<html>\n<title>'
             + html.escape(radar_chart.title)
-            + '</title><body>'
-            + '<style>                              \
+            + '</title>\n<body>'
+            + '\n<style>                            \
                 .entities {                         \
                   line-height: 1.5 !important;      \
                 }                                   \
@@ -567,10 +577,10 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
                   padding: 0.5em;                   \
                 }                                   \
               </style>' 
-            + '<object data="' + urllib.parse.quote_plus(response_svg_filename) + '" type="image/svg+xml"></object>'
-            + '<div style="font: 1em Arial;">' 
-            + highlights_html 
-            + '</div></body></html>')
+            + '\n<object data="' + urllib.parse.quote_plus(response_svg_filename) + '" type="image/svg+xml"></object>'
+            + '\n<div style="font: 1em Arial;">' 
+            + '\n' + highlights_html 
+            + '\n</div>\n</body>\n</html>')
 
 
     response_html_filename = sys.argv[4] if len(sys.argv) > 4 else None
