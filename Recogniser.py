@@ -518,13 +518,31 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
   
     # naming the title
     radar_chart.title = "Manipulative Expression Recognition (MER)"
-  
-    radar_chart.x_labels = labels_list
-  
+        
+
+    # keep only labels which have nonzero values for at least one person
+    nonzero_labels_list = []
+    for label in labels_list:
+      for (person, person_counts) in totals.items():
+        count = person_counts.get(label, 0)
+        if count > 0:
+          nonzero_labels_list.append(label)
+          break
+      #/ for (person, person_counts) in totals.items():
+    #/ for label in labels_list:
+      
+    radar_chart.x_labels = nonzero_labels_list
+
+    # series_dict = {}
     for (person, person_counts) in totals.items():
-      series = [person_counts.get(label, 0) for label in labels_list]
+      series = [person_counts.get(label, 0) for label in nonzero_labels_list]
       radar_chart.add(person, series)
+      # series_dict[person] = series
+
+    # for (person, series) in series_dict.items():
+    #   radar_chart.add(person, series)
   
+
     svg = radar_chart.render()
     # radar_chart.render_to_png(render_to_png='radar_chart.png')
 
