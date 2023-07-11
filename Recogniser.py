@@ -522,22 +522,24 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
 
     # keep only labels which have nonzero values for at least one person
     nonzero_labels_list = []
-    for label in labels_list:
-      for (person, person_counts) in totals.items():
-        count = person_counts.get(label, 0)
-        if count > 0:
-          nonzero_labels_list.append(label)
-          break
-      #/ for (person, person_counts) in totals.items():
-    #/ for label in labels_list:
+    if True:
+      for label in labels_list:
+        for (person, person_counts) in totals.items():
+          count = person_counts.get(label, 0)
+          if count > 0:
+            nonzero_labels_list.append(label)
+            break   # go to next label
+        #/ for (person, person_counts) in totals.items():
+      #/ for label in labels_list:
       
     radar_chart.x_labels = nonzero_labels_list
 
     # series_dict = {}
-    for (person, person_counts) in totals.items():
-      series = [person_counts.get(label, 0) for label in nonzero_labels_list]
-      radar_chart.add(person, series)
-      # series_dict[person] = series
+    if True:
+      for (person, person_counts) in totals.items():
+        series = [person_counts.get(label, 0) for label in nonzero_labels_list]
+        radar_chart.add(person, series)
+        # series_dict[person] = series
 
     # for (person, series) in series_dict.items():
     #   radar_chart.add(person, series)
@@ -595,7 +597,11 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
                   padding: 0.5em;                   \
                 }                                   \
               </style>' 
-            + '\n<object data="' + urllib.parse.quote_plus(response_svg_filename) + '" type="image/svg+xml"></object>'
+            + (
+                ('\n<object data="' + urllib.parse.quote_plus(response_svg_filename) + '" type="image/svg+xml"></object>') 
+                if len(nonzero_labels_list) > 0 else                 
+                '<div style="font: bold 1em Arial;">No manipulative expressions detected</div><br><br>'
+              )
             + '\n<div style="font: 1em Arial;">' 
             + '\n' + highlights_html 
             + '\n</div>\n</body>\n</html>')
