@@ -600,8 +600,14 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
             + (
                 ('\n<object data="' + urllib.parse.quote_plus(response_svg_filename) + '" type="image/svg+xml"></object>') 
                 if len(nonzero_labels_list) > 0 else                 
-                '\n<div style="font: bold 1em Arial;">No manipulative expressions detected.</div><br><br>'
+                '\n<div style="font: bold 1em Arial;">No manipulative expressions detected.</div>\n<br><br><br>'
               )
+            + '\n<div style="font: bold 1em Arial;">Qualitative summary:</div><br>'
+            + '\n<div style="font: 1em Arial;">' 
+            + '\n' + open_ended_response 
+            + '\n</div>'
+            + '\n<br><br><br>'
+            + '\n<div style="font: bold 1em Arial;">Labelled input:</div><br>'
             + '\n<div style="font: 1em Arial;">' 
             + '\n' + highlights_html 
             + '\n</div>\n</body>\n</html>')
