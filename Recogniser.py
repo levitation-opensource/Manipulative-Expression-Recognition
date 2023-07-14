@@ -453,7 +453,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
     expression_dicts.sort(key = lambda entry: entry["start_char"])
 
     # create new tuples list since the original list is potentially unordered
-    expressions_tuples_out = [(entry["person"], entry["text"], entry["labels"]) for entry in expression_dicts]
+    # expressions_tuples_out = [(entry["person"], entry["text"], entry["labels"]) for entry in expression_dicts]
 
 
     qqq = True  # for debugging
@@ -463,7 +463,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
     closed_ended_response = None
     totals = None
     expression_dicts = None
-    expressions_tuples = None
+    # expressions_tuples = None
     unexpected_labels = None
 
   #/ if do_closed_ended_analysis:
@@ -477,7 +477,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
 
     "sanitised_text": user_input,
     "expressions": expression_dicts,
-    "expressions_tuples": expressions_tuples_out,
+    # "expressions_tuples": expressions_tuples_out,
     "counts": totals,
     "unexpected_labels": list(unexpected_labels),   # convert set() to list() for enabling conversion into json
     "raw_expressions_labeling_response": closed_ended_response,

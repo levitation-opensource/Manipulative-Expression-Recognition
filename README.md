@@ -142,24 +142,6 @@ The software produces output in two formats:
         },
         ...
       ],
-      "expressions_tuples": [   //same as in the field "expressions" but in a more succinct format.
-        [
-          "Person B",
-          "Their message.",
-          [
-            "Ignoring"
-          ]
-        ],
-        [
-          "Person B",
-          "More messages. And more sentences in that message.",
-          [
-            "Diminishing",
-            "Invalidation"
-          ]
-        ],
-        ...
-      ],
       "counts": {
         "Person B": {
           "Diminishing": 7,

@@ -1,4 +1,4 @@
-﻿{
+{
   "error_code": 0,
   "error_msg": "",
   "sanitised_text": "Person B: Hey. You better call me as soon as you get this. We need to talk.\n\nPerson A: What\u2019s up?\n\nPerson B: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it.\n\nPerson A: You just said there was a problem. I am getting ready for work. Is this an emergency?? Are you okay? What\u2019s going on?\n\nPerson B: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.\n\nPerson A: What?? Is there a problem or isn\u2019t there? Can\u2019t you just say what the issue is? If it\u2019s important, just say so.\n\nPerson B: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!\n\nPerson A: I just asked you what the issue is, but you won\u2019t tell me! What am I supposed to do?\n\nPerson B: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!\n\nPerson A: Come ON! You know that\u2019s not true. Talk to me.\n\nPerson B: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!\n\nPerson A: I am trying, but\u2026\n\nPerson B: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT\n\nPerson A: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat.\n\nPerson B: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon.\n\nPerson A: You mean a more fun side than this? Can\u2019t wait.\n\nPerson B: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY.\n\nPerson A: OK :/\n\nPerson B: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this?\n\n\u2026..and on and on for an hour or more\u2026\n\n\u2026and then later, after work:\n\nPerson B: Hey, let\u2019s get a drink.\n\nPerson A: I don\u2019t want to. No.\n\nPerson B: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.\n\nPerson A: *sigh*",
@@ -11,9 +11,7 @@
       "labels": [
         "Dismissal",
         "Silent treatment"
-      ],
-      "start_message": 2,
-      "end_message": 2
+      ]
     },
     {
       "person": "Person B",
@@ -22,9 +20,7 @@
       "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.",
       "labels": [
         "Dismissal"
-      ],
-      "start_message": 4,
-      "end_message": 4
+      ]
     },
     {
       "person": "Person B",
@@ -35,9 +31,7 @@
         "Accusation",
         "Invalidation",
         "Victim playing"
-      ],
-      "start_message": 6,
-      "end_message": 6
+      ]
     },
     {
       "person": "Person B",
@@ -47,9 +41,7 @@
       "labels": [
         "Exaggeration",
         "Victim playing"
-      ],
-      "start_message": 8,
-      "end_message": 8
+      ]
     },
     {
       "person": "Person B",
@@ -59,9 +51,7 @@
       "labels": [
         "Dismissal",
         "Invalidation"
-      ],
-      "start_message": 10,
-      "end_message": 10
+      ]
     },
     {
       "person": "Person B",
@@ -71,9 +61,7 @@
       "labels": [
         "Accusation",
         "Manipulation"
-      ],
-      "start_message": 12,
-      "end_message": 12
+      ]
     },
     {
       "person": "Person B",
@@ -83,9 +71,7 @@
       "labels": [
         "Aggression",
         "Threats"
-      ],
-      "start_message": 14,
-      "end_message": 14
+      ]
     },
     {
       "person": "Person B",
@@ -95,9 +81,7 @@
       "labels": [
         "Aggression",
         "Threats"
-      ],
-      "start_message": 16,
-      "end_message": 16
+      ]
     },
     {
       "person": "Person B",
@@ -106,9 +90,7 @@
       "text": "Hey, let\u2019s get a drink.",
       "labels": [
         "Ignoring"
-      ],
-      "start_message": 19,
-      "end_message": 19
+      ]
     },
     {
       "person": "Person B",
@@ -118,91 +100,8 @@
       "labels": [
         "Guilt tripping",
         "Manipulation"
-      ],
-      "start_message": 21,
-      "end_message": 21
+      ]
     }
-  ],
-  "expressions_tuples": [
-    [
-      "Person B",
-      "I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it.",
-      [
-        "Dismissal",
-        "Silent treatment"
-      ]
-    ],
-    [
-      "Person B",
-      "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.",
-      [
-        "Dismissal"
-      ]
-    ],
-    [
-      "Person B",
-      "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!",
-      [
-        "Accusation",
-        "Invalidation",
-        "Victim playing"
-      ]
-    ],
-    [
-      "Person B",
-      "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!",
-      [
-        "Exaggeration",
-        "Victim playing"
-      ]
-    ],
-    [
-      "Person B",
-      "I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!",
-      [
-        "Dismissal",
-        "Invalidation"
-      ]
-    ],
-    [
-      "Person B",
-      "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT",
-      [
-        "Accusation",
-        "Manipulation"
-      ]
-    ],
-    [
-      "Person B",
-      "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon.",
-      [
-        "Aggression",
-        "Threats"
-      ]
-    ],
-    [
-      "Person B",
-      "THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY.",
-      [
-        "Aggression",
-        "Threats"
-      ]
-    ],
-    [
-      "Person B",
-      "Hey, let\u2019s get a drink.",
-      [
-        "Ignoring"
-      ]
-    ],
-    [
-      "Person B",
-      "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.",
-      [
-        "Guilt tripping",
-        "Manipulation"
-      ]
-    ]
   ],
   "counts": {
     "Person B": {
