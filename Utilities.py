@@ -464,4 +464,15 @@ async def save_txt(filename, str, quiet = False, make_backup = False, append = T
 #/ def save_txt(filename, data):
 
 
+def strtobool(val):
+
+  val = val.lower() if val else ""
+  if val in ('y', 'yes', 't', 'true', 'on', '1'):
+      return True
+  elif val in ('n', 'no', 'f', 'false', 'off', '0'):
+      return False
+  else:
+      raise ValueError(f"invalid value passed to strtobool: {val}")
+
+#/ def strtobool(val):
 

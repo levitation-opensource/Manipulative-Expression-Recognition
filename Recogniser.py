@@ -13,6 +13,8 @@ import os
 import sys
 import traceback
 
+from configparser import ConfigParser
+
 # import spacy
 # from spacy import displacy    # load it only when rendering is requested, since this package loads slowly
 
@@ -36,7 +38,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 # openai.api_key = api_key
 
 
-from Utilities import init_logging, safeprint, print_exception, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_raw, save_raw, read_txt, save_txt
+from Utilities import init_logging, safeprint, print_exception, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_raw, save_raw, read_txt, save_txt, strtobool
 
 # init_logging(os.path.basename(__file__), __name__, max_old_log_rename_tries = 1)
 
@@ -49,6 +51,36 @@ if __name__ == "__main__":
 if is_dev_machine:
   from pympler import asizeof
 
+
+
+def remove_quotes(text):
+  return text.replace("'", "").replace('"', '')
+
+
+def rotate_list(list, n):
+  return list[n:] + list[:n]
+
+
+def get_config():
+
+  config = ConfigParser(inline_comment_prefixes=("#", ";"))  # by default, inline comments were not allowed
+  config.read('MER.ini')
+
+
+  keep_unexpected_labels = strtobool(config.get("MER", "KeepUnexpectedLabels", fallback="true"))
+  chart_type = remove_quotes(config.get("MER", "ChartType", fallback="radar"))
+  render_output = strtobool(config.get("MER", "RenderOutput", fallback="true"))
+
+
+  result = {    
+    "keep_unexpected_labels": keep_unexpected_labels,
+    "chart_type": chart_type,
+    "render_output": render_output,
+  }
+
+  return result
+
+#/ get_config()
 
 
 ## https://platform.openai.com/docs/guides/rate-limits/error-mitigation
@@ -165,6 +197,11 @@ def sanitise_input(text):
 
 
 async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, extract_message_indexes = False):
+
+
+
+  config = get_config()
+
 
 
   #if False:   # TODO: NER
@@ -310,11 +347,19 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
 
       labels = [x.strip() for x in labels.split(",")]
 
-      for x in labels:  # create debug info about non-requested labels
-        if x not in labels_list:
-          unexpected_labels.add(x)
+      for label in labels:  # create debug info about non-requested labels
+        if label not in labels_list:
 
-      labels = [x for x in labels if x in labels_list]  # throw away any non-requested labels
+          unexpected_labels.add(label)
+
+          if config.get("keep_unexpected_labels"):
+            labels_list.append(label)
+
+        #/ if label not in labels_list:
+      #/ for label in labels:
+
+      if not config.get("keep_unexpected_labels"):
+        labels = [x for x in labels if x in labels_list]  # throw away any non-requested labels
       
       if len(labels) == 0:
         continue
@@ -322,6 +367,9 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
       expressions_tuples.append((person, citation, labels), )
 
     #/ for re_match in re_matches:
+
+
+    labels_list.sort()
 
 
     # split input text into messages, compute the locations of messages
@@ -366,8 +414,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
 
 
     # compute expression locations
-    totals = defaultdict(lambda: defaultdict(int))    # defaultdict: do not report persons and labels which are not detected
-    # totals = {person: {label: 0 for label in labels_list} for person in detected_persons}
+    totals = defaultdict(lambda: OrderedDict([(label, 0) for label in labels_list]))    # defaultdict: do not report persons and labels which are not detected  # need to initialise the inner dict to preserve proper label ordering
     expression_dicts = []
     # already_labelled_message_indexes = set()
     already_labelled_message_parts = set()
@@ -420,11 +467,11 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
       end_char = start_char + len(citation)
 
 
-      labels.sort()
-
       for label in labels:
         totals[person][label] += 1
+        
 
+      labels.sort()
 
       entry = {
         "person": person,
@@ -469,6 +516,10 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
   #/ if do_closed_ended_analysis:
 
 
+  # cleanup zero valued counts in totals
+  for (person, person_counts) in totals.items():
+    totals[person] = OrderedDict([(key, value) for (key, value) in person_counts.items() if value > 0])
+
 
   analysis_response = {
 
@@ -496,9 +547,14 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
 
   
 
-  render_output = True     # TODO: work in progress
+  render_output = config.get("render_output") 
   if render_output:
 
+
+    chart_type = config.get("chart_type")
+
+
+    title = "Manipulative Expression Recognition (MER)"
 
 
     import pygal
@@ -514,14 +570,28 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
       major_guide_stroke_color = "#808080",           # major circular lines
       stroke_width = 2,                               # plot line width
     )
-    radar_chart = pygal.Radar(style=style, order_min=0)   # order_min specifies scale step in log10
-  
-    # naming the title
-    radar_chart.title = "Manipulative Expression Recognition (MER)"
+
+
+    if chart_type == "radar":
+      chart = pygal.Radar(style=style, order_min=0)   # order_min specifies scale step in log10
+      reverse_labels_order = True
+      shift_labels_order_left = True
+    elif chart_type == "vbar":
+      chart = pygal.Bar(style=style, order_min=0)   # order_min specifies scale step in log10
+      reverse_labels_order = False
+      shift_labels_order_left = False
+    elif chart_type == "hbar":
+      chart = pygal.HorizontalBar(style=style, order_min=0)   # order_min specifies scale step in log10
+      reverse_labels_order = True
+      shift_labels_order_left = False
+    else:
+      chart = None
+      reverse_labels_order = False
+      shift_labels_order_left = False
         
 
     # keep only labels which have nonzero values for at least one person
-    nonzero_labels_list = []
+    nonzero_labels_list = []  # this variable needs to be computed even when chart is not rendered, since if the nonzero_labels_list is empty then a message is shown that no manipulation was detected
     if True:
       for label in labels_list:
         for (person, person_counts) in totals.items():
@@ -531,34 +601,46 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
             break   # go to next label
         #/ for (person, person_counts) in totals.items():
       #/ for label in labels_list:
-      
-    radar_chart.x_labels = nonzero_labels_list
 
-    # series_dict = {}
-    if True:
-      for (person, person_counts) in totals.items():
-        series = [person_counts.get(label, 0) for label in nonzero_labels_list]
-        radar_chart.add(person, series)
-        # series_dict[person] = series
+  
+    if chart:
 
-    # for (person, series) in series_dict.items():
-    #   radar_chart.add(person, series)
+      x_labels = list(nonzero_labels_list) # make copy since it may be reversed
+      if reverse_labels_order:
+        x_labels.reverse()
+      if shift_labels_order_left:
+        x_labels = rotate_list(x_labels, -1)  # rotate list left by one so that the first label appear at 12:00 on the radar chart
+
+      chart.title = title      
+      chart.x_labels = x_labels
+
+      # series_dict = {}
+      if True:
+        for (person, person_counts) in totals.items():
+          series = [person_counts.get(label, 0) for label in x_labels]
+          chart.add(person, series)
+          # series_dict[person] = series
+
+      # for (person, series) in series_dict.items():
+      #   chart.add(person, series)
   
 
-    svg = radar_chart.render()
-    # radar_chart.render_to_png(render_to_png='radar_chart.png')
+      svg = chart.render()
+      # chart.render_to_png(render_to_png='chart.png')
 
 
-    response_svg_filename = sys.argv[5] if len(sys.argv) > 5 else None
-    if response_svg_filename:
-      response_svg_filename = os.path.join("..", response_svg_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
-    else: 
-      response_svg_filename = os.path.splitext(response_filename)[0] + ".svg" if using_user_input_filename else "test_evaluation.svg"
+      response_svg_filename = sys.argv[5] if len(sys.argv) > 5 else None
+      if response_svg_filename:
+        response_svg_filename = os.path.join("..", response_svg_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+      else: 
+        response_svg_filename = os.path.splitext(response_filename)[0] + ".svg" if using_user_input_filename else "test_evaluation.svg"
 
-    await save_raw(response_svg_filename, svg, quiet = True, make_backup = True, append = False)
+      await save_raw(response_svg_filename, svg, quiet = True, make_backup = True, append = False)
+
+    #/ if chart:
 
 
-
+    safeprint("Analysis done.")
     safeprint("Loading Spacy HTML renderer...")
     from spacy import displacy    # load it only when rendering is requested, since this package loads 
     import html
@@ -582,23 +664,30 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
           )
 
     html = ('<html>\n<title>'
-            + html.escape(radar_chart.title)
+            + html.escape(title)
             + '</title>\n<body>'
-            + '\n<style>                            \
-                .entities {                         \
-                  line-height: 1.5 !important;      \
-                }                                   \
-                mark {                              \
-                  line-height: 2 !important;        \
-                  background: yellow !important;    \
-                }                                   \
-                mark span {                         \
-                  background: orange !important;    \
-                  padding: 0.5em;                   \
-                }                                   \
-              </style>' 
-            + (
-                ('\n<object data="' + urllib.parse.quote_plus(response_svg_filename) + '" type="image/svg+xml"></object>') 
+            + """\n<style>
+                .entities {
+                  line-height: 1.5 !important;
+                }
+                mark {
+                  line-height: 2 !important;
+                  background: yellow !important;
+                }
+                mark span {
+                  background: orange !important;
+                  padding: 0.5em;
+                }
+                .graph object {
+                  max-height: 75vh;
+                }
+              </style>""" 
+            + (                
+                (
+                  ('\n<div class="graph"><object data="' + urllib.parse.quote_plus(response_svg_filename) + '" type="image/svg+xml"></object></div>')
+                  if chart else
+                  ''
+                ) 
                 if len(nonzero_labels_list) > 0 else                 
                 '\n<div style="font: bold 1em Arial;">No manipulative expressions detected.</div>\n<br><br><br>'
               )
