@@ -21,6 +21,7 @@ from configparser import ConfigParser
 import re
 from collections import defaultdict, OrderedDict
 import hashlib
+import string
 
 import thefuzz.process
 
@@ -70,12 +71,20 @@ def get_config():
   keep_unexpected_labels = strtobool(config.get("MER", "KeepUnexpectedLabels", fallback="true"))
   chart_type = remove_quotes(config.get("MER", "ChartType", fallback="radar"))
   render_output = strtobool(config.get("MER", "RenderOutput", fallback="true"))
+  treat_entire_text_as_one_person = strtobool(config.get("MER", "TreatEntireTextAsOnePerson", fallback="false"))
+  anonymise_names = strtobool(config.get("MER", "AnonymiseNames", fallback="false"))
+  anonymise_numbers = strtobool(config.get("MER", "AnonymiseNumbers", fallback="false"))
+  named_entity_recognition_model = remove_quotes(config.get("MER", "NamedEntityRecognitionModel", fallback="en_core_web_sm"))
 
 
   result = {    
     "keep_unexpected_labels": keep_unexpected_labels,
     "chart_type": chart_type,
     "render_output": render_output,
+    "treat_entire_text_as_one_person": treat_entire_text_as_one_person,
+    "anonymise_names": anonymise_names,
+    "anonymise_numbers": anonymise_numbers,
+    "named_entity_recognition_model": named_entity_recognition_model,
   }
 
   return result
@@ -196,6 +205,113 @@ def sanitise_input(text):
 #/ def sanitise_input(text):
 
 
+def anonymise(user_input, anonymise_names, anonymise_numbers, ner_model):
+
+  safeprint("Loading Spacy...")
+  import spacy
+  NER = spacy.load(ner_model)   # TODO: config setting
+
+  entities = NER(user_input)
+  letters = string.ascii_uppercase
+
+  next_available_replacement_letter_index = 0
+  result = ""
+  prev_ent_end = 0
+  entities_dict = {}
+
+  for phase in range(0, 2): # two phases: 1) counting unique entities, 2) replacing them
+    for word in entities.ents:
+
+      text = word.text
+      label = word.label_
+      start_char = word.start_char
+      end_char = word.end_char
+
+      if label == "PERSON":
+        replacement = "Person" if anonymise_names else None
+      elif label == "NORP":
+        replacement = "Group" if anonymise_names else None
+      elif label == "FAC":
+        replacement = "Building" if anonymise_names else None
+      elif label == "ORG":
+        replacement = "Organisation" if anonymise_names else None
+      elif label == "GPE":
+        replacement = "Area" if anonymise_names else None
+      elif label == "LOC":
+        replacement = "Location" if anonymise_names else None
+      elif label == "PRODUCT":
+        replacement = None  # "Product"
+      elif label == "EVENT":
+        replacement = "Event" if anonymise_names else None
+      elif label == "WORK_OF_ART":
+        replacement = None  # "Work of art"
+      elif label == "LAW":
+        replacement = None  # "Law"
+      elif label == "LANGUAGE":
+        replacement = "Language" if anonymise_names else None
+      elif label == "DATE":
+        replacement = None  # "Calendar Date" if anonymise_numbers else None   # TODO: recognise only calendar dates, not phrases like "a big day", "today", etc
+      elif label == "TIME":
+        replacement = None  # "Time"
+      elif label == "PERCENT":
+        replacement = None  # "Percent"
+      elif label == "MONEY":
+        replacement = "Money Amount" if anonymise_numbers else None
+      elif label == "QUANTITY":
+        replacement = "Quantity" if anonymise_numbers else None
+      elif label == "ORDINAL":
+        replacement = None  # "Ordinal"
+      elif label == "CARDINAL":
+        replacement = "Number" if ananonymise_numbers else None
+      else:
+        replacement = None
+
+
+      if phase == 1:
+        result += user_input[prev_ent_end:start_char]
+        prev_ent_end = end_char
+
+
+      if replacement is None:
+
+        if phase == 1:
+          result += text 
+
+      else:
+
+        if phase == 0:
+
+          if text not in entities_dict:
+            entities_dict[text] = next_available_replacement_letter_index          
+            next_available_replacement_letter_index += 1
+
+        else:   #/ if phase == 0:
+
+          replacement_letter_index = entities_dict[text]
+
+          if next_available_replacement_letter_index <= len(letters):
+            replacement_letter = letters[replacement_letter_index]
+          else:
+            replacement_letter = str(replacement_letter_index + 1)  # use numeric names if there are too many entities in text to use letters
+
+          result += replacement + " " + replacement_letter
+
+        #/ if phase == 0:
+
+      #/ if replacement is None:
+
+    #/ for word in entities.ents:
+  #/ for phase in range(0, 2):
+
+
+  result += user_input[prev_ent_end:]
+
+
+  return result
+
+#/ def anonymise()
+
+
 async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, extract_message_indexes = False):
 
 
@@ -240,6 +356,15 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
 
   # format user input
   user_input = (await read_txt(input_filename, quiet = True)).strip()
+
+
+  anonymise_names = config.get("anonymise_names")
+  anonymise_numbers = config.get("anonymise_numbers")
+  ner_model = config.get("named_entity_recognition_model")
+
+  if anonymise_names or anonymise_numbers:
+    user_input = anonymise(user_input, anonymise_names, anonymise_numbers, ner_model)
+
 
   # sanitise user input since []{} have special meaning in the output parsing
   user_input = sanitise_input(user_input)
