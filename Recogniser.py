@@ -67,22 +67,24 @@ def get_config():
   config = ConfigParser(inline_comment_prefixes=("#", ";"))  # by default, inline comments were not allowed
   config.read('MER.ini')
 
-
+  
   gpt_model = remove_quotes(config.get("MER", "GPTModel", fallback="gpt-3.5-turbo-16k"))
-  extract_message_indexes = strtobool(config.get("MER", "ExtractMessageIndexes", fallback="false"))
-  do_open_ended_analysis = strtobool(config.get("MER", "DoOpenEndedAnalysis", fallback="true"))
-  do_closed_ended_analysis = strtobool(config.get("MER", "DoClosedEndedAnalysis", fallback="true"))
-  keep_unexpected_labels = strtobool(config.get("MER", "KeepUnexpectedLabels", fallback="true"))
+  gpt_timeout = int(remove_quotes(config.get("MER", "GPTTimeoutInSeconds", fallback="60")))
+  extract_message_indexes = strtobool(remove_quotes(config.get("MER", "ExtractMessageIndexes", fallback="false")))
+  do_open_ended_analysis = strtobool(remove_quotes(config.get("MER", "DoOpenEndedAnalysis", fallback="true")))
+  do_closed_ended_analysis = strtobool(remove_quotes(config.get("MER", "DoClosedEndedAnalysis", fallback="true")))
+  keep_unexpected_labels = strtobool(remove_quotes(config.get("MER", "KeepUnexpectedLabels", fallback="true")))
   chart_type = remove_quotes(config.get("MER", "ChartType", fallback="radar"))
-  render_output = strtobool(config.get("MER", "RenderOutput", fallback="true"))
-  treat_entire_text_as_one_person = strtobool(config.get("MER", "TreatEntireTextAsOnePerson", fallback="false"))  # TODO
-  anonymise_names = strtobool(config.get("MER", "AnonymiseNames", fallback="false"))
-  anonymise_numbers = strtobool(config.get("MER", "AnonymiseNumbers", fallback="false"))
+  render_output = strtobool(remove_quotes(config.get("MER", "RenderOutput", fallback="true")))
+  treat_entire_text_as_one_person = strtobool(remove_quotes(config.get("MER", "TreatEntireTextAsOnePerson", fallback="false")))  # TODO
+  anonymise_names = strtobool(remove_quotes(config.get("MER", "AnonymiseNames", fallback="false")))
+  anonymise_numbers = strtobool(remove_quotes(config.get("MER", "AnonymiseNumbers", fallback="false")))
   named_entity_recognition_model = remove_quotes(config.get("MER", "NamedEntityRecognitionModel", fallback="en_core_web_sm"))
 
 
   result = { 
     "gpt_model": gpt_model,
+    "gpt_timeout": gpt_timeout,
     "extract_message_indexes": extract_message_indexes,
     "do_open_ended_analysis": do_open_ended_analysis,
     "do_closed_ended_analysis": do_closed_ended_analysis,
@@ -102,7 +104,7 @@ def get_config():
 
 ## https://platform.openai.com/docs/guides/rate-limits/error-mitigation
 @tenacity.retry(wait=tenacity.wait_random_exponential(min=1, max=60), stop=tenacity.stop_after_attempt(6))   # TODO: tune
-async def completion_with_backoff(**kwargs):  # TODO: ensure that only HTTP 429 is handled here
+async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that only HTTP 429 is handled here
 
   # return openai.ChatCompletion.create(**kwargs) 
 
@@ -112,7 +114,7 @@ async def completion_with_backoff(**kwargs):  # TODO: ensure that only HTTP 429 
 
     openai_response = await openai_async.chat_complete(
       api_key,
-      timeout = 60, # TODO: tune
+      timeout = gpt_timeout, 
       payload = kwargs
     )
 
@@ -130,10 +132,10 @@ async def completion_with_backoff(**kwargs):  # TODO: ensure that only HTTP 429 
     print_exception(msg)
     raise
 
-#/ async def completion_with_backoff(**kwargs):
+#/ async def completion_with_backoff(gpt_timeout, **kwargs):
 
 
-async def run_llm_analysis(model_name, messages, continuation_request, enable_cache = True):
+async def run_llm_analysis(model_name, gpt_timeout, messages, continuation_request, enable_cache = True):
 
   if enable_cache:
     # NB! this cache key and the cache will not contain the OpenAI key, so it is safe to publish the cache files
@@ -163,6 +165,9 @@ async def run_llm_analysis(model_name, messages, continuation_request, enable_ca
     while continue_analysis:
 
       (response_content, finish_reason) = await completion_with_backoff(
+
+        gpt_timeout,
+
         model = model_name,
         messages = messages,
           
@@ -333,6 +338,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     extract_message_indexes = config["extract_message_indexes"]
 
   gpt_model = config["gpt_model"]
+  gpt_timeout = config["gpt_timeout"]
 
 
   labels_filename = sys.argv[3] if len(sys.argv) > 3 else None
@@ -416,7 +422,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
     # TODO: add temperature parameter
 
-    open_ended_response = await run_llm_analysis(gpt_model, messages, continuation_request)
+    open_ended_response = await run_llm_analysis(gpt_model, gpt_timeout, messages, continuation_request)
 
   else: #/ if do_open_ended_analysis:
 
@@ -435,7 +441,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
     # TODO: add temperature parameter
 
-    closed_ended_response = await run_llm_analysis(gpt_model, messages, continuation_request)
+    closed_ended_response = await run_llm_analysis(gpt_model, gpt_timeout, messages, continuation_request)
 
 
     # parse the closed ended response by extracting persons, citations, and labels
@@ -455,7 +461,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
         # {"role": "user", "content": "Orange."},
       ]
 
-      names_of_participants_response = await run_llm_analysis(gpt_model, messages, continuation_request)
+      names_of_participants_response = await run_llm_analysis(gpt_model, gpt_timeout, messages, continuation_request)
 
       # Try to detect persons from the input text. This is necessary for preserving proper message indexing in the output in case some person is not cited by LLM at all.
       re_matches = re.findall(r"[\r\n]+\[?([^\]\n]*)\]?", "\n" + names_of_participants_response)
@@ -654,6 +660,9 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     totals[person] = OrderedDict([(key, value) for (key, value) in person_counts.items() if value > 0])
 
 
+  unexpected_labels = list(unexpected_labels)   # convert set() to list() for enabling conversion into json
+  unexpected_labels.sort()
+
   analysis_response = {
 
     "error_code": 0,  # TODO
@@ -663,7 +672,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     "expressions": expression_dicts,
     # "expressions_tuples": expressions_tuples_out,
     "counts": totals,
-    "unexpected_labels": list(unexpected_labels),   # convert set() to list() for enabling conversion into json
+    "unexpected_labels": unexpected_labels,
     "raw_expressions_labeling_response": closed_ended_response,
     "qualitative_evaluation": open_ended_response   # TODO: split person A and person B from qualitative description into separate dictionary fields
   }
