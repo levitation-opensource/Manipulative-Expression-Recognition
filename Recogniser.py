@@ -137,7 +137,11 @@ async def run_llm_analysis(model_name, messages, continuation_request, enable_ca
 
   if enable_cache:
     # NB! this cache key and the cache will not contain the OpenAI key, so it is safe to publish the cache files
-    cache_key = json_tricks.dumps(messages)   # json_tricks preserves dictionary orderings
+    cache_key = OrderedDict([ 
+      ("model_name", model_name), 
+      ("messages", messages), 
+    ])
+    cache_key = json_tricks.dumps(cache_key)   # json_tricks preserves dictionary orderings
     cache_key = hashlib.sha512(cache_key.encode("utf-8")).hexdigest() 
 
     # TODO: move this block to Utilities.py
