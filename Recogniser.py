@@ -68,16 +68,24 @@ def get_config():
   config.read('MER.ini')
 
 
+  gpt_model = remove_quotes(config.get("MER", "GPTModel", fallback="gpt-3.5-turbo-16k"))
+  extract_message_indexes = strtobool(config.get("MER", "ExtractMessageIndexes", fallback="false"))
+  do_open_ended_analysis = strtobool(config.get("MER", "DoOpenEndedAnalysis", fallback="true"))
+  do_closed_ended_analysis = strtobool(config.get("MER", "DoClosedEndedAnalysis", fallback="true"))
   keep_unexpected_labels = strtobool(config.get("MER", "KeepUnexpectedLabels", fallback="true"))
   chart_type = remove_quotes(config.get("MER", "ChartType", fallback="radar"))
   render_output = strtobool(config.get("MER", "RenderOutput", fallback="true"))
-  treat_entire_text_as_one_person = strtobool(config.get("MER", "TreatEntireTextAsOnePerson", fallback="false"))
+  treat_entire_text_as_one_person = strtobool(config.get("MER", "TreatEntireTextAsOnePerson", fallback="false"))  # TODO
   anonymise_names = strtobool(config.get("MER", "AnonymiseNames", fallback="false"))
   anonymise_numbers = strtobool(config.get("MER", "AnonymiseNumbers", fallback="false"))
   named_entity_recognition_model = remove_quotes(config.get("MER", "NamedEntityRecognitionModel", fallback="en_core_web_sm"))
 
 
-  result = {    
+  result = { 
+    "gpt_model": gpt_model,
+    "extract_message_indexes": extract_message_indexes,
+    "do_open_ended_analysis": do_open_ended_analysis,
+    "do_closed_ended_analysis": do_closed_ended_analysis,
     "keep_unexpected_labels": keep_unexpected_labels,
     "chart_type": chart_type,
     "render_output": render_output,
@@ -125,7 +133,7 @@ async def completion_with_backoff(**kwargs):  # TODO: ensure that only HTTP 429 
 #/ async def completion_with_backoff(**kwargs):
 
 
-async def run_llm_analysis(messages, continuation_request, enable_cache = True):
+async def run_llm_analysis(model_name, messages, continuation_request, enable_cache = True):
 
   if enable_cache:
     # NB! this cache key and the cache will not contain the OpenAI key, so it is safe to publish the cache files
@@ -143,11 +151,6 @@ async def run_llm_analysis(messages, continuation_request, enable_cache = True):
 
 
   if response is None:
-
-    # TODO: command-line argument or a config file for selecting model
-    # model_name = "gpt-3.5-turbo"
-    model_name = "gpt-3.5-turbo-16k"  # TODO: auto select model based on request length
-    # model_name = "gpt-4"  
 
     responses = []
 
@@ -312,19 +315,20 @@ def anonymise(user_input, anonymise_names, anonymise_numbers, ner_model):
 #/ def anonymise()
 
 
-async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, extract_message_indexes = False):
+async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None):
 
 
 
   config = get_config()
 
+  if do_open_ended_analysis is None:
+    do_open_ended_analysis = config["do_open_ended_analysis"]
+  if do_closed_ended_analysis is None:
+    do_closed_ended_analysis = config["do_closed_ended_analysis"]
+  if extract_message_indexes is None:
+    extract_message_indexes = config["extract_message_indexes"]
 
-
-  #if False:   # TODO: NER
-
-  #  NER = spacy.load("en_core_web_sm")
-  #  raw_text = "The Indian Space Research Organisation is the national space agency of India"
-  #  text1 = NER(raw_text)
+  gpt_model = config["gpt_model"]
 
 
   labels_filename = sys.argv[3] if len(sys.argv) > 3 else None
@@ -408,7 +412,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
 
     # TODO: add temperature parameter
 
-    open_ended_response = await run_llm_analysis(messages, continuation_request)
+    open_ended_response = await run_llm_analysis(gpt_model, messages, continuation_request)
 
   else: #/ if do_open_ended_analysis:
 
@@ -427,7 +431,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
 
     # TODO: add temperature parameter
 
-    closed_ended_response = await run_llm_analysis(messages, continuation_request)
+    closed_ended_response = await run_llm_analysis(gpt_model, messages, continuation_request)
 
 
     # parse the closed ended response by extracting persons, citations, and labels
@@ -447,7 +451,7 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
         # {"role": "user", "content": "Orange."},
       ]
 
-      names_of_participants_response = await run_llm_analysis(messages, continuation_request)
+      names_of_participants_response = await run_llm_analysis(gpt_model, messages, continuation_request)
 
       # Try to detect persons from the input text. This is necessary for preserving proper message indexing in the output in case some person is not cited by LLM at all.
       re_matches = re.findall(r"[\r\n]+\[?([^\]\n]*)\]?", "\n" + names_of_participants_response)
@@ -846,6 +850,6 @@ async def main(do_open_ended_analysis = True, do_closed_ended_analysis = True, e
 
 
 
-loop.run_until_complete(main(extract_message_indexes = False))
+loop.run_until_complete(main(extract_message_indexes = None))   # extract_message_indexes = None - use config file
 
 
