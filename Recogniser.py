@@ -110,11 +110,14 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
 
   qqq = True  # for debugging
 
+  attempt_number = completion_with_backoff.retry.statistics["attempt_number"]
+  timeout_multiplier = 2 ** (attempt_number-1)
+
   try:
 
     openai_response = await openai_async.chat_complete(
       api_key,
-      timeout = gpt_timeout, 
+      timeout = gpt_timeout * timeout_multiplier, 
       payload = kwargs
     )
 
