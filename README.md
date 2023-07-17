@@ -55,7 +55,7 @@ The vision for MER is to foster a culture of communication that is more transpar
 
 ## Additional features
 
-* The software applies input text anonymisation. Person names, organisation names, place names, etc with abstract names like Person A, Person B, etc. Also some numeric amounts are replaced. This has two purposes:
+* The software applies input text anonymisation. Person names, organisation names, place names, etc are replaced with abstract names like Person A, Person B, etc. Also some numeric amounts are replaced. This has two purposes:
     * Anonymised input may make the LLM evaluations more fair.
     * Anonymised input significantly reduces the risk of private or sensitive data leakage.
 
