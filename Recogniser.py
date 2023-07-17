@@ -115,11 +115,16 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
 
   try:
 
+    safeprint("Sending OpenAI API request...")
+
     openai_response = await openai_async.chat_complete(
       api_key,
       timeout = gpt_timeout * timeout_multiplier, 
       payload = kwargs
     )
+
+    safeprint("Done OpenAI API request...")
+
 
     openai_response = json_tricks.loads(openai_response.text)
 
@@ -129,10 +134,14 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
 
     return (response_content, finish_reason)
 
-  except Exception as ex:
+  except Exception as ex:   # httpcore.ReadTimeout
 
-    msg = str(ex) + "\n" + traceback.format_exc()
-    print_exception(msg)
+    if type(ex) is httpcore.ReadTimeout:
+      safeprint("Read timeout, retrying...")
+    else:
+      msg = str(ex) + "\n" + traceback.format_exc()
+      print_exception(msg)
+
     raise
 
 #/ async def completion_with_backoff(gpt_timeout, **kwargs):

@@ -55,7 +55,7 @@ The vision for MER is to foster a culture of communication that is more transpar
 
 ## Additional features
 
-* The software applies input text anonymisation. Person names, organisation names, place names, etc with abstract names like Person A, Person B, etc. Also some numeric amounts are replaced. This has two purposes:
+* The software applies input text anonymisation. Person names, organisation names, place names, etc are replaced with abstract names like Person A, Person B, etc. Also some numeric amounts are replaced. This has two purposes:
     * Anonymised input may make the LLM evaluations more fair.
     * Anonymised input significantly reduces the risk of private or sensitive data leakage.
 
@@ -218,6 +218,10 @@ The software produces output in two formats:
     * LLM resistance to manipulation from users. Even if the user input is manipulative, the LLM output should not be manipulative.
     * Measure presence of manipulation in LLM outputs in case of benign user inputs.
 * Look for conversations on the theme of Waluigi Effect (https://www.lesswrong.com/posts/D7PumeYTDPfBTp3i7/the-waluigi-effect-mega-post).
+
+
+## Current project state
+Ready to use. Is actively developed further.
 
 
 ## Acknowledgements
