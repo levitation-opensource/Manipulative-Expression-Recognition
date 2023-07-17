@@ -53,6 +53,13 @@ The vision for MER is to foster a culture of communication that is more transpar
 * This software is different from lie detection / fact checking software. It only focuses on communication style without reliance on external knowledge bases (except for the use of a language model).
 
 
+## Additional features
+
+* The software applies input text anonymisation. Person names, organisation names, place names, etc with abstract names like Person A, Person B, etc. Also some numeric amounts are replaced. This has two purposes:
+    * Anonymised input may make the LLM evaluations more fair.
+    * Anonymised input significantly reduces the risk of private or sensitive data leakage.
+
+
 ## Example output
 
 Sample JSON output can be found here:
@@ -115,7 +122,7 @@ The software produces output in two formats:
     {
       "error_code": 0,
       "error_msg": "",
-      "sanitised_text": "Slightly modified input text",
+      "sanitised_text": "Slightly modified and optionally anonymised input text",
       "expressions": [
         {
           "person": "Person B",
@@ -180,9 +187,6 @@ The software produces output in two formats:
 
 ### New functionalities:
 * Support for single-message labelling. Currently the algorithm expects a conversation as input, but with trivial modifications it could be also applied to single messages or articles given that they have sufficient length.
-* Implement automatic input text anonymisation. Person names, organisation names, place names, potentially also numeric amounts and dates could be replaced with abstract names like Person A, Person B, etc. This has two purposes:
-    * Anonymised input may make the LLM evaluations more fair.
-    * Anonymised input significantly reduces the risk of private or sensitive data leakage.
 * Returning logit scores over the conversation for each person and label. Example:
 
     ```
