@@ -49,6 +49,7 @@
     <Content Include="data\test_evaluation.html" />
     <Content Include="data\test_evaluation.json" />
     <Content Include="LICENSE" />
+    <Content Include="MER.ini" />
     <Content Include="README.md" />
     <Content Include="requirements.txt" />
     <Content Include="data\closed_ended_system_instruction.txt" />

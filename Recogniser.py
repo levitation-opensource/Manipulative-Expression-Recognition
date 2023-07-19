@@ -12,6 +12,7 @@ print("Starting...")
 import os
 import sys
 import traceback
+import httpcore
 
 from configparser import ConfigParser
 
@@ -103,7 +104,7 @@ def get_config():
 
 
 ## https://platform.openai.com/docs/guides/rate-limits/error-mitigation
-@tenacity.retry(wait=tenacity.wait_random_exponential(min=1, max=60), stop=tenacity.stop_after_attempt(6))   # TODO: tune
+@tenacity.retry(wait=tenacity.wait_random_exponential(min=1, max=60), stop=tenacity.stop_after_attempt(6))   # TODO: config parameters
 async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that only HTTP 429 is handled here
 
   # return openai.ChatCompletion.create(**kwargs) 
@@ -137,7 +138,10 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
   except Exception as ex:   # httpcore.ReadTimeout
 
     if type(ex) is httpcore.ReadTimeout:
-      safeprint("Read timeout, retrying...")
+      if attempt_number < 6:    # TODO: config parameter
+        safeprint("Read timeout, retrying...")
+      else:
+        safeprint("Read timeout, giving up")
     else:
       msg = str(ex) + "\n" + traceback.format_exc()
       print_exception(msg)
