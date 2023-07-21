@@ -42,7 +42,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 # openai.api_key = api_key
 
 
-from Utilities import init_logging, safeprint, print_exception, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_raw, save_raw, read_txt, save_txt, strtobool, async_cached
+from Utilities import init_logging, safeprint, print_exception, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_raw, save_raw, read_txt, save_txt, strtobool, async_cached_encrypted
 
 # init_logging(os.path.basename(__file__), __name__, max_old_log_rename_tries = 1)
 
@@ -203,7 +203,7 @@ async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuat
 
 async def run_llm_analysis(model_name, gpt_timeout, messages, continuation_request, enable_cache = True):
 
-  result = await async_cached(1 if enable_cache else None, run_llm_analysis_uncached, model_name, gpt_timeout, messages, continuation_request)
+  result = await async_cached_encrypted(1 if enable_cache else None, run_llm_analysis_uncached, model_name, gpt_timeout, messages, continuation_request)
   return result
 
 #/ async def run_llm_analysis():
@@ -401,7 +401,7 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
 
 async def anonymise(user_input, anonymise_names, anonymise_numbers, ner_model, enable_cache = True):
 
-  result = await async_cached(1 if enable_cache else None, anonymise_uncached, user_input, anonymise_names, anonymise_numbers, ner_model)
+  result = await async_cached_encrypted(1 if enable_cache else None, anonymise_uncached, user_input, anonymise_names, anonymise_numbers, ner_model)
   return result
 
 #/ async def anonymise():
@@ -435,7 +435,7 @@ def render_highlights_uncached(user_input, expression_dicts):
 
 async def render_highlights(user_input, expression_dicts, enable_cache = True):
 
-  result = await async_cached(1 if enable_cache else None, render_highlights_uncached, user_input, expression_dicts)
+  result = await async_cached_encrypted(1 if enable_cache else None, render_highlights_uncached, user_input, expression_dicts)
   return result
 
 #/ async def render_highlights():

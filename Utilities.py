@@ -9,14 +9,21 @@
 
 import os
 import sys
+
 import io
 import gzip
 import pickle
 import json_tricks
 
+from cryptography.fernet import Fernet
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+
 import time
 # import textwrap
 import shutil
+import traceback
+
 # import re
 import codecs
 import hashlib
@@ -485,14 +492,15 @@ async def async_cached(cache_version, func, *args, **kwargs):
   enable_cache = (cache_version is not None)
 
   if enable_cache:
+
     # NB! this cache key and the cache will not contain the OpenAI key, so it is safe to publish the cache files
     kwargs_ordered = OrderedDict(sorted(kwargs.items()))
     cache_key = OrderedDict([
       ("args", args),
       ("kwargs", kwargs_ordered)
     ])
-    cache_key = json_tricks.dumps(cache_key)   # json_tricks preserves dictionary orderings
-    cache_key = hashlib.sha512(cache_key.encode("utf-8")).digest()
+    params_json = json_tricks.dumps(cache_key).encode("utf-8")   # json_tricks preserves dictionary orderings
+    cache_key = hashlib.sha512(params_json).digest()
     # use base32 coding, not base16/hex, in order for having shorter filenames   
     # replace padding char "=" with "0" char which is not in the base32 alphabet   
     # base36 would be even better, but I did not find a good library for that
@@ -505,7 +513,9 @@ async def async_cached(cache_version, func, *args, **kwargs):
 
     cache_filename = os.path.join("cache", "cache_" + cache_key + ".dat")
     response = await read_file(cache_filename, default_data = None, quiet = True)
-  else:
+
+  else:   #/ if enable_cache:
+
     response = None
 
 
@@ -524,5 +534,119 @@ async def async_cached(cache_version, func, *args, **kwargs):
 
   return response
 
-#/ async def async_cached(func, *args, **kwargs):
+#/ async def async_cached():
+
+
+async def async_cached_encrypted(cache_version, func, *args, **kwargs):
+
+  enable_cache = (cache_version is not None)
+
+  if enable_cache:
+
+    # NB! this cache key and the cache will not contain the OpenAI key, so it is safe to publish the cache files
+    kwargs_ordered = OrderedDict(sorted(kwargs.items()))
+    cache_key = OrderedDict([
+      ("args", args),
+      ("kwargs", kwargs_ordered)
+    ])
+    params_json = json_tricks.dumps(cache_key).encode("utf-8")   # json_tricks preserves dictionary orderings
+    cache_key = hashlib.sha512(params_json).digest()
+    # use base32 coding, not base16/hex, in order for having shorter filenames   
+    # replace padding char "=" with "0" char which is not in the base32 alphabet   
+    # base36 would be even better, but I did not find a good library for that
+    cache_key = base64.b32encode(cache_key).decode("utf8").lower().replace("=", "0") 
+    cache_key = "func=" + func.__name__ + "-ver=" + str(cache_version) + "-args=" + cache_key
+
+    # TODO: move this block to Utilities.py
+    fulldirname = os.path.join(data_dir, "cache")
+    os.makedirs(fulldirname, exist_ok = True)
+
+    cache_filename = os.path.join("cache", "cache_encrypted_" + cache_key + ".dat")
+    response_encrypted = await read_raw(cache_filename, default_data = None, quiet = True)
+
+
+    if response_encrypted is None:
+
+      response = None
+
+    else:
+
+      password = params_json
+      salt = response_encrypted[:16] # os.urandom(16)
+      kdf = PBKDF2HMAC(
+        algorithm=hashes.SHA256(),
+        length=32,
+        salt=salt,
+        iterations=480000, # A good default is at least 480,000 iterations, which is what Django recommends as of December 2022. - https://cryptography.io/en/latest/fernet/#using-passwords-with-fernet
+      )
+      key = base64.urlsafe_b64encode(kdf.derive(password))
+      fernet = Fernet(key)
+      try:
+        response_encrypted = base64.urlsafe_b64encode(response_encrypted[16:])  # Fernet uses base64 encoded encrypted data and there is nothing to do about it except to decode during saving and encode it again during reading
+        response_compressed = fernet.decrypt(response_encrypted)
+      except Exception as ex:
+        safeprint("Error decrypting cache data. Probably the cache data is corrupted.")
+
+        msg = str(ex) + "\n" + traceback.format_exc()
+        print_exception(msg)
+
+        response_compressed = None
+      #/ except Exception as ex:
+
+      if response_compressed is not None:
+        with io.BytesIO(response_compressed) as fh:   
+          with gzip.open(fh, 'rb') as gzip_file:
+            response = pickle.load(gzip_file)
+      else:
+        response = None
+
+    #/ if response_encrypted is not None:
+
+  else:   #/ if enable_cache:
+
+    response = None
+
+
+  if response is None:
+
+    if asyncio.iscoroutinefunction(func):
+      response = await func(*args, **kwargs)
+    else:
+      response = func(*args, **kwargs)
+
+    if enable_cache:
+
+      with io.BytesIO() as fh:    # TODO: compress directly during reading and without using intermediate buffer for async data
+        with gzip.GzipFile(fileobj=fh, mode='wb', compresslevel=compresslevel) as gzip_file:
+          pickle.dump(response, gzip_file)
+          gzip_file.flush() # NB! necessary to prevent broken gz archives on random occasions (does not depend on input data)
+        fh.flush()  # just in case
+        response_compressed = bytes(fh.getbuffer())  # NB! conversion to bytes is necessary to avoid "BufferError: Existing exports of data: object cannot be re-sized"
+
+
+      # Fernet is a high-level algorithm that combines AES with HMAC, a technique to verify the integrity and authenticity of the data.
+      password = params_json
+      salt = os.urandom(16)
+      kdf = PBKDF2HMAC(
+        algorithm=hashes.SHA256(),
+        length=32,
+        salt=salt,
+        iterations=480000, # A good default is at least 480,000 iterations, which is what Django recommends as of December 2022. - https://cryptography.io/en/latest/fernet/#using-passwords-with-fernet
+      )
+      key = base64.urlsafe_b64encode(kdf.derive(password))
+      fernet = Fernet(key)
+      response_encrypted = fernet.encrypt(response_compressed)
+      response_encrypted = salt + base64.urlsafe_b64decode(response_encrypted)  # Fernet uses base64 encoded encrypted data and there is nothing to do about it except to decode during saving and encode it again during reading
+
+
+      await save_raw(cache_filename, response_encrypted, quiet = True)   # TODO: save arguments in cache too and compare it upon cache retrieval
+
+    #/ if enable_cache:
+
+  #/ if response is None:
+
+
+  return response
+
+#/ async def async_cached_encrypted():
 

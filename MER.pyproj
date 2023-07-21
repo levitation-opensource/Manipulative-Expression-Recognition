@@ -48,6 +48,9 @@
     <Content Include="data\open_ended_system_instruction.txt" />
     <Content Include="data\test_evaluation.html" />
     <Content Include="data\test_evaluation.json" />
+    <Content Include="data\test_evaluation.pdf" />
+    <Content Include="data\test_evaluation.svg" />
+    <Content Include="install_steps.txt" />
     <Content Include="LICENSE" />
     <Content Include="MER.ini" />
     <Content Include="README.md" />
