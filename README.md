@@ -62,11 +62,11 @@ The vision for MER is to foster a culture of communication that is more transpar
 
 ## Example output
 
-Sample JSON output can be found here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.json"><u>`data/test_evaluation.json`</u></a>
+Sample JSON output can be found here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.json"><u>data/test_evaluation.json</u></a>
 
-Sample HTML output can be found here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.html"><u>`data/test_evaluation.html`</u></a>
+Sample HTML output can be found here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.html"><u>data/test_evaluation.html</u></a>
 
-For quick online preview, a PDF rendering of the sample HTML output is added here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.pdf"><u>`data/test_evaluation.pdf`</u></a>
+For quick online preview, a PDF rendering of the sample HTML output is added here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.pdf"><u>data/test_evaluation.pdf</u></a>
 
 In addition to labelled highlights on the field `expressions` there is a summary statistics with total counts of manipulation styles for data analysis purposes on the field `counts`. Also a qualitative summary text is provided on the field `qualitative_evaluation`.
 
@@ -99,21 +99,21 @@ The input conversation is provided as a UTF-8 text file with a log of a conversa
 	Etc...
 
 
-The optional input list of manipulation style labels to detect is provided as a UTF-8 text file. The labels are separated by newlines. The `data` folder contains a list of default labels in the file <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/default_labels.txt"><u>`default_labels.txt`</u></a> which is used when a user does not supply their own list of labels. The list format example follows.
+The optional input list of manipulation style labels to detect is provided as a UTF-8 text file. The labels are separated by newlines. The `data` folder contains a list of default labels in the file <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/default_labels.txt"><u>default_labels.txt</u></a> which is used when a user does not supply their own list of labels. The list format example follows.
 
     - Diminishing
     - Ignoring
     - Victim playing
     Etc...
 
-See <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/default_labels.txt"><u>`default_labels.txt`</u></a> for the complete list of default labels.
+See <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/default_labels.txt"><u>default_labels.txt</u></a> for the complete list of default labels.
 
 
 ## Output format example
 
 The software produces output in three formats:
 * HTML, which contains rendering of the conversation with highlighted relevants parts and their labels.
-* PDF version of the above HTML. For setting up PDF rendering support, see <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/install_steps.txt"><u>`install_steps.txt`</u></a>
+* PDF version of the above HTML. For setting up PDF rendering support, see <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/install_steps.txt"><u>install_steps.txt</u></a>
 * JSON, which contains the following structure:
 
     ```
