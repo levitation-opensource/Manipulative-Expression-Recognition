@@ -1,0 +1,11 @@
+
+
+For PDF rendering support:
+
+MacOS: brew install Caskroom/cask/wkhtmltopdf
+Debian / Ubuntu: apt-get install wkhtmltopdf
+Fedora / RHEL / CentOS: yum install wkhtmltopdf
+Windows: choco install wkhtmltopdf
+
+
+

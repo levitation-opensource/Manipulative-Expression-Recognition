@@ -62,14 +62,11 @@ The vision for MER is to foster a culture of communication that is more transpar
 
 ## Example output
 
-Sample JSON output can be found here:
-<br><a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.json">https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.json</a>
+Sample JSON output can be found here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.json">`data/test_evaluation.json`</a>
 
-Sample HTML output can be found here:
-<br><a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.html">https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.html</a>
+Sample HTML output can be found here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.html">`data/test_evaluation.html`</a>
 
-For quick online preview, a PDF rendering of the sample HTML output is added here:
-<br><a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.pdf">https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.pdf</a>
+For quick online preview, a PDF rendering of the sample HTML output is added here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.pdf">`data/test_evaluation.pdf`</a>
 
 In addition to labelled highlights on the field `expressions` there is a summary statistics with total counts of manipulation styles for data analysis purposes on the field `counts`. Also a qualitative summary text is provided on the field `qualitative_evaluation`.
 
@@ -109,13 +106,14 @@ The optional input list of manipulation style labels to detect is provided as a 
     - Victim playing
     Etc...
 
-See https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/default_labels.txt for the complete list of default labels.
+See <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/default_labels.txt">`default_labels.txt`</a> for the complete list of default labels.
 
 
 ## Output format example
 
-The software produces output in two formats:
+The software produces output in three formats:
 * HTML, which contains rendering of the conversation with highlighted relevants parts and their labels.
+* PDF version of the above HTML. For setting up PDF rendering support, see <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/install_steps.txt">`install_steps.txt`</a>
 * JSON, which contains the following structure:
 
     ```

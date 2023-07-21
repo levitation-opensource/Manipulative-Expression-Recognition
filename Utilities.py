@@ -12,13 +12,15 @@ import sys
 import io
 import gzip
 import pickle
-
+import json_tricks
 
 import time
 # import textwrap
 import shutil
 # import re
 import codecs
+import hashlib
+import base64
 
 # from progressbar import ProgressBar # NB! need to load it before init_logging is called else progress bars do not work properly for some reason
 
@@ -32,6 +34,7 @@ import functools
 # from functools import reduce
 # import operator
 
+from collections import OrderedDict
 # import numpy as np
 # import pandas as pd
 
@@ -475,4 +478,51 @@ def strtobool(val):
       raise ValueError(f"invalid value passed to strtobool: {val}")
 
 #/ def strtobool(val):
+
+
+async def async_cached(cache_version, func, *args, **kwargs):
+
+  enable_cache = (cache_version is not None)
+
+  if enable_cache:
+    # NB! this cache key and the cache will not contain the OpenAI key, so it is safe to publish the cache files
+    kwargs_ordered = OrderedDict(sorted(kwargs.items()))
+    cache_key = OrderedDict([
+      ("args", args),
+      ("kwargs", kwargs_ordered)
+    ])
+    cache_key = json_tricks.dumps(cache_key)   # json_tricks preserves dictionary orderings
+    cache_key = hashlib.sha512(cache_key.encode("utf-8")).digest()
+    # use base32 coding, not base16/hex, in order for having shorter filenames   
+    # replace padding char "=" with "0" char which is not in the base32 alphabet   
+    # base36 would be even better, but I did not find a good library for that
+    cache_key = base64.b32encode(cache_key).decode("utf8").lower().replace("=", "0") 
+    cache_key = "func=" + func.__name__ + "-ver=" + str(cache_version) + "-args=" + cache_key
+
+    # TODO: move this block to Utilities.py
+    fulldirname = os.path.join(data_dir, "cache")
+    os.makedirs(fulldirname, exist_ok = True)
+
+    cache_filename = os.path.join("cache", "cache_" + cache_key + ".dat")
+    response = await read_file(cache_filename, default_data = None, quiet = True)
+  else:
+    response = None
+
+
+  if response is None:
+
+    if asyncio.iscoroutinefunction(func):
+      response = await func(*args, **kwargs)
+    else:
+      response = func(*args, **kwargs)
+
+    if enable_cache:
+      await save_file(cache_filename, response, quiet = True)   # TODO: save arguments in cache too and compare it upon cache retrieval
+
+  #/ if response is None:
+
+
+  return response
+
+#/ async def async_cached(func, *args, **kwargs):
 

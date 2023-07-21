@@ -13,6 +13,7 @@ import os
 import sys
 import traceback
 import httpcore
+import httpx
 
 from configparser import ConfigParser
 
@@ -23,6 +24,7 @@ import re
 from collections import defaultdict, OrderedDict
 import hashlib
 import string
+import base64
 
 import thefuzz.process
 
@@ -40,7 +42,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 # openai.api_key = api_key
 
 
-from Utilities import init_logging, safeprint, print_exception, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_raw, save_raw, read_txt, save_txt, strtobool
+from Utilities import init_logging, safeprint, print_exception, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_raw, save_raw, read_txt, save_txt, strtobool, async_cached
 
 # init_logging(os.path.basename(__file__), __name__, max_old_log_rename_tries = 1)
 
@@ -76,7 +78,8 @@ def get_config():
   do_closed_ended_analysis = strtobool(remove_quotes(config.get("MER", "DoClosedEndedAnalysis", fallback="true")))
   keep_unexpected_labels = strtobool(remove_quotes(config.get("MER", "KeepUnexpectedLabels", fallback="true")))
   chart_type = remove_quotes(config.get("MER", "ChartType", fallback="radar"))
-  render_output = strtobool(remove_quotes(config.get("MER", "RenderOutput", fallback="true")))
+  render_output = strtobool(remove_quotes(config.get("MER", "RenderOutput", fallback="false")))
+  create_pdf = strtobool(remove_quotes(config.get("MER", "CreatePdf", fallback="true")))
   treat_entire_text_as_one_person = strtobool(remove_quotes(config.get("MER", "TreatEntireTextAsOnePerson", fallback="false")))  # TODO
   anonymise_names = strtobool(remove_quotes(config.get("MER", "AnonymiseNames", fallback="false")))
   anonymise_numbers = strtobool(remove_quotes(config.get("MER", "AnonymiseNumbers", fallback="false")))
@@ -92,6 +95,7 @@ def get_config():
     "keep_unexpected_labels": keep_unexpected_labels,
     "chart_type": chart_type,
     "render_output": render_output,
+    "create_pdf": create_pdf,
     "treat_entire_text_as_one_person": treat_entire_text_as_one_person,
     "anonymise_names": anonymise_names,
     "anonymise_numbers": anonymise_numbers,
@@ -137,7 +141,7 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
 
   except Exception as ex:   # httpcore.ReadTimeout
 
-    if type(ex) is httpcore.ReadTimeout:
+    if type(ex) is httpcore.ReadTimeout or type(ex) is httpx.ReadTimeout:	# both exception types have occurred
       if attempt_number < 6:    # TODO: config parameter
         safeprint("Read timeout, retrying...")
       else:
@@ -151,79 +155,133 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
 #/ async def completion_with_backoff(gpt_timeout, **kwargs):
 
 
-async def run_llm_analysis(model_name, gpt_timeout, messages, continuation_request, enable_cache = True):
+async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuation_request):
 
-  if enable_cache:
-    # NB! this cache key and the cache will not contain the OpenAI key, so it is safe to publish the cache files
-    cache_key = OrderedDict([ 
-      ("model_name", model_name), 
-      ("messages", messages), 
-    ])
-    cache_key = json_tricks.dumps(cache_key)   # json_tricks preserves dictionary orderings
-    cache_key = hashlib.sha512(cache_key.encode("utf-8")).hexdigest() 
-
-    # TODO: move this block to Utilities.py
-    fulldirname = os.path.join(data_dir, "cache")
-    os.makedirs(fulldirname, exist_ok = True)
-
-    cache_filename = os.path.join("cache", "cache_" + cache_key + ".dat")
-    response = await read_file(cache_filename, default_data = None, quiet = True)
-  else:
-    response = None
+  responses = []
 
 
-  if response is None:
+  continue_analysis = True
+  while continue_analysis:
 
-    responses = []
+    (response_content, finish_reason) = await completion_with_backoff(
 
+      gpt_timeout,
 
-    continue_analysis = True
-    while continue_analysis:
-
-      (response_content, finish_reason) = await completion_with_backoff(
-
-        gpt_timeout,
-
-        model = model_name,
-        messages = messages,
+      model = model_name,
+      messages = messages,
           
-        # functions = [],   # if no functions are in array then the array should be omitted, else error occurs
-        # function_call = "none",   # 'function_call' is only allowed when 'functions' are specified
-        n = 1,
-        stream = False,   # TODO
-        # user = "",    # TODO
+      # functions = [],   # if no functions are in array then the array should be omitted, else error occurs
+      # function_call = "none",   # 'function_call' is only allowed when 'functions' are specified
+      n = 1,
+      stream = False,   # TODO
+      # user = "",    # TODO
 
-        temperature = 0, # 1,   0 means deterministic output
-        top_p = 1,
-        max_tokens = 2048,
-        presence_penalty = 0,
-        frequency_penalty = 0,
-        # logit_bias = None,
-      )
+      temperature = 0, # 1,   0 means deterministic output
+      top_p = 1,
+      max_tokens = 2048,
+      presence_penalty = 0,
+      frequency_penalty = 0,
+      # logit_bias = None,
+    )
 
-      responses.append(response_content)
-      too_long = (finish_reason == "length")
+    responses.append(response_content)
+    too_long = (finish_reason == "length")
 
-      if too_long:
-        messages.append({"role": "assistant", "content": response})
-        messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality
-      else:
-        continue_analysis = False
+    if too_long:
+      messages.append({"role": "assistant", "content": response})
+      messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality
+    else:
+      continue_analysis = False
 
-    #/ while continue_analysis:
+  #/ while continue_analysis:
 
-    response = "\n".join(responses)
-
-
-    if enable_cache:
-      await save_file(cache_filename, response, quiet = True)   # TODO: save request in cache too and compare it upon cache retrieval
-
-  #/ if response is None:
-
-
+  response = "\n".join(responses)
   return response
 
+#/ async def run_llm_analysis_uncached():
+
+
+async def run_llm_analysis(model_name, gpt_timeout, messages, continuation_request, enable_cache = True):
+
+  result = await async_cached(1 if enable_cache else None, run_llm_analysis_uncached, model_name, gpt_timeout, messages, continuation_request)
+  return result
+
 #/ async def run_llm_analysis():
+
+
+#async def run_llm_analysis(model_name, gpt_timeout, messages, continuation_request, enable_cache = True):
+
+#  if enable_cache:
+#    # NB! this cache key and the cache will not contain the OpenAI key, so it is safe to publish the cache files
+#    cache_key = OrderedDict([ 
+#      ("model_name", model_name), 
+#      ("messages", messages), 
+#    ])
+#    cache_key = json_tricks.dumps(cache_key)   # json_tricks preserves dictionary orderings
+#    cache_key = hashlib.sha512(cache_key.encode("utf-8")).hexdigest() 
+
+#    # TODO: move this block to Utilities.py
+#    fulldirname = os.path.join(data_dir, "cache")
+#    os.makedirs(fulldirname, exist_ok = True)
+
+#    cache_filename = os.path.join("cache", "cache_" + cache_key + ".dat")
+#    response = await read_file(cache_filename, default_data = None, quiet = True)
+#  else:
+#    response = None
+
+
+#  if response is None:
+
+#    responses = []
+
+
+#    continue_analysis = True
+#    while continue_analysis:
+
+#      (response_content, finish_reason) = await completion_with_backoff(
+
+#        gpt_timeout,
+
+#        model = model_name,
+#        messages = messages,
+          
+#        # functions = [],   # if no functions are in array then the array should be omitted, else error occurs
+#        # function_call = "none",   # 'function_call' is only allowed when 'functions' are specified
+#        n = 1,
+#        stream = False,   # TODO
+#        # user = "",    # TODO
+
+#        temperature = 0, # 1,   0 means deterministic output
+#        top_p = 1,
+#        max_tokens = 2048,
+#        presence_penalty = 0,
+#        frequency_penalty = 0,
+#        # logit_bias = None,
+#      )
+
+#      responses.append(response_content)
+#      too_long = (finish_reason == "length")
+
+#      if too_long:
+#        messages.append({"role": "assistant", "content": response})
+#        messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality
+#      else:
+#        continue_analysis = False
+
+#    #/ while continue_analysis:
+
+#    response = "\n".join(responses)
+
+
+#    if enable_cache:
+#      await save_file(cache_filename, response, quiet = True)   # TODO: save request in cache too and compare it upon cache retrieval
+
+#  #/ if response is None:
+
+
+#  return response
+
+##/ async def run_llm_analysis():
 
 
 def sanitise_input(text):
@@ -233,10 +291,11 @@ def sanitise_input(text):
 #/ def sanitise_input(text):
 
 
-def anonymise(user_input, anonymise_names, anonymise_numbers, ner_model):
+def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model):
 
   safeprint("Loading Spacy...")
-  import spacy
+  import spacy    # load it only when anonymisation is requested, since this package loads slowly
+
   NER = spacy.load(ner_model)   # TODO: config setting
 
   entities = NER(user_input)
@@ -337,7 +396,49 @@ def anonymise(user_input, anonymise_names, anonymise_numbers, ner_model):
 
   return result
 
-#/ def anonymise()
+#/ def anonymise_uncached()
+
+
+async def anonymise(user_input, anonymise_names, anonymise_numbers, ner_model, enable_cache = True):
+
+  result = await async_cached(1 if enable_cache else None, anonymise_uncached, user_input, anonymise_names, anonymise_numbers, ner_model)
+  return result
+
+#/ async def anonymise():
+
+
+def render_highlights_uncached(user_input, expression_dicts):
+
+  safeprint("Loading Spacy HTML renderer...")
+  from spacy import displacy    # load it only when rendering is requested, since this package loads slowly
+
+  highlights_html = displacy.render( 
+          {
+              "text": user_input,
+              "ents": [
+                        {
+                          "start": entry["start_char"], 
+                          "end": entry["end_char"], 
+                          "label": ", ".join(entry["labels"])
+                        } 
+                        for entry 
+                        in expression_dicts
+                      ],
+              "title": None 
+          }, 
+          style="ent", manual=True
+        )
+
+  return highlights_html
+
+#/ def render_highlights_uncached():
+
+async def render_highlights(user_input, expression_dicts, enable_cache = True):
+
+  result = await async_cached(1 if enable_cache else None, render_highlights_uncached, user_input, expression_dicts)
+  return result
+
+#/ async def render_highlights():
 
 
 async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None):
@@ -393,7 +494,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
   ner_model = config.get("named_entity_recognition_model")
 
   if anonymise_names or anonymise_numbers:
-    user_input = anonymise(user_input, anonymise_names, anonymise_numbers, ner_model)
+    user_input = await anonymise(user_input, anonymise_names, anonymise_numbers, ner_model)
 
 
   # sanitise user input since []{} have special meaning in the output parsing
@@ -703,9 +804,13 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
   await save_txt(response_filename, response_json, quiet = True, make_backup = True, append = False)
 
+
+
+  safeprint("Analysis done.")
+
   
 
-  render_output = config.get("render_output") 
+  render_output = config.get("render_output")   
   if render_output:
 
 
@@ -798,66 +903,72 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     #/ if chart:
 
 
-    safeprint("Analysis done.")
-    safeprint("Loading Spacy HTML renderer...")
-    from spacy import displacy    # load it only when rendering is requested, since this package loads 
     import html
     import urllib.parse
 
-    highlights_html = displacy.render( 
-            {
-                "text": user_input,
-                "ents": [
-                          {
-                            "start": entry["start_char"], 
-                            "end": entry["end_char"], 
-                            "label": ", ".join(entry["labels"])
-                          } 
-                          for entry 
-                          in expression_dicts
-                        ],
-                "title": None 
-            }, 
-            style="ent", manual=True
-          )
 
-    html = ('<html>\n<title>'
-            + html.escape(title)
-            + '</title>\n<body>'
-            + """\n<style>
-                .entities {
-                  line-height: 1.5 !important;
-                }
-                mark {
-                  line-height: 2 !important;
-                  background: yellow !important;
-                }
-                mark span {
-                  background: orange !important;
-                  padding: 0.5em;
-                }
-                .graph object {
-                  max-height: 75vh;
-                }
-              </style>""" 
-            + (                
-                (
-                  ('\n<div class="graph"><object data="' + urllib.parse.quote_plus(response_svg_filename) + '" type="image/svg+xml"></object></div>')
-                  if chart else
-                  ''
-                ) 
-                if len(nonzero_labels_list) > 0 else                 
-                '\n<div style="font: bold 1em Arial;">No manipulative expressions detected.</div>\n<br><br><br>'
-              )
-            + '\n<div style="font: bold 1em Arial;">Qualitative summary:</div><br>'
-            + '\n<div style="font: 1em Arial;">' 
-            + '\n' + open_ended_response 
-            + '\n</div>'
-            + '\n<br><br><br>'
-            + '\n<div style="font: bold 1em Arial;">Labelled input:</div><br>'
-            + '\n<div style="font: 1em Arial;">' 
-            + '\n' + highlights_html 
-            + '\n</div>\n</body>\n</html>')
+    highlights_html = await render_highlights(user_input, expression_dicts)
+
+
+    def get_full_html(for_pdfkit = False):
+
+      result = ('<html>'
+              + '\n<head>'
+              + '\n<meta charset="utf-8">'  # needed for pdfkit
+              + '\n<title>' + html.escape(title) + '</title>'
+              + """\n<style>
+                  .entities {
+                    line-height: 1.5 !important;
+                  }
+                  mark {
+                    line-height: 2 !important;
+                    background: yellow !important;
+                  }
+                  mark span {
+                    background: orange !important;
+                    padding: 0.5em;
+                  }
+                  .graph object, .graph svg, .graph img {
+                    max-height: 75vh;
+                  }
+                  .entity {
+                    padding-top: 0.325em !important;
+                  }
+                  mark span {
+                    vertical-align: initial !important;   /* needed for pdfkit */
+                  }
+                </style>""" 
+              + '\n</head>'
+              + '\n<body>'
+              + (                
+                  (
+                    (                    
+                      ('\n<div class="graph">' + svg.decode('utf8', 'ignore').replace('<svg', '<svg width="1000" height="750"') + '</div>')  # this will result in a proportionally scaled image
+                      # ('\n<div class="graph"><img width="1000" height="750" src="data:image/svg+xml;base64,' + base64.b64encode(svg).decode('utf8', 'ignore') + '" /></div>')  # this would result in a non-proportionally scaled image
+                      if for_pdfkit else    # pdfkit does not support linked images, the image data needs to be embedded. Also pdfkit requires the image dimensions to be specified.
+                      ('\n<div class="graph"><object data="' + urllib.parse.quote_plus(response_svg_filename) + '" type="image/svg+xml"></object></div>') # This will result in an interactive graph. Embdded svg tag would result in non-interactive graph.
+                    )
+                    if chart else
+                    ''
+                  ) 
+                  if len(nonzero_labels_list) > 0 else                 
+                  '\n<div style="font: bold 1em Arial;">No manipulative expressions detected.</div>\n<br><br><br>'
+                )
+              + '\n<div style="font: bold 1em Arial;">Qualitative summary:</div><br>'
+              + '\n<div style="font: 1em Arial;">' 
+              + '\n' + open_ended_response 
+              + '\n</div>'
+              + '\n<br><br><br>'
+              + '\n<div style="font: bold 1em Arial;">Labelled input:</div><br>'
+              + '\n<div style="font: 1em Arial;">' 
+              + '\n' + highlights_html 
+              + '\n</div>\n</body>\n</html>')
+
+      return result
+
+    #/ def get_html():
+
+    output_html = get_full_html(for_pdfkit = False)
 
 
     response_html_filename = sys.argv[4] if len(sys.argv) > 4 else None
@@ -866,7 +977,49 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     else: 
       response_html_filename = os.path.splitext(response_filename)[0] + ".html" if using_user_input_filename else "test_evaluation.html"
 
-    await save_txt(response_html_filename, html, quiet = True, make_backup = True, append = False)
+    await save_txt(response_html_filename, output_html, quiet = True, make_backup = True, append = False)
+
+
+
+    create_pdf = config.get("create_pdf") 
+    if create_pdf:
+
+      #try:
+      #  import weasyprint
+
+      #  pdf = weasyprint.HTML(string=output_html)
+      #  pdf = pdf.write_pdf()
+      #except Exception:
+
+      import pdfkit
+
+      pdfkit_html = get_full_html(for_pdfkit = True)
+
+      try:
+        pdf = pdfkit.from_string(pdfkit_html)
+      except Exception as ex:  # TODO: catch a more specific exception type
+        safeprint("Error creating pdf. Is wkhtmltopdf utility installed? See install_steps.txt for more info.")
+
+        msg = str(ex) + "\n" + traceback.format_exc()
+        print_exception(msg)
+
+        pdf = None
+      #/ except Exception as ex:
+
+
+      if pdf is not None:
+
+        response_pdf_filename = sys.argv[4] if len(sys.argv) > 4 else None
+        if response_pdf_filename:
+          response_pdf_filename = os.path.join("..", response_pdf_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+        else: 
+          response_pdf_filename = os.path.splitext(response_filename)[0] + ".pdf" if using_user_input_filename else "test_evaluation.pdf"
+
+        await save_raw(response_pdf_filename, pdf, quiet = True, make_backup = True, append = False)
+
+      #/ if pdf is not None:
+
+    #/ create_pdf:
 
   #/ if render_output:
 
