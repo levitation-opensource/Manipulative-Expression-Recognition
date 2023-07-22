@@ -42,7 +42,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 # openai.api_key = api_key
 
 
-from Utilities import init_logging, safeprint, print_exception, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_raw, save_raw, read_txt, save_txt, strtobool, async_cached_encrypted
+from Utilities import init_logging, safeprint, print_exception, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_raw, save_raw, read_txt, save_txt, strtobool, async_cached, async_cached_encrypted
 
 # init_logging(os.path.basename(__file__), __name__, max_old_log_rename_tries = 1)
 
@@ -84,6 +84,7 @@ def get_config():
   anonymise_names = strtobool(remove_quotes(config.get("MER", "AnonymiseNames", fallback="false")))
   anonymise_numbers = strtobool(remove_quotes(config.get("MER", "AnonymiseNumbers", fallback="false")))
   named_entity_recognition_model = remove_quotes(config.get("MER", "NamedEntityRecognitionModel", fallback="en_core_web_sm"))
+  encrypt_cache_data = strtobool(remove_quotes(config.get("MER", "EncryptCacheData", fallback="false")))
 
 
   result = { 
@@ -100,6 +101,7 @@ def get_config():
     "anonymise_names": anonymise_names,
     "anonymise_numbers": anonymise_numbers,
     "named_entity_recognition_model": named_entity_recognition_model,
+    "encrypt_cache_data": encrypt_cache_data,
   }
 
   return result
@@ -201,9 +203,15 @@ async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuat
 #/ async def run_llm_analysis_uncached():
 
 
-async def run_llm_analysis(model_name, gpt_timeout, messages, continuation_request, enable_cache = True):
+async def run_llm_analysis(config, model_name, gpt_timeout, messages, continuation_request, enable_cache = True):
 
-  result = await async_cached_encrypted(1 if enable_cache else None, run_llm_analysis_uncached, model_name, gpt_timeout, messages, continuation_request)
+  encrypt_cache_data = config["encrypt_cache_data"]
+
+  if encrypt_cache_data:
+    result = await async_cached_encrypted(1 if enable_cache else None, run_llm_analysis_uncached, model_name, gpt_timeout, messages, continuation_request)
+  else:
+    result = await async_cached(1 if enable_cache else None, run_llm_analysis_uncached, model_name, gpt_timeout, messages, continuation_request)
+
   return result
 
 #/ async def run_llm_analysis():
@@ -399,9 +407,15 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
 #/ def anonymise_uncached()
 
 
-async def anonymise(user_input, anonymise_names, anonymise_numbers, ner_model, enable_cache = True):
+async def anonymise(config, user_input, anonymise_names, anonymise_numbers, ner_model, enable_cache = True):
 
-  result = await async_cached_encrypted(1 if enable_cache else None, anonymise_uncached, user_input, anonymise_names, anonymise_numbers, ner_model)
+  encrypt_cache_data = config["encrypt_cache_data"]
+
+  if encrypt_cache_data:
+    result = await async_cached_encrypted(1 if enable_cache else None, anonymise_uncached, user_input, anonymise_names, anonymise_numbers, ner_model)
+  else:
+    result = await async_cached(1 if enable_cache else None, anonymise_uncached, user_input, anonymise_names, anonymise_numbers, ner_model)
+
   return result
 
 #/ async def anonymise():
@@ -433,9 +447,15 @@ def render_highlights_uncached(user_input, expression_dicts):
 
 #/ def render_highlights_uncached():
 
-async def render_highlights(user_input, expression_dicts, enable_cache = True):
+async def render_highlights(config, user_input, expression_dicts, enable_cache = True):
 
-  result = await async_cached_encrypted(1 if enable_cache else None, render_highlights_uncached, user_input, expression_dicts)
+  encrypt_cache_data = config["encrypt_cache_data"]
+
+  if encrypt_cache_data:
+    result = await async_cached_encrypted(1 if enable_cache else None, render_highlights_uncached, user_input, expression_dicts)
+  else:
+    result = await async_cached(1 if enable_cache else None, render_highlights_uncached, user_input, expression_dicts)
+
   return result
 
 #/ async def render_highlights():
@@ -494,7 +514,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
   ner_model = config.get("named_entity_recognition_model")
 
   if anonymise_names or anonymise_numbers:
-    user_input = await anonymise(user_input, anonymise_names, anonymise_numbers, ner_model)
+    user_input = await anonymise(config, user_input, anonymise_names, anonymise_numbers, ner_model)
 
 
   # sanitise user input since []{} have special meaning in the output parsing
@@ -539,7 +559,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
     # TODO: add temperature parameter
 
-    open_ended_response = await run_llm_analysis(gpt_model, gpt_timeout, messages, continuation_request)
+    open_ended_response = await run_llm_analysis(config, gpt_model, gpt_timeout, messages, continuation_request)
 
   else: #/ if do_open_ended_analysis:
 
@@ -558,7 +578,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
     # TODO: add temperature parameter
 
-    closed_ended_response = await run_llm_analysis(gpt_model, gpt_timeout, messages, continuation_request)
+    closed_ended_response = await run_llm_analysis(config, gpt_model, gpt_timeout, messages, continuation_request)
 
 
     # parse the closed ended response by extracting persons, citations, and labels
@@ -578,7 +598,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
         # {"role": "user", "content": "Orange."},
       ]
 
-      names_of_participants_response = await run_llm_analysis(gpt_model, gpt_timeout, messages, continuation_request)
+      names_of_participants_response = await run_llm_analysis(config, gpt_model, gpt_timeout, messages, continuation_request)
 
       # Try to detect persons from the input text. This is necessary for preserving proper message indexing in the output in case some person is not cited by LLM at all.
       re_matches = re.findall(r"[\r\n]+\[?([^\]\n]*)\]?", "\n" + names_of_participants_response)
@@ -907,7 +927,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     import urllib.parse
 
 
-    highlights_html = await render_highlights(user_input, expression_dicts)
+    highlights_html = await render_highlights(config, user_input, expression_dicts)
 
 
     def get_full_html(for_pdfkit = False):
