@@ -21,7 +21,7 @@
       "text": "I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it.",
       "labels": [
         "Evasion",
-        "Manipulation"
+        "Power games"
       ],
       "start_message": 2,
       "end_message": 2
@@ -33,7 +33,7 @@
       "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.",
       "labels": [
         "Creating a time pressure",
-        "Manipulation"
+        "Evasion"
       ],
       "start_message": 4,
       "end_message": 4
@@ -70,8 +70,8 @@
       "end_char": 1257,
       "text": "I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!",
       "labels": [
-        "Accusation",
-        "Exaggeration"
+        "Exaggeration",
+        "Victim playing"
       ],
       "start_message": 10,
       "end_message": 10
@@ -108,7 +108,6 @@
       "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon.",
       "labels": [
         "Creating a time pressure",
-        "Manipulation",
         "Threats"
       ],
       "start_message": 14,
@@ -155,7 +154,6 @@
       "end_char": 2427,
       "text": "OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this?",
       "labels": [
-        "Accusation",
         "Exaggeration",
         "Victim playing"
       ],
@@ -190,38 +188,48 @@
       "end_char": 2731,
       "text": "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.",
       "labels": [
-        "Exaggeration",
-        "Manipulation",
+        "Guilt tripping",
         "Victim playing"
       ],
       "start_message": 21,
       "end_message": 21
+    },
+    {
+      "person": "Person B",
+      "start_char": 2743,
+      "end_char": 2749,
+      "text": "*sigh*",
+      "labels": [
+        "Dismissal"
+      ],
+      "start_message": 22,
+      "end_message": 22
     }
   ],
   "counts": {
     "Person A": {
-      "Accusation": 5,
+      "Accusation": 3,
       "Aggression": 1,
       "Creating a time pressure": 3,
-      "Evasion": 1,
-      "Exaggeration": 6,
+      "Evasion": 2,
+      "Exaggeration": 5,
+      "Guilt tripping": 1,
       "Ignoring previous conflict": 1,
       "Jealousy": 1,
-      "Manipulation": 4,
+      "Power games": 1,
       "Provocation": 1,
       "Threats": 2,
-      "Victim playing": 4
+      "Victim playing": 5
     },
     "Person B": {
-      "Dismissal": 4,
+      "Dismissal": 5,
       "Sarcasm": 1
     }
   },
   "unexpected_labels": [
-    "Ignoring previous conflict",
     "Jealousy",
     "Sarcasm"
   ],
-  "raw_expressions_labeling_response": "[Person A]: Hey. You better call me as soon as you get this. We need to talk. - {Creating a time pressure}\n[Person A]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Evasion, Manipulation}\n[Person A]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Manipulation, Creating a time pressure}\n[Person A]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Victim playing, Exaggeration}\n[Person A]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Exaggeration, Victim playing, Accusation}\n[Person A]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Exaggeration, Accusation}\n[Person A]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Exaggeration, Provocation, Jealousy}\n[Person A]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Threats, Creating a time pressure, Manipulation}\n[Person A]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Threats, Aggression}\n[Person A]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? - {Victim playing, Exaggeration, Accusation}\n[Person A]: Hey, let\u2019s get a drink. - {Ignoring previous conflict}\n[Person A]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Victim playing, Manipulation, Exaggeration}\n[Person B]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. - {Dismissal}\n[Person B]: You mean a more fun side than this? Can\u2019t wait. - {Sarcasm, Dismissal}\n[Person B]: OK :/ - {Dismissal}\n[Person B]: I don\u2019t want to. No. - {Dismissal}",
+  "raw_expressions_labeling_response": "[Person A]: Hey. You better call me as soon as you get this. We need to talk. - {Creating a time pressure}\n[Person A]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Evasion, Power games}\n[Person A]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Evasion, Creating a time pressure}\n[Person A]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Victim playing, Exaggeration}\n[Person A]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Exaggeration, Victim playing, Accusation}\n[Person A]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Exaggeration, Victim playing}\n[Person A]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Provocation, Exaggeration, Jealousy}\n[Person A]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Threats, Creating a time pressure}\n[Person A]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Threats, Aggression}\n[Person A]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? - {Victim playing, Exaggeration}\n[Person A]: Hey, let\u2019s get a drink. - {Ignoring previous conflict}\n[Person A]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Victim playing, Guilt tripping}\n[Person B]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. - {Dismissal}\n[Person B]: You mean a more fun side than this? Can\u2019t wait. - {Sarcasm, Dismissal}\n[Person B]: OK :/ - {Dismissal}\n[Person B]: I don\u2019t want to. No. - {Dismissal}\n[Person B]: *sigh* - {Dismissal}",
   "qualitative_evaluation": "Person A's conversational style is emotionally charged, confrontational, and manipulative. They frequently use dramatic language and make accusations, often shifting the topic to their feelings of being neglected or mistreated. They also use ultimatums and threats to try to control the conversation and Person B's actions. \n\nPerson B, on the other hand, is more calm and rational in their responses. They attempt to understand the issue at hand and express concern for Person A's well-being. However, they also show signs of frustration and exhaustion due to Person A's aggressive and erratic behavior. They try to set boundaries and disengage from the conversation when it becomes too heated."
 }

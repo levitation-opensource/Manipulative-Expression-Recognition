@@ -1,6 +1,5 @@
 asyncio>=3.4.3
 aiofiles>=23.1.0
-thefuzz[speedup]>=0.19.0
 json_tricks>=3.17.1
 tenacity>=8.2.2
 openai_async>=0.0.3
@@ -9,3 +8,5 @@ spacy>=3.5.4
 pygal>=3.0.0
 pdfkit>=1.0.0
 cryptography>=41.0.2
+rapidfuzz>=3.1.1
+fuzzysearch>=0.7.3

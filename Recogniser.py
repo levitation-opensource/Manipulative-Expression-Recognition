@@ -26,7 +26,9 @@ import hashlib
 import string
 import base64
 
-import thefuzz.process
+import rapidfuzz.process
+import rapidfuzz.fuzz
+from fuzzysearch import find_near_matches
 
 import json_tricks
 
@@ -71,20 +73,23 @@ def get_config():
   config.read('MER.ini')
 
   
-  gpt_model = remove_quotes(config.get("MER", "GPTModel", fallback="gpt-3.5-turbo-16k"))
-  gpt_timeout = int(remove_quotes(config.get("MER", "GPTTimeoutInSeconds", fallback="60")))
+  gpt_model = remove_quotes(config.get("MER", "GPTModel", fallback="gpt-3.5-turbo-16k")).strip()
+  gpt_timeout = int(remove_quotes(config.get("MER", "GPTTimeoutInSeconds", fallback="60")).strip())
   extract_message_indexes = strtobool(remove_quotes(config.get("MER", "ExtractMessageIndexes", fallback="false")))
   do_open_ended_analysis = strtobool(remove_quotes(config.get("MER", "DoOpenEndedAnalysis", fallback="true")))
   do_closed_ended_analysis = strtobool(remove_quotes(config.get("MER", "DoClosedEndedAnalysis", fallback="true")))
   keep_unexpected_labels = strtobool(remove_quotes(config.get("MER", "KeepUnexpectedLabels", fallback="true")))
-  chart_type = remove_quotes(config.get("MER", "ChartType", fallback="radar"))
+  chart_type = remove_quotes(config.get("MER", "ChartType", fallback="radar")).strip()
   render_output = strtobool(remove_quotes(config.get("MER", "RenderOutput", fallback="false")))
   create_pdf = strtobool(remove_quotes(config.get("MER", "CreatePdf", fallback="true")))
   treat_entire_text_as_one_person = strtobool(remove_quotes(config.get("MER", "TreatEntireTextAsOnePerson", fallback="false")))  # TODO
   anonymise_names = strtobool(remove_quotes(config.get("MER", "AnonymiseNames", fallback="false")))
   anonymise_numbers = strtobool(remove_quotes(config.get("MER", "AnonymiseNumbers", fallback="false")))
-  named_entity_recognition_model = remove_quotes(config.get("MER", "NamedEntityRecognitionModel", fallback="en_core_web_sm"))
+  named_entity_recognition_model = remove_quotes(config.get("MER", "NamedEntityRecognitionModel", fallback="en_core_web_sm")).strip()
   encrypt_cache_data = strtobool(remove_quotes(config.get("MER", "EncryptCacheData", fallback="false")))
+  split_messages_by = remove_quotes(config.get("MER", "SplitMessagesBy", fallback="")) # .strip()
+  ignore_incorrectly_assigned_citations = strtobool(remove_quotes(config.get("MER", "IgnoreIncorrectlyAssignedCitations", fallback="false")))
+  allow_multiple_citations_per_message = strtobool(remove_quotes(config.get("MER", "AllowMultipleCitationsPerMessage", fallback="true")))
 
 
   result = { 
@@ -102,6 +107,9 @@ def get_config():
     "anonymise_numbers": anonymise_numbers,
     "named_entity_recognition_model": named_entity_recognition_model,
     "encrypt_cache_data": encrypt_cache_data,
+    "split_messages_by": split_messages_by,
+    "ignore_incorrectly_assigned_citations": ignore_incorrectly_assigned_citations,
+    "allow_multiple_citations_per_message": allow_multiple_citations_per_message,
   }
 
   return result
@@ -130,7 +138,7 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
       payload = kwargs
     )
 
-    safeprint("Done OpenAI API request...")
+    safeprint("Done OpenAI API request.")
 
 
     openai_response = json_tricks.loads(openai_response.text)
@@ -655,9 +663,18 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     start_char_to_person_message_index_dict = {}
     person_message_spans = {person: [] for person in detected_persons}
 
+    split_messages_by = config["split_messages_by"]
+    split_messages_by_newline = (split_messages_by == "")
+
     for person in detected_persons:
-      p = re.compile(r"[\r\n]+" + re.escape(person) + r":(.*)")
-      re_matches = p.finditer("\n" + user_input)    # TODO: ensure that ":" character inside messages does not mess the analysis up
+
+      if split_messages_by_newline:
+        p = re.compile(r"[\r\n]+" + re.escape(person) + r":(.*)")
+        re_matches = p.finditer("\n" + user_input)    # TODO: ensure that ":" character inside messages does not mess the analysis up
+      else:
+        p = re.compile(r"[\r\n]+" + re.escape(person) + r":(.*?)[\r\n]+" + re.escape(split_messages_by), re.DOTALL)
+        re_matches = p.finditer("\n" + user_input + "\n" + split_messages_by)    # TODO: ensure that ":" character inside messages does not mess the analysis up
+
       for re_match in re_matches:
 
         message = re_match.group(1)
@@ -693,7 +710,10 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     totals = defaultdict(lambda: OrderedDict([(label, 0) for label in labels_list]))    # defaultdict: do not report persons and labels which are not detected  # need to initialise the inner dict to preserve proper label ordering
     expression_dicts = []
     # already_labelled_message_indexes = set()
-    already_labelled_message_parts = set()
+    already_labelled_message_parts = {}
+
+    ignore_incorrectly_assigned_citations = config["ignore_incorrectly_assigned_citations"]
+    allow_multiple_citations_per_message = config["allow_multiple_citations_per_message"]
 
     for expressions_tuple in expressions_tuples:
 
@@ -703,51 +723,110 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
       # TODO: use combinatorial optimisation to do the matching with original text positions in order to ensure that repeated similar expressions get properly located as well
 
       # find nearest actual message and verify that it was expressed by the same person as in LLM's citation
-      nearest_message = None 
       nearest_message_similarity = 0
+      nearest_message_is_partial_match = None
       nearest_person = None
+      nearest_message = None 
+      nearest_person_message_index = None
+
       for person2 in detected_persons:
 
-        (person2_nearest_message, similarity) = thefuzz.process.extractOne(citation, person_messages[person2])
+        curr_person_messages = person_messages.get(person2)
+        if curr_person_messages is None or len(curr_person_messages) == 0:
+          continue  # TODO: log error
 
-        if (similarity > nearest_message_similarity 
-          or (similarity == nearest_message_similarity and person2 == person)):  # if multiple original messages have same similarity score then prefer the message with a person that was assigned by LLM
+
+        # * Simple Ratio: It computes the standard Levenshtein distance similarity ratio between two sequences.
+        #
+        # * Partial Ratio: It computes the partial Levenshtein distance similarity ratio between two sequences, by finding the best matching substring of the longer sequence and comparing it to the shorter sequence.
+        #
+        # * Token Sort Ratio: It computes the Levenshtein distance similarity ratio between two sequences after tokenizing them by whitespace and sorting them alphabetically.
+        #
+        # * Token Set Ratio: It computes the Levenshtein distance similarity ratio between two sequences after tokenizing them by whitespace and performing a set operation on them (union, intersection, difference).
+        #
+        # * Partial Token Sort Ratio: It computes the partial Levenshtein distance similarity ratio between two sequences after tokenizing them by whitespace and sorting them alphabetically, by finding the best matching substring of the longer sequence and comparing it to the shorter sequence.
+        # 
+        #You can also use the process module to extract the best matches from a list of choices, using any of the above scorers or a custom one.
+
+        # TODO: use the process module to choose best partial ratio match with least extra characters in the original text.
+
+        match = rapidfuzz.process.extractOne(citation, curr_person_messages, scorer=rapidfuzz.fuzz.partial_ratio) # partial ratio means that if the original message has text in the beginning or end around the citation then that is not considered during scoring of the match
+        (person2_nearest_message, similarity, person2_message_index) = match
+        similarity_is_partial_match = True
+
+        if len(citation) > len(person2_nearest_message):  # if the citation is longer than partial match then use simple ratio matching instead
+          match = rapidfuzz.process.extractOne(citation, curr_person_messages, scorer=rapidfuzz.fuzz.ratio) 
+          (person2_nearest_message, similarity, person2_message_index) = match
+          similarity_is_partial_match = False
+
+
+        if (
+          similarity > nearest_message_similarity 
+          or (  # if previous nearest message was partial match then prefer simple match with same score
+            similarity == nearest_message_similarity 
+            and nearest_message_is_partial_match
+            and not similarity_is_partial_match 
+          )
+          or (  # if multiple original messages have same similarity score then prefer the message with a person that was assigned by LLM
+            similarity == nearest_message_similarity 
+            and similarity_is_partial_match == nearest_message_is_partial_match   # both are partial matches or both are simple matches
+            and person2 == person
+          )  
+        ):
           nearest_message_similarity = similarity
-          nearest_message = person2_nearest_message
+          nearest_message_is_partial_match = similarity_is_partial_match
           nearest_person = person2
+          nearest_message = person2_nearest_message
+          nearest_person_message_index = person2_message_index
 
       #/ for person2 in persons:
 
+
       if nearest_person != person:  # incorrectly assigned citation 
-        if True:     # TODO: configuration option for handling such cases 
+        if ignore_incorrectly_assigned_citations:   
           continue
         else:
           person = nearest_person    
 
 
-      person_message_index = person_messages[person].index(nearest_message)
-      overall_message_index = overall_message_indexes[person][person_message_index]  
-
-      #if overall_message_index in already_labelled_message_indexes:
-      #  continue    # ignore repeated citations.  # TODO: if repeated citations have different labels, take labels from all of citations
-      #else:
-      #  already_labelled_message_indexes.add(overall_message_index)
-
-      if nearest_message in already_labelled_message_parts:
-        continue  # TODO: if repeated citations have different labels, take labels from all of citations
-      else:
-        already_labelled_message_parts.add(nearest_message)
+      if not allow_multiple_citations_per_message:
+        if nearest_message in already_labelled_message_parts: # TODO: if LLM labels the message parts separately, then label them separately in HTML output as well
+          already_labelled_message_parts[nearest_message]["labels"] += labels
+          continue  # if repeated citations have different labels, take labels from all of citations
+        # else:
+        #   already_labelled_message_parts.add(nearest_message)
+      #/ if not allow_multiple_citations_per_message:
 
 
-      start_char = person_message_spans[person][person_message_index][0] + nearest_message.find(citation)  # TODO: allow fuzzy matching in case spaces or punctuation differ
-      end_char = start_char + len(citation)
+      citation_in_nearest_message = nearest_message
+      start_char = person_message_spans[person][nearest_person_message_index][0]
+      end_char = start_char + len(nearest_message)
 
+      if allow_multiple_citations_per_message:
+        for max_l_dist in range(0, min(len(citation), len(nearest_message))): # len(shortest_text)-1 is maximum reasonable distance. After that empty strings will match too   # TODO: apply time limit to this loop  
 
-      for label in labels:
-        totals[person][label] += 1
-        
+          matches = find_near_matches(citation, nearest_message, max_l_dist=max_l_dist)   # TODO: apply time limit to this function   
+          if len(matches) > 0:
 
-      labels.sort()
+            start_char = person_message_spans[person][nearest_person_message_index][0] + matches[0].start
+            end_char = start_char + matches[0].end - matches[0].start
+            citation_in_nearest_message = matches[0].matched
+
+            # for some reason the fuzzy matching keeps newlines in the nearest match even when they are not present in the citation. Lets remove them.
+
+            len_before_strip = len(citation_in_nearest_message)
+            citation_in_nearest_message = citation_in_nearest_message.lstrip()
+            start_char += len_before_strip - len(citation_in_nearest_message)
+
+            len_before_strip = len(citation_in_nearest_message)
+            citation_in_nearest_message = citation_in_nearest_message.rstrip()
+            end_char -= len_before_strip - len(citation_in_nearest_message)
+
+            break
+
+          #/ if len(matches) > 0:
+        #/ for max_l_dist in range(0, len(citation)):
+      #/ if allow_multiple_citations_per_message
 
       entry = {
         "person": person,
@@ -755,17 +834,24 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
         "end_char": end_char,
         # "start_message": overall_message_index, 
         # "end_message": overall_message_index,   
-        "text": nearest_message,  # citation,   # use original text not ChatGPT citation here
+        "text": citation_in_nearest_message,   # use original text not ChatGPT citation here
         "labels": labels,
       }
 
       if extract_message_indexes:
-        # overall_message_index = overall_message_indexes[person][person_message_index]  
+
+        # nearest_person_message_index = person_messages[person].index(nearest_message)
+        overall_message_index = overall_message_indexes[person][nearest_person_message_index]  
+
         entry.update({
           "start_message": overall_message_index, 
           "end_message": overall_message_index,   
         })
       #/ if extract_message_indexes:
+
+
+      if not allow_multiple_citations_per_message:
+        already_labelled_message_parts[nearest_message] = entry
 
       expression_dicts.append(entry)
       
@@ -790,6 +876,20 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     unexpected_labels = None
 
   #/ if do_closed_ended_analysis:
+
+
+  for entry in expression_dicts:
+
+    entry["labels"] = list(set(entry["labels"]))  # keep unique labels per entry
+    entry["labels"].sort()
+
+    person = entry["person"]
+    labels = entry["labels"]
+
+    for label in labels:
+      totals[person][label] += 1
+
+  #/ for entry in expression_dicts:
 
 
   # cleanup zero valued counts in totals
@@ -927,12 +1027,20 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     import urllib.parse
 
 
+    response_html_filename = sys.argv[4] if len(sys.argv) > 4 else None
+    if response_html_filename:
+      response_html_filename = os.path.join("..", response_html_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+    else: 
+      response_html_filename = os.path.splitext(response_filename)[0] + ".html" if using_user_input_filename else "test_evaluation.html"
+
+
     highlights_html = await render_highlights(config, user_input, expression_dicts)
 
 
     def get_full_html(for_pdfkit = False):
 
-      result = ('<html>'
+      result = (
+              '<html>'
               + '\n<head>'
               + '\n<meta charset="utf-8">'  # needed for pdfkit
               + '\n<title>' + html.escape(title) + '</title>'
@@ -966,7 +1074,17 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
                       ('\n<div class="graph">' + svg.decode('utf8', 'ignore').replace('<svg', '<svg width="1000" height="750"') + '</div>')  # this will result in a proportionally scaled image
                       # ('\n<div class="graph"><img width="1000" height="750" src="data:image/svg+xml;base64,' + base64.b64encode(svg).decode('utf8', 'ignore') + '" /></div>')  # this would result in a non-proportionally scaled image
                       if for_pdfkit else    # pdfkit does not support linked images, the image data needs to be embedded. Also pdfkit requires the image dimensions to be specified.
-                      ('\n<div class="graph"><object data="' + urllib.parse.quote_plus(response_svg_filename) + '" type="image/svg+xml"></object></div>') # This will result in an interactive graph. Embdded svg tag would result in non-interactive graph.
+                      (
+                        '\n<div class="graph"><object data="'  # Using <object> tag will result in an interactive graph. Embdded svg tag would result in non-interactive graph.
+                        + urllib.parse.quote_plus(
+                            os.path.relpath(    # get relative path of SVG as compared to HTML file
+                              response_svg_filename, 
+                              os.path.dirname(response_html_filename)
+                            ).replace("\\", "/"),   # change dir slashes to url slashes format
+                            safe="/"  # do not encode url slashes
+                          ) 
+                        + '" type="image/svg+xml"></object></div>'
+                      )
                     )
                     if chart else
                     ''
@@ -982,20 +1100,14 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
               + '\n<div style="font: bold 1em Arial;">Labelled input:</div><br>'
               + '\n<div style="font: 1em Arial;">' 
               + '\n' + highlights_html 
-              + '\n</div>\n</body>\n</html>')
+              + '\n</div>\n</body>\n</html>'
+            )   #/ result = (
 
       return result
 
     #/ def get_html():
 
     output_html = get_full_html(for_pdfkit = False)
-
-
-    response_html_filename = sys.argv[4] if len(sys.argv) > 4 else None
-    if response_html_filename:
-      response_html_filename = os.path.join("..", response_html_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
-    else: 
-      response_html_filename = os.path.splitext(response_filename)[0] + ".html" if using_user_input_filename else "test_evaluation.html"
 
     await save_txt(response_html_filename, output_html, quiet = True, make_backup = True, append = False)
 

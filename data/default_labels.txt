@@ -8,14 +8,11 @@
 - Aggression
 - Evasion
 - Changing the topic
-- Deflection
 - Unrelated comments
 - Being impatient
 - Impatience
-- Manipulation
 - Gaslighting
 - Shifting of responsibility and blame
-- Deflection of responsibility
 - Guilt tripping
 - Victim playing
 - Exaggeration 
@@ -37,12 +34,10 @@
 - Lying
 - Denying
 - Feigning ignorance 
-- Feigning innocence
 - Blaming
 - Mind games
 - Convincing to give up something important
 - Making others more dependent on them
-- Making excuses
 - Strategic facts sharing
 - Gaining superiority
 - Generalization
@@ -83,6 +78,10 @@
 - Exaggerated accusations
 - Being oppositional
 - Not asking for the other person's viewpoint on relevant matters
+- Unwillingness to learn
+- Being entitled
+- Being ungrateful
+- Ignoring previous conflict
 - Foot-in-the-Door Technique
 - Door-in-the-Face Technique
 - Low-Ball Technique
