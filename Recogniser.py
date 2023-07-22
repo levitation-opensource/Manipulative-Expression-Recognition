@@ -357,7 +357,7 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
       elif label == "ORDINAL":
         replacement = None  # "Ordinal"
       elif label == "CARDINAL":
-        replacement = "Number" if ananonymise_numbers else None
+        replacement = "Number" if anonymise_numbers and len(text) > 2 else None   # do not anonymise short number since they are likely ordinals too
       else:
         replacement = None
 
