@@ -249,7 +249,9 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
   safeprint("Loading Spacy...")
   import spacy    # load it only when anonymisation is requested, since this package loads slowly
 
+  safeprint("Loading Named Entity Recognition model...")
   NER = spacy.load(ner_model)   # TODO: config setting
+
 
   entities = NER(user_input)
   letters = string.ascii_uppercase
@@ -257,7 +259,40 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
   next_available_replacement_letter_index = 0
   result = ""
   prev_ent_end = 0
-  entities_dict = {}
+  entities_dict = {}  # TODO: detect any pre-existing anonymous entities like Person A, Person B in the input text and reserve these letters in the dict so that they are not reused
+  reserved_replacement_letter_indexes = set()
+
+
+  active_replacements = ""
+  if anonymise_names:
+    active_replacements += "Person|Group|Building|Organisation|Area|Location|Event|Language"
+  if anonymise_names and anonymise_numbers:
+    active_replacements += "|"
+  if anonymise_numbers:
+    active_replacements += "Money Amount|Quantity|Number"
+
+  if len(active_replacements) > 0:
+
+    # TODO: match also strings like "Person 123"
+    p = re.compile(r"(^|\s)(" + active_replacements + ")(\s+)([" + re.escape(letters) + "])(\s|:|$)", re.DOTALL)
+    re_matches = p.finditer(user_input)    
+
+    for re_match in re_matches:
+
+      replacement = re_match.group(2)
+      space = re_match.group(3)
+      letter = re_match.group(4)
+
+      replacement_letter_index = ord(letter) - ord("A")
+      reserved_replacement_letter_indexes.add(replacement_letter_index)
+
+      # entities_dict[replacement + " " + letter] = replacement_letter_index
+      entities_dict[replacement + space + letter] = replacement_letter_index
+
+    #/ for re_match in re_matches:
+
+  #/ if len(active_replacements) > 0:
+
 
   for phase in range(0, 2): # two phases: 1) counting unique entities, 2) replacing them
     for word in entities.ents:
@@ -266,6 +301,9 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
       label = word.label_
       start_char = word.start_char
       end_char = word.end_char
+
+      if phase == 0 and text in entities_dict: # Spacy detects texts like "Location C" as entities
+        continue
 
       if label == "PERSON":
         replacement = "Person" if anonymise_names else None
@@ -322,14 +360,22 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
         if phase == 0:
 
           if text not in entities_dict:
-            entities_dict[text] = next_available_replacement_letter_index          
-            next_available_replacement_letter_index += 1
+
+            while next_available_replacement_letter_index in reserved_replacement_letter_indexes:
+              next_available_replacement_letter_index += 1
+
+            replacement_letter_index = next_available_replacement_letter_index
+
+            entities_dict[text] = replacement_letter_index
+            reserved_replacement_letter_indexes.add(replacement_letter_index)
+
+          #/ if text not in entities_dict:
 
         else:   #/ if phase == 0:
 
           replacement_letter_index = entities_dict[text]
 
-          if next_available_replacement_letter_index <= len(letters):
+          if len(reserved_replacement_letter_indexes) <= len(letters):
             replacement_letter = letters[replacement_letter_index]
           else:
             replacement_letter = str(replacement_letter_index + 1)  # use numeric names if there are too many entities in text to use letters
@@ -783,7 +829,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
           #/ with time_limit(0.1):
         except TimeoutError:
-          safeprint(f"Encountered an time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
+          safeprint(f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
           continue # Skip this citation from the output, do not even use the whole message. It is likely that the citation does not meaningfully match the content of nearest_message variable.
 
       #/ if allow_multiple_citations_per_message
