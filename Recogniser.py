@@ -228,84 +228,18 @@ async def run_llm_analysis(config, model_name, gpt_timeout, messages, continuati
 #/ async def run_llm_analysis():
 
 
-#async def run_llm_analysis(model_name, gpt_timeout, messages, continuation_request, enable_cache = True):
-
-#  if enable_cache:
-#    # NB! this cache key and the cache will not contain the OpenAI key, so it is safe to publish the cache files
-#    cache_key = OrderedDict([ 
-#      ("model_name", model_name), 
-#      ("messages", messages), 
-#    ])
-#    cache_key = json_tricks.dumps(cache_key)   # json_tricks preserves dictionary orderings
-#    cache_key = hashlib.sha512(cache_key.encode("utf-8")).hexdigest() 
-
-#    # TODO: move this block to Utilities.py
-#    fulldirname = os.path.join(data_dir, "cache")
-#    os.makedirs(fulldirname, exist_ok = True)
-
-#    cache_filename = os.path.join("cache", "cache_" + cache_key + ".dat")
-#    response = await read_file(cache_filename, default_data = None, quiet = True)
-#  else:
-#    response = None
-
-
-#  if response is None:
-
-#    responses = []
-
-
-#    continue_analysis = True
-#    while continue_analysis:
-
-#      (response_content, finish_reason) = await completion_with_backoff(
-
-#        gpt_timeout,
-
-#        model = model_name,
-#        messages = messages,
-          
-#        # functions = [],   # if no functions are in array then the array should be omitted, else error occurs
-#        # function_call = "none",   # 'function_call' is only allowed when 'functions' are specified
-#        n = 1,
-#        stream = False,   # TODO
-#        # user = "",    # TODO
-
-#        temperature = 0, # 1,   0 means deterministic output
-#        top_p = 1,
-#        max_tokens = 2048,
-#        presence_penalty = 0,
-#        frequency_penalty = 0,
-#        # logit_bias = None,
-#      )
-
-#      responses.append(response_content)
-#      too_long = (finish_reason == "length")
-
-#      if too_long:
-#        messages.append({"role": "assistant", "content": response})
-#        messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality
-#      else:
-#        continue_analysis = False
-
-#    #/ while continue_analysis:
-
-#    response = "\n".join(responses)
-
-
-#    if enable_cache:
-#      await save_file(cache_filename, response, quiet = True)   # TODO: save request in cache too and compare it upon cache retrieval
-
-#  #/ if response is None:
-
-
-#  return response
-
-##/ async def run_llm_analysis():
+def remove_comments(text):
+  # re.sub does global search and replace, replacing all matching instances
+  text = re.sub(r"(^|[\r\n]+)\s*#[^\r\n]*", "", text)
+  return text
+#/ def remove_comments(text):
 
 
 def sanitise_input(text):
+  # re.sub does global search and replace, replacing all matching instances
   text = re.sub(r"[{\[]", "(", text)
   text = re.sub(r"[}\]]", ")", text)
+  text = re.sub(r"-{3,}", "--", text)   # TODO: use some other separator between system instruction and user input
   return text
 #/ def sanitise_input(text):
 
@@ -518,6 +452,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
   # format user input
   user_input = (await read_txt(input_filename, quiet = True)).strip()
+  user_input = remove_comments(user_input) # TODO: config flag
 
 
   anonymise_names = config.get("anonymise_names")
