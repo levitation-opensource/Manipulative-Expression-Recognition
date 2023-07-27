@@ -253,6 +253,10 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
   NER = spacy.load(ner_model)   # TODO: config setting
 
 
+  # Spacy's NER is not able to see names separated by multiple spaces as a single name. Newlines in names are fortunately ok though. Tabs are ok too, though they will still be replaced in the following regex.
+  user_input = re.sub(r"[^\S\r\n]+", " ", user_input)    # replace all repeating whitespace which is not newline - https://stackoverflow.com/questions/3469080/match-whitespace-but-not-newlines
+
+
   entities = NER(user_input)
   letters = string.ascii_uppercase
 
@@ -286,8 +290,8 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
       replacement_letter_index = ord(letter) - ord("A")
       reserved_replacement_letter_indexes.add(replacement_letter_index)
 
-      # entities_dict[replacement + " " + letter] = replacement_letter_index
-      entities_dict[replacement + space + letter] = replacement_letter_index
+      entities_dict[replacement + " " + letter] = replacement_letter_index  # use space as separator to normalise the dictionary keys so that same entity with different space formats gets same replacement
+      # entities_dict[replacement + space + letter] = replacement_letter_index
 
     #/ for re_match in re_matches:
 
@@ -297,12 +301,14 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
   for phase in range(0, 2): # two phases: 1) counting unique entities, 2) replacing them
     for word in entities.ents:
 
-      text = word.text
+      text_original = word.text
       label = word.label_
       start_char = word.start_char
       end_char = word.end_char
 
-      if phase == 0 and text in entities_dict: # Spacy detects texts like "Location C" as entities
+      text_normalised = re.sub(r"\s+", " ", text_original) # normalise the dictionary keys so that same entity with different space formats gets same replacement
+
+      if phase == 0 and text_normalised in entities_dict: # Spacy detects texts like "Location C" as entities
         continue
 
       if label == "PERSON":
@@ -340,7 +346,7 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
       elif label == "ORDINAL":
         replacement = None  # "Ordinal"
       elif label == "CARDINAL":
-        replacement = "Number" if anonymise_numbers and len(text) > 2 else None   # do not anonymise short number since they are likely ordinals too
+        replacement = "Number" if anonymise_numbers and len(text_original) > 2 else None   # do not anonymise short number since they are likely ordinals too
       else:
         replacement = None
 
@@ -353,32 +359,32 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
       if replacement is None:
 
         if phase == 1:
-          result += text 
+          result += text_original 
 
       else:
 
         if phase == 0:
 
-          if text not in entities_dict:
+          if text_normalised not in entities_dict:
 
             while next_available_replacement_letter_index in reserved_replacement_letter_indexes:
               next_available_replacement_letter_index += 1
 
             replacement_letter_index = next_available_replacement_letter_index
 
-            entities_dict[text] = replacement_letter_index
+            entities_dict[text_normalised] = replacement_letter_index
             reserved_replacement_letter_indexes.add(replacement_letter_index)
 
-          #/ if text not in entities_dict:
+          #/ if text_normalised not in entities_dict:
 
         else:   #/ if phase == 0:
 
-          replacement_letter_index = entities_dict[text]
+          replacement_letter_index = entities_dict[text_normalised]
 
           if len(reserved_replacement_letter_indexes) <= len(letters):
             replacement_letter = letters[replacement_letter_index]
           else:
-            replacement_letter = str(replacement_letter_index + 1)  # use numeric names if there are too many entities in text to use letters
+            replacement_letter = str(replacement_letter_index + 1)  # use numeric names if there are too many entities in input to use letters
 
           result += replacement + " " + replacement_letter
 
