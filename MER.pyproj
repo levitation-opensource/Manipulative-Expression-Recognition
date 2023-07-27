@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Logger.py" />
     <Compile Include="Recogniser.py" />
+    <Compile Include="TimeLimit.py" />
     <Compile Include="Utilities.py" />
   </ItemGroup>
   <ItemGroup>

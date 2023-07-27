@@ -45,6 +45,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 
 from Utilities import init_logging, safeprint, print_exception, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_raw, save_raw, read_txt, save_txt, strtobool, async_cached, async_cached_encrypted
+from TimeLimit import time_limit
 
 # init_logging(os.path.basename(__file__), __name__, max_old_log_rename_tries = 1)
 
@@ -90,6 +91,7 @@ def get_config():
   split_messages_by = remove_quotes(config.get("MER", "SplitMessagesBy", fallback="")) # .strip()
   ignore_incorrectly_assigned_citations = strtobool(remove_quotes(config.get("MER", "IgnoreIncorrectlyAssignedCitations", fallback="false")))
   allow_multiple_citations_per_message = strtobool(remove_quotes(config.get("MER", "AllowMultipleCitationsPerMessage", fallback="true")))
+  citation_lookup_time_limit = float(remove_quotes(config.get("MER", "CitationLookupTimeLimit", fallback="0.1")))
 
 
   result = { 
@@ -110,6 +112,7 @@ def get_config():
     "split_messages_by": split_messages_by,
     "ignore_incorrectly_assigned_citations": ignore_incorrectly_assigned_citations,
     "allow_multiple_citations_per_message": allow_multiple_citations_per_message,
+    "citation_lookup_time_limit": citation_lookup_time_limit,
   }
 
   return result
@@ -126,7 +129,7 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
   qqq = True  # for debugging
 
   attempt_number = completion_with_backoff.retry.statistics["attempt_number"]
-  timeout_multiplier = 2 ** (attempt_number-1)
+  timeout_multiplier = 2 ** (attempt_number-1) # increase timeout exponentially
 
   try:
 
@@ -483,7 +486,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     extract_message_indexes = config["extract_message_indexes"]
 
   gpt_model = config["gpt_model"]
-  gpt_timeout = config["gpt_timeout"]
+  gpt_timeout = config["gpt_timeout"]  # TODO: into run_llm_analysis_uncached()
 
 
   labels_filename = sys.argv[3] if len(sys.argv) > 3 else None
@@ -493,9 +496,9 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     labels_filename = "default_labels.txt"
 
 
-  closed_ended_system_instruction = (await read_txt("closed_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here
-  open_ended_system_instruction = (await read_txt("open_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here
-  extract_names_of_participants_system_instruction = (await read_txt("extract_names_of_participants_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here
+  closed_ended_system_instruction = (await read_txt("closed_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
+  open_ended_system_instruction = (await read_txt("open_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
+  extract_names_of_participants_system_instruction = (await read_txt("extract_names_of_participants_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
   all_labels_as_text = (await read_txt(labels_filename, quiet = True)).strip()
   continuation_request = (await read_txt("continuation_request.txt", quiet = True)).strip()
 
@@ -561,8 +564,6 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     messages = [
       {"role": "system", "content": open_ended_system_instruction},
       {"role": "user", "content": user_input},
-      # {"role": "assistant", "content": "Who's there?"},
-      # {"role": "user", "content": "Orange."},
     ]
 
     # TODO: add temperature parameter
@@ -580,8 +581,6 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     messages = [
       {"role": "system", "content": closed_ended_system_instruction_with_labels},
       {"role": "user", "content": user_input},
-      # {"role": "assistant", "content": "Who's there?"},
-      # {"role": "user", "content": "Orange."},
     ]
 
     # TODO: add temperature parameter
@@ -602,8 +601,6 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
       messages = [
         {"role": "system", "content": extract_names_of_participants_system_instruction},
         {"role": "user", "content": user_input},
-        # {"role": "assistant", "content": "Who's there?"},
-        # {"role": "user", "content": "Orange."},
       ]
 
       names_of_participants_response = await run_llm_analysis(config, gpt_model, gpt_timeout, messages, continuation_request)
@@ -715,7 +712,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     ignore_incorrectly_assigned_citations = config["ignore_incorrectly_assigned_citations"]
     allow_multiple_citations_per_message = config["allow_multiple_citations_per_message"]
 
-    for expressions_tuple in expressions_tuples:
+    for tuple_index, expressions_tuple in enumerate(expressions_tuples):  # tuple_index is for debugging
 
       (person, citation, labels) = expressions_tuple
       
@@ -798,35 +795,64 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
       #/ if not allow_multiple_citations_per_message:
 
 
+      # init with fallback values for case precise citation is not found
       citation_in_nearest_message = nearest_message
       start_char = person_message_spans[person][nearest_person_message_index][0]
       end_char = start_char + len(nearest_message)
 
+
       if allow_multiple_citations_per_message:
-        for max_l_dist in range(0, min(len(citation), len(nearest_message))): # len(shortest_text)-1 is maximum reasonable distance. After that empty strings will match too   # TODO: apply time limit to this loop  
 
-          matches = find_near_matches(citation, nearest_message, max_l_dist=max_l_dist)   # TODO: apply time limit to this function   
-          if len(matches) > 0:
+        # TODO: cache results of this loop in cases it runs longer than n milliseconds
 
-            start_char = person_message_spans[person][nearest_person_message_index][0] + matches[0].start
-            end_char = start_char + matches[0].end - matches[0].start
-            citation_in_nearest_message = matches[0].matched
+        max_l_dist = None
+        try: # NB! try needs to be outside of the time_limit context
 
-            # for some reason the fuzzy matching keeps newlines in the nearest match even when they are not present in the citation. Lets remove them.
+          citation_lookup_time_limit = config["citation_lookup_time_limit"]
 
-            len_before_strip = len(citation_in_nearest_message)
-            citation_in_nearest_message = citation_in_nearest_message.lstrip()
-            start_char += len_before_strip - len(citation_in_nearest_message)
+          outer_time_limit = citation_lookup_time_limit
+          with time_limit(outer_time_limit, msg = "find_near_matches outer"):
 
-            len_before_strip = len(citation_in_nearest_message)
-            citation_in_nearest_message = citation_in_nearest_message.rstrip()
-            end_char -= len_before_strip - len(citation_in_nearest_message)
+            for max_l_dist in range(0, min(len(citation), len(nearest_message))): # len(shortest_text)-1 is maximum reasonable distance. After that empty strings will match too   # TODO: apply time limit to this loop  
 
-            break
+              # NB! need to apply time limit to this function since in some cases it hangs
+              #try: # NB! try needs to be outside of the time_limit context
+              #  inner_time_limit = citation_lookup_time_limit
+              #  with time_limit(inner_time_limit if inner_time_limit < outer_time_limit else None, msg = "find_near_matches inner"): 
+              #    matches = find_near_matches(citation, nearest_message, max_l_dist=max_l_dist)  
+              #except TimeoutError:
+              #  safeprint(f"Encountered an inner time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}")
+              #  matches = []
+              matches = find_near_matches(citation, nearest_message, max_l_dist=max_l_dist)  
+          
+              if len(matches) > 0:
 
-          #/ if len(matches) > 0:
-        #/ for max_l_dist in range(0, len(citation)):
+                start_char = person_message_spans[person][nearest_person_message_index][0] + matches[0].start
+                end_char = start_char + matches[0].end - matches[0].start
+                citation_in_nearest_message = matches[0].matched
+
+                # for some reason the fuzzy matching keeps newlines in the nearest match even when they are not present in the citation. Lets remove them.
+
+                len_before_strip = len(citation_in_nearest_message)
+                citation_in_nearest_message = citation_in_nearest_message.lstrip()
+                start_char += len_before_strip - len(citation_in_nearest_message)
+
+                len_before_strip = len(citation_in_nearest_message)
+                citation_in_nearest_message = citation_in_nearest_message.rstrip()
+                end_char -= len_before_strip - len(citation_in_nearest_message)
+
+                break
+
+              #/ if len(matches) > 0:
+            #/ for max_l_dist in range(0, len(citation)):
+
+          #/ with time_limit(0.1):
+        except TimeoutError:
+          safeprint(f"Encountered an time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
+          continue # Skip this citation from the output, do not even use the whole message. It is likely that the citation does not meaningfully match the content of nearest_message variable.
+
       #/ if allow_multiple_citations_per_message
+
 
       entry = {
         "person": person,
