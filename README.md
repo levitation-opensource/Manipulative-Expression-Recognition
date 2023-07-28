@@ -114,7 +114,7 @@ See <a href="https://github.com/levitation-opensource/Manipulative-Expression-Re
 The software produces output in four formats:
 * HTML, which contains rendering of the conversation with highlighted relevants parts and their labels. 
 * The HTML includes an SVG diagram with a summary of the detected labels per person.
-* PDF version of the above HTML. For setting up PDF rendering support, see <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/install_steps.txt"><u>install_steps.txt</u></a>
+* PDF version of the above HTML. For setting up PDF rendering support, see <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/install_steps.txt"><u>install_steps.txt</u></a>. See <a href="#example-output"><u>Example output</u></a> section in this document for links to examples.
 * JSON, which contains the following structure:
 
     ```
