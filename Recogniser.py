@@ -253,10 +253,6 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
   NER = spacy.load(ner_model)   # TODO: config setting
 
 
-  # Spacy's NER is not able to see names separated by multiple spaces as a single name. Newlines in names are fortunately ok though. Tabs are ok too, though they will still be replaced in the following regex.
-  user_input = re.sub(r"[^\S\r\n]+", " ", user_input)    # replace all repeating whitespace which is not newline - https://stackoverflow.com/questions/3469080/match-whitespace-but-not-newlines
-
-
   entities = NER(user_input)
   letters = string.ascii_uppercase
 
@@ -278,14 +274,13 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
   if len(active_replacements) > 0:
 
     # TODO: match also strings like "Person 123"
-    p = re.compile(r"(^|\s)(" + active_replacements + ")(\s+)([" + re.escape(letters) + "])(\s|:|$)", re.DOTALL)
-    re_matches = p.finditer(user_input)    
+    re_matches = re.findall(r"(^|\s)(" + active_replacements + ")(\s+)([" + re.escape(letters) + "])(\s|:|$)", user_input)
 
     for re_match in re_matches:
 
-      replacement = re_match.group(2)
-      space = re_match.group(3)
-      letter = re_match.group(4)
+      replacement = re_match[2]
+      space = re_match[3]
+      letter = re_match[4]
 
       replacement_letter_index = ord(letter) - ord("A")
       reserved_replacement_letter_indexes.add(replacement_letter_index)
@@ -346,7 +341,13 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
       elif label == "ORDINAL":
         replacement = None  # "Ordinal"
       elif label == "CARDINAL":
-        replacement = "Number" if anonymise_numbers and len(text_original) > 2 else None   # do not anonymise short number since they are likely ordinals too
+        replacement = (
+                        "Number" if 
+                        anonymise_numbers 
+                        and len(text_normalised) > 2  #    # do not anonymise short number since they are likely ordinals too
+                        and re.search(r"(\d|\s)", text_normalised) is not None   # if it is a one-word textual representation of a number then do not normalise it. It might be phrase like "one-sided" etc, which is actually not a number
+                        else None
+                      )
       else:
         replacement = None
 
@@ -405,6 +406,11 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
 
 
 async def anonymise(config, user_input, anonymise_names, anonymise_numbers, ner_model, enable_cache = True):
+
+  # Spacy's NER is not able to see names separated by multiple spaces as a single name. Newlines in names are fortunately ok though. Tabs are ok too, though they will still be replaced in the following regex.
+  # Replace spaces before caching so that changes in spacing do not require cache update
+  user_input = re.sub(r"[^\S\r\n]+", " ", user_input)    # replace all repeating whitespace which is not newline with a single space - https://stackoverflow.com/questions/3469080/match-whitespace-but-not-newlines
+
 
   encrypt_cache_data = config["encrypt_cache_data"]
 
@@ -652,6 +658,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
     for person in detected_persons:
 
+      # using finditer() since it provides match.start() in the results
       if split_messages_by_newline:
         p = re.compile(r"[\r\n]+" + re.escape(person) + r":(.*)")
         re_matches = p.finditer("\n" + user_input)    # TODO: ensure that ":" character inside messages does not mess the analysis up
