@@ -464,6 +464,35 @@ async def render_highlights(config, user_input, expression_dicts, enable_cache =
 #/ async def render_highlights():
 
 
+def parse_labels(all_labels_as_text):
+
+  labels_list = []
+  lines = all_labels_as_text.splitlines(keepends=False)
+  for line in lines:
+
+    line = line.strip()
+    if line[0] == "-":
+      line = line[1:].strip()
+
+    line = sanitise_input(line)
+    line = re.sub(r"[.,:;]+", "/", line).strip()  # remove punctuation from labels
+
+    if len(line) == 0:
+      continue
+
+    labels_list.append(line)
+
+  #/ for line in all_labels_as_text.splitlines(keepends=False):
+
+  all_labels_as_text = "\n".join("- " + x for x in labels_list)
+  # labels_list.sort()
+
+
+  return (labels_list, all_labels_as_text)
+
+#/ def parse_labels():
+
+
 async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None):
 
 
@@ -488,10 +517,18 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     labels_filename = "default_labels.txt"
 
 
+  ignored_labels_filename = sys.argv[4] if len(sys.argv) > 4 else None
+  if ignored_labels_filename:
+    ignored_labels_filename = os.path.join("..", ignored_labels_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+  else:
+    ignored_labels_filename = "ignored_labels.txt"
+
+
   closed_ended_system_instruction = (await read_txt("closed_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
   open_ended_system_instruction = (await read_txt("open_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
   extract_names_of_participants_system_instruction = (await read_txt("extract_names_of_participants_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
   all_labels_as_text = (await read_txt(labels_filename, quiet = True)).strip()
+  all_ignored_labels_as_text = (await read_txt(ignored_labels_filename, quiet = True)).strip()
   continuation_request = (await read_txt("continuation_request.txt", quiet = True)).strip()
 
 
@@ -527,26 +564,8 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
 
   # parse labels    # TODO: functionality for adding comments to the labels file which will be not sent to LLM
-  labels_list = []
-  lines = all_labels_as_text.splitlines(keepends=False)
-  for line in lines:
-
-    line = line.strip()
-    if line[0] == "-":
-      line = line[1:].strip()
-
-    line = sanitise_input(line)
-    line = re.sub(r"[.,:;]+", "/", line).strip()  # remove punctuation from labels
-
-    if len(line) == 0:
-      continue
-
-    labels_list.append(line)
-
-  #/ for line in all_labels_as_text.splitlines(keepends=False):
-
-  all_labels_as_text = "\n".join("- " + x for x in labels_list)
-  # labels_list.sort()
+  (labels_list, all_labels_as_text) = parse_labels(all_labels_as_text)
+  (ignored_labels_list, all_ignored_labels_as_text) = parse_labels(all_ignored_labels_as_text)
 
 
 
@@ -621,19 +640,28 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
       labels = [x.strip() for x in labels.split(",")]
 
+      filtered_labels = []
       for label in labels:  # create debug info about non-requested labels
+
+        if label in ignored_labels_list:
+          continue
+
         if label not in labels_list:
 
           unexpected_labels.add(label)
 
           if config.get("keep_unexpected_labels"):
             labels_list.append(label)
+          else:
+            continue  # throw away any non-requested labels
 
         #/ if label not in labels_list:
+
+        filtered_labels.append(label)
+
       #/ for label in labels:
 
-      if not config.get("keep_unexpected_labels"):
-        labels = [x for x in labels if x in labels_list]  # throw away any non-requested labels
+      labels = filtered_labels
       
       if len(labels) == 0:
         continue
@@ -1032,11 +1060,11 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
       # chart.render_to_png(render_to_png='chart.png')
 
 
-      response_svg_filename = sys.argv[5] if len(sys.argv) > 5 else None
-      if response_svg_filename:
-        response_svg_filename = os.path.join("..", response_svg_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
-      else: 
-        response_svg_filename = os.path.splitext(response_filename)[0] + ".svg" if using_user_input_filename else "test_evaluation.svg"
+      #response_svg_filename = sys.argv[5] if len(sys.argv) > 5 else None
+      #if response_svg_filename:
+      #  response_svg_filename = os.path.join("..", response_svg_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+      #else: 
+      response_svg_filename = os.path.splitext(response_filename)[0] + ".svg" if using_user_input_filename else "test_evaluation.svg"
 
       await save_raw(response_svg_filename, svg, quiet = True, make_backup = True, append = False)
 
@@ -1047,11 +1075,11 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     import urllib.parse
 
 
-    response_html_filename = sys.argv[4] if len(sys.argv) > 4 else None
-    if response_html_filename:
-      response_html_filename = os.path.join("..", response_html_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
-    else: 
-      response_html_filename = os.path.splitext(response_filename)[0] + ".html" if using_user_input_filename else "test_evaluation.html"
+    #response_html_filename = sys.argv[4] if len(sys.argv) > 4 else None
+    #if response_html_filename:
+    #  response_html_filename = os.path.join("..", response_html_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+    #else: 
+    response_html_filename = os.path.splitext(response_filename)[0] + ".html" if using_user_input_filename else "test_evaluation.html"
 
 
     highlights_html = await render_highlights(config, user_input, expression_dicts)
@@ -1161,11 +1189,11 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
       if pdf is not None:
 
-        response_pdf_filename = sys.argv[4] if len(sys.argv) > 4 else None
-        if response_pdf_filename:
-          response_pdf_filename = os.path.join("..", response_pdf_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
-        else: 
-          response_pdf_filename = os.path.splitext(response_filename)[0] + ".pdf" if using_user_input_filename else "test_evaluation.pdf"
+        #response_pdf_filename = sys.argv[4] if len(sys.argv) > 4 else None
+        #if response_pdf_filename:
+        #  response_pdf_filename = os.path.join("..", response_pdf_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+        #else: 
+        response_pdf_filename = os.path.splitext(response_filename)[0] + ".pdf" if using_user_input_filename else "test_evaluation.pdf"
 
         await save_raw(response_pdf_filename, pdf, quiet = True, make_backup = True, append = False)
 

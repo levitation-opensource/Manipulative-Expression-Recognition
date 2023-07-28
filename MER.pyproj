@@ -46,6 +46,7 @@
     <Content Include="data\continuation_request.txt" />
     <Content Include="data\default_labels.txt" />
     <Content Include="data\extract_names_of_participants_system_instruction.txt" />
+    <Content Include="data\ignored_labels.txt" />
     <Content Include="data\open_ended_system_instruction.txt" />
     <Content Include="data\test_evaluation.html" />
     <Content Include="data\test_evaluation.json" />
