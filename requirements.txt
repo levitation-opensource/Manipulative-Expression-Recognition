@@ -10,3 +10,4 @@ pdfkit>=1.0.0
 cryptography>=41.0.2
 rapidfuzz>=3.1.1
 fuzzysearch>=0.7.3
+tiktoken>=0.4.0

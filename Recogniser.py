@@ -35,6 +35,7 @@ import json_tricks
 # import openai
 import tenacity   # for exponential backoff
 import openai_async
+import tiktoken
 
 
 # organization = os.getenv("OPENAI_API_ORG")
@@ -146,6 +147,9 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
 
     openai_response = json_tricks.loads(openai_response.text)
 
+    if openai_response.get("error"):
+      raise Exception(openai_response["error"]["message"]) # TODO: use a more specific exception type
+
     # NB! this line may also throw an exception if the OpenAI announces that it is overloaded # TODO: do not retry for all error messages
     response_content = openai_response["choices"][0]["message"]["content"]
     finish_reason = openai_response["choices"][0]["finish_reason"]
@@ -168,13 +172,103 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
 #/ async def completion_with_backoff(gpt_timeout, **kwargs):
 
 
+# https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb
+def num_tokens_from_messages(messages, model):
+  """Return the number of tokens used by a list of messages."""
+
+  try:
+    encoding = tiktoken.encoding_for_model(model)
+  except KeyError:
+    safeprint("Warning: model not found. Using cl100k_base encoding.")
+    encoding = tiktoken.get_encoding("cl100k_base")
+
+  if model in {
+    "gpt-3.5-turbo-0613",
+    "gpt-3.5-turbo-16k-0613",
+    "gpt-4-0314",
+    "gpt-4-32k-0314",
+    "gpt-4-0613",
+    "gpt-4-32k-0613",
+  }:
+    tokens_per_message = 3
+    tokens_per_name = 1
+
+  elif model == "gpt-3.5-turbo-0301":
+    tokens_per_message = 4  # every message follows <|start|>{role/name}\n{content}<|end|>\n
+    tokens_per_name = -1  # if there's a name, the role is omitted
+
+  elif "gpt-3.5-turbo" in model:
+    # safeprint("Warning: gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613.")
+    return num_tokens_from_messages(messages, model="gpt-3.5-turbo-0613")
+
+  elif "gpt-3.5-turbo-16k" in model: # roland
+    # safeprint("Warning: gpt-3.5-turbo-16k may update over time. Returning num tokens assuming gpt-3.5-turbo-16k-0613.")
+    return num_tokens_from_messages(messages, model="gpt-3.5-turbo-16k-0613")
+
+  elif "gpt-4" in model:
+    # safeprint("Warning: gpt-4 may update over time. Returning num tokens assuming gpt-4-0613.")
+    return num_tokens_from_messages(messages, model="gpt-4-0613")
+
+  else:
+    #raise NotImplementedError(
+    #  f"""num_tokens_from_messages() is not implemented for model {model}. See https://github.com/openai/openai-python/blob/main/chatml.md for information on how messages are converted to tokens."""
+    #)
+    safeprint(f"num_tokens_from_messages() is not implemented for model {model}")
+    # just take some conservative assumptions here
+    tokens_per_message = 4
+    tokens_per_name = 1
+
+
+  num_tokens = 0
+  for message in messages:
+
+    num_tokens += tokens_per_message
+
+    for key, value in message.items():
+
+      num_tokens += len(encoding.encode(value))
+      if key == "name":
+        num_tokens += tokens_per_name
+
+    #/ for key, value in message.items():
+
+  #/ for message in messages:
+
+  num_tokens += 3  # every reply is primed with <|start|>assistant<|message|>
+
+
+  return num_tokens
+
+#/ def num_tokens_from_messages(messages, model):
+
+
 async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuation_request):
 
   responses = []
 
 
+  # TODO: config  
+  if model_name == "gpt-3.5-turbo-16k": # https://platform.openai.com/docs/models/gpt-3-5
+    max_tokens = 16384
+  elif model_name == "gpt-4": # https://platform.openai.com/docs/models/gpt-4
+    max_tokens = 8192
+  elif model_name == "gpt-3.5-turbo": # https://platform.openai.com/docs/models/gpt-3-5
+    max_tokens = 4096
+  else:
+    max_tokens = 4096
+
+
   continue_analysis = True
   while continue_analysis:
+
+    num_input_tokens = num_tokens_from_messages(messages, model_name)
+    safeprint(f"num_input_tokens: {num_input_tokens} max_tokens: {max_tokens}")
+
+    #if num_tokens <= 0:
+    #  break
+
+
+    buffer_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config
 
     (response_content, finish_reason) = await completion_with_backoff(
 
@@ -191,7 +285,7 @@ async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuat
 
       temperature = 0, # 1,   0 means deterministic output
       top_p = 1,
-      max_tokens = 2048,
+      max_tokens = max_tokens - num_input_tokens - 1 - buffer_tokens,  # need to subtract number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
       presence_penalty = 0,
       frequency_penalty = 0,
       # logit_bias = None,
@@ -201,7 +295,7 @@ async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuat
     too_long = (finish_reason == "length")
 
     if too_long:
-      messages.append({"role": "assistant", "content": response})
+      messages.append({"role": "assistant", "content": response_content})
       messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality
     else:
       continue_analysis = False
