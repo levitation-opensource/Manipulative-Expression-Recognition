@@ -16,17 +16,6 @@
       "end_message": 0
     },
     {
-      "person": "Person B",
-      "start_char": 89,
-      "end_char": 99,
-      "text": "What\u2019s up?",
-      "labels": [
-        "No labels"
-      ],
-      "start_message": 1,
-      "end_message": 1
-    },
-    {
       "person": "Person A",
       "start_char": 111,
       "end_char": 284,
@@ -40,17 +29,6 @@
       "end_message": 2
     },
     {
-      "person": "Person B",
-      "start_char": 296,
-      "end_char": 413,
-      "text": "You just said there was a problem. I am getting ready for work. Is this an emergency?? Are you okay? What\u2019s going on?",
-      "labels": [
-        "No labels"
-      ],
-      "start_message": 3,
-      "end_message": 3
-    },
-    {
       "person": "Person A",
       "start_char": 425,
       "end_char": 499,
@@ -62,17 +40,6 @@
       ],
       "start_message": 4,
       "end_message": 4
-    },
-    {
-      "person": "Person B",
-      "start_char": 511,
-      "end_char": 622,
-      "text": "What?? Is there a problem or isn\u2019t there? Can\u2019t you just say what the issue is? If it\u2019s important, just say so.",
-      "labels": [
-        "No labels"
-      ],
-      "start_message": 5,
-      "end_message": 5
     },
     {
       "person": "Person A",
@@ -89,17 +56,6 @@
       "end_message": 6
     },
     {
-      "person": "Person B",
-      "start_char": 930,
-      "end_char": 1014,
-      "text": "I just asked you what the issue is, but you won\u2019t tell me! What am I supposed to do?",
-      "labels": [
-        "No labels"
-      ],
-      "start_message": 7,
-      "end_message": 7
-    },
-    {
       "person": "Person A",
       "start_char": 1026,
       "end_char": 1133,
@@ -111,17 +67,6 @@
       ],
       "start_message": 8,
       "end_message": 8
-    },
-    {
-      "person": "Person B",
-      "start_char": 1145,
-      "end_char": 1191,
-      "text": "Come ON! You know that\u2019s not true. Talk to me.",
-      "labels": [
-        "No labels"
-      ],
-      "start_message": 9,
-      "end_message": 9
     },
     {
       "person": "Person A",
@@ -137,17 +82,6 @@
       "end_message": 10
     },
     {
-      "person": "Person B",
-      "start_char": 1271,
-      "end_char": 1288,
-      "text": "I am trying, but\u2026",
-      "labels": [
-        "No labels"
-      ],
-      "start_message": 11,
-      "end_message": 11
-    },
-    {
       "person": "Person A",
       "start_char": 1300,
       "end_char": 1754,
@@ -161,17 +95,6 @@
       ],
       "start_message": 12,
       "end_message": 12
-    },
-    {
-      "person": "Person B",
-      "start_char": 1766,
-      "end_char": 1895,
-      "text": "I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat.",
-      "labels": [
-        "No labels"
-      ],
-      "start_message": 13,
-      "end_message": 13
     },
     {
       "person": "Person A",
@@ -210,17 +133,6 @@
       "end_message": 16
     },
     {
-      "person": "Person B",
-      "start_char": 2257,
-      "end_char": 2262,
-      "text": "OK :/",
-      "labels": [
-        "No labels"
-      ],
-      "start_message": 17,
-      "end_message": 17
-    },
-    {
       "person": "Person A",
       "start_char": 2274,
       "end_char": 2429,
@@ -245,17 +157,6 @@
       "end_message": 19
     },
     {
-      "person": "Person B",
-      "start_char": 2545,
-      "end_char": 2565,
-      "text": "I don\u2019t want to. No.",
-      "labels": [
-        "No labels"
-      ],
-      "start_message": 20,
-      "end_message": 20
-    },
-    {
       "person": "Person A",
       "start_char": 2577,
       "end_char": 2733,
@@ -267,17 +168,6 @@
       ],
       "start_message": 21,
       "end_message": 21
-    },
-    {
-      "person": "Person B",
-      "start_char": 2745,
-      "end_char": 2751,
-      "text": "*sigh*",
-      "labels": [
-        "No labels"
-      ],
-      "start_message": 22,
-      "end_message": 22
     }
   ],
   "counts": {
@@ -298,13 +188,11 @@
       "Victim playing": 6
     },
     "Person B": {
-      "No labels": 10,
       "Sarcasm": 1
     }
   },
   "unexpected_labels": [
-    "Jealousy",
-    "No labels"
+    "Jealousy"
   ],
   "raw_expressions_labeling_response": "[Person A]: Hey. You better call me as soon as you get this. We need to talk. - {Creating a time pressure, Power games}\n[Person B]: What\u2019s up? - {No labels}\n[Person A]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Evasion, Power games, Making another person dependent on speaker for information}\n[Person B]: You just said there was a problem. I am getting ready for work. Is this an emergency?? Are you okay? What\u2019s going on? - {No labels}\n[Person A]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Diminishing, Creating a time pressure, Power games}\n[Person B]: What?? Is there a problem or isn\u2019t there? Can\u2019t you just say what the issue is? If it\u2019s important, just say so. - {No labels}\n[Person A]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Victim playing, Exaggeration, Blaming}\n[Person B]: I just asked you what the issue is, but you won\u2019t tell me! What am I supposed to do? - {No labels}\n[Person A]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Exaggeration, Victim playing, Accusation}\n[Person B]: Come ON! You know that\u2019s not true. Talk to me. - {No labels}\n[Person A]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Exaggeration, Victim playing, Accusation}\n[Person B]: I am trying, but\u2026 - {No labels}\n[Person A]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Jealousy, Provocation, Exaggeration, Victim playing}\n[Person B]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. - {No labels}\n[Person A]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Threats, Power games, Creating a time pressure}\n[Person B]: You mean a more fun side than this? Can\u2019t wait. - {Sarcasm}\n[Person A]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Threats, Power games}\n[Person B]: OK :/ - {No labels}\n[Person A]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? - {Victim playing, Exaggeration, Accusation}\n[Person A]: Hey, let\u2019s get a drink. - {Ignoring previous conflict}\n[Person B]: I don\u2019t want to. No. - {No labels}\n[Person A]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Victim playing, Exaggeration, Guilt tripping}\n[Person B]: *sigh* - {No labels}",
   "qualitative_evaluation": "Person A's conversational style is emotionally charged, confrontational, and manipulative. They frequently use guilt-tripping and emotional blackmail to try to control the conversation and Person B's responses. They also tend to jump to conclusions and make accusations without clear evidence. \n\nPerson B, on the other hand, is more patient, calm, and rational. They try to understand the situation and ask for clarification, but also show signs of frustration and exhaustion due to Person A's behavior. They attempt to set boundaries and maintain their own emotional well-being in the face of Person A's emotional outbursts."
