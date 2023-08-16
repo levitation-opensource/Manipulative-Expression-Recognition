@@ -74,7 +74,7 @@ if is_dev_machine or debugging:   # TODO!! refactor to a separate function calle
     import aiodebug.log_slow_callbacks
     # import aiodebug.monitor_loop_lag
 
-    aiodebug.log_slow_callbacks.enable(30 if is_dev_machine else 10)  # https://stackoverflow.com/questions/65704785/how-to-debug-a-stuck-asyncio-coroutine-in-python
+    aiodebug.log_slow_callbacks.enable(120 if is_dev_machine else 10)  # https://stackoverflow.com/questions/65704785/how-to-debug-a-stuck-asyncio-coroutine-in-python
     # aiodebug.monitor_loop_lag.enable(statsd_client) # TODO!
 
 #/ if is_dev_machine or debugging:

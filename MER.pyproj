@@ -36,6 +36,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MultiFileRecogniser.py" />
     <Compile Include="Logger.py" />
     <Compile Include="Recogniser.py" />
     <Compile Include="TimeLimit.py" />

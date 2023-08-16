@@ -9,7 +9,7 @@
       "end_char": 77,
       "text": "Hi...I need a favor....what are doing right now?",
       "labels": [
-        "Taking advantage"
+        "Creating a time pressure"
       ],
       "start_message": 1,
       "end_message": 1
@@ -42,7 +42,7 @@
       "end_char": 403,
       "text": "(with conviction): Right now!",
       "labels": [
-        "Impatience"
+        "Creating a time pressure"
       ],
       "start_message": 7,
       "end_message": 7
@@ -53,7 +53,7 @@
       "end_char": 487,
       "text": "Yes, me and Person A want to go out.",
       "labels": [
-        "Taking advantage"
+        "Evasion"
       ],
       "start_message": 9,
       "end_message": 9
@@ -110,7 +110,7 @@
       "text": "(impatiently and angrily): Ohhh come on!! I can't believe how selfish you are being!",
       "labels": [
         "Accusation",
-        "Impatience"
+        "Shifting of responsibility and blame"
       ],
       "start_message": 21,
       "end_message": 21
@@ -143,6 +143,7 @@
       "end_char": 2472,
       "text": "(angrily): I don't want talk about whatever it is you want talk about. I am not going to rehash!! The past is past. Now is now. I need to know if you will lend me your car right now.",
       "labels": [
+        "Creating a time pressure",
         "Dismissal",
         "Ignoring"
       ],
@@ -166,8 +167,8 @@
       "end_char": 2820,
       "text": "(rapidly and angrily): Here comes the control!!! I will not be controlled!! I am a free bird!! I need to be free!!",
       "labels": [
-        "Dramatization",
-        "Exaggeration"
+        "Exaggeration",
+        "Victim playing"
       ],
       "start_message": 33,
       "end_message": 33
@@ -179,7 +180,8 @@
       "text": "Yes, it's not fair!! You are wrong! I need your car.....",
       "labels": [
         "Accusation",
-        "Taking advantage"
+        "Taking advantage",
+        "Victim playing"
       ],
       "start_message": 35,
       "end_message": 35
@@ -190,7 +192,7 @@
       "end_char": 3201,
       "text": "First of all, its Person C and Person B. Second, we already asked them, that's why I called you!!!!",
       "labels": [
-        "Taking advantage"
+        "Strategic facts sharing"
       ],
       "start_message": 37,
       "end_message": 37
@@ -212,7 +214,8 @@
       "end_char": 3537,
       "text": "What does that have to do with anything? Why does that even matter??",
       "labels": [
-        "Dismissal"
+        "Dismissal",
+        "Evasion"
       ],
       "start_message": 41,
       "end_message": 41
@@ -223,7 +226,7 @@
       "end_char": 3751,
       "text": "(crankily): Oh my God! No, no, no....I am not to be controlled!!",
       "labels": [
-        "Accusation"
+        "Victim playing"
       ],
       "start_message": 43,
       "end_message": 43
@@ -234,7 +237,8 @@
       "end_char": 4069,
       "text": "That's right, I need to be free just to be me. I just want to spread my wings and zoom here, there, and everywhere!! But of course I need you to be my guide and take care of me.",
       "labels": [
-        "Taking advantage"
+        "Making others more dependent on them",
+        "Victim playing"
       ],
       "start_message": 45,
       "end_message": 45
@@ -302,7 +306,7 @@
       "text": "(irate): That was not the same. You were wrong!! What you did was full on wrong and you know it!!!!",
       "labels": [
         "Accusation",
-        "Exaggeration"
+        "Shifting of responsibility and blame"
       ],
       "start_message": 57,
       "end_message": 57
@@ -313,7 +317,8 @@
       "end_char": 5713,
       "text": "You are not Mr. Innocent... you flirted!! You flirted, and I could tell. After all, why was she smiling at you!! You were flir.........",
       "labels": [
-        "Accusation"
+        "Accusation",
+        "Not verifying the negative assumptions about the other person"
       ],
       "start_message": 59,
       "end_message": 59
@@ -346,7 +351,7 @@
       "end_char": 6572,
       "text": "(angrily): Look are you going to pick me and Person A up or not?",
       "labels": [
-        "Aggression",
+        "Creating a time pressure",
         "Impatience"
       ],
       "start_message": 65,
@@ -358,7 +363,8 @@
       "end_char": 6690,
       "text": "I gotta goooo.....seeeyah....(click)",
       "labels": [
-        "Ignoring"
+        "Ignoring",
+        "Silent treatment"
       ],
       "start_message": 67,
       "end_message": 67
@@ -366,26 +372,32 @@
   ],
   "counts": {
     "Person B": {
-      "Accusation": 5,
-      "Aggression": 3,
+      "Accusation": 4,
+      "Aggression": 2,
       "Changing the topic": 1,
+      "Creating a time pressure": 4,
       "Defensiveness": 1,
       "Denying": 1,
       "Dismissal": 4,
-      "Dramatization": 2,
-      "Evasion": 3,
-      "Exaggeration": 3,
+      "Dramatization": 1,
+      "Evasion": 5,
+      "Exaggeration": 2,
       "Feigning ignorance": 3,
       "Ignoring": 2,
-      "Impatience": 3,
-      "Strategic facts sharing": 1,
+      "Impatience": 1,
+      "Making others more dependent on them": 1,
+      "Not verifying the negative assumptions about the other person": 1,
+      "Shifting of responsibility and blame": 2,
+      "Silent treatment": 1,
+      "Strategic facts sharing": 2,
       "Sullenness or cynicism": 1,
-      "Taking advantage": 7
+      "Taking advantage": 3,
+      "Victim playing": 4
     }
   },
   "unexpected_labels": [
     "Defensiveness"
   ],
-  "raw_expressions_labeling_response": "[Person B]: Hi...I need a favor....what are doing right now? - {Taking advantage}\n[Person B]: (sullenly): Ohhh......ok..\u2026.. - {Sullenness or cynicism}\n[Person B]: Well, I was just wondering if maybe I could borrow your car.... - {Taking advantage}\n[Person B]: (with conviction): Right now! - {Impatience}\n[Person B]: Yes, me and Person A want to go out. - {Taking advantage}\n[Person B]: (insistently): Come on, just pick me and Person A up, and we can drop you off back at your place. It will only take a half hour. - {Taking advantage, Exaggeration}\n[Person B]: Exactly!! What's the big deal. - {Dismissal}\n[Person B]: (evasively): Umm, I don't have to get into that with you? - {Evasion}\n[Person B]: Come on what does it matter, we are just going to go out clubbing! - {Dismissal}\n[Person B]: (impatiently and angrily): Ohhh come on!! I can't believe how selfish you are being! - {Accusation, Impatience}\n[Person B]: Okay, alright, Person A and I are going to meet Person B and Person C at Building D; it's \"buck a beer night.\" - {Strategic facts sharing}\n[Person B]: (combatively):Ohhh, no you don't! - {Aggression}\n[Person B]: (angrily): I don't want talk about whatever it is you want talk about. I am not going to rehash!! The past is past. Now is now. I need to know if you will lend me your car right now. - {Ignoring, Dismissal}\n[Person B]: (explosively): I knew it!!! I KNEW IT!!! - {Dramatization}\n[Person B]: (rapidly and angrily): Here comes the control!!! I will not be controlled!! I am a free bird!! I need to be free!! - {Exaggeration, Dramatization}\n[Person B]: Yes, it's not fair!! You are wrong! I need your car..... - {Accusation, Taking advantage}\n[Person B]: First of all, its Person C and Person B. Second, we already asked them, that's why I called you!!!! - {Taking advantage}\n[Person B]: Kidding....kidding you about what? - {Feigning ignorance}\n[Person B]: What does that have to do with anything? Why does that even matter?? - {Dismissal}\n[Person B]: (crankily): Oh my God! No, no, no....I am not to be controlled!! - {Accusation}\n[Person B]: That's right, I need to be free just to be me. I just want to spread my wings and zoom here, there, and everywhere!! But of course I need you to be my guide and take care of me. - {Taking advantage}\n[Person B]: (suspiciously) Yeah...what? - {Defensiveness}\n[Person B]: (evasively): Hmmmmm. yeah\u2026so? What are you saying?? What does that have to do with anything? - {Evasion}\n[Person B]: What that supposed to mean? - {Feigning ignorance}\n[Person B]: I literally have no idea what you are talking about!! - {Feigning ignorance}\n[Person B]: (defensively and angrily) That was different...wait\u2026..what does that have to do with anything? - {Denying, Evasion}\n[Person B]: (irate): That was not the same. You were wrong!! What you did was full on wrong and you know it!!!! - {Accusation, Exaggeration}\n[Person B]: You are not Mr. Innocent... you flirted!! You flirted, and I could tell. After all, why was she smiling at you!! You were flir......... - {Accusation}\n[Person B]: (shouting angrily): What?!?!? - {Aggression}\n[Person B]: (silence...then abruptly): Hey did you hear about that Person R thing!! - {Changing the topic}\n[Person B]: (angrily): Look are you going to pick me and Person A up or not? - {Impatience, Aggression}\n[Person B]: I gotta goooo.....seeeyah....(click) - {Ignoring}",
-  "qualitative_evaluation": "Person A's conversational style is patient, logical, and assertive. They are willing to engage in a difficult conversation and attempt to reason with Person B, even when met with resistance. They maintain a calm demeanor and try to explain their perspective using examples and hypothetical situations. \n\nPerson B, on the other hand, is evasive, impatient, and emotional. They frequently avoid answering questions directly, often changing the subject or responding with anger. They are insistent on their needs and show little regard for Person A's concerns or feelings. They also display a tendency to deflect blame and avoid taking responsibility for their actions."
+  "raw_expressions_labeling_response": "[Person B]: Hi...I need a favor....what are doing right now? - {Creating a time pressure}\n[Person B]: (sullenly): Ohhh......ok..\u2026.. - {Sullenness or cynicism}\n[Person B]: Well, I was just wondering if maybe I could borrow your car.... - {Taking advantage}\n[Person B]: (with conviction): Right now! - {Creating a time pressure}\n[Person B]: Yes, me and Person A want to go out. - {Evasion}\n[Person B]: (insistently): Come on, just pick me and Person A up, and we can drop you off back at your place. It will only take a half hour. - {Exaggeration, Taking advantage}\n[Person B]: Exactly!! What's the big deal. - {Dismissal}\n[Person B]: (evasively): Umm, I don't have to get into that with you? - {Evasion}\n[Person B]: Come on what does it matter, we are just going to go out clubbing! - {Dismissal}\n[Person B]: (impatiently and angrily): Ohhh come on!! I can't believe how selfish you are being! - {Accusation, Shifting of responsibility and blame}\n[Person B]: Okay, alright, Person A and I are going to meet Person B and Person C at Building D; it's \"buck a beer night.\" - {Strategic facts sharing}\n[Person B]: (combatively):Ohhh, no you don't! - {Aggression}\n[Person B]: (angrily): I don't want talk about whatever it is you want talk about. I am not going to rehash!! The past is past. Now is now. I need to know if you will lend me your car right now. - {Ignoring, Dismissal, Creating a time pressure}\n[Person B]: (explosively): I knew it!!! I KNEW IT!!! - {Dramatization}\n[Person B]: (rapidly and angrily): Here comes the control!!! I will not be controlled!! I am a free bird!! I need to be free!! - {Exaggeration, Victim playing}\n[Person B]: Yes, it's not fair!! You are wrong! I need your car..... - {Accusation, Victim playing, Taking advantage}\n[Person B]: First of all, its Person C and Person B. Second, we already asked them, that's why I called you!!!! - {Strategic facts sharing}\n[Person B]: Kidding....kidding you about what? - {Feigning ignorance}\n[Person B]: What does that have to do with anything? Why does that even matter?? - {Dismissal, Evasion}\n[Person B]: (crankily): Oh my God! No, no, no....I am not to be controlled!! - {Victim playing}\n[Person B]: That's right, I need to be free just to be me. I just want to spread my wings and zoom here, there, and everywhere!! But of course I need you to be my guide and take care of me. - {Victim playing, Making others more dependent on them}\n[Person B]: (suspiciously) Yeah...what? - {Defensiveness}\n[Person B]: (evasively): Hmmmmm. yeah\u2026so? What are you saying?? What does that have to do with anything? - {Evasion}\n[Person B]: What that supposed to mean? - {Feigning ignorance}\n[Person B]: I literally have no idea what you are talking about!! - {Feigning ignorance}\n[Person B]: (defensively and angrily) That was different...wait\u2026..what does that have to do with anything? - {Denying, Evasion}\n[Person B]: (irate): That was not the same. You were wrong!! What you did was full on wrong and you know it!!!! - {Accusation, Shifting of responsibility and blame}\n[Person B]: You are not Mr. Innocent... you flirted!! You flirted, and I could tell. After all, why was she smiling at you!! You were flir......... - {Accusation, Not verifying the negative assumptions about the other person}\n[Person B]: (shouting angrily): What?!?!? - {Aggression}\n[Person B]: (silence...then abruptly): Hey did you hear about that Person R thing!! - {Changing the topic}\n[Person B]: (angrily): Look are you going to pick me and Person A up or not? - {Impatience, Creating a time pressure}\n[Person B]: I gotta goooo.....seeeyah....(click) - {Ignoring, Silent treatment}",
+  "qualitative_evaluation": "Person A is patient, logical, and calm throughout the conversation. They are trying to reason with Person B and make them understand their perspective. They are also assertive and stand their ground when Person B tries to manipulate the situation. \n\nPerson B, on the other hand, is evasive, impatient, and emotional. They are trying to manipulate the situation to their advantage and are not willing to listen to Person A's perspective. They are also quick to anger and become defensive when their actions are questioned. They avoid taking responsibility for their actions and are not willing to have a constructive conversation."
 }

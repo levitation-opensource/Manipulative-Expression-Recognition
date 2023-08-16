@@ -1,7 +1,7 @@
 ﻿{
   "error_code": 0,
   "error_msg": "",
-  "sanitised_text": "\n\nPerson A, is married to Person B. Person B cooked him dinner and was up till midnight waiting for Person A to come home. His cell was turned off and her increasingly desperate messages went right to voicemail and her texts were never answered.\n\nPerson A missed dinner because he went out for drinks with some male colleagues after work and they ended up at a strip club, They all got very drunk and had lap dances.\n\nHe came home very drunk with his clothing disheveled and in no condition to answer any of Person B\u2019s questions coherently.\n\nThe next morning: Person B asks Person A to explain why he missed dinner and didn\u2019t answer her texts. Person A becomes extremely defensive and tries to side step her questions.\n\nPerson A: Please leave me alone. My head hurts.\n\nPerson B: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?\n\nPerson A: Look, let\u2019s talk about it some other time.\n\nPerson B: You owe me an explanation. I need some clarity about why you came home drunk with your shirt Number C open.\n\nPerson A: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?\n\nPerson B: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?\n\nPerson A: Shut up b*tch!",
+  "sanitised_text": "\n\nPerson A, is married to Person B. Person B cooked him dinner and was up till midnight waiting for Person A to come home. His cell was turned off and her increasingly desperate messages went right to voicemail and her texts were never answered.\n\nPerson A missed dinner because he went out for drinks with some male colleagues after work and they ended up at a strip club, They all got very drunk and had lap dances.\n\nHe came home very drunk with his clothing disheveled and in no condition to answer any of Person B\u2019s questions coherently.\n\nThe next morning, Person B asks Person A to explain why he missed dinner and didn\u2019t answer her texts. Person A becomes extremely defensive and tries to side step her questions.\n\nPerson A: Please leave me alone. My head hurts.\n\nPerson B: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?\n\nPerson A: Look, let\u2019s talk about it some other time.\n\nPerson B: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.\n\nPerson A: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?\n\nPerson B: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?\n\nPerson A: Shut up b*tch!",
   "expressions": [
     {
       "person": "Person A",
@@ -9,11 +9,23 @@
       "end_char": 767,
       "text": "Please leave me alone. My head hurts.",
       "labels": [
-        "Dismissal",
-        "Evasion"
+        "Evasion",
+        "Not taking seriously"
       ],
       "start_message": 0,
       "end_message": 0
+    },
+    {
+      "person": "Person B",
+      "start_char": 779,
+      "end_char": 963,
+      "text": "Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?",
+      "labels": [
+        "Accusation",
+        "Complaining"
+      ],
+      "start_message": 1,
+      "end_message": 1
     },
     {
       "person": "Person A",
@@ -28,21 +40,45 @@
       "end_message": 2
     },
     {
+      "person": "Person B",
+      "start_char": 1029,
+      "end_char": 1132,
+      "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.",
+      "labels": [
+        "Accusation",
+        "Complaining"
+      ],
+      "start_message": 3,
+      "end_message": 3
+    },
+    {
       "person": "Person A",
-      "start_char": 1148,
-      "end_char": 1224,
+      "start_char": 1144,
+      "end_char": 1220,
       "text": "I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?",
       "labels": [
-        "Shifting of responsibility and blame",
-        "Victim playing"
+        "Being entitled",
+        "Shifting of responsibility and blame"
       ],
       "start_message": 4,
       "end_message": 4
     },
     {
+      "person": "Person B",
+      "start_char": 1232,
+      "end_char": 1330,
+      "text": "But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?",
+      "labels": [
+        "Accusation",
+        "Complaining"
+      ],
+      "start_message": 5,
+      "end_message": 5
+    },
+    {
       "person": "Person A",
-      "start_char": 1346,
-      "end_char": 1360,
+      "start_char": 1342,
+      "end_char": 1356,
       "text": "Shut up b*tch!",
       "labels": [
         "Aggression",
@@ -55,14 +91,19 @@
   "counts": {
     "Person A": {
       "Aggression": 1,
-      "Dismissal": 2,
+      "Being entitled": 1,
+      "Dismissal": 1,
       "Evasion": 2,
+      "Not taking seriously": 1,
       "Procrastination": 1,
-      "Shifting of responsibility and blame": 1,
-      "Victim playing": 1
+      "Shifting of responsibility and blame": 1
+    },
+    "Person B": {
+      "Accusation": 3,
+      "Complaining": 3
     }
   },
   "unexpected_labels": [],
-  "raw_expressions_labeling_response": "[Person A]: Please leave me alone. My head hurts. - {Evasion, Dismissal}\n[Person A]: Look, let\u2019s talk about it some other time. - {Procrastination, Evasion}\n[Person A]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Shifting of responsibility and blame, Victim playing}\n[Person A]: Shut up b*tch! - {Aggression, Dismissal}",
-  "qualitative_evaluation": "Person A's conversational style is defensive and evasive. He avoids answering questions directly, tries to deflect blame, and becomes aggressive when pressed for answers. On the other hand, Person B's style is assertive and persistent. She seeks clarity and explanation for Person A's actions, expressing her feelings of being neglected and disrespected. She maintains a consistent demand for accountability throughout the conversation."
+  "raw_expressions_labeling_response": "[Person A]: Please leave me alone. My head hurts. - {Evasion, Not taking seriously}\n[Person B]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? - {Accusation, Complaining}\n[Person A]: Look, let\u2019s talk about it some other time. - {Evasion, Procrastination}\n[Person B]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. - {Accusation, Complaining}\n[Person A]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Shifting of responsibility and blame, Being entitled}\n[Person B]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation, Complaining}\n[Person A]: Shut up b*tch! - {Aggression, Dismissal}",
+  "qualitative_evaluation": "Person A's conversational style is defensive and evasive. He avoids answering questions directly, tries to deflect blame, and becomes aggressive when pressed. He also uses dismissive language and attempts to change the subject. On the other hand, Person B's style is assertive and persistent. She seeks answers and clarity, expresses her feelings and concerns, and insists on getting an explanation for Person A's behavior. She is direct and confrontational, not backing down despite Person A's attempts to avoid the conversation."
 }

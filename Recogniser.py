@@ -7,7 +7,9 @@
 #
 
 
-print("Starting...")
+if __name__ == '__main__':
+  print("Starting...")
+
 
 import os
 import sys
@@ -21,7 +23,7 @@ from configparser import ConfigParser
 # from spacy import displacy    # load it only when rendering is requested, since this package loads slowly
 
 import re
-from collections import defaultdict, OrderedDict
+from collections import defaultdict, Counter, OrderedDict
 import hashlib
 import string
 import base64
@@ -48,9 +50,9 @@ api_key = os.getenv("OPENAI_API_KEY")
 from Utilities import init_logging, safeprint, print_exception, loop, debugging, is_dev_machine, data_dir, Timer, read_file, save_file, read_raw, save_raw, read_txt, save_txt, strtobool, async_cached, async_cached_encrypted
 from TimeLimit import time_limit
 
-# init_logging(os.path.basename(__file__), __name__, max_old_log_rename_tries = 1)
 
-
+# if __name__ == "__main__":
+#   init_logging(os.path.basename(__file__), __name__, max_old_log_rename_tries = 1)
 
 
 if __name__ == "__main__":
@@ -58,6 +60,7 @@ if __name__ == "__main__":
 
 if is_dev_machine:
   from pympler import asizeof
+
 
 
 
@@ -134,11 +137,13 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
 
   try:
 
-    safeprint("Sending OpenAI API request...")
+    timeout = gpt_timeout * timeout_multiplier
+
+    safeprint(f"Sending OpenAI API request... Using timeout: {timeout} seconds")
 
     openai_response = await openai_async.chat_complete(
       api_key,
-      timeout = gpt_timeout * timeout_multiplier, 
+      timeout = timeout, 
       payload = kwargs
     )
 
@@ -587,8 +592,10 @@ def parse_labels(all_labels_as_text):
 #/ def parse_labels():
 
 
-async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None):
+async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, argv = None):
 
+
+  argv = argv if argv else sys.argv
 
 
   config = get_config()
@@ -604,14 +611,14 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
   gpt_timeout = config["gpt_timeout"]  # TODO: into run_llm_analysis_uncached()
 
 
-  labels_filename = sys.argv[3] if len(sys.argv) > 3 else None
+  labels_filename = argv[3] if len(argv) > 3 else None
   if labels_filename:
     labels_filename = os.path.join("..", labels_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
   else:
     labels_filename = "default_labels.txt"
 
 
-  ignored_labels_filename = sys.argv[4] if len(sys.argv) > 4 else None
+  ignored_labels_filename = argv[4] if len(argv) > 4 else None
   if ignored_labels_filename:
     ignored_labels_filename = os.path.join("..", ignored_labels_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
   else:
@@ -631,7 +638,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
 
   # read user input
-  input_filename = sys.argv[1] if len(sys.argv) > 1 else None
+  input_filename = argv[1] if len(argv) > 1 else None
   if input_filename:
     input_filename = os.path.join("..", input_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
     using_user_input_filename = True
@@ -1058,7 +1065,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
   response_json = json_tricks.dumps(analysis_response, indent=2)   # json_tricks preserves dictionary orderings
 
-  response_filename = sys.argv[2] if len(sys.argv) > 2 else None
+  response_filename = argv[2] if len(argv) > 2 else None
   if response_filename:
     response_filename = os.path.join("..", response_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
   else: 
@@ -1154,7 +1161,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
       # chart.render_to_png(render_to_png='chart.png')
 
 
-      #response_svg_filename = sys.argv[5] if len(sys.argv) > 5 else None
+      #response_svg_filename = argv[5] if len(argv) > 5 else None
       #if response_svg_filename:
       #  response_svg_filename = os.path.join("..", response_svg_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
       #else: 
@@ -1169,7 +1176,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     import urllib.parse
 
 
-    #response_html_filename = sys.argv[4] if len(sys.argv) > 4 else None
+    #response_html_filename = argv[4] if len(argv) > 4 else None
     #if response_html_filename:
     #  response_html_filename = os.path.join("..", response_html_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
     #else: 
@@ -1283,7 +1290,7 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
 
       if pdf is not None:
 
-        #response_pdf_filename = sys.argv[4] if len(sys.argv) > 4 else None
+        #response_pdf_filename = argv[4] if len(argv) > 4 else None
         #if response_pdf_filename:
         #  response_pdf_filename = os.path.join("..", response_pdf_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
         #else: 
@@ -1296,16 +1303,16 @@ async def main(do_open_ended_analysis = None, do_closed_ended_analysis = None, e
     #/ create_pdf:
 
   #/ if render_output:
+    
 
-  
 
-
-  qqq = True  # for debugging
+  return analysis_response
 
 #/ async def main():
 
 
 
-loop.run_until_complete(main(extract_message_indexes = None))   # extract_message_indexes = None - use config file
+if __name__ == '__main__':
+  loop.run_until_complete(recogniser(extract_message_indexes = None))   # extract_message_indexes = None - use config file
 
 
