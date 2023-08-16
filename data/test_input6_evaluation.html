@@ -1,0 +1,60 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+<title>Manipulative Expression Recognition (MER)</title>
+<style>
+                  .entities {
+                    line-height: 1.5 !important;
+                  }
+                  mark {
+                    line-height: 2 !important;
+                    background: yellow !important;
+                  }
+                  mark span {
+                    background: orange !important;
+                    padding: 0.5em;
+                  }
+                  .graph object, .graph svg, .graph img {
+                    max-height: 75vh;
+                  }
+                  .entity {
+                    padding-top: 0.325em !important;
+                  }
+                  mark span {
+                    vertical-align: initial !important;   /* needed for pdfkit */
+                  }
+                </style>
+</head>
+<body>
+<div class="graph"><object data="test_input6_evaluation.svg" type="image/svg+xml"></object></div>
+<div style="font: bold 1em Arial;">Qualitative summary:</div><br>
+<div style="font: 1em Arial;">
+Person A's conversational style is defensive and evasive. He avoids answering questions directly, tries to deflect blame, and becomes aggressive when pressed for answers. On the other hand, Person B's style is assertive and persistent. She seeks clarity and explanation for Person A's actions, expressing her feelings of being neglected and disrespected. She maintains a consistent demand for accountability throughout the conversation.
+</div>
+<br><br><br>
+<div style="font: bold 1em Arial;">Labelled input:</div><br>
+<div style="font: 1em Arial;">
+<div class="entities" style="line-height: 2.5; direction: ltr"></br></br>Person A, is married to Person B. Person B cooked him dinner and was up till midnight waiting for Person A to come home. His cell was turned off and her increasingly desperate messages went right to voicemail and her texts were never answered.</br></br>Person A missed dinner because he went out for drinks with some male colleagues after work and they ended up at a strip club, They all got very drunk and had lap dances.</br></br>He came home very drunk with his clothing disheveled and in no condition to answer any of Person B’s questions coherently.</br></br>The next morning: Person B asks Person A to explain why he missed dinner and didn’t answer her texts. Person A becomes extremely defensive and tries to side step her questions.</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Please leave me alone. My head hurts.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Dismissal, Evasion</span>
+</mark>
+</br></br>Person B: Well, you shouldn’t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn’t let me know?</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Look, let’s talk about it some other time.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Evasion, Procrastination</span>
+</mark>
+</br></br>Person B: You owe me an explanation. I need some clarity about why you came home drunk with your shirt Number C open.</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    I work hard all day. Aren’t I entitled to relax and have a drink after work?
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Shifting of responsibility and blame, Victim playing</span>
+</mark>
+</br></br>Person B: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Shut up b*tch!
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Aggression, Dismissal</span>
+</mark>
+</div>
+</div>
+</body>
+</html>

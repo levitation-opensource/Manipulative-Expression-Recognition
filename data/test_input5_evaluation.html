@@ -1,0 +1,242 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+<title>Manipulative Expression Recognition (MER)</title>
+<style>
+                  .entities {
+                    line-height: 1.5 !important;
+                  }
+                  mark {
+                    line-height: 2 !important;
+                    background: yellow !important;
+                  }
+                  mark span {
+                    background: orange !important;
+                    padding: 0.5em;
+                  }
+                  .graph object, .graph svg, .graph img {
+                    max-height: 75vh;
+                  }
+                  .entity {
+                    padding-top: 0.325em !important;
+                  }
+                  mark span {
+                    vertical-align: initial !important;   /* needed for pdfkit */
+                  }
+                </style>
+</head>
+<body>
+<div class="graph"><object data="test_input5_evaluation.svg" type="image/svg+xml"></object></div>
+<div style="font: bold 1em Arial;">Qualitative summary:</div><br>
+<div style="font: 1em Arial;">
+Person A's conversational style is calm, patient, and rational. They are trying to communicate their feelings and needs clearly, and are willing to engage in a dialogue to resolve the issues. They are also willing to admit when they are wrong and are open to seeking help, such as counseling.
+
+Person B, on the other hand, is defensive, argumentative, and dismissive. They tend to twist Person A's words, make assumptions about Person A's feelings and intentions, and avoid taking responsibility for their actions. They also frequently interrupt and talk over Person A, and are unwilling to engage in constructive dialogue or seek help for their relationship issues.
+</div>
+<br><br><br>
+<div style="font: bold 1em Arial;">Labelled input:</div><br>
+<div style="font: 1em Arial;">
+<div class="entities" style="line-height: 2.5; direction: ltr"></br></br>Person A enters bedroom, clutching head with Number A hand. OTC EXTRA STRENGTH ACETAMINOPHEN in other hand. Person B resting in chair near bed.</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Hi hon, I had a really bad day at work and have a huge headache, so I’m going to take a nap before the thing we have tonight. Can you wake me up in an hour?
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    I’ve got a headache too. My day was sooo worse than yours. First, this happened, then that happened, then all this other stuff happened. **10 minutes later. He/She still hasn’t asked why your day was bad.** They’re just jealous of me.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Comparing, Ignoring, Not taking seriously</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Oh okay. Well I don’t want to miss the thing but I realllly need to sleep this off. I feel horrible.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Maybe I should take a nap and you should wake ME up. My head hurts wayy more than yours does.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Comparing, Dismissal</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Mmmkay. How would you know that? My head hurts PRETTY bad.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Nope. Mine definitely hurts worse. Your head doesn’t even hurt. You’re just saying that. Look, you’re not even napping, you’re still talking to me.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Accusation, Dismissal, Invalidation</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Well you’re not inside of my head, so it’s safe to say that my head hurts to ME, and that’s a valid feeling. But you are right, I should take my nap now.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Your head does NOT hurt, you’re just being lazy. I just worked 8 long hours and I don’t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Accusation, Dismissal, Invalidation</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Actually that’s not true. Do you even know what I do for a living? (giving in) Anyways. Well wake me up in an hour please. (Takes OTC headache med and lays down for nap).
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    (walks off mumbling) This is bullshit.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Dismissal, Evasion</span>
+</mark>
+</br></br>5 hours later.</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    (waking up startled, Person B laying next to you. You glance at clock.) CRAP. I overslept! OH NO! Did we miss the thing?
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    You know we missed the thing. You did that on purpose.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Accusation, Blaming</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Of course I didn’t! That’s why I asked you to wake me up in an hour.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    I’m not responsible for your life. Don’t blame this on me.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Denying, Shifting of responsibility and blame</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    I’m not. I know you’re not responsible for me but it was a simple request. Like you ask me to do things for you all the time and I don’t have a problem with it, because that’s what people do in relationships. I’m not blaming you for not waking me up. I just don’t agree when you say I did it on purpose. I would never do that. Why would I ask you to wake me up if I was going to do it on purpose… Why do I even have to say this?
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    So you’re comparing our relationship to other people’s? I don’t know if I can be in a relationship like this anymore. My friend (random girl/ guy name), says that anytime someone does that it’s time to leave. I will NOT put up with that FUCKING SHIT!
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Accusation, Dramatization, Exaggeration</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    I’m not comparing us! I’m just stating the fact that people in relationships do things like this. I don’t think it’s anything new. Both people in the relationship help each other. I’m not comparing us to anyone. I’m just saying it’s normal that’s why I help you when you ask me. I’d like to get the same respect.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    You don’t respect me. You’re always telling me my head doesn’t hurt. You’re always taking naps and ruining our plans.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Accusation, Blaming, Exaggeration</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    (desperately) I actually never take naps, AND I never said that to you. You’re the one who told ME that my head didn’t hurt. Also why would I always tell you your head didn’t hurt?? We literally just had that conversation ONCE before I took a nap.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Bull shit. You know I’m right. You even said I was right before you took a nap. I said your head doesn’t even hurt and you said ‘you’re right’ and went to sleep.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Accusation, Gaslighting</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    (sighs) Actually you said that my head wasn’t hurting because I wasn’t napping yet and I said you’re right about the NAPPING part and went to sleep.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    I promise you, you’re lying. You SAID I WAS RIGHT because you KNOW your head wasn’t hurting. You even SAID you were a horrible person before you went to sleep.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Accusation, Gaslighting, Lying</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    What? Why would I even say that? That doesn’t even make sense. Wait, what—?
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Anyways, (Earlier mentioned Guy/Girl friend) went with me instead to the thing, while you were snoring like a FUCKING pig. She/He said they would never put up with that shit.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Accusation, Provocation, Ridiculing</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    So you went on a date with another girl/guy???
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    It wasn’t a date. I didn’t let her/him kiss me like she/he wanted to.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Deception, Evasion</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Wow. So instead of just waking me up and getting what you wanted, you chose to sneak behind my back and go on a date with someone else? Why?
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    I told you it wasn’t a date! You are always over-exaggerating. This is all your fault anyway. You didn’t have to take a nap. You chose to take a nap.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Blaming, Gaslighting, Shifting of responsibility and blame</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    I’m confused. I didn’t choose to have a splitting headache. All I did was need to take a nap and asked you to do Number A simple thing. If I was wrong, I would apologize and get over it but HOW can that even remotely be wrong?! How can me taking a nap justify you going on a date with another man/woman while I am home feeling miserable? I feel like I’m walking on eggshells! I feel like I can’t do or say ANYTHING without you attacking me for it!
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    That’s because YOU are the problem. Feeling this and feeling that. That’s not even how it is, but you are wayyy too sensitive. I can’t help it if you FEEL like walking on eggshells. You can’t blame your feelings on me.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Blaming, Gaslighting, Invalidating</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Ughhh… I don’t know how to say what I need to say so you can understand that I’m not against you. I just need us to understand each other. I still think we should have counseling like we discussed before.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    No, I’m not going to that. And you know why.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Claiming ignorance, Evasion</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Wait— Why? I thought you said you would think about it.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    I’m not going. You KNOW WHY. So I’m not going to tell you why.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Claiming ignorance, Evasion</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Please tell me why. I can’t read your mind.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    You KNOW why.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Claiming ignorance, Evasion</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Seriously, I promise I don’t know.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    STOP PLAYING GAMES. YOU KNOW WHY.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Accusation, Evasion</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    I WANT to know why. Can’t you just have mercy and tell me? Will it really kill you?
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">No labels detected</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    NO because you KNOW WHY.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Claiming ignorance, Evasion</span>
+</mark>
+</div>
+</div>
+</body>
+</html>

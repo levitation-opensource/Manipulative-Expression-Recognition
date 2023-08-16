@@ -1,0 +1,270 @@
+﻿{
+  "error_code": 0,
+  "error_msg": "",
+  "sanitised_text": "\n\nPerson A: peels a hardboiled egg and throws the shell on the floor.\n\nPerson B: uh\u2026 hey, the garbage is right over here.\n\nPerson A: are you saying I'm lazy?\n\nPerson B: what? No. But I'd appreciate it if you didn't throw garbage on my floor.\n\nPerson A: So you're saying it's my fault that your apartment is messy?\n\nPerson B: Uh\u2026 no. It is your fault there are egg shells on my floor.\n\nPerson A: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault.\n\nPerson B: *sighs and picks up the eggshell*\n\nPerson A: Now you're trying to make me feel bad.\n\nPerson B: I just don't want eggshells on my floor.\n\nPerson A: So you care more about eggshells than you care about me.\n\nPerson B: Look. The garbage is Quantity C away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up.\n\nPerson A: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me.\n\nPerson B: OK, you're obviously upset about something. What can I do?\n\nPerson A: Well an apology would be a good start.\n\nPerson B: Alright. I'm sorry.\n\nPerson A: What are you sorry for?\n\nPerson B: I'm\u2026 sorry that you're so upset that you threw garbage on my floor.\n\nPerson A: There you go, making this my fault again.\n\nPerson B: Well what am I supposed to be apologizing for?\n\nPerson A: You should apologize for making me feel bad.\n\nPerson B: I'm sorry I've made you feel bad.\n\nPerson A: There. Holy Christ, was that so hard? *throws another eggshell on the floor*",
+  "expressions": [
+    {
+      "person": "Person A",
+      "start_char": 133,
+      "end_char": 157,
+      "text": "are you saying I'm lazy?",
+      "labels": [
+        "Accusation",
+        "Victim playing"
+      ],
+      "start_message": 2,
+      "end_message": 2
+    },
+    {
+      "person": "Person B",
+      "start_char": 169,
+      "end_char": 241,
+      "text": "what? No. But I'd appreciate it if you didn't throw garbage on my floor.",
+      "labels": [
+        "Dismissal"
+      ],
+      "start_message": 3,
+      "end_message": 3
+    },
+    {
+      "person": "Person A",
+      "start_char": 253,
+      "end_char": 313,
+      "text": "So you're saying it's my fault that your apartment is messy?",
+      "labels": [
+        "Accusation",
+        "Distortion",
+        "Victim playing"
+      ],
+      "start_message": 4,
+      "end_message": 4
+    },
+    {
+      "person": "Person B",
+      "start_char": 325,
+      "end_char": 383,
+      "text": "Uh\u2026 no. It is your fault there are egg shells on my floor.",
+      "labels": [
+        "Dismissal"
+      ],
+      "start_message": 5,
+      "end_message": 5
+    },
+    {
+      "person": "Person A",
+      "start_char": 395,
+      "end_char": 543,
+      "text": "Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault.",
+      "labels": [
+        "Accusation",
+        "Blaming",
+        "Changing the topic"
+      ],
+      "start_message": 6,
+      "end_message": 6
+    },
+    {
+      "person": "Person B",
+      "start_char": 555,
+      "end_char": 588,
+      "text": "*sighs and picks up the eggshell*",
+      "labels": [
+        "Silent treatment"
+      ],
+      "start_message": 7,
+      "end_message": 7
+    },
+    {
+      "person": "Person A",
+      "start_char": 600,
+      "end_char": 638,
+      "text": "Now you're trying to make me feel bad.",
+      "labels": [
+        "Accusation",
+        "Victim playing"
+      ],
+      "start_message": 8,
+      "end_message": 8
+    },
+    {
+      "person": "Person B",
+      "start_char": 650,
+      "end_char": 690,
+      "text": "I just don't want eggshells on my floor.",
+      "labels": [
+        "Dismissal"
+      ],
+      "start_message": 9,
+      "end_message": 9
+    },
+    {
+      "person": "Person A",
+      "start_char": 702,
+      "end_char": 758,
+      "text": "So you care more about eggshells than you care about me.",
+      "labels": [
+        "Exaggeration",
+        "Victim playing"
+      ],
+      "start_message": 10,
+      "end_message": 10
+    },
+    {
+      "person": "Person B",
+      "start_char": 770,
+      "end_char": 901,
+      "text": "Look. The garbage is Quantity C away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up.",
+      "labels": [
+        "Dismissal"
+      ],
+      "start_message": 11,
+      "end_message": 11
+    },
+    {
+      "person": "Person A",
+      "start_char": 913,
+      "end_char": 1019,
+      "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me.",
+      "labels": [
+        "Comparing",
+        "Guilt tripping",
+        "Victim playing"
+      ],
+      "start_message": 12,
+      "end_message": 12
+    },
+    {
+      "person": "Person B",
+      "start_char": 1031,
+      "end_char": 1089,
+      "text": "OK, you're obviously upset about something. What can I do?",
+      "labels": [
+        "Dismissal"
+      ],
+      "start_message": 13,
+      "end_message": 13
+    },
+    {
+      "person": "Person A",
+      "start_char": 1101,
+      "end_char": 1139,
+      "text": "Well an apology would be a good start.",
+      "labels": [
+        "Victim playing"
+      ],
+      "start_message": 14,
+      "end_message": 14
+    },
+    {
+      "person": "Person B",
+      "start_char": 1151,
+      "end_char": 1170,
+      "text": "Alright. I'm sorry.",
+      "labels": [
+        "Dismissal"
+      ],
+      "start_message": 15,
+      "end_message": 15
+    },
+    {
+      "person": "Person A",
+      "start_char": 1182,
+      "end_char": 1205,
+      "text": "What are you sorry for?",
+      "labels": [
+        "Provocation"
+      ],
+      "start_message": 16,
+      "end_message": 16
+    },
+    {
+      "person": "Person B",
+      "start_char": 1217,
+      "end_char": 1284,
+      "text": "I'm\u2026 sorry that you're so upset that you threw garbage on my floor.",
+      "labels": [
+        "Dismissal"
+      ],
+      "start_message": 17,
+      "end_message": 17
+    },
+    {
+      "person": "Person A",
+      "start_char": 1296,
+      "end_char": 1337,
+      "text": "There you go, making this my fault again.",
+      "labels": [
+        "Accusation",
+        "Victim playing"
+      ],
+      "start_message": 18,
+      "end_message": 18
+    },
+    {
+      "person": "Person B",
+      "start_char": 1349,
+      "end_char": 1395,
+      "text": "Well what am I supposed to be apologizing for?",
+      "labels": [
+        "Dismissal"
+      ],
+      "start_message": 19,
+      "end_message": 19
+    },
+    {
+      "person": "Person A",
+      "start_char": 1407,
+      "end_char": 1451,
+      "text": "You should apologize for making me feel bad.",
+      "labels": [
+        "Victim playing"
+      ],
+      "start_message": 20,
+      "end_message": 20
+    },
+    {
+      "person": "Person B",
+      "start_char": 1463,
+      "end_char": 1496,
+      "text": "I'm sorry I've made you feel bad.",
+      "labels": [
+        "Dismissal"
+      ],
+      "start_message": 21,
+      "end_message": 21
+    },
+    {
+      "person": "Person A",
+      "start_char": 1508,
+      "end_char": 1584,
+      "text": "There. Holy Christ, was that so hard? *throws another eggshell on the floor*",
+      "labels": [
+        "Aggression",
+        "Provocation"
+      ],
+      "start_message": 22,
+      "end_message": 22
+    }
+  ],
+  "counts": {
+    "Person A": {
+      "Accusation": 5,
+      "Aggression": 1,
+      "Blaming": 1,
+      "Changing the topic": 1,
+      "Comparing": 1,
+      "Distortion": 1,
+      "Exaggeration": 1,
+      "Guilt tripping": 1,
+      "Provocation": 2,
+      "Victim playing": 8
+    },
+    "Person B": {
+      "Dismissal": 9,
+      "Silent treatment": 1
+    }
+  },
+  "unexpected_labels": [],
+  "raw_expressions_labeling_response": "[Person A]: are you saying I'm lazy? - {Accusation, Victim playing}\n[Person B]: what? No. But I'd appreciate it if you didn't throw garbage on my floor. - {Dismissal}\n[Person A]: So you're saying it's my fault that your apartment is messy? - {Distortion, Accusation, Victim playing}\n[Person B]: Uh\u2026 no. It is your fault there are egg shells on my floor. - {Dismissal}\n[Person A]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. - {Changing the topic, Blaming, Accusation}\n[Person B]: *sighs and picks up the eggshell* - {Silent treatment}\n[Person A]: Now you're trying to make me feel bad. - {Accusation, Victim playing}\n[Person B]: I just don't want eggshells on my floor. - {Dismissal}\n[Person A]: So you care more about eggshells than you care about me. - {Exaggeration, Victim playing}\n[Person B]: Look. The garbage is Quantity C away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up. - {Dismissal}\n[Person A]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. - {Victim playing, Comparing, Guilt tripping}\n[Person B]: OK, you're obviously upset about something. What can I do? - {Dismissal}\n[Person A]: Well an apology would be a good start. - {Victim playing}\n[Person B]: Alright. I'm sorry. - {Dismissal}\n[Person A]: What are you sorry for? - {Provocation}\n[Person B]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. - {Dismissal}\n[Person A]: There you go, making this my fault again. - {Victim playing, Accusation}\n[Person B]: Well what am I supposed to be apologizing for? - {Dismissal}\n[Person A]: You should apologize for making me feel bad. - {Victim playing}\n[Person B]: I'm sorry I've made you feel bad. - {Dismissal}\n[Person A]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* - {Provocation, Aggression}",
+  "qualitative_evaluation": "Person A in the conversation is defensive, argumentative, and seems to be looking for a conflict. They are quick to take offense and twist Person B's words to make themselves appear as the victim. They also display passive-aggressive behavior, as seen when they throw another eggshell on the floor after receiving an apology.\n\nPerson B, on the other hand, is patient, reasonable, and tries to maintain peace in the conversation. They attempt to clarify their intentions and are willing to apologize to keep the peace, even when they are not at fault. They also show signs of frustration but try to handle the situation calmly."
+}

@@ -52,6 +52,14 @@
     <Content Include="data\test_evaluation.json" />
     <Content Include="data\test_evaluation.pdf" />
     <Content Include="data\test_evaluation.svg" />
+    <Content Include="data\test_input2.txt" />
+    <Content Include="data\test_input3.txt" />
+    <Content Include="data\test_input4.txt" />
+    <Content Include="data\test_input5.txt" />
+    <Content Include="data\test_input6.txt" />
+    <Content Include="data\test_input7.txt" />
+    <Content Include="data\test_input8.txt" />
+    <Content Include="data\test_input9_escalating.txt" />
     <Content Include="install_steps.txt" />
     <Content Include="LICENSE" />
     <Content Include="MER.ini" />

@@ -1,0 +1,77 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+<title>Manipulative Expression Recognition (MER)</title>
+<style>
+                  .entities {
+                    line-height: 1.5 !important;
+                  }
+                  mark {
+                    line-height: 2 !important;
+                    background: yellow !important;
+                  }
+                  mark span {
+                    background: orange !important;
+                    padding: 0.5em;
+                  }
+                  .graph object, .graph svg, .graph img {
+                    max-height: 75vh;
+                  }
+                  .entity {
+                    padding-top: 0.325em !important;
+                  }
+                  mark span {
+                    vertical-align: initial !important;   /* needed for pdfkit */
+                  }
+                </style>
+</head>
+<body>
+<div class="graph"><object data="test_input7_evaluation.svg" type="image/svg+xml"></object></div>
+<div style="font: bold 1em Arial;">Qualitative summary:</div><br>
+<div style="font: 1em Arial;">
+Person A has a persistent and somewhat confrontational style, repeatedly insisting that Person B feed their daughter the breakfast they've prepared, despite being told that the child has already eaten. They use guilt and emotional manipulation, implying that Person B is a bad mother for not accepting their advice. 
+
+Person B, on the other hand, maintains a calm and patient conversational style, despite the increasing frustration. They repeatedly explain their situation and reasoning, trying to avoid conflict. However, they also show assertiveness by standing their ground and not giving in to Person A's pressure.
+</div>
+<br><br><br>
+<div style="font: bold 1em Arial;">Labelled input:</div><br>
+<div style="font: 1em Arial;">
+<div class="entities" style="line-height: 2.5; direction: ltr"></br></br>It's Thanksgiving Day and Person B is headed to an appointment with my baby daughter. They're meeting up with an old friend at her home for pictures — she's a professional now and offered to do some Mommy-Daughter shots for Person B.</br></br>As Person A is preparing to leave, Person A stops Person B to &quot;remind them&quot; to feed their daughter. Person B replies that she's already had her morning meal and Person B has packed cereal for her as a snack for the short trip.</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    &quot;You should really give her some of this breakfast I just cooked.&quot;
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Dismissal, Ignoring</span>
+</mark>
+</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    &quot;Really, mom, it's fine. She JUST ate and we're running late. We have to go.&quot;
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Dismissal</span>
+</mark>
+ I say as I prepare a small diaper bag.</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    &quot;Person B, your baby needs nutrients and protein. Here's some for her.&quot;
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Dismissal, Ignoring</span>
+</mark>
+ She places a plate out with the food which Person B ignores as Person B places her little one in her carseat.</br></br>Person B does't respond to Person A, knowing NOTHING Person B say won't spiral out of control.</br></br>As Person B is about to leave, it's announced again that Person B is FORGETTING HER BREAKFAST.</br></br>Person B: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    &quot;I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.&quot;
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Dismissal</span>
+</mark>
+</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    &quot;But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?&quot;
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Accusation, Exaggeration, Provocation</span>
+</mark>
+ (Don't forget, the statement is dripping with disgust based on her tone.)</br></br>Person B: Calmly responds, despite the steady rush of frustration and blood starting to show in their face: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    &quot;It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.&quot;
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Dismissal</span>
+</mark>
+</br></br>Before Person B closes the door: </br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    &quot;You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.&quot;
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Accusation, Attacking, Exaggeration, Provocation</span>
+</mark>
+</div>
+</div>
+</body>
+</html>
