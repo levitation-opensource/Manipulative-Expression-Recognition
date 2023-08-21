@@ -45,9 +45,9 @@ async def multi_file_label_filter(do_open_ended_analysis = None, do_closed_ended
 
 
   find_labels = set([ # TODO: find a way to put these labels on command line?
-    "Demanding",
-    "Creating artificial obligations",
-    "Not attempting to understand",
+    # "Demanding",
+    # "Creating artificial obligations",
+    # "Not attempting to understand",
   ])
 
 
@@ -80,7 +80,7 @@ async def multi_file_label_filter(do_open_ended_analysis = None, do_closed_ended
     for expression_data in person_expressions:
       labels = expression_data["labels"]
       labels_intersection = find_labels.intersection(labels)
-      if labels_intersection:
+      if labels_intersection or not find_labels: # if find_labels is empty then mach all
         sorted_intersection = list(labels_intersection)
         sorted_intersection.sort()
         filtered_labels_response.append({

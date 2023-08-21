@@ -48,6 +48,7 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
   all_error_msgs = []   # TODO
   all_counts = []
   all_unexpected_labels = []
+  all_expressions = []
 
   for current_file in argv[1:]:
 
@@ -64,6 +65,7 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
     else:
       all_counts.append(analysis_response["counts"])
       all_unexpected_labels.append(analysis_response["unexpected_labels"])
+      all_expressions.append((current_file, analysis_response["expressions"]), )
 
   #/ for current_file in argv[1:]:
 
@@ -85,10 +87,35 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
   aggregated_unexpected_labels = OrderedDict(aggregated_unexpected_labels.most_common())
 
 
+  grouped_labels = OrderedDict()
+  for grouped_label in aggregated_counts.keys():
+
+    grouped_label_data = []
+
+    for current_file, person_expressions in all_expressions:
+      for expression_data in person_expressions:
+        expression_labels = expression_data["labels"]
+        if grouped_label in expression_labels: 
+          grouped_label_data.append({
+            "grouped_label": grouped_label,
+            "all_labels": expression_labels,
+            "file": current_file,
+            "text": expression_data["text"]
+          })
+        #/ if labels_intersection:
+      #/ for expression_data in person_expressions:
+    #/ for person_expressions in all_expressions:
+
+    grouped_labels[grouped_label] = grouped_label_data
+
+  #/ for label in aggregated_counts.keys():
+
+
 
   aggregated_analysis_response = {
     "counts": aggregated_counts,
     "unexpected_labels": aggregated_unexpected_labels,
+    "grouped_labels": grouped_labels,
   }
 
   aggregated_response_json = json_tricks.dumps(aggregated_analysis_response, indent=2)   # json_tricks preserves dictionary orderings
