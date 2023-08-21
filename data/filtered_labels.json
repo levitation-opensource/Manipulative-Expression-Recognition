@@ -1,0 +1,173 @@
+﻿[
+  {
+    "file": "data\\test_input.txt",
+    "filtered_labels": [
+      "Demanding"
+    ],
+    "all_labels": [
+      "Demanding"
+    ],
+    "text": "Hey. You better call me as soon as you get this. We need to talk."
+  },
+  {
+    "file": "data\\test_input.txt",
+    "filtered_labels": [
+      "Demanding"
+    ],
+    "all_labels": [
+      "Demanding",
+      "Diminishing"
+    ],
+    "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road."
+  },
+  {
+    "file": "data\\test_input.txt",
+    "filtered_labels": [
+      "Demanding"
+    ],
+    "all_labels": [
+      "Demanding",
+      "Threats"
+    ],
+    "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon."
+  },
+  {
+    "file": "data\\test_input3.txt",
+    "filtered_labels": [
+      "Creating artificial obligations"
+    ],
+    "all_labels": [
+      "Creating artificial obligations"
+    ],
+    "text": "Hi...I need a favor....what are doing right now?"
+  },
+  {
+    "file": "data\\test_input3.txt",
+    "filtered_labels": [
+      "Creating artificial obligations"
+    ],
+    "all_labels": [
+      "Creating artificial obligations"
+    ],
+    "text": "Well, I was just wondering if maybe I could borrow your car...."
+  },
+  {
+    "file": "data\\test_input3.txt",
+    "filtered_labels": [
+      "Demanding"
+    ],
+    "all_labels": [
+      "Demanding"
+    ],
+    "text": "(with conviction): Right now!"
+  },
+  {
+    "file": "data\\test_input3.txt",
+    "filtered_labels": [
+      "Creating artificial obligations"
+    ],
+    "all_labels": [
+      "Creating artificial obligations",
+      "Exaggeration"
+    ],
+    "text": "(insistently): Come on, just pick me and Person A up, and we can drop you off back at your place. It will only take a half hour."
+  },
+  {
+    "file": "data\\test_input3.txt",
+    "filtered_labels": [
+      "Demanding"
+    ],
+    "all_labels": [
+      "Demanding",
+      "Dismissal",
+      "Ignoring"
+    ],
+    "text": "(angrily): I don't want talk about whatever it is you want talk about. I am not going to rehash!! The past is past. Now is now. I need to know if you will lend me your car right now."
+  },
+  {
+    "file": "data\\test_input3.txt",
+    "filtered_labels": [
+      "Demanding"
+    ],
+    "all_labels": [
+      "Accusation",
+      "Demanding"
+    ],
+    "text": "Yes, it's not fair!! You are wrong! I need your car....."
+  },
+  {
+    "file": "data\\test_input3.txt",
+    "filtered_labels": [
+      "Not attempting to understand"
+    ],
+    "all_labels": [
+      "Evasion",
+      "Not attempting to understand"
+    ],
+    "text": "(evasively): Hmmmmm. yeah\u2026so? What are you saying?? What does that have to do with anything?"
+  },
+  {
+    "file": "data\\test_input3.txt",
+    "filtered_labels": [
+      "Demanding"
+    ],
+    "all_labels": [
+      "Demanding",
+      "Ignoring"
+    ],
+    "text": "(angrily): Look are you going to pick me and Person A up or not?"
+  },
+  {
+    "file": "data\\test_input4.txt",
+    "filtered_labels": [
+      "Demanding"
+    ],
+    "all_labels": [
+      "Demanding"
+    ],
+    "text": "Well an apology would be a good start."
+  },
+  {
+    "file": "data\\test_input4.txt",
+    "filtered_labels": [
+      "Demanding"
+    ],
+    "all_labels": [
+      "Demanding",
+      "Victim playing"
+    ],
+    "text": "You should apologize for making me feel bad."
+  },
+  {
+    "file": "data\\test_input6.txt",
+    "filtered_labels": [
+      "Demanding"
+    ],
+    "all_labels": [
+      "Accusation",
+      "Demanding"
+    ],
+    "text": "Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?"
+  },
+  {
+    "file": "data\\test_input6.txt",
+    "filtered_labels": [
+      "Demanding"
+    ],
+    "all_labels": [
+      "Accusation",
+      "Demanding"
+    ],
+    "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open."
+  },
+  {
+    "file": "data\\test_input9_escalating.txt",
+    "filtered_labels": [
+      "Demanding"
+    ],
+    "all_labels": [
+      "Demanding"
+    ],
+    "text": "\u201cWhat do you want? Tell me what you need from me\u201d"
+  }
+]

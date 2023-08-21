@@ -10,7 +10,7 @@
       "text": "\u201cYes. They don't live here anymore.\u201d",
       "labels": [
         "Dismissal",
-        "Not taking seriously"
+        "Not caring"
       ],
       "start_message": 1,
       "end_message": 1
@@ -69,11 +69,12 @@
       "Acting as if nothing remarkable happened": 1,
       "Diminishing": 2,
       "Dismissal": 3,
-      "Not taking seriously": 3,
+      "Not caring": 1,
+      "Not taking seriously": 2,
       "Silent treatment": 1
     }
   },
   "unexpected_labels": [],
-  "raw_expressions_labeling_response": "[Person B]: \u201cYes. They don't live here anymore.\u201d - {Dismissal, Not taking seriously}\n[Person B]: *silence* - {Silent treatment}\n[Person B]: \u201cI let them go free.\u201d - {Diminishing, Acting as if nothing remarkable happened}\n[Person B]: \u201cI drove them down to a nice gated community in Location C and put them on some grass.\u201d - {Dismissal, Not taking seriously}\n[Person B]: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d - {Dismissal, Not taking seriously, Diminishing}",
+  "raw_expressions_labeling_response": "[Person B]: \u201cYes. They don't live here anymore.\u201d - {Dismissal, Not caring}\n[Person B]: *silence* - {Silent treatment}\n[Person B]: \u201cI let them go free.\u201d - {Diminishing, Acting as if nothing remarkable happened}\n[Person B]: \u201cI drove them down to a nice gated community in Location C and put them on some grass.\u201d - {Dismissal, Not taking seriously}\n[Person B]: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d - {Dismissal, Not taking seriously, Diminishing}",
   "qualitative_evaluation": "Person A's conversational style is inquisitive and emotional. They ask questions to understand the situation and express their feelings through their words and actions. They show confusion, hope, and panic at different points in the conversation. On the other hand, Person B's style is more detached and matter-of-fact. They provide straightforward answers without showing much emotion or empathy towards Person A's feelings. They also maintain silence at certain points, which adds to their aloof demeanor."
 }

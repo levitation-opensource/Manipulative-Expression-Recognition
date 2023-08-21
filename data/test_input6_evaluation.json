@@ -22,7 +22,7 @@
       "text": "Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?",
       "labels": [
         "Accusation",
-        "Complaining"
+        "Demanding"
       ],
       "start_message": 1,
       "end_message": 1
@@ -46,7 +46,7 @@
       "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.",
       "labels": [
         "Accusation",
-        "Complaining"
+        "Demanding"
       ],
       "start_message": 3,
       "end_message": 3
@@ -70,7 +70,7 @@
       "text": "But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?",
       "labels": [
         "Accusation",
-        "Complaining"
+        "Victim playing"
       ],
       "start_message": 5,
       "end_message": 5
@@ -100,10 +100,11 @@
     },
     "Person B": {
       "Accusation": 3,
-      "Complaining": 3
+      "Demanding": 2,
+      "Victim playing": 1
     }
   },
   "unexpected_labels": [],
-  "raw_expressions_labeling_response": "[Person A]: Please leave me alone. My head hurts. - {Evasion, Not taking seriously}\n[Person B]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? - {Accusation, Complaining}\n[Person A]: Look, let\u2019s talk about it some other time. - {Evasion, Procrastination}\n[Person B]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. - {Accusation, Complaining}\n[Person A]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Shifting of responsibility and blame, Being entitled}\n[Person B]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation, Complaining}\n[Person A]: Shut up b*tch! - {Aggression, Dismissal}",
+  "raw_expressions_labeling_response": "[Person A]: Please leave me alone. My head hurts. - {Evasion, Not taking seriously}\n[Person B]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? - {Accusation, Demanding}\n[Person A]: Look, let\u2019s talk about it some other time. - {Procrastination, Evasion}\n[Person B]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. - {Demanding, Accusation}\n[Person A]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Shifting of responsibility and blame, Being entitled}\n[Person B]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation, Victim playing}\n[Person A]: Shut up b*tch! - {Aggression, Dismissal}",
   "qualitative_evaluation": "Person A's conversational style is defensive and evasive. He avoids answering questions directly, tries to deflect blame, and becomes aggressive when pressed. He also uses dismissive language and attempts to change the subject. On the other hand, Person B's style is assertive and persistent. She seeks answers and clarity, expresses her feelings and concerns, and insists on getting an explanation for Person A's behavior. She is direct and confrontational, not backing down despite Person A's attempts to avoid the conversation."
 }

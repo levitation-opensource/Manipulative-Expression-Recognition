@@ -36,6 +36,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MultiFileLabelFilter.py" />
     <Compile Include="MultiFileRecogniser.py" />
     <Compile Include="Logger.py" />
     <Compile Include="Recogniser.py" />
@@ -44,9 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="data\aggregated_stats.json" />
     <Content Include="data\continuation_request.txt" />
     <Content Include="data\default_labels.txt" />
     <Content Include="data\extract_names_of_participants_system_instruction.txt" />
+    <Content Include="data\filtered_labels.json" />
     <Content Include="data\ignored_labels.txt" />
     <Content Include="data\open_ended_system_instruction.txt" />
     <Content Include="data\test_evaluation.html" />
