@@ -53,8 +53,14 @@ Person B: *exhausted and defeated* ”Ok. You’re not listening. You keep askin
 Person A: “Again with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!”
 
 #
-# continuation by ChatGPT
+# continuation by ChatGPT, using the following prompt:
 #
+# There is a transcript of an escalating conversation between two people I found on the internet. How would the conversation continue? The transcript follows below "---".
+#
+# ---
+# 
+# /copy of the above conversation follows/
+# 
 
 Person B: “It's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?”
 

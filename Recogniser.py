@@ -263,49 +263,62 @@ async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuat
     max_tokens = 4096
 
 
-  continue_analysis = True
-  while continue_analysis:
+  with Timer("Sending OpenAI API requests"):
+    continue_analysis = True
+    while continue_analysis:
 
-    num_input_tokens = num_tokens_from_messages(messages, model_name)
-    safeprint(f"num_input_tokens: {num_input_tokens} max_tokens: {max_tokens}")
+      num_input_tokens = num_tokens_from_messages(messages, model_name)
+      safeprint(f"num_input_tokens: {num_input_tokens} max_tokens: {max_tokens}")
 
-    #if num_tokens <= 0:
-    #  break
+      #if num_tokens <= 0:
+      #  break
 
 
-    buffer_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config
+      # TODO: configuration for model override thresholds
+      if num_input_tokens >= 4096 and max_tokens == 8192:    # current model: "gpt-4"
+        model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+        max_tokens = 16384
+        safeprint("Overriding model with gpt-3.5-turbo-16k due to input token count")
+      elif num_input_tokens >= 2048 and max_tokens == 4096:  # current model: "gpt-3.5-turbo"
+        model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+        max_tokens = 16384
+        safeprint("Overriding model with gpt-3.5-turbo-16k due to input token count")
 
-    (response_content, finish_reason) = await completion_with_backoff(
 
-      gpt_timeout,
+      buffer_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config
+        
+      (response_content, finish_reason) = await completion_with_backoff(
 
-      model = model_name,
-      messages = messages,
+        gpt_timeout,
+
+        model = model_name,
+        messages = messages,
           
-      # functions = [],   # if no functions are in array then the array should be omitted, else error occurs
-      # function_call = "none",   # 'function_call' is only allowed when 'functions' are specified
-      n = 1,
-      stream = False,   # TODO
-      # user = "",    # TODO
+        # functions = [],   # if no functions are in array then the array should be omitted, else error occurs
+        # function_call = "none",   # 'function_call' is only allowed when 'functions' are specified
+        n = 1,
+        stream = False,   # TODO
+        # user = "",    # TODO
 
-      temperature = 0, # 1,   0 means deterministic output
-      top_p = 1,
-      max_tokens = max_tokens - num_input_tokens - 1 - buffer_tokens,  # need to subtract number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
-      presence_penalty = 0,
-      frequency_penalty = 0,
-      # logit_bias = None,
-    )
+        temperature = 0, # 1,   0 means deterministic output
+        top_p = 1,
+        max_tokens = max_tokens - num_input_tokens - 1 - buffer_tokens,  # need to subtract number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
+        presence_penalty = 0,
+        frequency_penalty = 0,
+        # logit_bias = None,
+      )
 
-    responses.append(response_content)
-    too_long = (finish_reason == "length")
+      responses.append(response_content)
+      too_long = (finish_reason == "length")
 
-    if too_long:
-      messages.append({"role": "assistant", "content": response_content})
-      messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality
-    else:
-      continue_analysis = False
+      if too_long:
+        messages.append({"role": "assistant", "content": response_content})
+        messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality
+      else:
+        continue_analysis = False
 
-  #/ while continue_analysis:
+    #/ while continue_analysis:
+  #/ with Timer("Sending OpenAI API requests"):
 
   response = "\n".join(responses)
   return response
@@ -345,11 +358,11 @@ def sanitise_input(text):
 
 def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model):
 
-  safeprint("Loading Spacy...")
-  import spacy    # load it only when anonymisation is requested, since this package loads slowly
+  with Timer("Loading Spacy..."):
+    import spacy    # load it only when anonymisation is requested, since this package loads slowly
 
-  safeprint("Loading Named Entity Recognition model...")
-  NER = spacy.load(ner_model)   # TODO: config setting
+  with Timer("Loading Named Entity Recognition model..."):
+    NER = spacy.load(ner_model)   # TODO: config setting
 
 
   entities = NER(user_input)
@@ -525,8 +538,8 @@ async def anonymise(config, user_input, anonymise_names, anonymise_numbers, ner_
 
 def render_highlights_uncached(user_input, expression_dicts):
 
-  safeprint("Loading Spacy HTML renderer...")
-  from spacy import displacy    # load it only when rendering is requested, since this package loads slowly
+  with Timer("Loading Spacy HTML renderer..."):
+    from spacy import displacy    # load it only when rendering is requested, since this package loads slowly
 
   highlights_html = displacy.render( 
           {
