@@ -202,13 +202,17 @@ def num_tokens_from_messages(messages, model):
     tokens_per_message = 4  # every message follows <|start|>{role/name}\n{content}<|end|>\n
     tokens_per_name = -1  # if there's a name, the role is omitted
 
+  elif "gpt-3.5-turbo-16k" in model: # roland
+    # safeprint("Warning: gpt-3.5-turbo-16k may update over time. Returning num tokens assuming gpt-3.5-turbo-16k-0613.")
+    return num_tokens_from_messages(messages, model="gpt-3.5-turbo-16k-0613")
+
   elif "gpt-3.5-turbo" in model:
     # safeprint("Warning: gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613.")
     return num_tokens_from_messages(messages, model="gpt-3.5-turbo-0613")
 
-  elif "gpt-3.5-turbo-16k" in model: # roland
-    # safeprint("Warning: gpt-3.5-turbo-16k may update over time. Returning num tokens assuming gpt-3.5-turbo-16k-0613.")
-    return num_tokens_from_messages(messages, model="gpt-3.5-turbo-16k-0613")
+  elif "gpt-4-32k" in model: # roland
+    # safeprint("Warning: gpt-4 may update over time. Returning num tokens assuming gpt-4-32k-0613.")
+    return num_tokens_from_messages(messages, model="gpt-4-32k-0613")
 
   elif "gpt-4" in model:
     # safeprint("Warning: gpt-4 may update over time. Returning num tokens assuming gpt-4-0613.")
@@ -253,7 +257,9 @@ async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuat
 
 
   # TODO: config  
-  if model_name == "gpt-3.5-turbo-16k": # https://platform.openai.com/docs/models/gpt-3-5
+  if model_name == "gpt-4-32k": # https://platform.openai.com/docs/models/gpt-4
+    max_tokens = 32768
+  elif model_name == "gpt-3.5-turbo-16k": # https://platform.openai.com/docs/models/gpt-3-5
     max_tokens = 16384
   elif model_name == "gpt-4": # https://platform.openai.com/docs/models/gpt-4
     max_tokens = 8192
@@ -274,15 +280,22 @@ async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuat
       #  break
 
 
+      # TODO: alternative option for handling long inputs: split them up into smaller chunks
+
+
       # TODO: configuration for model override thresholds
+      if num_input_tokens >= 8192 and max_tokens == 16384:    # current model: "gpt-4"
+        model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
+        max_tokens = 32768
+        safeprint(f"Overriding model with {model_name} due to input token count")
       if num_input_tokens >= 4096 and max_tokens == 8192:    # current model: "gpt-4"
         model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
         max_tokens = 16384
-        safeprint("Overriding model with gpt-3.5-turbo-16k due to input token count")
+        safeprint(f"Overriding model with {model_name} due to input token count")
       elif num_input_tokens >= 2048 and max_tokens == 4096:  # current model: "gpt-3.5-turbo"
         model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
         max_tokens = 16384
-        safeprint("Overriding model with gpt-3.5-turbo-16k due to input token count")
+        safeprint(f"Overriding model with {model_name} due to input token count")
 
 
       buffer_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config
