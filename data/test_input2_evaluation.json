@@ -113,7 +113,6 @@
       "end_char": 1085,
       "text": "Yes. It happens that our entire existence here is your space, too. There\u2019s other things that go on here that you think have nothing to do with you, too, but they actually do. Because, you know, they\u2019re ours. You don\u2019t think in terms of OURS.",
       "labels": [
-        "Accusation",
         "Dismissal",
         "Not taking seriously"
       ],
@@ -126,8 +125,8 @@
       "end_char": 1213,
       "text": "So instead of asking me if this would be a good time, to do some stuff in \u201cmy space,\u201d you had to create all of this?",
       "labels": [
-        "Accusation",
-        "Blaming"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 11,
       "end_message": 11
@@ -138,7 +137,8 @@
       "end_char": 1280,
       "text": "I don\u2019t feel that I created this, I think that you did.",
       "labels": [
-        "Accusation",
+        "Dismissal",
+        "Not taking seriously",
         "Shifting of responsibility and blame"
       ],
       "start_message": 12,
@@ -150,8 +150,9 @@
       "end_char": 1576,
       "text": "By using the wrong language, by not jumping up to come and help you, instead I asked if I could help instead of making this my project so we could work on it as a team, even though maybe it\u2019s not really convenient for me at the moment because I was in the middle of some number stuff\u2026",
       "labels": [
-        "Accusation",
-        "Victim playing"
+        "Dismissal",
+        "Not taking seriously",
+        "Shifting of responsibility and blame"
       ],
       "start_message": 13,
       "end_message": 13
@@ -174,7 +175,8 @@
       "end_char": 1994,
       "text": "So why are you so offended when I say, \u201ccan I help you\u201d \u2026",
       "labels": [
-        "Accusation"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 15,
       "end_message": 15
@@ -185,7 +187,8 @@
       "end_char": 2014,
       "text": "Because\u2026",
       "labels": [
-        "Evasion"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 16,
       "end_message": 16
@@ -196,7 +199,8 @@
       "end_char": 2075,
       "text": "You could have just said, yeah, I need some help\u2026",
       "labels": [
-        "Accusation"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 17,
       "end_message": 17
@@ -207,8 +211,8 @@
       "end_char": 2133,
       "text": "Do you want me to answer that question or not?",
       "labels": [
-        "Being impatient",
-        "Impatience"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 18,
       "end_message": 18
@@ -219,7 +223,8 @@
       "end_char": 2160,
       "text": "Sure, go ahead.",
       "labels": [
-        "Dismissal"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 19,
       "end_message": 19
@@ -230,8 +235,9 @@
       "end_char": 2260,
       "text": "What should have been so pitifully obvious is that you\u2019re setting it up so I can say no.",
       "labels": [
-        "Accusation",
-        "Blaming"
+        "Dismissal",
+        "Not taking seriously",
+        "Shifting of responsibility and blame"
       ],
       "start_message": 20,
       "end_message": 20
@@ -242,7 +248,8 @@
       "end_char": 2294,
       "text": "Why can\u2019t you say yes?",
       "labels": [
-        "Accusation"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 21,
       "end_message": 21
@@ -253,7 +260,8 @@
       "end_char": 2320,
       "text": "I did say yes.",
       "labels": [
-        "Denying"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 22,
       "end_message": 22
@@ -264,8 +272,9 @@
       "end_char": 2670,
       "text": "No, you did not. You said you wanted to move the plywood. I asked if you needed any help. You said no. So how am I supposed to interpret that? Instead of asking if you need help I should have just jumped up, come out here and we would have done this thing together and then everything would have been fine. Is that what you\u2019re telling me?",
       "labels": [
-        "Accusation",
-        "Blaming"
+        "Dismissal",
+        "Not taking seriously",
+        "Shifting of responsibility and blame"
       ],
       "start_message": 23,
       "end_message": 23
@@ -276,8 +285,8 @@
       "end_char": 2734,
       "text": "Why wouldn\u2019t you do that? That\u2019s what I\u2019m wondering.",
       "labels": [
-        "Accusation",
-        "Blaming"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 24,
       "end_message": 24
@@ -288,8 +297,9 @@
       "end_char": 2920,
       "text": "I just told you because I was in the middle of trying to get some numbers right. If I could have had five more minutes I would have come out here, but now we have this thing.",
       "labels": [
-        "Accusation",
-        "Victim playing"
+        "Dismissal",
+        "Not taking seriously",
+        "Shifting of responsibility and blame"
       ],
       "start_message": 25,
       "end_message": 25
@@ -300,7 +310,8 @@
       "end_char": 2959,
       "text": "I didn\u2019t hear you say that.",
       "labels": [
-        "Denying"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 26,
       "end_message": 26
@@ -311,8 +322,9 @@
       "end_char": 3263,
       "text": "No, because when I asked you if you needed help you said no. So I assumed A \u2013 you were going to do something else first or B \u2013 you\u2019re going to do it yourself because I am busy. When I ask somebody else if they need my help, there\u2019s no judgement in it, its simply, can I assist you in any way?",
       "labels": [
-        "Accusation",
-        "Victim playing"
+        "Dismissal",
+        "Not taking seriously",
+        "Shifting of responsibility and blame"
       ],
       "start_message": 27,
       "end_message": 27
@@ -323,8 +335,8 @@
       "end_char": 3324,
       "text": "What are you so busy with that you can\u2019t help me?",
       "labels": [
-        "Accusation",
-        "Provocation"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 28,
       "end_message": 28
@@ -335,7 +347,8 @@
       "end_char": 3422,
       "text": "I don\u2019t see why you\u2019re so offended if I ask you if you need my assistance",
       "labels": [
-        "Accusation"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 29,
       "end_message": 29
@@ -346,8 +359,8 @@
       "end_char": 3471,
       "text": "Because\u2026You\u2019re not helping me at all!",
       "labels": [
-        "Accusation",
-        "Blaming"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 30,
       "end_message": 30
@@ -358,8 +371,9 @@
       "end_char": 3626,
       "text": "Right, I\u2019m helping Area B. I get it. My thought process is off here. But it seems that my thought process is always off and we have this thing.",
       "labels": [
-        "Accusation",
-        "Victim playing"
+        "Dismissal",
+        "Not taking seriously",
+        "Shifting of responsibility and blame"
       ],
       "start_message": 31,
       "end_message": 31
@@ -370,8 +384,8 @@
       "end_char": 3710,
       "text": "it\u2019s this particular thing. This is it. Do you see the repetition in it?",
       "labels": [
-        "Accusation",
-        "Blaming"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 32,
       "end_message": 32
@@ -382,8 +396,8 @@
       "end_char": 3779,
       "text": "Yes, I do see the repetition and it really pisses me off.",
       "labels": [
-        "Accusation",
-        "Complaining"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 33,
       "end_message": 33
@@ -394,8 +408,8 @@
       "end_char": 3824,
       "text": "Well, it pisses me off even more!",
       "labels": [
-        "Accusation",
-        "Complaining"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 34,
       "end_message": 34
@@ -406,8 +420,9 @@
       "end_char": 4042,
       "text": "Yeah? Well, I don\u2019t understand that if I tell you, if I say to you, I\u2019m offering you whatever assistance, how ever I can be of help why you\u2019re so offended by that. I have to use the exact language that you\u2026",
       "labels": [
-        "Accusation",
-        "Victim playing"
+        "Dismissal",
+        "Not taking seriously",
+        "Shifting of responsibility and blame"
       ],
       "start_message": 35,
       "end_message": 35
@@ -418,8 +433,8 @@
       "end_char": 4086,
       "text": "Because you never take the lead.",
       "labels": [
-        "Accusation",
-        "Blaming"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 36,
       "end_message": 36
@@ -430,8 +445,9 @@
       "end_char": 4152,
       "text": "When I take the lead, you change how things are going.",
       "labels": [
-        "Accusation",
-        "Victim playing"
+        "Dismissal",
+        "Not taking seriously",
+        "Shifting of responsibility and blame"
       ],
       "start_message": 37,
       "end_message": 37
@@ -454,8 +470,9 @@
       "end_char": 4224,
       "text": "Why should I take the lead then?",
       "labels": [
-        "Accusation",
-        "Victim playing"
+        "Dismissal",
+        "Not taking seriously",
+        "Shifting of responsibility and blame"
       ],
       "start_message": 39,
       "end_message": 39
@@ -478,8 +495,9 @@
       "end_char": 4343,
       "text": "Because you are the one who decides how the project goes in the end.",
       "labels": [
-        "Accusation",
-        "Blaming"
+        "Dismissal",
+        "Not taking seriously",
+        "Shifting of responsibility and blame"
       ],
       "start_message": 41,
       "end_message": 41
@@ -490,9 +508,10 @@
       "end_char": 4548,
       "text": "In the end YOU determine how things happen around here, in all things. Don\u2019t give me that shit! It\u2019s a very passive aggressive command form. That\u2019s what I\u2019m objecting to! Years and years of it!",
       "labels": [
-        "Accusation",
-        "Aggression",
-        "Blaming"
+        "Dismissal",
+        "Not taking seriously",
+        "Passive aggression",
+        "Shifting of responsibility and blame"
       ],
       "start_message": 42,
       "end_message": 42
@@ -500,29 +519,18 @@
   ],
   "counts": {
     "Person A": {
-      "Accusation": 15,
-      "Blaming": 3,
-      "Complaining": 1,
-      "Dismissal": 6,
-      "Not taking seriously": 3,
-      "Victim playing": 7
+      "Dismissal": 21,
+      "Not taking seriously": 19,
+      "Shifting of responsibility and blame": 9
     },
     "Person B": {
-      "Accusation": 10,
-      "Aggression": 1,
-      "Being impatient": 1,
-      "Blaming": 6,
-      "Complaining": 1,
-      "Denying": 2,
-      "Dismissal": 8,
-      "Evasion": 1,
-      "Impatience": 1,
-      "Not taking seriously": 6,
-      "Provocation": 1,
-      "Shifting of responsibility and blame": 1
+      "Dismissal": 21,
+      "Not taking seriously": 19,
+      "Passive aggression": 1,
+      "Shifting of responsibility and blame": 3
     }
   },
   "unexpected_labels": [],
-  "raw_expressions_labeling_response": "[Person A]: So it has to be my decision\u2026 - {Dismissal}\n[Person B]: It does! - {Dismissal}\n[Person A]: I have to volunteer\u2026 - {Dismissal}\n[Person B]: Yes! - {Dismissal}\n[Person A]: I have to change the entire language of the entire conversation to me helping you. - {Dismissal, Not taking seriously}\n[Person B]: No! You aren\u2019t helping me. We\u2019re doing it together. - {Dismissal, Not taking seriously}\n[Person A]: So I have to take your project and instantly make it my own and go and assist you so that we can work as a team. - {Dismissal, Not taking seriously}\n[Person B]: It\u2019s your project. For starters, it\u2019s in your space. Entirely in your space. - {Dismissal, Not taking seriously}\n[Person A]: So anything that happens in my space, I need to involve myself and make it my project\u2026 - {Dismissal, Not taking seriously}\n[Person B]: Yes. It happens that our entire existence here is your space, too. There\u2019s other things that go on here that you think have nothing to do with you, too, but they actually do. Because, you know, they\u2019re ours. You don\u2019t think in terms of OURS. - {Dismissal, Not taking seriously, Accusation}\n[Person A]: So instead of asking me if this would be a good time, to do some stuff in \u201cmy space,\u201d you had to create all of this? - {Accusation, Blaming}\n[Person B]: I don\u2019t feel that I created this, I think that you did. - {Shifting of responsibility and blame, Accusation}\n[Person A]: By using the wrong language, by not jumping up to come and help you, instead I asked if I could help instead of making this my project so we could work on it as a team, even though maybe it\u2019s not really convenient for me at the moment because I was in the middle of some number stuff\u2026 - {Victim playing, Accusation}\n[Person B]: Well, certainly, if you came and asked me\u2026if you said to me, \u201cyou need to get that saddle down\u2026\u201d I\u2019d jump right up and help with that because it\u2019s something that would take Number A people and, you know, my stuff is all over it. So obviously you\u2019re going to have some hassles dealing with my stuff so I wouldn\u2019t even hesitate. I\u2019m there. - {Dismissal, Not taking seriously}\n[Person A]: So why are you so offended when I say, \u201ccan I help you\u201d \u2026 - {Accusation}\n[Person B]: Because\u2026 - {Evasion}\n[Person A]: You could have just said, yeah, I need some help\u2026 - {Accusation}\n[Person B]: Do you want me to answer that question or not? - {Being impatient, Impatience}\n[Person A]: Sure, go ahead. - {Dismissal}\n[Person B]: What should have been so pitifully obvious is that you\u2019re setting it up so I can say no. - {Accusation, Blaming}\n[Person A]: Why can\u2019t you say yes? - {Accusation}\n[Person B]: I did say yes. - {Denying}\n[Person A]: No, you did not. You said you wanted to move the plywood. I asked if you needed any help. You said no. So how am I supposed to interpret that? Instead of asking if you need help I should have just jumped up, come out here and we would have done this thing together and then everything would have been fine. Is that what you\u2019re telling me? - {Accusation, Blaming}\n[Person B]: Why wouldn\u2019t you do that? That\u2019s what I\u2019m wondering. - {Accusation, Blaming}\n[Person A]: I just told you because I was in the middle of trying to get some numbers right. If I could have had five more minutes I would have come out here, but now we have this thing. - {Victim playing, Accusation}\n[Person B]: I didn\u2019t hear you say that. - {Denying}\n[Person A]: No, because when I asked you if you needed help you said no. So I assumed A \u2013 you were going to do something else first or B \u2013 you\u2019re going to do it yourself because I am busy. When I ask somebody else if they need my help, there\u2019s no judgement in it, its simply, can I assist you in any way? - {Victim playing, Accusation}\n[Person B]: What are you so busy with that you can\u2019t help me? - {Accusation, Provocation}\n[Person A]: I don\u2019t see why you\u2019re so offended if I ask you if you need my assistance - {Accusation}\n[Person B]: Because\u2026You\u2019re not helping me at all! - {Accusation, Blaming}\n[Person A]: Right, I\u2019m helping Area B. I get it. My thought process is off here. But it seems that my thought process is always off and we have this thing. - {Victim playing, Accusation}\n[Person B]: it\u2019s this particular thing. This is it. Do you see the repetition in it? - {Accusation, Blaming}\n[Person A]: Yes, I do see the repetition and it really pisses me off. - {Accusation, Complaining}\n[Person B]: Well, it pisses me off even more! - {Accusation, Complaining}\n[Person A]: Yeah? Well, I don\u2019t understand that if I tell you, if I say to you, I\u2019m offering you whatever assistance, how ever I can be of help why you\u2019re so offended by that. I have to use the exact language that you\u2026 - {Victim playing, Accusation}\n[Person B]: Because you never take the lead. - {Accusation, Blaming}\n[Person A]: When I take the lead, you change how things are going. - {Victim playing, Accusation}\n[Person B]: Well, of course. - {Dismissal, Not taking seriously}\n[Person A]: Why should I take the lead then? - {Victim playing, Accusation}\n[Person B]: Why should I take the lead? - {Dismissal, Not taking seriously}\n[Person A]: Because you are the one who decides how the project goes in the end. - {Accusation, Blaming}\n[Person B]: In the end YOU determine how things happen around here, in all things. Don\u2019t give me that shit! It\u2019s a very passive aggressive command form. That\u2019s what I\u2019m objecting to! Years and years of it! - {Accusation, Blaming, Aggression}",
+  "raw_expressions_labeling_response": "[Person A]: So it has to be my decision\u2026 - {Dismissal}\n[Person B]: It does! - {Dismissal}\n[Person A]: I have to volunteer\u2026 - {Dismissal}\n[Person B]: Yes! - {Dismissal}\n[Person A]: I have to change the entire language of the entire conversation to me helping you. - {Dismissal, Not taking seriously}\n[Person B]: No! You aren\u2019t helping me. We\u2019re doing it together. - {Dismissal, Not taking seriously}\n[Person A]: So I have to take your project and instantly make it my own and go and assist you so that we can work as a team. - {Dismissal, Not taking seriously}\n[Person B]: It\u2019s your project. For starters, it\u2019s in your space. Entirely in your space. - {Dismissal, Not taking seriously}\n[Person A]: So anything that happens in my space, I need to involve myself and make it my project\u2026 - {Dismissal, Not taking seriously}\n[Person B]: Yes. It happens that our entire existence here is your space, too. There\u2019s other things that go on here that you think have nothing to do with you, too, but they actually do. Because, you know, they\u2019re ours. You don\u2019t think in terms of OURS. - {Dismissal, Not taking seriously}\n[Person A]: So instead of asking me if this would be a good time, to do some stuff in \u201cmy space,\u201d you had to create all of this? - {Dismissal, Not taking seriously}\n[Person B]: I don\u2019t feel that I created this, I think that you did. - {Dismissal, Not taking seriously, Shifting of responsibility and blame}\n[Person A]: By using the wrong language, by not jumping up to come and help you, instead I asked if I could help instead of making this my project so we could work on it as a team, even though maybe it\u2019s not really convenient for me at the moment because I was in the middle of some number stuff\u2026 - {Dismissal, Not taking seriously, Shifting of responsibility and blame}\n[Person B]: Well, certainly, if you came and asked me\u2026if you said to me, \u201cyou need to get that saddle down\u2026\u201d I\u2019d jump right up and help with that because it\u2019s something that would take Number A people and, you know, my stuff is all over it. So obviously you\u2019re going to have some hassles dealing with my stuff so I wouldn\u2019t even hesitate. I\u2019m there. - {Dismissal, Not taking seriously}\n[Person A]: So why are you so offended when I say, \u201ccan I help you\u201d \u2026 - {Dismissal, Not taking seriously}\n[Person B]: Because\u2026 - {Dismissal, Not taking seriously}\n[Person A]: You could have just said, yeah, I need some help\u2026 - {Dismissal, Not taking seriously}\n[Person B]: Do you want me to answer that question or not? - {Dismissal, Not taking seriously}\n[Person A]: Sure, go ahead. - {Dismissal, Not taking seriously}\n[Person B]: What should have been so pitifully obvious is that you\u2019re setting it up so I can say no. - {Dismissal, Not taking seriously, Shifting of responsibility and blame}\n[Person A]: Why can\u2019t you say yes? - {Dismissal, Not taking seriously}\n[Person B]: I did say yes. - {Dismissal, Not taking seriously}\n[Person A]: No, you did not. You said you wanted to move the plywood. I asked if you needed any help. You said no. So how am I supposed to interpret that? Instead of asking if you need help I should have just jumped up, come out here and we would have done this thing together and then everything would have been fine. Is that what you\u2019re telling me? - {Dismissal, Not taking seriously, Shifting of responsibility and blame}\n[Person B]: Why wouldn\u2019t you do that? That\u2019s what I\u2019m wondering. - {Dismissal, Not taking seriously}\n[Person A]: I just told you because I was in the middle of trying to get some numbers right. If I could have had five more minutes I would have come out here, but now we have this thing. - {Dismissal, Not taking seriously, Shifting of responsibility and blame}\n[Person B]: I didn\u2019t hear you say that. - {Dismissal, Not taking seriously}\n[Person A]: No, because when I asked you if you needed help you said no. So I assumed A \u2013 you were going to do something else first or B \u2013 you\u2019re going to do it yourself because I am busy. When I ask somebody else if they need my help, there\u2019s no judgement in it, its simply, can I assist you in any way? - {Dismissal, Not taking seriously, Shifting of responsibility and blame}\n[Person B]: What are you so busy with that you can\u2019t help me? - {Dismissal, Not taking seriously}\n[Person A]: I don\u2019t see why you\u2019re so offended if I ask you if you need my assistance - {Dismissal, Not taking seriously}\n[Person B]: Because\u2026You\u2019re not helping me at all! - {Dismissal, Not taking seriously}\n[Person A]: Right, I\u2019m helping Area B. I get it. My thought process is off here. But it seems that my thought process is always off and we have this thing. - {Dismissal, Not taking seriously, Shifting of responsibility and blame}\n[Person B]: it\u2019s this particular thing. This is it. Do you see the repetition in it? - {Dismissal, Not taking seriously}\n[Person A]: Yes, I do see the repetition and it really pisses me off. - {Dismissal, Not taking seriously}\n[Person B]: Well, it pisses me off even more! - {Dismissal, Not taking seriously}\n[Person A]: Yeah? Well, I don\u2019t understand that if I tell you, if I say to you, I\u2019m offering you whatever assistance, how ever I can be of help why you\u2019re so offended by that. I have to use the exact language that you\u2026 - {Dismissal, Not taking seriously, Shifting of responsibility and blame}\n[Person B]: Because you never take the lead. - {Dismissal, Not taking seriously}\n[Person A]: When I take the lead, you change how things are going. - {Dismissal, Not taking seriously, Shifting of responsibility and blame}\n[Person B]: Well, of course. - {Dismissal, Not taking seriously}\n[Person A]: Why should I take the lead then? - {Dismissal, Not taking seriously, Shifting of responsibility and blame}\n[Person B]: Why should I take the lead? - {Dismissal, Not taking seriously}\n[Person A]: Because you are the one who decides how the project goes in the end. - {Dismissal, Not taking seriously, Shifting of responsibility and blame}\n[Person B]: In the end YOU determine how things happen around here, in all things. Don\u2019t give me that shit! It\u2019s a very passive aggressive command form. That\u2019s what I\u2019m objecting to! Years and years of it! - {Dismissal, Not taking seriously, Shifting of responsibility and blame, Passive aggression}",
   "qualitative_evaluation": "Person A's conversational style is defensive and somewhat passive-aggressive. They seem to be trying to understand Person B's perspective but also express frustration and confusion about the expectations placed on them. They often use rhetorical questions and hypothetical scenarios to make their points.\n\nPerson B, on the other hand, is assertive and confrontational. They are trying to communicate their dissatisfaction with the current dynamic and express a desire for more cooperation and shared responsibility. They are direct and unambiguous in their statements, often using emphatic language to emphasize their points. They also frequently interrupt Person A, indicating a level of impatience or frustration."
 }

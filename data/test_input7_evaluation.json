@@ -10,6 +10,7 @@
       "text": "\"You should really give her some of this breakfast I just cooked.\"",
       "labels": [
         "Dismissal",
+        "Ignoring",
         "Not taking seriously"
       ],
       "start_message": 0,
@@ -33,6 +34,7 @@
       "text": "\"Person B, your baby needs nutrients and protein. Here's some for her.\"",
       "labels": [
         "Dismissal",
+        "Ignoring",
         "Not taking seriously"
       ],
       "start_message": 2,
@@ -56,7 +58,7 @@
       "text": "\"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\"",
       "labels": [
         "Accusation",
-        "Exaggeration",
+        "Guilt tripping",
         "Provocation"
       ],
       "start_message": 4,
@@ -68,7 +70,8 @@
       "end_char": 1673,
       "text": "\"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\"",
       "labels": [
-        "Dismissal"
+        "Dismissal",
+        "Not taking seriously"
       ],
       "start_message": 5,
       "end_message": 5
@@ -82,7 +85,7 @@
         "Accusation",
         "Attacking",
         "Exaggeration",
-        "Judging",
+        "Guilt tripping",
         "Provocation"
       ],
       "start_message": 6,
@@ -94,16 +97,18 @@
       "Accusation": 2,
       "Attacking": 1,
       "Dismissal": 2,
-      "Exaggeration": 2,
-      "Judging": 1,
+      "Exaggeration": 1,
+      "Guilt tripping": 2,
+      "Ignoring": 2,
       "Not taking seriously": 2,
       "Provocation": 2
     },
     "Person B": {
-      "Dismissal": 3
+      "Dismissal": 3,
+      "Not taking seriously": 1
     }
   },
   "unexpected_labels": [],
-  "raw_expressions_labeling_response": "[Person A]: \"You should really give her some of this breakfast I just cooked.\" - {Dismissal, Not taking seriously}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" - {Dismissal}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" - {Dismissal, Not taking seriously}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" - {Dismissal}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" - {Accusation, Provocation, Exaggeration}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" - {Dismissal}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" - {Accusation, Provocation, Exaggeration, Attacking, Judging}",
+  "raw_expressions_labeling_response": "[Person A]: \"You should really give her some of this breakfast I just cooked.\" - {Ignoring, Not taking seriously, Dismissal}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" - {Dismissal}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" - {Ignoring, Not taking seriously, Dismissal}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" - {Dismissal}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" - {Accusation, Provocation, Guilt tripping}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" - {Dismissal, Not taking seriously}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" - {Accusation, Provocation, Guilt tripping, Attacking, Exaggeration}",
   "qualitative_evaluation": "Person A has a persistent and somewhat confrontational style, repeatedly insisting that Person B feed their daughter the breakfast they've prepared, despite being told that the child has already eaten. They use guilt and emotional manipulation, implying that Person B is a bad mother for not accepting their advice. \n\nPerson B, on the other hand, maintains a calm and patient conversational style, despite the increasing frustration. They repeatedly explain their situation and reasoning, trying to avoid conflict. However, they also show assertiveness by sticking to their decision and not giving in to Person A's pressure."
 }

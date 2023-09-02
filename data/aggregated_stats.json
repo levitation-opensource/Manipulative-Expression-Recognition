@@ -1,746 +1,58 @@
 ﻿{
   "counts": {
-    "Accusation": 72,
-    "Dismissal": 43,
-    "Victim playing": 28,
-    "Not taking seriously": 28,
-    "Exaggeration": 19,
-    "Blaming": 15,
-    "Demanding": 12,
-    "Evasion": 12,
-    "Ignoring": 12,
-    "Provocation": 9,
-    "Aggression": 7,
-    "Distortion": 5,
-    "Creating a constraint favorable to the speaker": 5,
-    "Making others feel insecure": 4,
-    "Shifting of responsibility and blame": 4,
+    "Dismissal": 69,
+    "Not taking seriously": 66,
+    "Accusation": 48,
+    "Exaggeration": 21,
+    "Ignoring": 21,
+    "Victim playing": 16,
+    "Shifting of responsibility and blame": 16,
+    "Demanding": 14,
+    "Evasion": 10,
+    "Aggression": 6,
+    "Blaming": 6,
+    "Diminishing": 5,
+    "Provocation": 5,
+    "Feigning ignorance": 4,
     "Gaslighting": 4,
-    "Invalidation": 4,
-    "Diminishing": 3,
-    "Denying": 3,
-    "Creating artificial obligations": 3,
     "Dramatization": 3,
-    "Feigning ignorance": 3,
-    "Comparing": 3,
+    "Distortion": 3,
+    "Not verifying the negative assumptions about the other person": 3,
+    "Hostility": 2,
     "Threats": 2,
-    "Sarcasm": 2,
-    "Complaining": 2,
-    "Impatience": 2,
     "Changing the topic": 2,
-    "Not verifying the negative assumptions about the other person": 2,
-    "Not caring": 2,
+    "Creating artificial obligations": 2,
+    "Ignoring boundaries": 2,
+    "Comparing": 2,
+    "Invalidation": 2,
+    "Making another person dependent on speaker for information": 2,
+    "Guilt tripping": 2,
+    "Sarcasm": 2,
     "Ignoring previous conflict": 1,
     "Not offering constructive solutions": 1,
-    "Being impatient": 1,
-    "Defensiveness": 1,
+    "Passive aggression": 1,
+    "Abrupt reaction": 1,
+    "Excessive defensiveness": 1,
     "Making others more dependent on them": 1,
     "Manipulation": 1,
-    "Not attempting to understand": 1,
     "Strategic facts sharing": 1,
     "Sullenness or cynicism": 1,
     "Disrespect": 1,
+    "Accusation based on assumptions": 1,
     "Deception": 1,
-    "Invalidating": 1,
-    "Lying": 1,
+    "Making other feel like they are doing something wrong": 1,
     "Ridiculing": 1,
     "Being entitled": 1,
     "Procrastination": 1,
     "Attacking": 1,
-    "Judging": 1,
-    "Acting as if nothing remarkable happened": 1,
-    "Silent treatment": 1
+    "Silent treatment": 1,
+    "Impatience": 1,
+    "Interruption": 1,
+    "Resentment and covert opposition": 1
   },
   "unexpected_labels": {},
   "grouped_labels": {
-    "Accusation": [
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Exaggeration",
-          "Making others feel insecure",
-          "Victim playing"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Exaggeration",
-          "Victim playing"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Exaggeration"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Making others feel insecure",
-          "Provocation"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Dismissal",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Yes. It happens that our entire existence here is your space, too. There\u2019s other things that go on here that you think have nothing to do with you, too, but they actually do. Because, you know, they\u2019re ours. You don\u2019t think in terms of OURS."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Blaming"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "So instead of asking me if this would be a good time, to do some stuff in \u201cmy space,\u201d you had to create all of this?"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Shifting of responsibility and blame"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "I don\u2019t feel that I created this, I think that you did."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "By using the wrong language, by not jumping up to come and help you, instead I asked if I could help instead of making this my project so we could work on it as a team, even though maybe it\u2019s not really convenient for me at the moment because I was in the middle of some number stuff\u2026"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "So why are you so offended when I say, \u201ccan I help you\u201d \u2026"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "You could have just said, yeah, I need some help\u2026"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Blaming"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "What should have been so pitifully obvious is that you\u2019re setting it up so I can say no."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Why can\u2019t you say yes?"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Blaming"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "No, you did not. You said you wanted to move the plywood. I asked if you needed any help. You said no. So how am I supposed to interpret that? Instead of asking if you need help I should have just jumped up, come out here and we would have done this thing together and then everything would have been fine. Is that what you\u2019re telling me?"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Blaming"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Why wouldn\u2019t you do that? That\u2019s what I\u2019m wondering."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "I just told you because I was in the middle of trying to get some numbers right. If I could have had five more minutes I would have come out here, but now we have this thing."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "No, because when I asked you if you needed help you said no. So I assumed A \u2013 you were going to do something else first or B \u2013 you\u2019re going to do it yourself because I am busy. When I ask somebody else if they need my help, there\u2019s no judgement in it, its simply, can I assist you in any way?"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Provocation"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "What are you so busy with that you can\u2019t help me?"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "I don\u2019t see why you\u2019re so offended if I ask you if you need my assistance"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Blaming"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Because\u2026You\u2019re not helping me at all!"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Right, I\u2019m helping Area B. I get it. My thought process is off here. But it seems that my thought process is always off and we have this thing."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Blaming"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "it\u2019s this particular thing. This is it. Do you see the repetition in it?"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Complaining"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Yes, I do see the repetition and it really pisses me off."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Complaining"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Well, it pisses me off even more!"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Yeah? Well, I don\u2019t understand that if I tell you, if I say to you, I\u2019m offering you whatever assistance, how ever I can be of help why you\u2019re so offended by that. I have to use the exact language that you\u2026"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Blaming"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Because you never take the lead."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "When I take the lead, you change how things are going."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Why should I take the lead then?"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Blaming"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Because you are the one who decides how the project goes in the end."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Aggression",
-          "Blaming"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "In the end YOU determine how things happen around here, in all things. Don\u2019t give me that shit! It\u2019s a very passive aggressive command form. That\u2019s what I\u2019m objecting to! Years and years of it!"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(impatiently and angrily): Ohhh come on!! I can't believe how selfish you are being!"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Demanding"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "Yes, it's not fair!! You are wrong! I need your car....."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Exaggeration"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(irate): That was not the same. You were wrong!! What you did was full on wrong and you know it!!!!"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Exaggeration"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "You are not Mr. Innocent... you flirted!! You flirted, and I could tell. After all, why was she smiling at you!! You were flir........."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Not verifying the negative assumptions about the other person"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "are you saying I'm lazy?"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Distortion",
-          "Not verifying the negative assumptions about the other person"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "So you're saying it's my fault that your apartment is messy?"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Blaming",
-          "Changing the topic"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "Now you're trying to make me feel bad."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Comparing",
-          "Victim playing"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "There you go, making this my fault again."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Dismissal",
-          "Invalidation"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "Nope. Mine definitely hurts worse. Your head doesn\u2019t even hurt. You\u2019re just saying that. Look, you\u2019re not even napping, you\u2019re still talking to me."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Dismissal",
-          "Invalidation"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "Your head does NOT hurt, you\u2019re just being lazy. I just worked 8 long hours and I don\u2019t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Blaming"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "You know we missed the thing. You did that on purpose."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Dramatization",
-          "Exaggeration"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "So you\u2019re comparing our relationship to other people\u2019s? I don\u2019t know if I can be in a relationship like this anymore. My friend (random girl/ guy name), says that anytime someone does that it\u2019s time to leave. I will NOT put up with that FUCKING SHIT!"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Blaming",
-          "Exaggeration"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "You don\u2019t respect me. You\u2019re always telling me my head doesn\u2019t hurt. You\u2019re always taking naps and ruining our plans."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Gaslighting"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "Bull shit. You know I\u2019m right. You even said I was right before you took a nap. I said your head doesn\u2019t even hurt and you said \u2018you\u2019re right\u2019 and went to sleep."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Gaslighting",
-          "Lying"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "I promise you, you\u2019re lying. You SAID I WAS RIGHT because you KNOW your head wasn\u2019t hurting. You even SAID you were a horrible person before you went to sleep."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Provocation",
-          "Ridiculing"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "Anyways, (Earlier mentioned Guy/Girl friend) went with me instead to the thing, while you were snoring like a FUCKING pig. She/He said they would never put up with that shit."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Creating a constraint favorable to the speaker"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "STOP PLAYING GAMES. YOU KNOW WHY."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Demanding"
-        ],
-        "file": "data\\test_input6.txt",
-        "text": "Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Demanding"
-        ],
-        "file": "data\\test_input6.txt",
-        "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input6.txt",
-        "text": "But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Exaggeration",
-          "Provocation"
-        ],
-        "file": "data\\test_input7.txt",
-        "text": "\"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\""
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Attacking",
-          "Exaggeration",
-          "Judging",
-          "Provocation"
-        ],
-        "file": "data\\test_input7.txt",
-        "text": "\"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\""
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Ignoring",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Ignoring",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Dismissal",
-          "Invalidation"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Ignoring",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Ignoring",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Ignoring",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Ignoring",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d."
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Distortion",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Distortion",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d"
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\"Oh, so now you're just going to walk away from everything we have? That's it?\""
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\""
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\"So it's over now, because of you!\""
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\""
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*in disbelief* \"So this is it then? You're just going to leave?\""
-      }
-    ],
     "Dismissal": [
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": [
-          "Dismissal"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat."
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": [
-          "Dismissal"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "OK :/"
-      },
       {
         "grouped_label": "Dismissal",
         "all_labels": [
@@ -821,7 +133,6 @@
       {
         "grouped_label": "Dismissal",
         "all_labels": [
-          "Accusation",
           "Dismissal",
           "Not taking seriously"
         ],
@@ -835,15 +146,250 @@
           "Not taking seriously"
         ],
         "file": "data\\test_input2.txt",
+        "text": "So instead of asking me if this would be a good time, to do some stuff in \u201cmy space,\u201d you had to create all of this?"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "I don\u2019t feel that I created this, I think that you did."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "By using the wrong language, by not jumping up to come and help you, instead I asked if I could help instead of making this my project so we could work on it as a team, even though maybe it\u2019s not really convenient for me at the moment because I was in the middle of some number stuff\u2026"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
         "text": "Well, certainly, if you came and asked me\u2026if you said to me, \u201cyou need to get that saddle down\u2026\u201d I\u2019d jump right up and help with that because it\u2019s something that would take Number A people and, you know, my stuff is all over it. So obviously you\u2019re going to have some hassles dealing with my stuff so I wouldn\u2019t even hesitate. I\u2019m there."
       },
       {
         "grouped_label": "Dismissal",
         "all_labels": [
-          "Dismissal"
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "So why are you so offended when I say, \u201ccan I help you\u201d \u2026"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Because\u2026"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "You could have just said, yeah, I need some help\u2026"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Do you want me to answer that question or not?"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
         ],
         "file": "data\\test_input2.txt",
         "text": "Sure, go ahead."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "What should have been so pitifully obvious is that you\u2019re setting it up so I can say no."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Why can\u2019t you say yes?"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "I did say yes."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "No, you did not. You said you wanted to move the plywood. I asked if you needed any help. You said no. So how am I supposed to interpret that? Instead of asking if you need help I should have just jumped up, come out here and we would have done this thing together and then everything would have been fine. Is that what you\u2019re telling me?"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Why wouldn\u2019t you do that? That\u2019s what I\u2019m wondering."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "I just told you because I was in the middle of trying to get some numbers right. If I could have had five more minutes I would have come out here, but now we have this thing."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "I didn\u2019t hear you say that."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "No, because when I asked you if you needed help you said no. So I assumed A \u2013 you were going to do something else first or B \u2013 you\u2019re going to do it yourself because I am busy. When I ask somebody else if they need my help, there\u2019s no judgement in it, its simply, can I assist you in any way?"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "What are you so busy with that you can\u2019t help me?"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "I don\u2019t see why you\u2019re so offended if I ask you if you need my assistance"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Because\u2026You\u2019re not helping me at all!"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Right, I\u2019m helping Area B. I get it. My thought process is off here. But it seems that my thought process is always off and we have this thing."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "it\u2019s this particular thing. This is it. Do you see the repetition in it?"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Yes, I do see the repetition and it really pisses me off."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Well, it pisses me off even more!"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Yeah? Well, I don\u2019t understand that if I tell you, if I say to you, I\u2019m offering you whatever assistance, how ever I can be of help why you\u2019re so offended by that. I have to use the exact language that you\u2026"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Because you never take the lead."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "When I take the lead, you change how things are going."
       },
       {
         "grouped_label": "Dismissal",
@@ -858,10 +404,41 @@
         "grouped_label": "Dismissal",
         "all_labels": [
           "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Why should I take the lead then?"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
           "Not taking seriously"
         ],
         "file": "data\\test_input2.txt",
         "text": "Why should I take the lead?"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Because you are the one who decides how the project goes in the end."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Passive aggression",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "In the end YOU determine how things happen around here, in all things. Don\u2019t give me that shit! It\u2019s a very passive aggressive command form. That\u2019s what I\u2019m objecting to! Years and years of it!"
       },
       {
         "grouped_label": "Dismissal",
@@ -882,7 +459,6 @@
       {
         "grouped_label": "Dismissal",
         "all_labels": [
-          "Demanding",
           "Dismissal",
           "Ignoring"
         ],
@@ -901,16 +477,89 @@
       {
         "grouped_label": "Dismissal",
         "all_labels": [
-          "Comparing",
+          "Dismissal",
+          "Evasion"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(evasively): Hmmmmm. yeah\u2026so? What are you saying?? What does that have to do with anything?"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
           "Dismissal"
         ],
-        "file": "data\\test_input5.txt",
-        "text": "Maybe I should take a nap and you should wake ME up. My head hurts wayy more than yours does."
+        "file": "data\\test_input4.txt",
+        "text": "what? No. But I'd appreciate it if you didn't throw garbage on my floor."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "Uh\u2026 no. It is your fault there are egg shells on my floor."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "I just don't want eggshells on my floor."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "Look. The garbage is Quantity C away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "OK, you're obviously upset about something. What can I do?"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "Alright. I'm sorry."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "I'm\u2026 sorry that you're so upset that you threw garbage on my floor."
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "Well what am I supposed to be apologizing for?"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "I'm sorry I've made you feel bad."
       },
       {
         "grouped_label": "Dismissal",
         "all_labels": [
           "Accusation",
+          "Diminishing",
           "Dismissal",
           "Invalidation"
         ],
@@ -921,8 +570,10 @@
         "grouped_label": "Dismissal",
         "all_labels": [
           "Accusation",
+          "Diminishing",
           "Dismissal",
-          "Invalidation"
+          "Invalidation",
+          "Not taking seriously"
         ],
         "file": "data\\test_input5.txt",
         "text": "Your head does NOT hurt, you\u2019re just being lazy. I just worked 8 long hours and I don\u2019t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache."
@@ -939,52 +590,8 @@
       {
         "grouped_label": "Dismissal",
         "all_labels": [
-          "Creating a constraint favorable to the speaker",
-          "Dismissal"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "No, I\u2019m not going to that. And you know why."
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": [
-          "Creating a constraint favorable to the speaker",
-          "Dismissal"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "I\u2019m not going. You KNOW WHY. So I\u2019m not going to tell you why."
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": [
-          "Creating a constraint favorable to the speaker",
-          "Dismissal"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "You KNOW why."
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": [
-          "Creating a constraint favorable to the speaker",
-          "Dismissal"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "NO because you KNOW WHY."
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": [
-          "Aggression",
-          "Dismissal"
-        ],
-        "file": "data\\test_input6.txt",
-        "text": "Shut up b*tch!"
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": [
           "Dismissal",
+          "Ignoring",
           "Not taking seriously"
         ],
         "file": "data\\test_input7.txt",
@@ -1002,6 +609,7 @@
         "grouped_label": "Dismissal",
         "all_labels": [
           "Dismissal",
+          "Ignoring",
           "Not taking seriously"
         ],
         "file": "data\\test_input7.txt",
@@ -1018,7 +626,8 @@
       {
         "grouped_label": "Dismissal",
         "all_labels": [
-          "Dismissal"
+          "Dismissal",
+          "Not taking seriously"
         ],
         "file": "data\\test_input7.txt",
         "text": "\"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\""
@@ -1026,11 +635,19 @@
       {
         "grouped_label": "Dismissal",
         "all_labels": [
-          "Dismissal",
-          "Not caring"
+          "Dismissal"
         ],
         "file": "data\\test_input8.txt",
         "text": "\u201cYes. They don't live here anymore.\u201d"
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input8.txt",
+        "text": "\u201cI let them go free.\u201d"
       },
       {
         "grouped_label": "Dismissal",
@@ -1044,7 +661,6 @@
       {
         "grouped_label": "Dismissal",
         "all_labels": [
-          "Diminishing",
           "Dismissal",
           "Not taking seriously"
         ],
@@ -1056,320 +672,10 @@
         "all_labels": [
           "Accusation",
           "Dismissal",
-          "Invalidation"
+          "Ignoring"
         ],
         "file": "data\\test_input9_escalating.txt",
         "text": "*stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d."
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": [
-          "Dismissal",
-          "Impatience"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cUgh, what do you WANT?\u201d"
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": [
-          "Dismissal",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d"
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": [
-          "Aggression",
-          "Dismissal"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d"
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": [
-          "Dismissal",
-          "Invalidation"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d"
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": [
-          "Aggression",
-          "Dismissal"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*silently seething* \"Fine, have your space!\""
-      }
-    ],
-    "Victim playing": [
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Exaggeration",
-          "Making others feel insecure",
-          "Victim playing"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Exaggeration",
-          "Victim playing"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Exaggeration",
-          "Making others feel insecure",
-          "Victim playing"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this?"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Exaggeration",
-          "Provocation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you."
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "By using the wrong language, by not jumping up to come and help you, instead I asked if I could help instead of making this my project so we could work on it as a team, even though maybe it\u2019s not really convenient for me at the moment because I was in the middle of some number stuff\u2026"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "I just told you because I was in the middle of trying to get some numbers right. If I could have had five more minutes I would have come out here, but now we have this thing."
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "No, because when I asked you if you needed help you said no. So I assumed A \u2013 you were going to do something else first or B \u2013 you\u2019re going to do it yourself because I am busy. When I ask somebody else if they need my help, there\u2019s no judgement in it, its simply, can I assist you in any way?"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Right, I\u2019m helping Area B. I get it. My thought process is off here. But it seems that my thought process is always off and we have this thing."
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Yeah? Well, I don\u2019t understand that if I tell you, if I say to you, I\u2019m offering you whatever assistance, how ever I can be of help why you\u2019re so offended by that. I have to use the exact language that you\u2026"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "When I take the lead, you change how things are going."
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Why should I take the lead then?"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Dramatization",
-          "Exaggeration",
-          "Victim playing"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(rapidly and angrily): Here comes the control!!! I will not be controlled!! I am a free bird!! I need to be free!!"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Exaggeration",
-          "Victim playing"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(crankily): Oh my God! No, no, no....I am not to be controlled!!"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "Now you're trying to make me feel bad."
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Exaggeration",
-          "Victim playing"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "So you care more about eggshells than you care about me."
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Comparing",
-          "Victim playing"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me."
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "There you go, making this my fault again."
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Demanding",
-          "Victim playing"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "You should apologize for making me feel bad."
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input6.txt",
-        "text": "But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Exaggeration",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Distortion",
-          "Exaggeration",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Distortion",
-          "Exaggeration",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d."
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Distortion",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Distortion",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d"
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\"Oh, so now you're just going to walk away from everything we have? That's it?\""
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\"So it's over now, because of you!\""
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": [
-          "Accusation",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*in disbelief* \"So this is it then? You're just going to leave?\""
       }
     ],
     "Not taking seriously": [
@@ -1421,12 +727,40 @@
       {
         "grouped_label": "Not taking seriously",
         "all_labels": [
-          "Accusation",
           "Dismissal",
           "Not taking seriously"
         ],
         "file": "data\\test_input2.txt",
         "text": "Yes. It happens that our entire existence here is your space, too. There\u2019s other things that go on here that you think have nothing to do with you, too, but they actually do. Because, you know, they\u2019re ours. You don\u2019t think in terms of OURS."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "So instead of asking me if this would be a good time, to do some stuff in \u201cmy space,\u201d you had to create all of this?"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "I don\u2019t feel that I created this, I think that you did."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "By using the wrong language, by not jumping up to come and help you, instead I asked if I could help instead of making this my project so we could work on it as a team, even though maybe it\u2019s not really convenient for me at the moment because I was in the middle of some number stuff\u2026"
       },
       {
         "grouped_label": "Not taking seriously",
@@ -1444,7 +778,231 @@
           "Not taking seriously"
         ],
         "file": "data\\test_input2.txt",
+        "text": "So why are you so offended when I say, \u201ccan I help you\u201d \u2026"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Because\u2026"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "You could have just said, yeah, I need some help\u2026"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Do you want me to answer that question or not?"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Sure, go ahead."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "What should have been so pitifully obvious is that you\u2019re setting it up so I can say no."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Why can\u2019t you say yes?"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "I did say yes."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "No, you did not. You said you wanted to move the plywood. I asked if you needed any help. You said no. So how am I supposed to interpret that? Instead of asking if you need help I should have just jumped up, come out here and we would have done this thing together and then everything would have been fine. Is that what you\u2019re telling me?"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Why wouldn\u2019t you do that? That\u2019s what I\u2019m wondering."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "I just told you because I was in the middle of trying to get some numbers right. If I could have had five more minutes I would have come out here, but now we have this thing."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "I didn\u2019t hear you say that."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "No, because when I asked you if you needed help you said no. So I assumed A \u2013 you were going to do something else first or B \u2013 you\u2019re going to do it yourself because I am busy. When I ask somebody else if they need my help, there\u2019s no judgement in it, its simply, can I assist you in any way?"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "What are you so busy with that you can\u2019t help me?"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "I don\u2019t see why you\u2019re so offended if I ask you if you need my assistance"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Because\u2026You\u2019re not helping me at all!"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Right, I\u2019m helping Area B. I get it. My thought process is off here. But it seems that my thought process is always off and we have this thing."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "it\u2019s this particular thing. This is it. Do you see the repetition in it?"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Yes, I do see the repetition and it really pisses me off."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Well, it pisses me off even more!"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Yeah? Well, I don\u2019t understand that if I tell you, if I say to you, I\u2019m offering you whatever assistance, how ever I can be of help why you\u2019re so offended by that. I have to use the exact language that you\u2026"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Because you never take the lead."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "When I take the lead, you change how things are going."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input2.txt",
         "text": "Well, of course."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Why should I take the lead then?"
       },
       {
         "grouped_label": "Not taking seriously",
@@ -1458,30 +1016,55 @@
       {
         "grouped_label": "Not taking seriously",
         "all_labels": [
-          "Accusation",
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Because you are the one who decides how the project goes in the end."
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Passive aggression",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "In the end YOU determine how things happen around here, in all things. Don\u2019t give me that shit! It\u2019s a very passive aggressive command form. That\u2019s what I\u2019m objecting to! Years and years of it!"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Comparing",
+          "Diminishing",
           "Not taking seriously"
         ],
-        "file": "data\\test_input3.txt",
-        "text": "(impatiently and angrily): Ohhh come on!! I can't believe how selfish you are being!"
+        "file": "data\\test_input5.txt",
+        "text": "I\u2019ve got a headache too. My day was sooo worse than yours. First, this happened, then that happened, then all this other stuff happened."
       },
       {
         "grouped_label": "Not taking seriously",
         "all_labels": [
-          "Not taking seriously",
-          "Provocation"
+          "Comparing",
+          "Diminishing",
+          "Not taking seriously"
         ],
-        "file": "data\\test_input4.txt",
-        "text": "Well what am I supposed to be apologizing for?"
+        "file": "data\\test_input5.txt",
+        "text": "Maybe I should take a nap and you should wake ME up. My head hurts wayy more than yours does."
       },
       {
         "grouped_label": "Not taking seriously",
         "all_labels": [
-          "Disrespect",
-          "Not taking seriously",
-          "Provocation"
+          "Accusation",
+          "Diminishing",
+          "Dismissal",
+          "Invalidation",
+          "Not taking seriously"
         ],
-        "file": "data\\test_input4.txt",
-        "text": "There. Holy Christ, was that so hard? *throws another eggshell on the floor*"
+        "file": "data\\test_input5.txt",
+        "text": "Your head does NOT hurt, you\u2019re just being lazy. I just worked 8 long hours and I don\u2019t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache."
       },
       {
         "grouped_label": "Not taking seriously",
@@ -1505,6 +1088,7 @@
         "grouped_label": "Not taking seriously",
         "all_labels": [
           "Dismissal",
+          "Ignoring",
           "Not taking seriously"
         ],
         "file": "data\\test_input7.txt",
@@ -1514,10 +1098,53 @@
         "grouped_label": "Not taking seriously",
         "all_labels": [
           "Dismissal",
+          "Ignoring",
           "Not taking seriously"
         ],
         "file": "data\\test_input7.txt",
         "text": "\"Person B, your baby needs nutrients and protein. Here's some for her.\""
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input7.txt",
+        "text": "\"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\""
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input8.txt",
+        "text": "\u201cHave you seen the kittens? They aren't in their crate!\u201d"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input8.txt",
+        "text": "\u201cPerson B, what did you do? Did you give them away?\u201d"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input8.txt",
+        "text": "\u201cI let them go free.\u201d"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input8.txt",
+        "text": "*panicked* \u201cWhat do you mean?!\u201d"
       },
       {
         "grouped_label": "Not taking seriously",
@@ -1531,7 +1158,6 @@
       {
         "grouped_label": "Not taking seriously",
         "all_labels": [
-          "Diminishing",
           "Dismissal",
           "Not taking seriously"
         ],
@@ -1581,7 +1207,8 @@
       {
         "grouped_label": "Not taking seriously",
         "all_labels": [
-          "Dismissal",
+          "Demanding",
+          "Ignoring",
           "Not taking seriously"
         ],
         "file": "data\\test_input9_escalating.txt",
@@ -1600,6 +1227,17 @@
       {
         "grouped_label": "Not taking seriously",
         "all_labels": [
+          "Aggression",
+          "Demanding",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
           "Accusation",
           "Ignoring",
           "Not taking seriously"
@@ -1611,6 +1249,18 @@
         "grouped_label": "Not taking seriously",
         "all_labels": [
           "Accusation",
+          "Ignoring",
+          "Not taking seriously",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
           "Not taking seriously"
         ],
         "file": "data\\test_input9_escalating.txt",
@@ -1619,7 +1269,18 @@
       {
         "grouped_label": "Not taking seriously",
         "all_labels": [
+          "Evasion",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
           "Accusation",
+          "Ignoring",
           "Not taking seriously"
         ],
         "file": "data\\test_input9_escalating.txt",
@@ -1629,10 +1290,487 @@
         "grouped_label": "Not taking seriously",
         "all_labels": [
           "Accusation",
+          "Ignoring",
+          "Not taking seriously",
+          "Sarcasm"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d"
+      },
+      {
+        "grouped_label": "Not taking seriously",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
           "Not taking seriously"
         ],
         "file": "data\\test_input9_escalating.txt",
         "text": "\"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\""
+      }
+    ],
+    "Accusation": [
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration",
+          "Victim playing"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration",
+          "Victim playing"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration",
+          "Provocation"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(impatiently and angrily): Ohhh come on!! I can't believe how selfish you are being!"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Dramatization",
+          "Exaggeration"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(rapidly and angrily): Here comes the control!!! I will not be controlled!! I am a free bird!! I need to be free!!"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Demanding"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "Yes, it's not fair!! You are wrong! I need your car....."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(crankily): Oh my God! No, no, no....I am not to be controlled!!"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(irate): That was not the same. You were wrong!! What you did was full on wrong and you know it!!!!"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "You are not Mr. Innocent... you flirted!! You flirted, and I could tell. After all, why was she smiling at you!! You were flir........."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Not verifying the negative assumptions about the other person"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "are you saying I'm lazy?"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Distortion",
+          "Not verifying the negative assumptions about the other person"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "So you're saying it's my fault that your apartment is messy?"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Blaming",
+          "Changing the topic"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Not verifying the negative assumptions about the other person"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "Now you're trying to make me feel bad."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration",
+          "Victim playing"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Victim playing"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "There you go, making this my fault again."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Diminishing",
+          "Dismissal",
+          "Invalidation"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "Nope. Mine definitely hurts worse. Your head doesn\u2019t even hurt. You\u2019re just saying that. Look, you\u2019re not even napping, you\u2019re still talking to me."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Diminishing",
+          "Dismissal",
+          "Invalidation",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "Your head does NOT hurt, you\u2019re just being lazy. I just worked 8 long hours and I don\u2019t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Blaming"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "You know we missed the thing. You did that on purpose."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Blaming",
+          "Exaggeration"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "You don\u2019t respect me. You\u2019re always telling me my head doesn\u2019t hurt. You\u2019re always taking naps and ruining our plans."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Distortion",
+          "Gaslighting"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "I promise you, you\u2019re lying. You SAID I WAS RIGHT because you KNOW your head wasn\u2019t hurting. You even SAID you were a horrible person before you went to sleep."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Making other feel like they are doing something wrong",
+          "Ridiculing"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "Anyways, (Earlier mentioned Guy/Girl friend) went with me instead to the thing, while you were snoring like a FUCKING pig. She/He said they would never put up with that shit."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Making another person dependent on speaker for information"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "STOP PLAYING GAMES. YOU KNOW WHY."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Demanding"
+        ],
+        "file": "data\\test_input6.txt",
+        "text": "Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Demanding"
+        ],
+        "file": "data\\test_input6.txt",
+        "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Victim playing"
+        ],
+        "file": "data\\test_input6.txt",
+        "text": "But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Guilt tripping",
+          "Provocation"
+        ],
+        "file": "data\\test_input7.txt",
+        "text": "\"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\""
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Attacking",
+          "Exaggeration",
+          "Guilt tripping",
+          "Provocation"
+        ],
+        "file": "data\\test_input7.txt",
+        "text": "\"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\""
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Dismissal",
+          "Ignoring"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d."
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously",
+          "Sarcasm"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d"
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\"Oh, so now you're just going to walk away from everything we have? That's it?\""
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\""
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\"So it's over now, because of you!\""
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\""
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": [
+          "Accusation",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*in disbelief* \"So this is it then? You're just going to leave?\""
       }
     ],
     "Exaggeration": [
@@ -1641,7 +1779,6 @@
         "all_labels": [
           "Accusation",
           "Exaggeration",
-          "Making others feel insecure",
           "Victim playing"
         ],
         "file": "data\\test_input.txt",
@@ -1669,8 +1806,17 @@
       {
         "grouped_label": "Exaggeration",
         "all_labels": [
+          "Accusation",
           "Exaggeration",
-          "Making others feel insecure",
+          "Provocation"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT"
+      },
+      {
+        "grouped_label": "Exaggeration",
+        "all_labels": [
+          "Exaggeration",
           "Victim playing"
         ],
         "file": "data\\test_input.txt",
@@ -1689,11 +1835,20 @@
       {
         "grouped_label": "Exaggeration",
         "all_labels": [
-          "Creating artificial obligations",
-          "Exaggeration"
+          "Exaggeration",
+          "Ignoring boundaries"
         ],
         "file": "data\\test_input3.txt",
         "text": "(insistently): Come on, just pick me and Person A up, and we can drop you off back at your place. It will only take a half hour."
+      },
+      {
+        "grouped_label": "Exaggeration",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(impatiently and angrily): Ohhh come on!! I can't believe how selfish you are being!"
       },
       {
         "grouped_label": "Exaggeration",
@@ -1707,9 +1862,9 @@
       {
         "grouped_label": "Exaggeration",
         "all_labels": [
+          "Accusation",
           "Dramatization",
-          "Exaggeration",
-          "Victim playing"
+          "Exaggeration"
         ],
         "file": "data\\test_input3.txt",
         "text": "(rapidly and angrily): Here comes the control!!! I will not be controlled!! I am a free bird!! I need to be free!!"
@@ -1717,8 +1872,8 @@
       {
         "grouped_label": "Exaggeration",
         "all_labels": [
-          "Exaggeration",
-          "Victim playing"
+          "Accusation",
+          "Exaggeration"
         ],
         "file": "data\\test_input3.txt",
         "text": "(crankily): Oh my God! No, no, no....I am not to be controlled!!"
@@ -1754,6 +1909,16 @@
         "grouped_label": "Exaggeration",
         "all_labels": [
           "Accusation",
+          "Exaggeration",
+          "Victim playing"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me."
+      },
+      {
+        "grouped_label": "Exaggeration",
+        "all_labels": [
+          "Accusation based on assumptions",
           "Dramatization",
           "Exaggeration"
         ],
@@ -1774,19 +1939,9 @@
         "grouped_label": "Exaggeration",
         "all_labels": [
           "Accusation",
-          "Exaggeration",
-          "Provocation"
-        ],
-        "file": "data\\test_input7.txt",
-        "text": "\"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\""
-      },
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": [
-          "Accusation",
           "Attacking",
           "Exaggeration",
-          "Judging",
+          "Guilt tripping",
           "Provocation"
         ],
         "file": "data\\test_input7.txt",
@@ -1796,6 +1951,7 @@
         "grouped_label": "Exaggeration",
         "all_labels": [
           "Exaggeration",
+          "Interruption",
           "Victim playing"
         ],
         "file": "data\\test_input9_escalating.txt",
@@ -1804,7 +1960,7 @@
       {
         "grouped_label": "Exaggeration",
         "all_labels": [
-          "Distortion",
+          "Accusation",
           "Exaggeration",
           "Victim playing"
         ],
@@ -1814,97 +1970,812 @@
       {
         "grouped_label": "Exaggeration",
         "all_labels": [
-          "Distortion",
           "Exaggeration",
+          "Sarcasm",
           "Victim playing"
         ],
         "file": "data\\test_input9_escalating.txt",
         "text": "*full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d."
       }
     ],
-    "Blaming": [
+    "Ignoring": [
       {
-        "grouped_label": "Blaming",
+        "grouped_label": "Ignoring",
         "all_labels": [
-          "Accusation",
-          "Blaming"
+          "Dismissal",
+          "Ignoring"
         ],
-        "file": "data\\test_input2.txt",
-        "text": "So instead of asking me if this would be a good time, to do some stuff in \u201cmy space,\u201d you had to create all of this?"
+        "file": "data\\test_input3.txt",
+        "text": "(angrily): I don't want talk about whatever it is you want talk about. I am not going to rehash!! The past is past. Now is now. I need to know if you will lend me your car right now."
       },
       {
-        "grouped_label": "Blaming",
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Abrupt reaction",
+          "Ignoring"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "I gotta goooo.....seeeyah....(click)"
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Ignoring"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "*sighs and picks up the eggshell*"
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Dismissal",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input7.txt",
+        "text": "\"You should really give her some of this breakfast I just cooked.\""
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Dismissal",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input7.txt",
+        "text": "\"Person B, your baby needs nutrients and protein. Here's some for her.\""
+      },
+      {
+        "grouped_label": "Ignoring",
         "all_labels": [
           "Accusation",
-          "Blaming"
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d."
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d."
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Accusation",
+          "Dismissal",
+          "Ignoring"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d."
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Ignoring",
+          "Impatience"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cUgh, what do you WANT?\u201d"
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d"
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d."
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Demanding",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d"
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d"
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Aggression",
+          "Demanding",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d"
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d."
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d"
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d"
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Evasion",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d"
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d"
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously",
+          "Sarcasm"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d"
+      },
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\""
+      }
+    ],
+    "Victim playing": [
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration",
+          "Victim playing"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!"
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration",
+          "Victim playing"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!"
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Exaggeration",
+          "Victim playing"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this?"
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Exaggeration",
+          "Provocation",
+          "Victim playing"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you."
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Exaggeration",
+          "Victim playing"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "So you care more about eggshells than you care about me."
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration",
+          "Victim playing"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me."
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Accusation",
+          "Victim playing"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "There you go, making this my fault again."
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Accusation",
+          "Victim playing"
+        ],
+        "file": "data\\test_input6.txt",
+        "text": "But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?"
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Exaggeration",
+          "Interruption",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d"
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Accusation",
+          "Exaggeration",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d"
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Accusation",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d"
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Exaggeration",
+          "Sarcasm",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d."
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d"
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Accusation",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\"Oh, so now you're just going to walk away from everything we have? That's it?\""
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Accusation",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\"So it's over now, because of you!\""
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": [
+          "Accusation",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*in disbelief* \"So this is it then? You're just going to leave?\""
+      }
+    ],
+    "Shifting of responsibility and blame": [
+      {
+        "grouped_label": "Shifting of responsibility and blame",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "I don\u2019t feel that I created this, I think that you did."
+      },
+      {
+        "grouped_label": "Shifting of responsibility and blame",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "By using the wrong language, by not jumping up to come and help you, instead I asked if I could help instead of making this my project so we could work on it as a team, even though maybe it\u2019s not really convenient for me at the moment because I was in the middle of some number stuff\u2026"
+      },
+      {
+        "grouped_label": "Shifting of responsibility and blame",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
         ],
         "file": "data\\test_input2.txt",
         "text": "What should have been so pitifully obvious is that you\u2019re setting it up so I can say no."
       },
       {
-        "grouped_label": "Blaming",
+        "grouped_label": "Shifting of responsibility and blame",
         "all_labels": [
-          "Accusation",
-          "Blaming"
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
         ],
         "file": "data\\test_input2.txt",
         "text": "No, you did not. You said you wanted to move the plywood. I asked if you needed any help. You said no. So how am I supposed to interpret that? Instead of asking if you need help I should have just jumped up, come out here and we would have done this thing together and then everything would have been fine. Is that what you\u2019re telling me?"
       },
       {
-        "grouped_label": "Blaming",
+        "grouped_label": "Shifting of responsibility and blame",
         "all_labels": [
-          "Accusation",
-          "Blaming"
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
         ],
         "file": "data\\test_input2.txt",
-        "text": "Why wouldn\u2019t you do that? That\u2019s what I\u2019m wondering."
+        "text": "I just told you because I was in the middle of trying to get some numbers right. If I could have had five more minutes I would have come out here, but now we have this thing."
       },
       {
-        "grouped_label": "Blaming",
+        "grouped_label": "Shifting of responsibility and blame",
         "all_labels": [
-          "Accusation",
-          "Blaming"
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
         ],
         "file": "data\\test_input2.txt",
-        "text": "Because\u2026You\u2019re not helping me at all!"
+        "text": "No, because when I asked you if you needed help you said no. So I assumed A \u2013 you were going to do something else first or B \u2013 you\u2019re going to do it yourself because I am busy. When I ask somebody else if they need my help, there\u2019s no judgement in it, its simply, can I assist you in any way?"
       },
       {
-        "grouped_label": "Blaming",
+        "grouped_label": "Shifting of responsibility and blame",
         "all_labels": [
-          "Accusation",
-          "Blaming"
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
         ],
         "file": "data\\test_input2.txt",
-        "text": "it\u2019s this particular thing. This is it. Do you see the repetition in it?"
+        "text": "Right, I\u2019m helping Area B. I get it. My thought process is off here. But it seems that my thought process is always off and we have this thing."
       },
       {
-        "grouped_label": "Blaming",
+        "grouped_label": "Shifting of responsibility and blame",
         "all_labels": [
-          "Accusation",
-          "Blaming"
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
         ],
         "file": "data\\test_input2.txt",
-        "text": "Because you never take the lead."
+        "text": "Yeah? Well, I don\u2019t understand that if I tell you, if I say to you, I\u2019m offering you whatever assistance, how ever I can be of help why you\u2019re so offended by that. I have to use the exact language that you\u2026"
       },
       {
-        "grouped_label": "Blaming",
+        "grouped_label": "Shifting of responsibility and blame",
         "all_labels": [
-          "Accusation",
-          "Blaming"
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "When I take the lead, you change how things are going."
+      },
+      {
+        "grouped_label": "Shifting of responsibility and blame",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input2.txt",
+        "text": "Why should I take the lead then?"
+      },
+      {
+        "grouped_label": "Shifting of responsibility and blame",
+        "all_labels": [
+          "Dismissal",
+          "Not taking seriously",
+          "Shifting of responsibility and blame"
         ],
         "file": "data\\test_input2.txt",
         "text": "Because you are the one who decides how the project goes in the end."
       },
       {
-        "grouped_label": "Blaming",
+        "grouped_label": "Shifting of responsibility and blame",
         "all_labels": [
-          "Accusation",
-          "Aggression",
-          "Blaming"
+          "Dismissal",
+          "Not taking seriously",
+          "Passive aggression",
+          "Shifting of responsibility and blame"
         ],
         "file": "data\\test_input2.txt",
         "text": "In the end YOU determine how things happen around here, in all things. Don\u2019t give me that shit! It\u2019s a very passive aggressive command form. That\u2019s what I\u2019m objecting to! Years and years of it!"
       },
+      {
+        "grouped_label": "Shifting of responsibility and blame",
+        "all_labels": [
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "I\u2019m not responsible for your life. Don\u2019t blame this on me."
+      },
+      {
+        "grouped_label": "Shifting of responsibility and blame",
+        "all_labels": [
+          "Blaming",
+          "Gaslighting",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "I told you it wasn\u2019t a date! You are always over-exaggerating. This is all your fault anyway. You didn\u2019t have to take a nap. You chose to take a nap."
+      },
+      {
+        "grouped_label": "Shifting of responsibility and blame",
+        "all_labels": [
+          "Blaming",
+          "Gaslighting",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "That\u2019s because YOU are the problem. Feeling this and feeling that. That\u2019s not even how it is, but you are wayyy too sensitive. I can\u2019t help it if you FEEL like walking on eggshells. You can\u2019t blame your feelings on me."
+      },
+      {
+        "grouped_label": "Shifting of responsibility and blame",
+        "all_labels": [
+          "Being entitled",
+          "Shifting of responsibility and blame"
+        ],
+        "file": "data\\test_input6.txt",
+        "text": "I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?"
+      }
+    ],
+    "Demanding": [
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Demanding"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "Hey. You better call me as soon as you get this. We need to talk."
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Demanding",
+          "Diminishing"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road."
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Demanding",
+          "Threats"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon."
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Demanding"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(with conviction): Right now!"
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Accusation",
+          "Demanding"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "Yes, it's not fair!! You are wrong! I need your car....."
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Aggression",
+          "Demanding"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(angrily): Look are you going to pick me and Person A up or not?"
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Demanding"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "Well an apology would be a good start."
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Demanding"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "What are you sorry for?"
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Demanding"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "You should apologize for making me feel bad."
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Accusation",
+          "Demanding"
+        ],
+        "file": "data\\test_input6.txt",
+        "text": "Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?"
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Accusation",
+          "Demanding"
+        ],
+        "file": "data\\test_input6.txt",
+        "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open."
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Demanding"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cWhat do you want? Tell me what you need from me\u201d"
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Demanding",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d"
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": [
+          "Aggression",
+          "Demanding",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d"
+      }
+    ],
+    "Evasion": [
+      {
+        "grouped_label": "Evasion",
+        "all_labels": [
+          "Evasion",
+          "Not offering constructive solutions"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it."
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": [
+          "Evasion"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(evasively): Umm, I don't have to get into that with you?"
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": [
+          "Dismissal",
+          "Evasion"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "What does that have to do with anything? Why does that even matter??"
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": [
+          "Dismissal",
+          "Evasion"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(evasively): Hmmmmm. yeah\u2026so? What are you saying?? What does that have to do with anything?"
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": [
+          "Evasion",
+          "Excessive defensiveness"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(defensively and angrily) That was different...wait\u2026..what does that have to do with anything?"
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": [
+          "Deception",
+          "Evasion"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "It wasn\u2019t a date. I didn\u2019t let her/him kiss me like she/he wanted to."
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": [
+          "Evasion",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input6.txt",
+        "text": "Please leave me alone. My head hurts."
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": [
+          "Evasion",
+          "Procrastination"
+        ],
+        "file": "data\\test_input6.txt",
+        "text": "Look, let\u2019s talk about it some other time."
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": [
+          "Evasion"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cNo, I\u2019m listening now. Please! What do you want?\u201d"
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": [
+          "Evasion",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d"
+      }
+    ],
+    "Aggression": [
+      {
+        "grouped_label": "Aggression",
+        "all_labels": [
+          "Aggression"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(combatively):Ohhh, no you don't!"
+      },
+      {
+        "grouped_label": "Aggression",
+        "all_labels": [
+          "Aggression"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(shouting angrily): What?!?!?"
+      },
+      {
+        "grouped_label": "Aggression",
+        "all_labels": [
+          "Aggression",
+          "Demanding"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(angrily): Look are you going to pick me and Person A up or not?"
+      },
+      {
+        "grouped_label": "Aggression",
+        "all_labels": [
+          "Aggression",
+          "Hostility"
+        ],
+        "file": "data\\test_input6.txt",
+        "text": "Shut up b*tch!"
+      },
+      {
+        "grouped_label": "Aggression",
+        "all_labels": [
+          "Aggression",
+          "Demanding",
+          "Ignoring",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d"
+      },
+      {
+        "grouped_label": "Aggression",
+        "all_labels": [
+          "Aggression",
+          "Resentment and covert opposition"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*silently seething* \"Fine, have your space!\""
+      }
+    ],
+    "Blaming": [
       {
         "grouped_label": "Blaming",
         "all_labels": [
@@ -1957,23 +2828,15 @@
         "all_labels": [
           "Blaming",
           "Gaslighting",
-          "Invalidating"
+          "Shifting of responsibility and blame"
         ],
         "file": "data\\test_input5.txt",
         "text": "That\u2019s because YOU are the problem. Feeling this and feeling that. That\u2019s not even how it is, but you are wayyy too sensitive. I can\u2019t help it if you FEEL like walking on eggshells. You can\u2019t blame your feelings on me."
       }
     ],
-    "Demanding": [
+    "Diminishing": [
       {
-        "grouped_label": "Demanding",
-        "all_labels": [
-          "Demanding"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "Hey. You better call me as soon as you get this. We need to talk."
-      },
-      {
-        "grouped_label": "Demanding",
+        "grouped_label": "Diminishing",
         "all_labels": [
           "Demanding",
           "Diminishing"
@@ -1982,317 +2845,47 @@
         "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road."
       },
       {
-        "grouped_label": "Demanding",
-        "all_labels": [
-          "Demanding",
-          "Threats"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon."
-      },
-      {
-        "grouped_label": "Demanding",
-        "all_labels": [
-          "Demanding"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(with conviction): Right now!"
-      },
-      {
-        "grouped_label": "Demanding",
-        "all_labels": [
-          "Demanding",
-          "Dismissal",
-          "Ignoring"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(angrily): I don't want talk about whatever it is you want talk about. I am not going to rehash!! The past is past. Now is now. I need to know if you will lend me your car right now."
-      },
-      {
-        "grouped_label": "Demanding",
-        "all_labels": [
-          "Accusation",
-          "Demanding"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "Yes, it's not fair!! You are wrong! I need your car....."
-      },
-      {
-        "grouped_label": "Demanding",
-        "all_labels": [
-          "Demanding",
-          "Ignoring"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(angrily): Look are you going to pick me and Person A up or not?"
-      },
-      {
-        "grouped_label": "Demanding",
-        "all_labels": [
-          "Demanding"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "Well an apology would be a good start."
-      },
-      {
-        "grouped_label": "Demanding",
-        "all_labels": [
-          "Demanding",
-          "Victim playing"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "You should apologize for making me feel bad."
-      },
-      {
-        "grouped_label": "Demanding",
-        "all_labels": [
-          "Accusation",
-          "Demanding"
-        ],
-        "file": "data\\test_input6.txt",
-        "text": "Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?"
-      },
-      {
-        "grouped_label": "Demanding",
-        "all_labels": [
-          "Accusation",
-          "Demanding"
-        ],
-        "file": "data\\test_input6.txt",
-        "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open."
-      },
-      {
-        "grouped_label": "Demanding",
-        "all_labels": [
-          "Demanding"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cWhat do you want? Tell me what you need from me\u201d"
-      }
-    ],
-    "Evasion": [
-      {
-        "grouped_label": "Evasion",
-        "all_labels": [
-          "Evasion",
-          "Making others feel insecure",
-          "Not offering constructive solutions"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it."
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": [
-          "Evasion"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Because\u2026"
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": [
-          "Evasion"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(evasively): Umm, I don't have to get into that with you?"
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": [
-          "Dismissal",
-          "Evasion"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "What does that have to do with anything? Why does that even matter??"
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": [
-          "Evasion",
-          "Not attempting to understand"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(evasively): Hmmmmm. yeah\u2026so? What are you saying?? What does that have to do with anything?"
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": [
-          "Evasion",
-          "Feigning ignorance"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "I literally have no idea what you are talking about!!"
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": [
-          "Denying",
-          "Evasion"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(defensively and angrily) That was different...wait\u2026..what does that have to do with anything?"
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": [
-          "Evasion",
-          "Ignoring"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "I gotta goooo.....seeeyah....(click)"
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": [
-          "Deception",
-          "Evasion"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "It wasn\u2019t a date. I didn\u2019t let her/him kiss me like she/he wanted to."
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": [
-          "Evasion",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input6.txt",
-        "text": "Please leave me alone. My head hurts."
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": [
-          "Evasion",
-          "Procrastination"
-        ],
-        "file": "data\\test_input6.txt",
-        "text": "Look, let\u2019s talk about it some other time."
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": [
-          "Evasion"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cNo, I\u2019m listening now. Please! What do you want?\u201d"
-      }
-    ],
-    "Ignoring": [
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": [
-          "Ignoring"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "Yes, me and Person A want to go out."
-      },
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": [
-          "Demanding",
-          "Dismissal",
-          "Ignoring"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(angrily): I don't want talk about whatever it is you want talk about. I am not going to rehash!! The past is past. Now is now. I need to know if you will lend me your car right now."
-      },
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": [
-          "Changing the topic",
-          "Ignoring"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(silence...then abruptly): Hey did you hear about that Person R thing!!"
-      },
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": [
-          "Demanding",
-          "Ignoring"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(angrily): Look are you going to pick me and Person A up or not?"
-      },
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": [
-          "Evasion",
-          "Ignoring"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "I gotta goooo.....seeeyah....(click)"
-      },
-      {
-        "grouped_label": "Ignoring",
+        "grouped_label": "Diminishing",
         "all_labels": [
           "Comparing",
-          "Ignoring",
-          "Not caring"
+          "Diminishing",
+          "Not taking seriously"
         ],
         "file": "data\\test_input5.txt",
         "text": "I\u2019ve got a headache too. My day was sooo worse than yours. First, this happened, then that happened, then all this other stuff happened."
       },
       {
-        "grouped_label": "Ignoring",
+        "grouped_label": "Diminishing",
         "all_labels": [
-          "Accusation",
-          "Ignoring",
+          "Comparing",
+          "Diminishing",
           "Not taking seriously"
         ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d."
+        "file": "data\\test_input5.txt",
+        "text": "Maybe I should take a nap and you should wake ME up. My head hurts wayy more than yours does."
       },
       {
-        "grouped_label": "Ignoring",
+        "grouped_label": "Diminishing",
         "all_labels": [
           "Accusation",
-          "Ignoring",
-          "Not taking seriously"
+          "Diminishing",
+          "Dismissal",
+          "Invalidation"
         ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d."
+        "file": "data\\test_input5.txt",
+        "text": "Nope. Mine definitely hurts worse. Your head doesn\u2019t even hurt. You\u2019re just saying that. Look, you\u2019re not even napping, you\u2019re still talking to me."
       },
       {
-        "grouped_label": "Ignoring",
+        "grouped_label": "Diminishing",
         "all_labels": [
           "Accusation",
-          "Ignoring",
+          "Diminishing",
+          "Dismissal",
+          "Invalidation",
           "Not taking seriously"
         ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d"
-      },
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": [
-          "Accusation",
-          "Ignoring",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d."
-      },
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": [
-          "Accusation",
-          "Ignoring",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d"
-      },
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": [
-          "Accusation",
-          "Ignoring",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d."
+        "file": "data\\test_input5.txt",
+        "text": "Your head does NOT hurt, you\u2019re just being lazy. I just worked 8 long hours and I don\u2019t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache."
       }
     ],
     "Provocation": [
@@ -2300,7 +2893,7 @@
         "grouped_label": "Provocation",
         "all_labels": [
           "Accusation",
-          "Making others feel insecure",
+          "Exaggeration",
           "Provocation"
         ],
         "file": "data\\test_input.txt",
@@ -2319,34 +2912,7 @@
       {
         "grouped_label": "Provocation",
         "all_labels": [
-          "Accusation",
-          "Provocation"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "What are you so busy with that you can\u2019t help me?"
-      },
-      {
-        "grouped_label": "Provocation",
-        "all_labels": [
-          "Provocation"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "What are you sorry for?"
-      },
-      {
-        "grouped_label": "Provocation",
-        "all_labels": [
-          "Not taking seriously",
-          "Provocation"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "Well what am I supposed to be apologizing for?"
-      },
-      {
-        "grouped_label": "Provocation",
-        "all_labels": [
           "Disrespect",
-          "Not taking seriously",
           "Provocation"
         ],
         "file": "data\\test_input4.txt",
@@ -2356,17 +2922,7 @@
         "grouped_label": "Provocation",
         "all_labels": [
           "Accusation",
-          "Provocation",
-          "Ridiculing"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "Anyways, (Earlier mentioned Guy/Girl friend) went with me instead to the thing, while you were snoring like a FUCKING pig. She/He said they would never put up with that shit."
-      },
-      {
-        "grouped_label": "Provocation",
-        "all_labels": [
-          "Accusation",
-          "Exaggeration",
+          "Guilt tripping",
           "Provocation"
         ],
         "file": "data\\test_input7.txt",
@@ -2378,452 +2934,11 @@
           "Accusation",
           "Attacking",
           "Exaggeration",
-          "Judging",
+          "Guilt tripping",
           "Provocation"
         ],
         "file": "data\\test_input7.txt",
         "text": "\"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\""
-      }
-    ],
-    "Aggression": [
-      {
-        "grouped_label": "Aggression",
-        "all_labels": [
-          "Aggression",
-          "Threats"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY."
-      },
-      {
-        "grouped_label": "Aggression",
-        "all_labels": [
-          "Accusation",
-          "Aggression",
-          "Blaming"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "In the end YOU determine how things happen around here, in all things. Don\u2019t give me that shit! It\u2019s a very passive aggressive command form. That\u2019s what I\u2019m objecting to! Years and years of it!"
-      },
-      {
-        "grouped_label": "Aggression",
-        "all_labels": [
-          "Aggression"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(combatively):Ohhh, no you don't!"
-      },
-      {
-        "grouped_label": "Aggression",
-        "all_labels": [
-          "Aggression"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(shouting angrily): What?!?!?"
-      },
-      {
-        "grouped_label": "Aggression",
-        "all_labels": [
-          "Aggression",
-          "Dismissal"
-        ],
-        "file": "data\\test_input6.txt",
-        "text": "Shut up b*tch!"
-      },
-      {
-        "grouped_label": "Aggression",
-        "all_labels": [
-          "Aggression",
-          "Dismissal"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d"
-      },
-      {
-        "grouped_label": "Aggression",
-        "all_labels": [
-          "Aggression",
-          "Dismissal"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*silently seething* \"Fine, have your space!\""
-      }
-    ],
-    "Distortion": [
-      {
-        "grouped_label": "Distortion",
-        "all_labels": [
-          "Accusation",
-          "Distortion",
-          "Not verifying the negative assumptions about the other person"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "So you're saying it's my fault that your apartment is messy?"
-      },
-      {
-        "grouped_label": "Distortion",
-        "all_labels": [
-          "Distortion",
-          "Exaggeration",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d"
-      },
-      {
-        "grouped_label": "Distortion",
-        "all_labels": [
-          "Distortion",
-          "Exaggeration",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d."
-      },
-      {
-        "grouped_label": "Distortion",
-        "all_labels": [
-          "Accusation",
-          "Distortion",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d"
-      },
-      {
-        "grouped_label": "Distortion",
-        "all_labels": [
-          "Accusation",
-          "Distortion",
-          "Victim playing"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d"
-      }
-    ],
-    "Creating a constraint favorable to the speaker": [
-      {
-        "grouped_label": "Creating a constraint favorable to the speaker",
-        "all_labels": [
-          "Creating a constraint favorable to the speaker",
-          "Dismissal"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "No, I\u2019m not going to that. And you know why."
-      },
-      {
-        "grouped_label": "Creating a constraint favorable to the speaker",
-        "all_labels": [
-          "Creating a constraint favorable to the speaker",
-          "Dismissal"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "I\u2019m not going. You KNOW WHY. So I\u2019m not going to tell you why."
-      },
-      {
-        "grouped_label": "Creating a constraint favorable to the speaker",
-        "all_labels": [
-          "Creating a constraint favorable to the speaker",
-          "Dismissal"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "You KNOW why."
-      },
-      {
-        "grouped_label": "Creating a constraint favorable to the speaker",
-        "all_labels": [
-          "Accusation",
-          "Creating a constraint favorable to the speaker"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "STOP PLAYING GAMES. YOU KNOW WHY."
-      },
-      {
-        "grouped_label": "Creating a constraint favorable to the speaker",
-        "all_labels": [
-          "Creating a constraint favorable to the speaker",
-          "Dismissal"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "NO because you KNOW WHY."
-      }
-    ],
-    "Making others feel insecure": [
-      {
-        "grouped_label": "Making others feel insecure",
-        "all_labels": [
-          "Evasion",
-          "Making others feel insecure",
-          "Not offering constructive solutions"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it."
-      },
-      {
-        "grouped_label": "Making others feel insecure",
-        "all_labels": [
-          "Accusation",
-          "Exaggeration",
-          "Making others feel insecure",
-          "Victim playing"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!"
-      },
-      {
-        "grouped_label": "Making others feel insecure",
-        "all_labels": [
-          "Accusation",
-          "Making others feel insecure",
-          "Provocation"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT"
-      },
-      {
-        "grouped_label": "Making others feel insecure",
-        "all_labels": [
-          "Exaggeration",
-          "Making others feel insecure",
-          "Victim playing"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this?"
-      }
-    ],
-    "Shifting of responsibility and blame": [
-      {
-        "grouped_label": "Shifting of responsibility and blame",
-        "all_labels": [
-          "Accusation",
-          "Shifting of responsibility and blame"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "I don\u2019t feel that I created this, I think that you did."
-      },
-      {
-        "grouped_label": "Shifting of responsibility and blame",
-        "all_labels": [
-          "Shifting of responsibility and blame"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "I\u2019m not responsible for your life. Don\u2019t blame this on me."
-      },
-      {
-        "grouped_label": "Shifting of responsibility and blame",
-        "all_labels": [
-          "Blaming",
-          "Gaslighting",
-          "Shifting of responsibility and blame"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "I told you it wasn\u2019t a date! You are always over-exaggerating. This is all your fault anyway. You didn\u2019t have to take a nap. You chose to take a nap."
-      },
-      {
-        "grouped_label": "Shifting of responsibility and blame",
-        "all_labels": [
-          "Being entitled",
-          "Shifting of responsibility and blame"
-        ],
-        "file": "data\\test_input6.txt",
-        "text": "I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?"
-      }
-    ],
-    "Gaslighting": [
-      {
-        "grouped_label": "Gaslighting",
-        "all_labels": [
-          "Accusation",
-          "Gaslighting"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "Bull shit. You know I\u2019m right. You even said I was right before you took a nap. I said your head doesn\u2019t even hurt and you said \u2018you\u2019re right\u2019 and went to sleep."
-      },
-      {
-        "grouped_label": "Gaslighting",
-        "all_labels": [
-          "Accusation",
-          "Gaslighting",
-          "Lying"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "I promise you, you\u2019re lying. You SAID I WAS RIGHT because you KNOW your head wasn\u2019t hurting. You even SAID you were a horrible person before you went to sleep."
-      },
-      {
-        "grouped_label": "Gaslighting",
-        "all_labels": [
-          "Blaming",
-          "Gaslighting",
-          "Shifting of responsibility and blame"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "I told you it wasn\u2019t a date! You are always over-exaggerating. This is all your fault anyway. You didn\u2019t have to take a nap. You chose to take a nap."
-      },
-      {
-        "grouped_label": "Gaslighting",
-        "all_labels": [
-          "Blaming",
-          "Gaslighting",
-          "Invalidating"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "That\u2019s because YOU are the problem. Feeling this and feeling that. That\u2019s not even how it is, but you are wayyy too sensitive. I can\u2019t help it if you FEEL like walking on eggshells. You can\u2019t blame your feelings on me."
-      }
-    ],
-    "Invalidation": [
-      {
-        "grouped_label": "Invalidation",
-        "all_labels": [
-          "Accusation",
-          "Dismissal",
-          "Invalidation"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "Nope. Mine definitely hurts worse. Your head doesn\u2019t even hurt. You\u2019re just saying that. Look, you\u2019re not even napping, you\u2019re still talking to me."
-      },
-      {
-        "grouped_label": "Invalidation",
-        "all_labels": [
-          "Accusation",
-          "Dismissal",
-          "Invalidation"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "Your head does NOT hurt, you\u2019re just being lazy. I just worked 8 long hours and I don\u2019t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache."
-      },
-      {
-        "grouped_label": "Invalidation",
-        "all_labels": [
-          "Accusation",
-          "Dismissal",
-          "Invalidation"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d."
-      },
-      {
-        "grouped_label": "Invalidation",
-        "all_labels": [
-          "Dismissal",
-          "Invalidation"
-        ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d"
-      }
-    ],
-    "Diminishing": [
-      {
-        "grouped_label": "Diminishing",
-        "all_labels": [
-          "Demanding",
-          "Diminishing"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road."
-      },
-      {
-        "grouped_label": "Diminishing",
-        "all_labels": [
-          "Acting as if nothing remarkable happened",
-          "Diminishing"
-        ],
-        "file": "data\\test_input8.txt",
-        "text": "\u201cI let them go free.\u201d"
-      },
-      {
-        "grouped_label": "Diminishing",
-        "all_labels": [
-          "Diminishing",
-          "Dismissal",
-          "Not taking seriously"
-        ],
-        "file": "data\\test_input8.txt",
-        "text": "\u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d"
-      }
-    ],
-    "Denying": [
-      {
-        "grouped_label": "Denying",
-        "all_labels": [
-          "Denying"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "I did say yes."
-      },
-      {
-        "grouped_label": "Denying",
-        "all_labels": [
-          "Denying"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "I didn\u2019t hear you say that."
-      },
-      {
-        "grouped_label": "Denying",
-        "all_labels": [
-          "Denying",
-          "Evasion"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(defensively and angrily) That was different...wait\u2026..what does that have to do with anything?"
-      }
-    ],
-    "Creating artificial obligations": [
-      {
-        "grouped_label": "Creating artificial obligations",
-        "all_labels": [
-          "Creating artificial obligations"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "Hi...I need a favor....what are doing right now?"
-      },
-      {
-        "grouped_label": "Creating artificial obligations",
-        "all_labels": [
-          "Creating artificial obligations"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "Well, I was just wondering if maybe I could borrow your car...."
-      },
-      {
-        "grouped_label": "Creating artificial obligations",
-        "all_labels": [
-          "Creating artificial obligations",
-          "Exaggeration"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(insistently): Come on, just pick me and Person A up, and we can drop you off back at your place. It will only take a half hour."
-      }
-    ],
-    "Dramatization": [
-      {
-        "grouped_label": "Dramatization",
-        "all_labels": [
-          "Dramatization",
-          "Exaggeration"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(explosively): I knew it!!! I KNEW IT!!!"
-      },
-      {
-        "grouped_label": "Dramatization",
-        "all_labels": [
-          "Dramatization",
-          "Exaggeration",
-          "Victim playing"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(rapidly and angrily): Here comes the control!!! I will not be controlled!! I am a free bird!! I need to be free!!"
-      },
-      {
-        "grouped_label": "Dramatization",
-        "all_labels": [
-          "Accusation",
-          "Dramatization",
-          "Exaggeration"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "So you\u2019re comparing our relationship to other people\u2019s? I don\u2019t know if I can be in a relationship like this anymore. My friend (random girl/ guy name), says that anytime someone does that it\u2019s time to leave. I will NOT put up with that FUCKING SHIT!"
       }
     ],
     "Feigning ignorance": [
@@ -2846,141 +2961,122 @@
       {
         "grouped_label": "Feigning ignorance",
         "all_labels": [
-          "Evasion",
           "Feigning ignorance"
         ],
         "file": "data\\test_input3.txt",
         "text": "I literally have no idea what you are talking about!!"
-      }
-    ],
-    "Comparing": [
-      {
-        "grouped_label": "Comparing",
-        "all_labels": [
-          "Accusation",
-          "Comparing",
-          "Victim playing"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me."
       },
       {
-        "grouped_label": "Comparing",
+        "grouped_label": "Feigning ignorance",
         "all_labels": [
-          "Comparing",
-          "Ignoring",
-          "Not caring"
+          "Feigning ignorance",
+          "Making another person dependent on speaker for information"
         ],
         "file": "data\\test_input5.txt",
-        "text": "I\u2019ve got a headache too. My day was sooo worse than yours. First, this happened, then that happened, then all this other stuff happened."
-      },
+        "text": "I\u2019m not going. You KNOW WHY. So I\u2019m not going to tell you why."
+      }
+    ],
+    "Gaslighting": [
       {
-        "grouped_label": "Comparing",
+        "grouped_label": "Gaslighting",
         "all_labels": [
-          "Comparing",
-          "Dismissal"
+          "Distortion",
+          "Gaslighting"
         ],
         "file": "data\\test_input5.txt",
-        "text": "Maybe I should take a nap and you should wake ME up. My head hurts wayy more than yours does."
-      }
-    ],
-    "Threats": [
-      {
-        "grouped_label": "Threats",
-        "all_labels": [
-          "Demanding",
-          "Threats"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon."
+        "text": "Bull shit. You know I\u2019m right. You even said I was right before you took a nap. I said your head doesn\u2019t even hurt and you said \u2018you\u2019re right\u2019 and went to sleep."
       },
       {
-        "grouped_label": "Threats",
-        "all_labels": [
-          "Aggression",
-          "Threats"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY."
-      }
-    ],
-    "Sarcasm": [
-      {
-        "grouped_label": "Sarcasm",
-        "all_labels": [
-          "Sarcasm"
-        ],
-        "file": "data\\test_input.txt",
-        "text": "You mean a more fun side than this? Can\u2019t wait."
-      },
-      {
-        "grouped_label": "Sarcasm",
-        "all_labels": [
-          "Sarcasm"
-        ],
-        "file": "data\\test_input4.txt",
-        "text": "I'm\u2026 sorry that you're so upset that you threw garbage on my floor."
-      }
-    ],
-    "Complaining": [
-      {
-        "grouped_label": "Complaining",
+        "grouped_label": "Gaslighting",
         "all_labels": [
           "Accusation",
-          "Complaining"
+          "Distortion",
+          "Gaslighting"
         ],
-        "file": "data\\test_input2.txt",
-        "text": "Yes, I do see the repetition and it really pisses me off."
+        "file": "data\\test_input5.txt",
+        "text": "I promise you, you\u2019re lying. You SAID I WAS RIGHT because you KNOW your head wasn\u2019t hurting. You even SAID you were a horrible person before you went to sleep."
       },
       {
-        "grouped_label": "Complaining",
+        "grouped_label": "Gaslighting",
         "all_labels": [
-          "Accusation",
-          "Complaining"
+          "Blaming",
+          "Gaslighting",
+          "Shifting of responsibility and blame"
         ],
-        "file": "data\\test_input2.txt",
-        "text": "Well, it pisses me off even more!"
-      }
-    ],
-    "Impatience": [
-      {
-        "grouped_label": "Impatience",
-        "all_labels": [
-          "Being impatient",
-          "Impatience"
-        ],
-        "file": "data\\test_input2.txt",
-        "text": "Do you want me to answer that question or not?"
+        "file": "data\\test_input5.txt",
+        "text": "I told you it wasn\u2019t a date! You are always over-exaggerating. This is all your fault anyway. You didn\u2019t have to take a nap. You chose to take a nap."
       },
       {
-        "grouped_label": "Impatience",
+        "grouped_label": "Gaslighting",
         "all_labels": [
-          "Dismissal",
-          "Impatience"
+          "Blaming",
+          "Gaslighting",
+          "Shifting of responsibility and blame"
         ],
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cUgh, what do you WANT?\u201d"
+        "file": "data\\test_input5.txt",
+        "text": "That\u2019s because YOU are the problem. Feeling this and feeling that. That\u2019s not even how it is, but you are wayyy too sensitive. I can\u2019t help it if you FEEL like walking on eggshells. You can\u2019t blame your feelings on me."
       }
     ],
-    "Changing the topic": [
+    "Dramatization": [
       {
-        "grouped_label": "Changing the topic",
+        "grouped_label": "Dramatization",
         "all_labels": [
-          "Changing the topic",
-          "Ignoring"
+          "Dramatization",
+          "Exaggeration"
         ],
         "file": "data\\test_input3.txt",
-        "text": "(silence...then abruptly): Hey did you hear about that Person R thing!!"
+        "text": "(explosively): I knew it!!! I KNEW IT!!!"
       },
       {
-        "grouped_label": "Changing the topic",
+        "grouped_label": "Dramatization",
         "all_labels": [
           "Accusation",
-          "Blaming",
-          "Changing the topic"
+          "Dramatization",
+          "Exaggeration"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(rapidly and angrily): Here comes the control!!! I will not be controlled!! I am a free bird!! I need to be free!!"
+      },
+      {
+        "grouped_label": "Dramatization",
+        "all_labels": [
+          "Accusation based on assumptions",
+          "Dramatization",
+          "Exaggeration"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "So you\u2019re comparing our relationship to other people\u2019s? I don\u2019t know if I can be in a relationship like this anymore. My friend (random girl/ guy name), says that anytime someone does that it\u2019s time to leave. I will NOT put up with that FUCKING SHIT!"
+      }
+    ],
+    "Distortion": [
+      {
+        "grouped_label": "Distortion",
+        "all_labels": [
+          "Accusation",
+          "Distortion",
+          "Not verifying the negative assumptions about the other person"
         ],
         "file": "data\\test_input4.txt",
-        "text": "Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault."
+        "text": "So you're saying it's my fault that your apartment is messy?"
+      },
+      {
+        "grouped_label": "Distortion",
+        "all_labels": [
+          "Distortion",
+          "Gaslighting"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "Bull shit. You know I\u2019m right. You even said I was right before you took a nap. I said your head doesn\u2019t even hurt and you said \u2018you\u2019re right\u2019 and went to sleep."
+      },
+      {
+        "grouped_label": "Distortion",
+        "all_labels": [
+          "Accusation",
+          "Distortion",
+          "Gaslighting"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "I promise you, you\u2019re lying. You SAID I WAS RIGHT because you KNOW your head wasn\u2019t hurting. You even SAID you were a horrible person before you went to sleep."
       }
     ],
     "Not verifying the negative assumptions about the other person": [
@@ -3002,27 +3098,226 @@
         ],
         "file": "data\\test_input4.txt",
         "text": "So you're saying it's my fault that your apartment is messy?"
+      },
+      {
+        "grouped_label": "Not verifying the negative assumptions about the other person",
+        "all_labels": [
+          "Accusation",
+          "Not verifying the negative assumptions about the other person"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "Now you're trying to make me feel bad."
       }
     ],
-    "Not caring": [
+    "Hostility": [
       {
-        "grouped_label": "Not caring",
+        "grouped_label": "Hostility",
+        "all_labels": [
+          "Hostility",
+          "Threats"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY."
+      },
+      {
+        "grouped_label": "Hostility",
+        "all_labels": [
+          "Aggression",
+          "Hostility"
+        ],
+        "file": "data\\test_input6.txt",
+        "text": "Shut up b*tch!"
+      }
+    ],
+    "Threats": [
+      {
+        "grouped_label": "Threats",
+        "all_labels": [
+          "Demanding",
+          "Threats"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon."
+      },
+      {
+        "grouped_label": "Threats",
+        "all_labels": [
+          "Hostility",
+          "Threats"
+        ],
+        "file": "data\\test_input.txt",
+        "text": "THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY."
+      }
+    ],
+    "Changing the topic": [
+      {
+        "grouped_label": "Changing the topic",
+        "all_labels": [
+          "Changing the topic"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(silence...then abruptly): Hey did you hear about that Person R thing!!"
+      },
+      {
+        "grouped_label": "Changing the topic",
+        "all_labels": [
+          "Accusation",
+          "Blaming",
+          "Changing the topic"
+        ],
+        "file": "data\\test_input4.txt",
+        "text": "Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault."
+      }
+    ],
+    "Creating artificial obligations": [
+      {
+        "grouped_label": "Creating artificial obligations",
+        "all_labels": [
+          "Creating artificial obligations"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "Hi...I need a favor....what are doing right now?"
+      },
+      {
+        "grouped_label": "Creating artificial obligations",
+        "all_labels": [
+          "Creating artificial obligations"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "Well, I was just wondering if maybe I could borrow your car...."
+      }
+    ],
+    "Ignoring boundaries": [
+      {
+        "grouped_label": "Ignoring boundaries",
+        "all_labels": [
+          "Ignoring boundaries"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "Yes, me and Person A want to go out."
+      },
+      {
+        "grouped_label": "Ignoring boundaries",
+        "all_labels": [
+          "Exaggeration",
+          "Ignoring boundaries"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(insistently): Come on, just pick me and Person A up, and we can drop you off back at your place. It will only take a half hour."
+      }
+    ],
+    "Comparing": [
+      {
+        "grouped_label": "Comparing",
         "all_labels": [
           "Comparing",
-          "Ignoring",
-          "Not caring"
+          "Diminishing",
+          "Not taking seriously"
         ],
         "file": "data\\test_input5.txt",
         "text": "I\u2019ve got a headache too. My day was sooo worse than yours. First, this happened, then that happened, then all this other stuff happened."
       },
       {
-        "grouped_label": "Not caring",
+        "grouped_label": "Comparing",
         "all_labels": [
-          "Dismissal",
-          "Not caring"
+          "Comparing",
+          "Diminishing",
+          "Not taking seriously"
         ],
-        "file": "data\\test_input8.txt",
-        "text": "\u201cYes. They don't live here anymore.\u201d"
+        "file": "data\\test_input5.txt",
+        "text": "Maybe I should take a nap and you should wake ME up. My head hurts wayy more than yours does."
+      }
+    ],
+    "Invalidation": [
+      {
+        "grouped_label": "Invalidation",
+        "all_labels": [
+          "Accusation",
+          "Diminishing",
+          "Dismissal",
+          "Invalidation"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "Nope. Mine definitely hurts worse. Your head doesn\u2019t even hurt. You\u2019re just saying that. Look, you\u2019re not even napping, you\u2019re still talking to me."
+      },
+      {
+        "grouped_label": "Invalidation",
+        "all_labels": [
+          "Accusation",
+          "Diminishing",
+          "Dismissal",
+          "Invalidation",
+          "Not taking seriously"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "Your head does NOT hurt, you\u2019re just being lazy. I just worked 8 long hours and I don\u2019t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache."
+      }
+    ],
+    "Making another person dependent on speaker for information": [
+      {
+        "grouped_label": "Making another person dependent on speaker for information",
+        "all_labels": [
+          "Feigning ignorance",
+          "Making another person dependent on speaker for information"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "I\u2019m not going. You KNOW WHY. So I\u2019m not going to tell you why."
+      },
+      {
+        "grouped_label": "Making another person dependent on speaker for information",
+        "all_labels": [
+          "Accusation",
+          "Making another person dependent on speaker for information"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "STOP PLAYING GAMES. YOU KNOW WHY."
+      }
+    ],
+    "Guilt tripping": [
+      {
+        "grouped_label": "Guilt tripping",
+        "all_labels": [
+          "Accusation",
+          "Guilt tripping",
+          "Provocation"
+        ],
+        "file": "data\\test_input7.txt",
+        "text": "\"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\""
+      },
+      {
+        "grouped_label": "Guilt tripping",
+        "all_labels": [
+          "Accusation",
+          "Attacking",
+          "Exaggeration",
+          "Guilt tripping",
+          "Provocation"
+        ],
+        "file": "data\\test_input7.txt",
+        "text": "\"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\""
+      }
+    ],
+    "Sarcasm": [
+      {
+        "grouped_label": "Sarcasm",
+        "all_labels": [
+          "Exaggeration",
+          "Sarcasm",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d."
+      },
+      {
+        "grouped_label": "Sarcasm",
+        "all_labels": [
+          "Accusation",
+          "Ignoring",
+          "Not taking seriously",
+          "Sarcasm"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d"
       }
     ],
     "Ignoring previous conflict": [
@@ -3040,32 +3335,45 @@
         "grouped_label": "Not offering constructive solutions",
         "all_labels": [
           "Evasion",
-          "Making others feel insecure",
           "Not offering constructive solutions"
         ],
         "file": "data\\test_input.txt",
         "text": "I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it."
       }
     ],
-    "Being impatient": [
+    "Passive aggression": [
       {
-        "grouped_label": "Being impatient",
+        "grouped_label": "Passive aggression",
         "all_labels": [
-          "Being impatient",
-          "Impatience"
+          "Dismissal",
+          "Not taking seriously",
+          "Passive aggression",
+          "Shifting of responsibility and blame"
         ],
         "file": "data\\test_input2.txt",
-        "text": "Do you want me to answer that question or not?"
+        "text": "In the end YOU determine how things happen around here, in all things. Don\u2019t give me that shit! It\u2019s a very passive aggressive command form. That\u2019s what I\u2019m objecting to! Years and years of it!"
       }
     ],
-    "Defensiveness": [
+    "Abrupt reaction": [
       {
-        "grouped_label": "Defensiveness",
+        "grouped_label": "Abrupt reaction",
         "all_labels": [
-          "Defensiveness"
+          "Abrupt reaction",
+          "Ignoring"
         ],
         "file": "data\\test_input3.txt",
-        "text": "(suspiciously) Yeah...what?"
+        "text": "I gotta goooo.....seeeyah....(click)"
+      }
+    ],
+    "Excessive defensiveness": [
+      {
+        "grouped_label": "Excessive defensiveness",
+        "all_labels": [
+          "Evasion",
+          "Excessive defensiveness"
+        ],
+        "file": "data\\test_input3.txt",
+        "text": "(defensively and angrily) That was different...wait\u2026..what does that have to do with anything?"
       }
     ],
     "Making others more dependent on them": [
@@ -3088,17 +3396,6 @@
         ],
         "file": "data\\test_input3.txt",
         "text": "That's right, I need to be free just to be me. I just want to spread my wings and zoom here, there, and everywhere!! But of course I need you to be my guide and take care of me."
-      }
-    ],
-    "Not attempting to understand": [
-      {
-        "grouped_label": "Not attempting to understand",
-        "all_labels": [
-          "Evasion",
-          "Not attempting to understand"
-        ],
-        "file": "data\\test_input3.txt",
-        "text": "(evasively): Hmmmmm. yeah\u2026so? What are you saying?? What does that have to do with anything?"
       }
     ],
     "Strategic facts sharing": [
@@ -3126,11 +3423,22 @@
         "grouped_label": "Disrespect",
         "all_labels": [
           "Disrespect",
-          "Not taking seriously",
           "Provocation"
         ],
         "file": "data\\test_input4.txt",
         "text": "There. Holy Christ, was that so hard? *throws another eggshell on the floor*"
+      }
+    ],
+    "Accusation based on assumptions": [
+      {
+        "grouped_label": "Accusation based on assumptions",
+        "all_labels": [
+          "Accusation based on assumptions",
+          "Dramatization",
+          "Exaggeration"
+        ],
+        "file": "data\\test_input5.txt",
+        "text": "So you\u2019re comparing our relationship to other people\u2019s? I don\u2019t know if I can be in a relationship like this anymore. My friend (random girl/ guy name), says that anytime someone does that it\u2019s time to leave. I will NOT put up with that FUCKING SHIT!"
       }
     ],
     "Deception": [
@@ -3144,28 +3452,16 @@
         "text": "It wasn\u2019t a date. I didn\u2019t let her/him kiss me like she/he wanted to."
       }
     ],
-    "Invalidating": [
+    "Making other feel like they are doing something wrong": [
       {
-        "grouped_label": "Invalidating",
-        "all_labels": [
-          "Blaming",
-          "Gaslighting",
-          "Invalidating"
-        ],
-        "file": "data\\test_input5.txt",
-        "text": "That\u2019s because YOU are the problem. Feeling this and feeling that. That\u2019s not even how it is, but you are wayyy too sensitive. I can\u2019t help it if you FEEL like walking on eggshells. You can\u2019t blame your feelings on me."
-      }
-    ],
-    "Lying": [
-      {
-        "grouped_label": "Lying",
+        "grouped_label": "Making other feel like they are doing something wrong",
         "all_labels": [
           "Accusation",
-          "Gaslighting",
-          "Lying"
+          "Making other feel like they are doing something wrong",
+          "Ridiculing"
         ],
         "file": "data\\test_input5.txt",
-        "text": "I promise you, you\u2019re lying. You SAID I WAS RIGHT because you KNOW your head wasn\u2019t hurting. You even SAID you were a horrible person before you went to sleep."
+        "text": "Anyways, (Earlier mentioned Guy/Girl friend) went with me instead to the thing, while you were snoring like a FUCKING pig. She/He said they would never put up with that shit."
       }
     ],
     "Ridiculing": [
@@ -3173,7 +3469,7 @@
         "grouped_label": "Ridiculing",
         "all_labels": [
           "Accusation",
-          "Provocation",
+          "Making other feel like they are doing something wrong",
           "Ridiculing"
         ],
         "file": "data\\test_input5.txt",
@@ -3209,36 +3505,11 @@
           "Accusation",
           "Attacking",
           "Exaggeration",
-          "Judging",
+          "Guilt tripping",
           "Provocation"
         ],
         "file": "data\\test_input7.txt",
         "text": "\"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\""
-      }
-    ],
-    "Judging": [
-      {
-        "grouped_label": "Judging",
-        "all_labels": [
-          "Accusation",
-          "Attacking",
-          "Exaggeration",
-          "Judging",
-          "Provocation"
-        ],
-        "file": "data\\test_input7.txt",
-        "text": "\"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\""
-      }
-    ],
-    "Acting as if nothing remarkable happened": [
-      {
-        "grouped_label": "Acting as if nothing remarkable happened",
-        "all_labels": [
-          "Acting as if nothing remarkable happened",
-          "Diminishing"
-        ],
-        "file": "data\\test_input8.txt",
-        "text": "\u201cI let them go free.\u201d"
       }
     ],
     "Silent treatment": [
@@ -3249,6 +3520,40 @@
         ],
         "file": "data\\test_input8.txt",
         "text": "*silence*"
+      }
+    ],
+    "Impatience": [
+      {
+        "grouped_label": "Impatience",
+        "all_labels": [
+          "Ignoring",
+          "Impatience"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cUgh, what do you WANT?\u201d"
+      }
+    ],
+    "Interruption": [
+      {
+        "grouped_label": "Interruption",
+        "all_labels": [
+          "Exaggeration",
+          "Interruption",
+          "Victim playing"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d"
+      }
+    ],
+    "Resentment and covert opposition": [
+      {
+        "grouped_label": "Resentment and covert opposition",
+        "all_labels": [
+          "Aggression",
+          "Resentment and covert opposition"
+        ],
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*silently seething* \"Fine, have your space!\""
       }
     ]
   }
