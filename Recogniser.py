@@ -324,8 +324,13 @@ async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuat
       responses.append(response_content)
       too_long = (finish_reason == "length")
 
+      messages.append({"role": "assistant", "content": response_content})
+      num_total_tokens = num_tokens_from_messages(messages, model_name)
+      num_output_tokens = num_total_tokens - num_input_tokens
+      safeprint(f"num_total_tokens: {num_total_tokens} num_output_tokens: {num_output_tokens} max_tokens: {max_tokens}")
+
       if too_long:
-        messages.append({"role": "assistant", "content": response_content})
+        # messages.append({"role": "assistant", "content": response_content})
         messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality
       else:
         continue_analysis = False
@@ -815,10 +820,10 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
       # using finditer() since it provides match.start() in the results
       if split_messages_by_newline:
-        p = re.compile(r"[\r\n]+" + re.escape(person) + r":(.*)")
+        p = re.compile(r"[\r\n]+" + re.escape(person) + r":(.*)")   # NO re.DOTALL --> dot DOES NOT include a newline
         re_matches = p.finditer("\n" + user_input)    # TODO: ensure that ":" character inside messages does not mess the analysis up
       else:
-        p = re.compile(r"[\r\n]+" + re.escape(person) + r":(.*?)[\r\n]+" + re.escape(split_messages_by), re.DOTALL)
+        p = re.compile(r"[\r\n]+" + re.escape(person) + r":(.*?)[\r\n]+" + re.escape(split_messages_by), re.DOTALL)   # re.DOTALL --> dot includes a newline
         re_matches = p.finditer("\n" + user_input + "\n" + split_messages_by)    # TODO: ensure that ":" character inside messages does not mess the analysis up
 
       for re_match in re_matches:
