@@ -187,7 +187,7 @@ class Timer(object):
   def __enter__(self):
 
     if not self.quiet and self.name:
-      safeprint(get_now_str() + " : " + self.name + " ...")
+      safeprint(get_now_str() + " : " + self.name + "...")
 
     self.tstart = time.time()
 

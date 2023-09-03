@@ -38,7 +38,7 @@ if is_dev_machine:
 
 
 
-async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, argv = None):
+async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, extract_line_numbers = None, argv = None):
   
 
   argv = argv if argv else sys.argv
@@ -48,6 +48,7 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
   all_error_msgs = []   # TODO
   all_counts = []
   all_unexpected_labels = []
+  all_unused_labels = []
   all_expressions = []
 
   for current_file in argv[1:]:
@@ -56,7 +57,7 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
 
     current_argv = ["", current_file]
 
-    analysis_response = await recogniser(do_open_ended_analysis, do_closed_ended_analysis, extract_message_indexes, current_argv)
+    analysis_response = await recogniser(do_open_ended_analysis, do_closed_ended_analysis, extract_message_indexes, extract_line_numbers, current_argv)
 
     error_code = analysis_response["error_code"]
 
@@ -65,6 +66,7 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
     else:
       all_counts.append(analysis_response["counts"])
       all_unexpected_labels.append(analysis_response["unexpected_labels"])
+      all_unused_labels.append(analysis_response["unused_labels"])
       all_expressions.append((current_file, analysis_response["expressions"]), )
 
   #/ for current_file in argv[1:]:
@@ -85,6 +87,18 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
 
   aggregated_counts = OrderedDict(aggregated_counts.most_common())
   aggregated_unexpected_labels = OrderedDict(aggregated_unexpected_labels.most_common())
+  
+  
+  if len(all_unused_labels) == 0:
+    aggregated_unused_labels = []
+  else:
+    # this algorithm keeps the order of the unused labels list
+    aggregated_unused_labels = all_unused_labels[0]
+    for current_unused_labels in all_unused_labels[1:]:
+      current_unused_labels_set = set(current_unused_labels) # optimisation
+      aggregated_unused_labels = [x for x in aggregated_unused_labels if x in current_unused_labels_set]
+    #/ for unused_labels in all_unused_labels[1:]:
+  #/ if len(all_unused_labels) == 0:
 
 
   grouped_labels = OrderedDict()
@@ -95,13 +109,23 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
     for current_file, person_expressions in all_expressions:
       for expression_data in person_expressions:
         expression_labels = expression_data["labels"]
-        if grouped_label in expression_labels: 
-          grouped_label_data.append({
+        if grouped_label in expression_labels:
+          
+          entry = {
             "grouped_label": grouped_label,
             "all_labels": expression_labels,
             "file": current_file,
             "text": expression_data["text"]
-          })
+          }
+
+          if "message_index" in expression_data:
+            entry.update({ "message_index": expression_data["message_index"] })
+
+          if "line_number" in expression_data:
+            entry.update({ "line_number": expression_data["line_number"] })
+
+          grouped_label_data.append(entry)
+
         #/ if labels_intersection:
       #/ for expression_data in person_expressions:
     #/ for person_expressions in all_expressions:
@@ -115,6 +139,7 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
   aggregated_analysis_response = {
     "counts": aggregated_counts,
     "unexpected_labels": aggregated_unexpected_labels,
+    "unused_labels": aggregated_unused_labels,
     "grouped_labels": grouped_labels,
   }
 
@@ -132,6 +157,6 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
 
 
 if __name__ == '__main__':
-  loop.run_until_complete(multi_file_recogniser(extract_message_indexes = None))   # extract_message_indexes = None - use config file
+  loop.run_until_complete(multi_file_recogniser())
 
 

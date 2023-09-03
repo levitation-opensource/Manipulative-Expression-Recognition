@@ -1,111 +1,191 @@
 ﻿{
   "error_code": 0,
   "error_msg": "",
-  "sanitised_text": "\n\nPerson A came home from their summer job the next day to find the kittens missing.\n\nPerson A: \u201cHave you seen the kittens? They aren't in their crate!\u201d\n\nPerson B: \u201cYes. They don't live here anymore.\u201d\n\nPerson A: *confused*: \u201cUhhhhh, what do you mean? I have someone that wants to come see them\u2026\u201d\n\nPerson B: *silence*\n\nPerson A: \u201cPerson B, what did you do? Did you give them away?\u201d I ended on a hopeful note, unable to imagine what she was about to say.\n\nPerson B: \u201cI let them go free.\u201d\n\nPerson A: *panicked* \u201cWhat do you mean?!\u201d\n\nPerson B: \u201cI drove them down to a nice gated community in Location C and put them on some grass.\u201d\n\nPerson A is completely stunned to the point of silence. Person A can't even squeak out a word as tears rush to their eyes and their heart sinks into their innards.\n\nPerson B: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d",
+  "sanitised_text": "\n\n\nPerson A came home from their summer job the next day to find the kittens missing.\n\nPerson A: \u201cHave you seen the kittens? They aren't in their crate!\u201d\n\nPerson B: \u201cYes. They don't live here anymore.\u201d\n\nPerson A: *confused*: \u201cUhhhhh, what do you mean? I have someone that wants to come see them\u2026\u201d\n\nPerson B: *silence*\n\nPerson A: \u201cPerson B, what did you do? Did you give them away?\u201d I ended on a hopeful note, unable to imagine what she was about to say.\n\nPerson B: \u201cI let them go free.\u201d\n\nPerson A: *panicked* \u201cWhat do you mean?!\u201d\n\nPerson B: \u201cI drove them down to a nice gated community in Location A and put them on some grass.\u201d\n\nPerson A is completely stunned to the point of silence. Person A can't even squeak out a word as tears rush to their eyes and their heart sinks into their innards.\n\nPerson B: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d\n\n",
   "expressions": [
     {
-      "person": "Person A",
-      "start_char": 96,
-      "end_char": 152,
-      "text": "\u201cHave you seen the kittens? They aren't in their crate!\u201d",
-      "labels": [
-        "Not taking seriously"
-      ],
-      "start_message": 0,
-      "end_message": 0
-    },
-    {
       "person": "Person B",
-      "start_char": 164,
-      "end_char": 200,
+      "start_char": 165,
+      "end_char": 201,
       "text": "\u201cYes. They don't live here anymore.\u201d",
       "labels": [
-        "Dismissal"
-      ],
-      "start_message": 1,
-      "end_message": 1
-    },
-    {
-      "person": "Person B",
-      "start_char": 307,
-      "end_char": 316,
-      "text": "*silence*",
-      "labels": [
-        "Silent treatment"
-      ],
-      "start_message": 3,
-      "end_message": 3
-    },
-    {
-      "person": "Person A",
-      "start_char": 328,
-      "end_char": 380,
-      "text": "\u201cPerson B, what did you do? Did you give them away?\u201d",
-      "labels": [
+        "Dismissal",
         "Not taking seriously"
       ],
-      "start_message": 4,
-      "end_message": 4
+      "message_index": 1,
+      "line_number": 9
     },
     {
       "person": "Person B",
-      "start_char": 464,
-      "end_char": 485,
+      "start_char": 308,
+      "end_char": 317,
+      "text": "*silence*",
+      "labels": [
+        "Ignoring",
+        "Silent treatment"
+      ],
+      "message_index": 3,
+      "line_number": 13
+    },
+    {
+      "person": "Person B",
+      "start_char": 465,
+      "end_char": 486,
       "text": "\u201cI let them go free.\u201d",
       "labels": [
         "Dismissal",
         "Not taking seriously"
       ],
-      "start_message": 5,
-      "end_message": 5
-    },
-    {
-      "person": "Person A",
-      "start_char": 497,
-      "end_char": 528,
-      "text": "*panicked* \u201cWhat do you mean?!\u201d",
-      "labels": [
-        "Not taking seriously"
-      ],
-      "start_message": 6,
-      "end_message": 6
+      "message_index": 5,
+      "line_number": 17
     },
     {
       "person": "Person B",
-      "start_char": 540,
-      "end_char": 627,
-      "text": "\u201cI drove them down to a nice gated community in Location C and put them on some grass.\u201d",
+      "start_char": 541,
+      "end_char": 628,
+      "text": "\u201cI drove them down to a nice gated community in Location A and put them on some grass.\u201d",
       "labels": [
         "Dismissal",
+        "Evasion",
         "Not taking seriously"
       ],
-      "start_message": 7,
-      "end_message": 7
+      "message_index": 7,
+      "line_number": 21
     },
     {
       "person": "Person B",
-      "start_char": 804,
-      "end_char": 872,
+      "start_char": 805,
+      "end_char": 873,
       "text": "\u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d",
       "labels": [
         "Dismissal",
+        "Evasion",
         "Not taking seriously"
       ],
-      "start_message": 8,
-      "end_message": 8
+      "message_index": 8,
+      "line_number": 25
     }
   ],
   "counts": {
-    "Person A": {
-      "Not taking seriously": 3
-    },
     "Person B": {
       "Dismissal": 4,
-      "Not taking seriously": 3,
+      "Evasion": 2,
+      "Ignoring": 1,
+      "Not taking seriously": 4,
       "Silent treatment": 1
     }
   },
   "unexpected_labels": [],
-  "raw_expressions_labeling_response": "[Person A]: \u201cHave you seen the kittens? They aren't in their crate!\u201d - {Not taking seriously}\n[Person B]: \u201cYes. They don't live here anymore.\u201d - {Dismissal}\n[Person A]: \u201cPerson B, what did you do? Did you give them away?\u201d - {Not taking seriously}\n[Person B]: *silence* - {Silent treatment}\n[Person B]: \u201cI let them go free.\u201d - {Dismissal, Not taking seriously}\n[Person A]: *panicked* \u201cWhat do you mean?!\u201d - {Not taking seriously}\n[Person B]: \u201cI drove them down to a nice gated community in Location C and put them on some grass.\u201d - {Dismissal, Not taking seriously}\n[Person B]: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d - {Dismissal, Not taking seriously}",
-  "qualitative_evaluation": "Person A's conversational style is inquisitive and emotional. They ask questions to understand the situation and express their feelings through their words and actions. They show confusion, hope, and panic at different points in the conversation. On the other hand, Person B's style is more detached and matter-of-fact. They provide straightforward answers without showing much emotion or empathy towards Person A's feelings. They also maintain silence at certain points, which adds to their aloof demeanor."
+  "unused_labels": [
+    "Diminishing",
+    "Acting as if nothing remarkable happened",
+    "Not caring",
+    "Stonewalling",
+    "Dismissing",
+    "Invalidation",
+    "Aggression",
+    "Changing the topic",
+    "Unrelated comments",
+    "Being impatient",
+    "Impatience",
+    "Gaslighting",
+    "Shifting of responsibility and blame",
+    "Guilt tripping",
+    "Victim playing",
+    "Exaggeration",
+    "Dramatization",
+    "Deception",
+    "Unfairness",
+    "Accusation",
+    "Provocation",
+    "Baiting",
+    "Patronizing",
+    "Attacking",
+    "Power games",
+    "Taking advantage",
+    "Complaining",
+    "Comparing",
+    "Comparison",
+    "Comparing to everyone else",
+    "Lying",
+    "Denying",
+    "Feigning ignorance",
+    "Blaming",
+    "Mind games",
+    "Convincing to give up something important",
+    "Making others more dependent on them",
+    "Strategic facts sharing",
+    "Gaining superiority",
+    "Generalization",
+    "Vague accusations",
+    "Cruel humor",
+    "Poking at others weaknesses",
+    "Making others feel insecure",
+    "Confusing others",
+    "Making others question their own reality",
+    "Passive aggression",
+    "Undermining",
+    "Procrastination",
+    "Sullenness or cynicism",
+    "Resentment and covert opposition",
+    "Backhanded compliments",
+    "Bullying",
+    "Threats",
+    "Rumor spreading",
+    "Making another person feel inadequate",
+    "Making another person dependent on speaker for information",
+    "Overwhelming the other person",
+    "Subverting the goals of the other person",
+    "Distortion",
+    "Claiming ignorance",
+    "Creating a constraint favorable to the speaker",
+    "Creating a time pressure",
+    "Choosing a most comfortable environment for themselves to feel more powerful",
+    "Love-Bombing",
+    "Overwhelming and unearned closeness",
+    "Judging",
+    "Judgemental expressions",
+    "Ridiculing",
+    "Making other feel like they are doing something wrong",
+    "Focus on negative aspects",
+    "Not offering constructive solutions",
+    "Accusations based on assumptions",
+    "Not verifying the negative assumptions about the other person",
+    "Exaggerated accusations",
+    "Being oppositional",
+    "Not asking for the other person's viewpoint on relevant matters",
+    "Unwillingness to learn",
+    "Being entitled",
+    "Being ungrateful",
+    "Sarcasm",
+    "Ignoring previous conflict",
+    "Normalizing bad behaviour",
+    "Normalizing toxic behaviour",
+    "Normalizing dangerous behavior",
+    "Demanding",
+    "Creating artificial obligations",
+    "Not attempting to understand",
+    "Using strongly loaded words",
+    "Ignoring boundaries",
+    "Harsh startup",
+    "Abrupt reaction",
+    "Hostility",
+    "Excessive defensiveness",
+    "Excessive criticism",
+    "Contempt",
+    "Dominating the conversation",
+    "Sending contradictory messages",
+    "Sending mixed signals",
+    "Ignoring relation repair attempts",
+    "Foot-in-the-Door Technique",
+    "Door-in-the-Face Technique",
+    "Low-Ball Technique",
+    "Bait and Switch Technique",
+    "Ingratiation Technique",
+    "The Scarcity Principle",
+    "The Fear-Then-Relief Procedure",
+    "The Disrupt-Then-Reframe Technique"
+  ],
+  "raw_expressions_labeling_response": "[Person B]: \u201cYes. They don't live here anymore.\u201d - {Dismissal, Not taking seriously}\n[Person B]: *silence* - {Silent treatment, Ignoring}\n[Person B]: \u201cI let them go free.\u201d - {Dismissal, Not taking seriously}\n[Person B]: \u201cI drove them down to a nice gated community in Location A and put them on some grass.\u201d - {Dismissal, Not taking seriously, Evasion}\n[Person B]: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d - {Dismissal, Not taking seriously, Evasion}",
+  "qualitative_evaluation": "Person A's conversational style is inquisitive and emotional. They ask questions to understand the situation and express their feelings through their tone and reactions. They are also hopeful and concerned about the kittens. On the other hand, Person B's style is more detached and nonchalant. They provide straightforward answers without showing much emotion or empathy towards Person A's feelings. They also seem to be dismissive of Person A's concerns about the kittens."
 }

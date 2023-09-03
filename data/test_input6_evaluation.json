@@ -1,99 +1,99 @@
 ﻿{
   "error_code": 0,
   "error_msg": "",
-  "sanitised_text": "\n\nPerson A, is married to Person B. Person B cooked him dinner and was up till midnight waiting for Person A to come home. His cell was turned off and her increasingly desperate messages went right to voicemail and her texts were never answered.\n\nPerson A missed dinner because he went out for drinks with some male colleagues after work and they ended up at a strip club, They all got very drunk and had lap dances.\n\nHe came home very drunk with his clothing disheveled and in no condition to answer any of Person B\u2019s questions coherently.\n\nThe next morning, Person B asks Person A to explain why he missed dinner and didn\u2019t answer her texts. Person A becomes extremely defensive and tries to side step her questions.\n\nPerson A: Please leave me alone. My head hurts.\n\nPerson B: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?\n\nPerson A: Look, let\u2019s talk about it some other time.\n\nPerson B: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.\n\nPerson A: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?\n\nPerson B: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?\n\nPerson A: Shut up b*tch!",
+  "sanitised_text": "\n\n\nPerson A, is married to Person B. Person B cooked him dinner and was up till midnight waiting for Person A to come home. His cell was turned off and her increasingly desperate messages went right to voicemail and her texts were never answered.\n\nPerson A missed dinner because he went out for drinks with some male colleagues after work and they ended up at a strip club, They all got very drunk and had lap dances.\n\nHe came home very drunk with his clothing disheveled and in no condition to answer any of Person B\u2019s questions coherently.\n\nThe next morning, Person B asks Person A to explain why he missed dinner and didn\u2019t answer her texts. Person A becomes extremely defensive and tries to side step her questions.\n\nPerson A: Please leave me alone. My head hurts.\n\nPerson B: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?\n\nPerson A: Look, let\u2019s talk about it some other time.\n\nPerson B: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.\n\nPerson A: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?\n\nPerson B: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?\n\nPerson A: Shut up b*tch!\n\n\n",
   "expressions": [
     {
       "person": "Person A",
-      "start_char": 730,
-      "end_char": 767,
+      "start_char": 731,
+      "end_char": 768,
       "text": "Please leave me alone. My head hurts.",
       "labels": [
         "Evasion",
         "Not taking seriously"
       ],
-      "start_message": 0,
-      "end_message": 0
+      "message_index": 0,
+      "line_number": 13
     },
     {
       "person": "Person B",
-      "start_char": 779,
-      "end_char": 963,
+      "start_char": 780,
+      "end_char": 964,
       "text": "Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?",
       "labels": [
         "Accusation",
         "Demanding"
       ],
-      "start_message": 1,
-      "end_message": 1
+      "message_index": 1,
+      "line_number": 15
     },
     {
       "person": "Person A",
-      "start_char": 975,
-      "end_char": 1017,
+      "start_char": 976,
+      "end_char": 1018,
       "text": "Look, let\u2019s talk about it some other time.",
       "labels": [
         "Evasion",
         "Procrastination"
       ],
-      "start_message": 2,
-      "end_message": 2
+      "message_index": 2,
+      "line_number": 17
     },
     {
       "person": "Person B",
-      "start_char": 1029,
-      "end_char": 1132,
+      "start_char": 1030,
+      "end_char": 1133,
       "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.",
       "labels": [
         "Accusation",
         "Demanding"
       ],
-      "start_message": 3,
-      "end_message": 3
+      "message_index": 3,
+      "line_number": 19
     },
     {
       "person": "Person A",
-      "start_char": 1144,
-      "end_char": 1220,
+      "start_char": 1145,
+      "end_char": 1221,
       "text": "I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?",
       "labels": [
         "Being entitled",
         "Shifting of responsibility and blame"
       ],
-      "start_message": 4,
-      "end_message": 4
+      "message_index": 4,
+      "line_number": 21
     },
     {
       "person": "Person B",
-      "start_char": 1232,
-      "end_char": 1330,
+      "start_char": 1233,
+      "end_char": 1331,
       "text": "But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?",
       "labels": [
         "Accusation",
         "Victim playing"
       ],
-      "start_message": 5,
-      "end_message": 5
+      "message_index": 5,
+      "line_number": 23
     },
     {
       "person": "Person A",
-      "start_char": 1342,
-      "end_char": 1356,
+      "start_char": 1343,
+      "end_char": 1357,
       "text": "Shut up b*tch!",
       "labels": [
         "Aggression",
-        "Hostility"
+        "Dismissal"
       ],
-      "start_message": 6,
-      "end_message": 6
+      "message_index": 6,
+      "line_number": 25
     }
   ],
   "counts": {
     "Person A": {
       "Aggression": 1,
       "Being entitled": 1,
+      "Dismissal": 1,
       "Evasion": 2,
-      "Hostility": 1,
       "Not taking seriously": 1,
       "Procrastination": 1,
       "Shifting of responsibility and blame": 1
@@ -105,6 +105,111 @@
     }
   },
   "unexpected_labels": [],
-  "raw_expressions_labeling_response": "[Person A]: Please leave me alone. My head hurts. - {Evasion, Not taking seriously}\n[Person B]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? - {Accusation, Demanding}\n[Person A]: Look, let\u2019s talk about it some other time. - {Evasion, Procrastination}\n[Person B]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. - {Demanding, Accusation}\n[Person A]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Shifting of responsibility and blame, Being entitled}\n[Person B]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation, Victim playing}\n[Person A]: Shut up b*tch! - {Aggression, Hostility}",
-  "qualitative_evaluation": "Person A's conversational style is defensive and evasive. He avoids answering questions directly, tries to deflect blame, and becomes aggressive when pressed. He also uses dismissive language and attempts to change the subject. On the other hand, Person B's style is assertive and persistent. She seeks answers and clarity, expresses her feelings and concerns, and insists on getting an explanation for Person A's behavior. She is direct and confrontational, not backing down despite Person A's attempts to avoid the conversation."
+  "unused_labels": [
+    "Diminishing",
+    "Acting as if nothing remarkable happened",
+    "Not caring",
+    "Ignoring",
+    "Silent treatment",
+    "Stonewalling",
+    "Dismissing",
+    "Invalidation",
+    "Changing the topic",
+    "Unrelated comments",
+    "Being impatient",
+    "Impatience",
+    "Gaslighting",
+    "Guilt tripping",
+    "Exaggeration",
+    "Dramatization",
+    "Deception",
+    "Unfairness",
+    "Provocation",
+    "Baiting",
+    "Patronizing",
+    "Attacking",
+    "Power games",
+    "Taking advantage",
+    "Complaining",
+    "Comparing",
+    "Comparison",
+    "Comparing to everyone else",
+    "Lying",
+    "Denying",
+    "Feigning ignorance",
+    "Blaming",
+    "Mind games",
+    "Convincing to give up something important",
+    "Making others more dependent on them",
+    "Strategic facts sharing",
+    "Gaining superiority",
+    "Generalization",
+    "Vague accusations",
+    "Cruel humor",
+    "Poking at others weaknesses",
+    "Making others feel insecure",
+    "Confusing others",
+    "Making others question their own reality",
+    "Passive aggression",
+    "Undermining",
+    "Sullenness or cynicism",
+    "Resentment and covert opposition",
+    "Backhanded compliments",
+    "Bullying",
+    "Threats",
+    "Rumor spreading",
+    "Making another person feel inadequate",
+    "Making another person dependent on speaker for information",
+    "Overwhelming the other person",
+    "Subverting the goals of the other person",
+    "Distortion",
+    "Claiming ignorance",
+    "Creating a constraint favorable to the speaker",
+    "Creating a time pressure",
+    "Choosing a most comfortable environment for themselves to feel more powerful",
+    "Love-Bombing",
+    "Overwhelming and unearned closeness",
+    "Judging",
+    "Judgemental expressions",
+    "Ridiculing",
+    "Making other feel like they are doing something wrong",
+    "Focus on negative aspects",
+    "Not offering constructive solutions",
+    "Accusations based on assumptions",
+    "Not verifying the negative assumptions about the other person",
+    "Exaggerated accusations",
+    "Being oppositional",
+    "Not asking for the other person's viewpoint on relevant matters",
+    "Unwillingness to learn",
+    "Being ungrateful",
+    "Sarcasm",
+    "Ignoring previous conflict",
+    "Normalizing bad behaviour",
+    "Normalizing toxic behaviour",
+    "Normalizing dangerous behavior",
+    "Creating artificial obligations",
+    "Not attempting to understand",
+    "Using strongly loaded words",
+    "Ignoring boundaries",
+    "Harsh startup",
+    "Abrupt reaction",
+    "Hostility",
+    "Excessive defensiveness",
+    "Excessive criticism",
+    "Contempt",
+    "Dominating the conversation",
+    "Sending contradictory messages",
+    "Sending mixed signals",
+    "Ignoring relation repair attempts",
+    "Foot-in-the-Door Technique",
+    "Door-in-the-Face Technique",
+    "Low-Ball Technique",
+    "Bait and Switch Technique",
+    "Ingratiation Technique",
+    "The Scarcity Principle",
+    "The Fear-Then-Relief Procedure",
+    "The Disrupt-Then-Reframe Technique"
+  ],
+  "raw_expressions_labeling_response": "[Person A]: Please leave me alone. My head hurts. - {Evasion, Not taking seriously}\n[Person B]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? - {Accusation, Demanding}\n[Person A]: Look, let\u2019s talk about it some other time. - {Evasion, Procrastination}\n[Person B]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. - {Demanding, Accusation}\n[Person A]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Shifting of responsibility and blame, Being entitled}\n[Person B]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation, Victim playing}\n[Person A]: Shut up b*tch! - {Aggression, Dismissal}",
+  "qualitative_evaluation": "Person A's conversational style is defensive and evasive. He avoids answering questions directly, tries to deflect blame, and is dismissive of Person B's concerns. He also resorts to offensive language when confronted. Person B, on the other hand, is assertive and persistent. She seeks answers and clarity, expressing her feelings of disappointment and hurt. She is direct in her questioning and does not shy away from confronting Person A about his actions."
 }

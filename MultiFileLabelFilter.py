@@ -38,7 +38,7 @@ if is_dev_machine:
 
 
 
-async def multi_file_label_filter(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, argv = None):
+async def multi_file_label_filter(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, extract_line_numbers = None, argv = None):
   
 
   argv = argv if argv else sys.argv
@@ -60,7 +60,7 @@ async def multi_file_label_filter(do_open_ended_analysis = None, do_closed_ended
 
     current_argv = ["", current_file]
 
-    analysis_response = await recogniser(do_open_ended_analysis, do_closed_ended_analysis, extract_message_indexes, current_argv)
+    analysis_response = await recogniser(do_open_ended_analysis, do_closed_ended_analysis, extract_message_indexes, extract_line_numbers, current_argv)
 
     error_code = analysis_response["error_code"]
 
@@ -78,17 +78,30 @@ async def multi_file_label_filter(do_open_ended_analysis = None, do_closed_ended
   filtered_labels_response = []
   for current_file, person_expressions in all_expressions:
     for expression_data in person_expressions:
+
       labels = expression_data["labels"]
       labels_intersection = find_labels.intersection(labels)
       if labels_intersection or not find_labels: # if find_labels is empty then mach all
+        
         sorted_intersection = list(labels_intersection)
         sorted_intersection.sort()
-        filtered_labels_response.append({
-          "file": current_file,
+
+        entry = {
           "filtered_labels": sorted_intersection,
           "all_labels": labels,
+          "file": current_file,
+          # TODO: add line number
           "text": expression_data["text"]
-        })
+        }
+
+        if "message_index" in expression_data:
+          entry.update({ "message_index": expression_data["message_index"] })
+
+        if "line_number" in expression_data:
+          entry.update({ "line_number": expression_data["line_number"] })
+
+        filtered_labels_response.append(entry)
+
       #/ if labels_intersection:
     #/ for expression_data in person_expressions:
   #/ for person_expressions in all_expressions:
@@ -109,6 +122,6 @@ async def multi_file_label_filter(do_open_ended_analysis = None, do_closed_ended
 
 
 if __name__ == '__main__':
-  loop.run_until_complete(multi_file_label_filter(extract_message_indexes = None))   # extract_message_indexes = None - use config file
+  loop.run_until_complete(multi_file_label_filter())
 
 

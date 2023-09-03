@@ -27,6 +27,7 @@ from collections import defaultdict, Counter, OrderedDict
 import hashlib
 import string
 import base64
+from bisect import bisect_right
 
 import rapidfuzz.process
 import rapidfuzz.fuzz
@@ -81,6 +82,7 @@ def get_config():
   gpt_model = remove_quotes(config.get("MER", "GPTModel", fallback="gpt-3.5-turbo-16k")).strip()
   gpt_timeout = int(remove_quotes(config.get("MER", "GPTTimeoutInSeconds", fallback="60")).strip())
   extract_message_indexes = strtobool(remove_quotes(config.get("MER", "ExtractMessageIndexes", fallback="false")))
+  extract_line_numbers = strtobool(remove_quotes(config.get("MER", "ExtractLineNumbers", fallback="false")))
   do_open_ended_analysis = strtobool(remove_quotes(config.get("MER", "DoOpenEndedAnalysis", fallback="true")))
   do_closed_ended_analysis = strtobool(remove_quotes(config.get("MER", "DoClosedEndedAnalysis", fallback="true")))
   keep_unexpected_labels = strtobool(remove_quotes(config.get("MER", "KeepUnexpectedLabels", fallback="true")))
@@ -102,6 +104,7 @@ def get_config():
     "gpt_model": gpt_model,
     "gpt_timeout": gpt_timeout,
     "extract_message_indexes": extract_message_indexes,
+    "extract_line_numbers": extract_line_numbers,
     "do_open_ended_analysis": do_open_ended_analysis,
     "do_closed_ended_analysis": do_closed_ended_analysis,
     "keep_unexpected_labels": keep_unexpected_labels,
@@ -360,7 +363,7 @@ async def run_llm_analysis(config, model_name, gpt_timeout, messages, continuati
 
 def remove_comments(text):
   # re.sub does global search and replace, replacing all matching instances
-  text = re.sub(r"(^|[\r\n]+)\s*#[^\r\n]*", "", text)
+  text = re.sub(r"(^|[\r\n]+)\s*#[^\r\n]*", r"\1", text)   # NB! keep the newlines before the comment in order to preserve line indexing # TODO: ensure that this does not affect LLM analysis
   return text
 #/ def remove_comments(text):
 
@@ -376,10 +379,10 @@ def sanitise_input(text):
 
 def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model):
 
-  with Timer("Loading Spacy..."):
+  with Timer("Loading Spacy"):
     import spacy    # load it only when anonymisation is requested, since this package loads slowly
 
-  with Timer("Loading Named Entity Recognition model..."):
+  with Timer("Loading Named Entity Recognition model"):
     NER = spacy.load(ner_model)   # TODO: config setting
 
 
@@ -556,7 +559,7 @@ async def anonymise(config, user_input, anonymise_names, anonymise_numbers, ner_
 
 def render_highlights_uncached(user_input, expression_dicts):
 
-  with Timer("Loading Spacy HTML renderer..."):
+  with Timer("Loading Spacy HTML renderer"):
     from spacy import displacy    # load it only when rendering is requested, since this package loads slowly
 
   highlights_html = displacy.render( 
@@ -623,7 +626,7 @@ def parse_labels(all_labels_as_text):
 #/ def parse_labels():
 
 
-async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, argv = None):
+async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, extract_line_numbers = None, argv = None):
 
 
   argv = argv if argv else sys.argv
@@ -637,6 +640,8 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     do_closed_ended_analysis = config["do_closed_ended_analysis"]
   if extract_message_indexes is None:
     extract_message_indexes = config["extract_message_indexes"]
+  if extract_line_numbers is None:
+    extract_line_numbers = config["extract_line_numbers"]
 
   gpt_model = config["gpt_model"]
   gpt_timeout = config["gpt_timeout"]  # TODO: into run_llm_analysis_uncached()
@@ -677,9 +682,12 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     input_filename = "test_input.txt"
     using_user_input_filename = False
 
+
+  user_input = (await read_txt(input_filename, quiet = True))
+
+
   # format user input
-  user_input = (await read_txt(input_filename, quiet = True)).strip()
-  user_input = remove_comments(user_input) # TODO: config flag
+  user_input = remove_comments(user_input)    # TODO: config flag   # NB! not calling .strip() in order to not mess up line indexing
 
 
   anonymise_names = config.get("anonymise_names")
@@ -739,8 +747,10 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     expressions_tuples = []
     detected_persons = set()
     unexpected_labels = set()
+    unused_labels = list(labels_list)   # clone
+    unused_labels_set = set(labels_list)
 
-    if extract_message_indexes:   # TODO
+    if extract_message_indexes: 
 
       messages = [
         {"role": "system", "content": extract_names_of_participants_system_instruction},
@@ -790,6 +800,9 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
         #/ if label not in labels_list:
 
         filtered_labels.append(label)
+        if label in unused_labels_set:
+          unused_labels.remove(label)
+          unused_labels_set.remove(label)
 
       #/ for label in labels:
 
@@ -806,10 +819,30 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     labels_list.sort()
 
 
+    # split input to lines to find start char position of each line
+
+    if extract_line_numbers:
+
+      line_start_char_positions = [0] # NB! 0 as the first entry
+
+      p = re.compile(r"\n")
+      re_matches = p.finditer(user_input)
+
+      for re_match in re_matches:
+
+        start_char = re_match.start(0) + 1  # +1 represents first char of line excluding the preceding newline
+        line_start_char_positions.append(start_char)
+
+      #/ for re_match in re_matches:
+    #/ if extract_line_numbers:
+
+
+
     # split input text into messages, compute the locations of messages
 
     person_messages = {person: [] for person in detected_persons}
     overall_message_indexes = {person: {} for person in detected_persons}  
+    message_line_numbers = {person: {} for person in detected_persons}  
     start_char_to_person_message_index_dict = {}
     person_message_spans = {person: [] for person in detected_persons}
 
@@ -848,7 +881,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     #/ for person in detected_persons:
 
 
-    # sort message indexes by start_char
+    # sort message indexes and line numbers by start_char
     start_char_to_person_message_index_dict = OrderedDict(sorted(start_char_to_person_message_index_dict.items()))
 
     # compute overall message index for each person's message index
@@ -951,7 +984,8 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
       # init with fallback values for case precise citation is not found
       citation_in_nearest_message = nearest_message
-      start_char = person_message_spans[person][nearest_person_message_index][0]
+      person_message_start_char = person_message_spans[person][nearest_person_message_index][0]
+      start_char = person_message_start_char
       end_char = start_char + len(nearest_message)
 
 
@@ -981,7 +1015,8 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
           
               if len(matches) > 0:
 
-                start_char = person_message_spans[person][nearest_person_message_index][0] + matches[0].start
+                # TODO: if there are multiple expressions with same text in the input then mark them all, not just the first one
+                start_char = person_message_start_char + matches[0].start
                 end_char = start_char + matches[0].end - matches[0].start
                 citation_in_nearest_message = matches[0].matched
 
@@ -1012,8 +1047,6 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
         "person": person,
         "start_char": start_char,
         "end_char": end_char,
-        # "start_message": overall_message_index, 
-        # "end_message": overall_message_index,   
         "text": citation_in_nearest_message,   # use original text not ChatGPT citation here
         "labels": labels,
       }
@@ -1023,11 +1056,21 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
         # nearest_person_message_index = person_messages[person].index(nearest_message)
         overall_message_index = overall_message_indexes[person][nearest_person_message_index]  
 
-        entry.update({
-          "start_message": overall_message_index, 
-          "end_message": overall_message_index,   
+        entry.update({ 
+          "message_index": overall_message_index 
+          # TODO: save line number
         })
       #/ if extract_message_indexes:
+
+      if extract_line_numbers:
+
+        line_number = bisect_right(line_start_char_positions, start_char)
+
+        entry.update({ 
+          "line_number": line_number + 1 # line numbers start from 1
+          # TODO: save line number
+        })
+      #/ if extract_line_numbers:
 
 
       if not allow_multiple_citations_per_message:
@@ -1054,6 +1097,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     expression_dicts = None
     # expressions_tuples = None
     unexpected_labels = None
+    unused_labels = None
 
   #/ if do_closed_ended_analysis:
 
@@ -1090,6 +1134,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     # "expressions_tuples": expressions_tuples_out,
     "counts": totals,
     "unexpected_labels": unexpected_labels,
+    "unused_labels": unused_labels,
     "raw_expressions_labeling_response": closed_ended_response,
     "qualitative_evaluation": open_ended_response   # TODO: split person A and person B from qualitative description into separate dictionary fields
   }
@@ -1344,6 +1389,6 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
 
 if __name__ == '__main__':
-  loop.run_until_complete(recogniser(extract_message_indexes = None))   # extract_message_indexes = None - use config file
+  loop.run_until_complete(recogniser())
 
 
