@@ -127,8 +127,8 @@ The software produces output in four formats:
           "person": "Person B",
           "start_char": 9,
           "end_char": 29,
-          "start_message": 0,
-          "end_message": 0,
+          "message_index": 0,
+          "line_number": 1,
           "text": "Their message.",
           "labels": [
             "Ignoring"
@@ -138,8 +138,8 @@ The software produces output in four formats:
           "person": "Person B",
           "start_char": 109,
           "end_char": 282,
-          "start_message": 2,
-          "end_message": 2,
+          "message_index": 2,
+          "line_number": 5,
           "text": "More messages. And more sentences in that message.",
           "labels": [
             "Diminishing",
