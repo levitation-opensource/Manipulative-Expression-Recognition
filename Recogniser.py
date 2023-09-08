@@ -16,6 +16,7 @@ import sys
 import traceback
 import httpcore
 import httpx
+import time
 
 from configparser import ConfigParser
 
@@ -93,7 +94,7 @@ def get_config():
   anonymise_names = strtobool(remove_quotes(config.get("MER", "AnonymiseNames", fallback="false")))
   anonymise_numbers = strtobool(remove_quotes(config.get("MER", "AnonymiseNumbers", fallback="false")))
   named_entity_recognition_model = remove_quotes(config.get("MER", "NamedEntityRecognitionModel", fallback="en_core_web_sm")).strip()
-  encrypt_cache_data = strtobool(remove_quotes(config.get("MER", "EncryptCacheData", fallback="false")))
+  encrypt_cache_data = strtobool(remove_quotes(config.get("MER", "EncryptCacheData", fallback="true")))
   split_messages_by = remove_quotes(config.get("MER", "SplitMessagesBy", fallback="")) # .strip()
   ignore_incorrectly_assigned_citations = strtobool(remove_quotes(config.get("MER", "IgnoreIncorrectlyAssignedCitations", fallback="false")))
   allow_multiple_citations_per_message = strtobool(remove_quotes(config.get("MER", "AllowMultipleCitationsPerMessage", fallback="true")))
@@ -156,7 +157,10 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
     openai_response = json_tricks.loads(openai_response.text)
 
     if openai_response.get("error"):
-      raise Exception(openai_response["error"]["message"]) # TODO: use a more specific exception type
+      if openai_response["error"]["code"] == 502:  # Bad gateway
+        raise httpcore.NetworkError(openai_response["error"]["message"])
+      else:
+        raise Exception(openai_response["error"]["message"]) # TODO: use a more specific exception type
 
     # NB! this line may also throw an exception if the OpenAI announces that it is overloaded # TODO: do not retry for all error messages
     response_content = openai_response["choices"][0]["message"]["content"]
@@ -166,29 +170,54 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
 
   except Exception as ex:   # httpcore.ReadTimeout
 
-    if type(ex) is httpcore.ReadTimeout or type(ex) is httpx.ReadTimeout:	# both exception types have occurred
+    t = type(ex)
+    if (t is httpcore.ReadTimeout or t is httpx.ReadTimeout): 	# both exception types have occurred
+
       if attempt_number < 6:    # TODO: config parameter
         safeprint("Read timeout, retrying...")
       else:
         safeprint("Read timeout, giving up")
-    else:
+
+    elif (t is httpcore.NetworkError):
+
+      if attempt_number < 6:    # TODO: config parameter
+        safeprint("Network error, retrying...")
+      else:
+        safeprint("Network error, giving up")
+
+    else:   #/ if (t ishttpcore.ReadTimeout
+
       msg = str(ex) + "\n" + traceback.format_exc()
       print_exception(msg)
 
+    #/ if (t ishttpcore.ReadTimeout
+
     raise
+
+  #/ except Exception as ex:
 
 #/ async def completion_with_backoff(gpt_timeout, **kwargs):
 
 
-# https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb
-def num_tokens_from_messages(messages, model):
-  """Return the number of tokens used by a list of messages."""
+def get_encoding_for_model(model):
 
   try:
     encoding = tiktoken.encoding_for_model(model)
   except KeyError:
     safeprint("Warning: model not found. Using cl100k_base encoding.")
     encoding = tiktoken.get_encoding("cl100k_base")
+
+  return encoding
+
+#/ def get_encoding_for_model(model):
+
+
+# https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb
+def num_tokens_from_messages(messages, model, encoding = None):
+  """Return the number of tokens used by a list of messages."""
+
+  if encoding is None:
+    encoding = get_encoding_for_model(model)
 
   if model in {
     "gpt-3.5-turbo-0613",
@@ -207,19 +236,19 @@ def num_tokens_from_messages(messages, model):
 
   elif "gpt-3.5-turbo-16k" in model: # roland
     # safeprint("Warning: gpt-3.5-turbo-16k may update over time. Returning num tokens assuming gpt-3.5-turbo-16k-0613.")
-    return num_tokens_from_messages(messages, model="gpt-3.5-turbo-16k-0613")
+    return num_tokens_from_messages(messages, model="gpt-3.5-turbo-16k-0613", encoding=encoding)
 
   elif "gpt-3.5-turbo" in model:
     # safeprint("Warning: gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613.")
-    return num_tokens_from_messages(messages, model="gpt-3.5-turbo-0613")
+    return num_tokens_from_messages(messages, model="gpt-3.5-turbo-0613", encoding=encoding)
 
   elif "gpt-4-32k" in model: # roland
     # safeprint("Warning: gpt-4 may update over time. Returning num tokens assuming gpt-4-32k-0613.")
-    return num_tokens_from_messages(messages, model="gpt-4-32k-0613")
+    return num_tokens_from_messages(messages, model="gpt-4-32k-0613", encoding=encoding)
 
   elif "gpt-4" in model:
     # safeprint("Warning: gpt-4 may update over time. Returning num tokens assuming gpt-4-0613.")
-    return num_tokens_from_messages(messages, model="gpt-4-0613")
+    return num_tokens_from_messages(messages, model="gpt-4-0613", encoding=encoding)
 
   else:
     #raise NotImplementedError(
@@ -251,13 +280,10 @@ def num_tokens_from_messages(messages, model):
 
   return num_tokens
 
-#/ def num_tokens_from_messages(messages, model):
+#/ def num_tokens_from_messages(messages, model, encoding=None):
 
 
-async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuation_request):
-
-  responses = []
-
+def get_max_tokens_for_model(model_name):
 
   # TODO: config  
   if model_name == "gpt-4-32k": # https://platform.openai.com/docs/models/gpt-4
@@ -271,38 +297,49 @@ async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuat
   else:
     max_tokens = 4096
 
+  return max_tokens
+
+#/ def get_max_tokens_for_model(model_name):
+
+
+async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages, continuation_request):
+
+  responses = []
+  max_tokens = get_max_tokens_for_model(model_name)
 
   with Timer("Sending OpenAI API requests"):
     continue_analysis = True
     while continue_analysis:
 
-      num_input_tokens = num_tokens_from_messages(messages, model_name)
+      num_input_tokens = num_tokens_from_messages(messages, model_name, encoding)
       safeprint(f"num_input_tokens: {num_input_tokens} max_tokens: {max_tokens}")
 
       #if num_tokens <= 0:
       #  break
 
 
-      # TODO: alternative option for handling long inputs: split them up into smaller chunks
-
-
+      assert(num_input_tokens < max_tokens)
       # TODO: configuration for model override thresholds
-      if num_input_tokens >= 8192 and max_tokens == 16384:    # current model: "gpt-4"
-        model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
-        max_tokens = 32768
-        safeprint(f"Overriding model with {model_name} due to input token count")
-      if num_input_tokens >= 4096 and max_tokens == 8192:    # current model: "gpt-4"
-        model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
-        max_tokens = 16384
-        safeprint(f"Overriding model with {model_name} due to input token count")
-      elif num_input_tokens >= 2048 and max_tokens == 4096:  # current model: "gpt-3.5-turbo"
-        model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
-        max_tokens = 16384
-        safeprint(f"Overriding model with {model_name} due to input token count")
+      #if num_input_tokens >= (8192 * 1.5) and max_tokens == 16384:    # current model: "gpt-4"
+      #  model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
+      #  max_tokens = 32768
+      #  safeprint(f"Overriding model with {model_name} due to input token count")
+      #elif num_input_tokens >= (4096 * 1.5) and max_tokens == 8192:    # current model: "gpt-4"
+      #  model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+      #  max_tokens = 16384
+      #  safeprint(f"Overriding model with {model_name} due to input token count")
+      #elif num_input_tokens >= (2048 * 1.5) and max_tokens == 4096:  # current model: "gpt-3.5-turbo"
+      #  model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+      #  max_tokens = 16384
+      #  safeprint(f"Overriding model with {model_name} due to input token count")
 
 
-      buffer_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config
-        
+      buffer_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config        
+      max_tokens2 = max_tokens - num_input_tokens - 1 - buffer_tokens  # need to subtract number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
+      assert(max_tokens2 > 0)
+
+      time_start = time.time()
+
       (response_content, finish_reason) = await completion_with_backoff(
 
         gpt_timeout,
@@ -318,19 +355,21 @@ async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuat
 
         temperature = 0, # 1,   0 means deterministic output
         top_p = 1,
-        max_tokens = max_tokens - num_input_tokens - 1 - buffer_tokens,  # need to subtract number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
+        max_tokens = max_tokens2,
         presence_penalty = 0,
         frequency_penalty = 0,
         # logit_bias = None,
       )
 
+      time_elapsed = time.time() - time_start
+
       responses.append(response_content)
       too_long = (finish_reason == "length")
 
       messages.append({"role": "assistant", "content": response_content})
-      num_total_tokens = num_tokens_from_messages(messages, model_name)
+      num_total_tokens = num_tokens_from_messages(messages, model_name, encoding)
       num_output_tokens = num_total_tokens - num_input_tokens
-      safeprint(f"num_total_tokens: {num_total_tokens} num_output_tokens: {num_output_tokens} max_tokens: {max_tokens}")
+      safeprint(f"num_total_tokens: {num_total_tokens} num_output_tokens: {num_output_tokens} max_tokens: {max_tokens} performance: {(num_output_tokens / time_elapsed)} output_tokens/sec")
 
       if too_long:
         # messages.append({"role": "assistant", "content": response_content})
@@ -347,14 +386,14 @@ async def run_llm_analysis_uncached(model_name, gpt_timeout, messages, continuat
 #/ async def run_llm_analysis_uncached():
 
 
-async def run_llm_analysis(config, model_name, gpt_timeout, messages, continuation_request, enable_cache = True):
+async def run_llm_analysis(config, model_name, encoding, gpt_timeout, messages, continuation_request, enable_cache = True):
 
   encrypt_cache_data = config["encrypt_cache_data"]
 
   if encrypt_cache_data:
-    result = await async_cached_encrypted(1 if enable_cache else None, run_llm_analysis_uncached, model_name, gpt_timeout, messages, continuation_request)
+    result = await async_cached_encrypted(1 if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request)
   else:
-    result = await async_cached(1 if enable_cache else None, run_llm_analysis_uncached, model_name, gpt_timeout, messages, continuation_request)
+    result = await async_cached(1 if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request)
 
   return result
 
@@ -626,87 +665,72 @@ def parse_labels(all_labels_as_text):
 #/ def parse_labels():
 
 
-async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, extract_line_numbers = None, argv = None):
+def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False):  # TODO: overlap_chunks_at_least_halfway
+
+  #paragraphs_tokens = []
+  #for paragraph in paragraphs:
+  #  tokens = encoding.encode(paragraph)
+  #  paragraphs_tokens.append(tokens)
+
+  separator_tokens = encoding.encode(separator)
+  separator_token_count = len(separator_tokens)
+
+  chunks = []
+  current_chunk = []  # chunk consists of a list of paragraphs
+  current_chunk_token_count = 0
+  # for paragraph_tokens in paragraphs_tokens:
+  for paragraph in paragraphs:
+    
+    paragraph_tokens = encoding.encode(paragraph)
+    paragraph_token_count = len(paragraph_tokens)
+
+    if current_chunk_token_count > 0:
+
+      if current_chunk_token_count + separator_token_count + paragraph_token_count <= max_tokens_per_chunk:
+        current_chunk_token_count += separator_token_count + paragraph_token_count
+        current_chunk.append(separator) # TODO: keep original separators that were present in text
+        current_chunk.append(paragraph)
+        continue
+      else: # current chunk has become full, so lets finalise it and start a new chunk
+        chunks.append(current_chunk)
+        current_chunk = []
+        current_chunk_token_count = 0
+
+    #/ if current_chunk_token_count > 0:
+
+    if paragraph_token_count <= max_tokens_per_chunk:
+      current_chunk_token_count = paragraph_token_count
+      current_chunk.append(paragraph)
+    else:
+      assert(False) # TODO
+
+  #/ for paragraph_tokens in paragraphs_tokens:
+
+  if current_chunk_token_count > 0:
+    chunks.append(current_chunk)
+
+  chunks = ["".join(chunk_paragraphs) for chunk_paragraphs in chunks]
+
+  # TODO: find a way to distribute the characters roughly evenly over chunks so that the last chunk is not smaller than the other chunks. This probably needs some combinatorial optimisation to achieve it though.
+
+  return chunks
+
+#/ def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False)
 
 
-  argv = argv if argv else sys.argv
+async def recogniser_process_chunk(user_input, config, instructions, encoding, do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, extract_line_numbers = None):
 
-
-  config = get_config()
-
-  if do_open_ended_analysis is None:
-    do_open_ended_analysis = config["do_open_ended_analysis"]
-  if do_closed_ended_analysis is None:
-    do_closed_ended_analysis = config["do_closed_ended_analysis"]
-  if extract_message_indexes is None:
-    extract_message_indexes = config["extract_message_indexes"]
-  if extract_line_numbers is None:
-    extract_line_numbers = config["extract_line_numbers"]
 
   gpt_model = config["gpt_model"]
   gpt_timeout = config["gpt_timeout"]  # TODO: into run_llm_analysis_uncached()
 
 
-  labels_filename = argv[3] if len(argv) > 3 else None
-  if labels_filename:
-    labels_filename = os.path.join("..", labels_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
-  else:
-    labels_filename = "default_labels.txt"
-
-
-  ignored_labels_filename = argv[4] if len(argv) > 4 else None
-  if ignored_labels_filename:
-    ignored_labels_filename = os.path.join("..", ignored_labels_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
-  else:
-    ignored_labels_filename = "ignored_labels.txt"
-
-
-  closed_ended_system_instruction = (await read_txt("closed_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
-  open_ended_system_instruction = (await read_txt("open_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
-  extract_names_of_participants_system_instruction = (await read_txt("extract_names_of_participants_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
-  all_labels_as_text = (await read_txt(labels_filename, quiet = True)).strip()
-  all_ignored_labels_as_text = (await read_txt(ignored_labels_filename, quiet = True)).strip()
-  continuation_request = (await read_txt("continuation_request.txt", quiet = True)).strip()
-
-
-  closed_ended_system_instruction_with_labels = closed_ended_system_instruction.replace("%labels%", all_labels_as_text)
-
-
-
-  # read user input
-  input_filename = argv[1] if len(argv) > 1 else None
-  if input_filename:
-    input_filename = os.path.join("..", input_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
-    using_user_input_filename = True
-  else:    
-    input_filename = "test_input.txt"
-    using_user_input_filename = False
-
-
-  user_input = (await read_txt(input_filename, quiet = True))
-
-
-  # format user input
-  user_input = remove_comments(user_input)    # TODO: config flag   # NB! not calling .strip() in order to not mess up line indexing
-
-
-  anonymise_names = config.get("anonymise_names")
-  anonymise_numbers = config.get("anonymise_numbers")
-  ner_model = config.get("named_entity_recognition_model")
-
-  if anonymise_names or anonymise_numbers:
-    user_input = await anonymise(config, user_input, anonymise_names, anonymise_numbers, ner_model)
-
-
-  # sanitise user input since []{} have special meaning in the output parsing
-  user_input = sanitise_input(user_input)
-
-
-
-  # parse labels    # TODO: functionality for adding comments to the labels file which will be not sent to LLM
-  (labels_list, all_labels_as_text) = parse_labels(all_labels_as_text)
-  (ignored_labels_list, all_ignored_labels_as_text) = parse_labels(all_ignored_labels_as_text)
-
+  open_ended_system_instruction = instructions["open_ended_system_instruction"]
+  extract_names_of_participants_system_instruction = instructions["extract_names_of_participants_system_instruction"]
+  labels_list = instructions["labels_list"]
+  ignored_labels_list = instructions["ignored_labels_list"]
+  continuation_request = instructions["continuation_request"]
+  closed_ended_system_instruction_with_labels = instructions["closed_ended_system_instruction_with_labels"]
 
 
   # call the analysis function
@@ -720,7 +744,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
     # TODO: add temperature parameter
 
-    open_ended_response = await run_llm_analysis(config, gpt_model, gpt_timeout, messages, continuation_request)
+    open_ended_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request)
 
   else: #/ if do_open_ended_analysis:
 
@@ -737,7 +761,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
     # TODO: add temperature parameter
 
-    closed_ended_response = await run_llm_analysis(config, gpt_model, gpt_timeout, messages, continuation_request)
+    closed_ended_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request)
 
 
     # parse the closed ended response by extracting persons, citations, and labels
@@ -756,16 +780,14 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
         {"role": "system", "content": extract_names_of_participants_system_instruction},
         {"role": "user", "content": user_input},
       ]
-
-      names_of_participants_response = await run_llm_analysis(config, gpt_model, gpt_timeout, messages, continuation_request)
+      # TODO: use regex for extracting the names instead of calling GPT
+      names_of_participants_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request)
 
       # Try to detect persons from the input text. This is necessary for preserving proper message indexing in the output in case some person is not cited by LLM at all.
       re_matches = re.findall(r"[\r\n]+\[?([^\]\n]*)\]?", "\n" + names_of_participants_response)
       for re_match in re_matches:
-
         detected_persons.add(re_match)
 
-      #/ for re_match in re_matches:
     #/ if extract_message_indexes:
 
     # Process LLM response
@@ -811,6 +833,9 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
       if len(labels) == 0:
         continue
 
+      if citation.strip() == "":  # "[Mrs Manningham hands the stones to Rough]: - {Not taking seriously}"
+        continue
+
       expressions_tuples.append((person, citation, labels), )
 
     #/ for re_match in re_matches:
@@ -834,7 +859,12 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
         line_start_char_positions.append(start_char)
 
       #/ for re_match in re_matches:
-    #/ if extract_line_numbers:
+
+      num_lines = len(line_start_char_positions)
+
+    else: #/ if extract_line_numbers:
+
+      num_lines = None
 
 
 
@@ -881,6 +911,9 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     #/ for person in detected_persons:
 
 
+    num_messages = len(start_char_to_person_message_index_dict)
+
+
     # sort message indexes and line numbers by start_char
     start_char_to_person_message_index_dict = OrderedDict(sorted(start_char_to_person_message_index_dict.items()))
 
@@ -917,7 +950,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
         curr_person_messages = person_messages.get(person2)
         if curr_person_messages is None or len(curr_person_messages) == 0:
-          continue  # TODO: log error
+          continue  # TODO: log error: GPT detected a person as participant but they are not speaking (may happen if some person is mentioned in text by narrator or referred to by other people)
 
 
         # * Simple Ratio: It computes the standard Levenshtein distance similarity ratio between two sequences.
@@ -968,6 +1001,8 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
       if nearest_person != person:  # incorrectly assigned citation 
         if ignore_incorrectly_assigned_citations:   
+          continue
+        elif nearest_person is None: # there is something wrong with the citation so it does not get any matches from rapidfuzz.process.extractOne
           continue
         else:
           person = nearest_person    
@@ -1088,6 +1123,9 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     # expressions_tuples_out = [(entry["person"], entry["text"], entry["labels"]) for entry in expression_dicts]
 
 
+    user_input_len = len(user_input)
+
+
     qqq = True  # for debugging
 
   else:   #/ if do_closed_ended_analysis:
@@ -1098,6 +1136,9 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     # expressions_tuples = None
     unexpected_labels = None
     unused_labels = None
+    num_messages = None
+    num_lines = None
+    user_input_len = None
 
   #/ if do_closed_ended_analysis:
 
@@ -1114,6 +1155,256 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
       totals[person][label] += 1
 
   #/ for entry in expression_dicts:
+
+
+  result = (expression_dicts, totals, unexpected_labels, unused_labels, closed_ended_response, open_ended_response, num_messages, num_lines, user_input_len) # TODO: return dict instead of tuple
+  return result
+
+#/ async def recogniser_process_chunk():
+
+
+async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, extract_line_numbers = None, argv = None):
+
+
+  argv = argv if argv else sys.argv
+
+
+  config = get_config()
+
+  if do_open_ended_analysis is None:
+    do_open_ended_analysis = config["do_open_ended_analysis"]
+  if do_closed_ended_analysis is None:
+    do_closed_ended_analysis = config["do_closed_ended_analysis"]
+  if extract_message_indexes is None:
+    extract_message_indexes = config["extract_message_indexes"]
+  if extract_line_numbers is None:
+    extract_line_numbers = config["extract_line_numbers"]
+
+
+  labels_filename = argv[3] if len(argv) > 3 else None
+  if labels_filename:
+    labels_filename = os.path.join("..", labels_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+  else:
+    labels_filename = "default_labels.txt"
+
+
+  ignored_labels_filename = argv[4] if len(argv) > 4 else None
+  if ignored_labels_filename:
+    ignored_labels_filename = os.path.join("..", ignored_labels_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+  else:
+    ignored_labels_filename = "ignored_labels.txt"
+
+
+  closed_ended_system_instruction = (await read_txt("closed_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
+  open_ended_system_instruction = (await read_txt("open_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
+  extract_names_of_participants_system_instruction = (await read_txt("extract_names_of_participants_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
+  all_labels_as_text = (await read_txt(labels_filename, quiet = True)).strip()
+  all_ignored_labels_as_text = (await read_txt(ignored_labels_filename, quiet = True)).strip()
+  continuation_request = (await read_txt("continuation_request.txt", quiet = True)).strip()
+
+
+  closed_ended_system_instruction_with_labels = closed_ended_system_instruction.replace("%labels%", all_labels_as_text)
+
+
+  # read user input
+  input_filename = argv[1] if len(argv) > 1 else None
+  if input_filename:
+    input_filename = os.path.join("..", input_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
+    using_user_input_filename = True
+  else:    
+    input_filename = "test_input.txt"
+    using_user_input_filename = False
+
+
+  user_input = (await read_txt(input_filename, quiet = True))
+
+
+  # format user input
+  user_input = remove_comments(user_input)    # TODO: config flag   # NB! not calling .strip() in order to not mess up line indexing
+
+
+  anonymise_names = config.get("anonymise_names")
+  anonymise_numbers = config.get("anonymise_numbers")
+  ner_model = config.get("named_entity_recognition_model")
+
+  if anonymise_names or anonymise_numbers:
+    user_input = await anonymise(config, user_input, anonymise_names, anonymise_numbers, ner_model)
+
+
+  # sanitise user input since []{} have special meaning in the output parsing
+  user_input = sanitise_input(user_input)
+
+
+
+  # parse labels    # TODO: functionality for adding comments to the labels file which will be not sent to LLM
+  (labels_list, all_labels_as_text) = parse_labels(all_labels_as_text)
+  (ignored_labels_list, all_ignored_labels_as_text) = parse_labels(all_ignored_labels_as_text)
+
+
+  # set up instructions config for recogniser_process_chunk() function
+  instructions = {
+    "open_ended_system_instruction": open_ended_system_instruction,
+    "extract_names_of_participants_system_instruction": extract_names_of_participants_system_instruction,
+    "labels_list": labels_list,
+    "ignored_labels_list": ignored_labels_list,
+    "continuation_request": continuation_request,
+    "closed_ended_system_instruction_with_labels": closed_ended_system_instruction_with_labels,
+  }
+
+
+
+  # split text into messages
+  split_messages_by = config["split_messages_by"]
+  split_messages_by_newline = (split_messages_by == "")
+
+  # using finditer() since it provides match.start() in the results
+  if split_messages_by_newline:
+    separator = "\n"
+    p = re.compile(r"[\r\n]+(.*)")   # NO re.DOTALL --> dot DOES NOT include a newline
+    re_matches = p.finditer("\n" + user_input)    
+  else:
+    separator = "\n" + split_messages_by + "\n"
+    p = re.compile(r"[\r\n]+(.*?)[\r\n]+" + re.escape(split_messages_by), re.DOTALL)   # re.DOTALL --> dot includes a newline 
+    re_matches = p.finditer("\n" + user_input + "\n" + split_messages_by) 
+
+  paragraphs = []
+  for re_match in re_matches:
+    paragraph = re_match.group(1)
+    if paragraph.strip() != "":
+      paragraphs.append(paragraph)
+
+  user_input = separator.join(paragraphs)   # reformat the user input to ensure that the character positions are correct. The regex above matches multiple linefeeds, including \r characters, but later we join them back together using only single newlines
+
+
+  # split text into chunks
+  gpt_model = config["gpt_model"]
+  encoding = get_encoding_for_model(gpt_model)
+  model_max_tokens = get_max_tokens_for_model(gpt_model)
+
+  buffer_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config        
+  model_max_tokens2 = model_max_tokens - 1 - buffer_tokens  # need to subtract number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
+
+  closed_ended_instruction_token_count = len(encoding.encode(closed_ended_system_instruction_with_labels))
+  max_tokens_per_closed_ended_chunk = int((model_max_tokens2 - closed_ended_instruction_token_count) / (1 + 1.5)) # NB! assuming that each analysis response is up to 1.5 times as long as the user input text length   # TODO: config for this coefficient
+
+  open_ended_instruction_token_count = len(encoding.encode(open_ended_system_instruction))
+  max_tokens_per_open_ended_chunk = int((model_max_tokens2 - open_ended_instruction_token_count) / (1 + 0.5)) # assuming that open ended analysis response length is about 0.5 of the user input text length # TODO: config for this coefficient
+
+  if do_closed_ended_analysis and do_open_ended_analysis:
+    max_tokens_per_chunk = min(max_tokens_per_closed_ended_chunk, max_tokens_per_open_ended_chunk)
+  elif do_closed_ended_analysis:
+    max_tokens_per_chunk = max_tokens_per_closed_ended_chunk
+  elif do_open_ended_analysis:
+    max_tokens_per_chunk = max_tokens_per_open_ended_chunk
+
+  # max_tokens_per_chunk = 500  # for debugging
+
+  chunks = split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False)   # TODO: balance chunk lengths
+
+
+  # analyse each chunk
+  chunk_analysis_results = []
+  for index, chunk_text in enumerate(chunks):
+    with Timer(f"Analysing chunk {(index + 1)}"):
+      chunk_analysis_result = await recogniser_process_chunk(chunk_text, config, instructions, encoding, do_open_ended_analysis, do_closed_ended_analysis, extract_message_indexes, extract_line_numbers)
+      chunk_analysis_results.append(chunk_analysis_result)
+
+
+  # aggregate the results and adjust the label chat offsets, message indexes and line numbers
+
+  open_ended_responses = []
+  closed_ended_responses = []    
+
+  if do_closed_ended_analysis:
+
+    totals = defaultdict(lambda: OrderedDict([(label, 0) for label in labels_list]))    # defaultdict: do not report persons and labels which are not detected  # need to initialise the inner dict to preserve proper label ordering
+    expression_dicts = []
+    unexpected_labels = set()
+
+  else:   #/ if do_closed_ended_analysis:
+
+    totals = None
+    expression_dicts = None
+    # expressions_tuples = None
+    unexpected_labels = None
+
+  #/ if do_closed_ended_analysis:
+
+
+  prev_chunks_lengths_sum = 0
+  prev_chunks_messages_count = 0
+  prev_chunks_lines_count = 0
+
+  all_unused_labels = []
+
+  for result in chunk_analysis_results:
+
+    (chunk_expression_dicts, chunk_totals, chunk_unexpected_labels, chunk_unused_labels, chunk_closed_ended_response, chunk_open_ended_response, chunk_num_messages, chunk_num_lines, chunk_user_input_len) = result
+
+
+    # adjust the char offsets, message indexes, and line numbers
+    for expression_dict in chunk_expression_dicts:
+
+      expression_dict["start_char"] += prev_chunks_lengths_sum
+      expression_dict["end_char"] += prev_chunks_lengths_sum
+      if extract_message_indexes:
+        expression_dict["message_index"] += prev_chunks_messages_count
+      if extract_line_numbers:
+        expression_dict["line_number"] += prev_chunks_lines_count
+
+      expression_dicts.append(expression_dict)
+
+    #/ for expression_dict in chunk_expression_dicts:
+
+
+    prev_chunks_lengths_sum += chunk_user_input_len + len(separator)
+
+    if extract_message_indexes:
+      prev_chunks_messages_count += chunk_num_messages
+
+    if extract_line_numbers:
+      prev_chunks_lines_count += chunk_num_lines
+
+
+    for person, counts in chunk_totals.items():
+      for label, count in counts.items():
+        totals[person][label] += count
+
+    for x in chunk_unexpected_labels:
+      unexpected_labels.add(x)
+
+    all_unused_labels.append(chunk_unused_labels)
+
+
+    if do_closed_ended_analysis:
+      closed_ended_responses.append(chunk_closed_ended_response)
+    if do_open_ended_analysis:
+      open_ended_responses.append(chunk_open_ended_response)
+
+  #/ for result in chunk_analysis_results:
+    
+  
+  if len(all_unused_labels) == 0:
+    aggregated_unused_labels = [] if do_closed_ended_analysis else None
+  else:
+    # this algorithm keeps the order of the unused labels list
+    aggregated_unused_labels = all_unused_labels[0]
+    for current_unused_labels in all_unused_labels[1:]:
+      current_unused_labels_set = set(current_unused_labels) # optimisation
+      aggregated_unused_labels = [x for x in aggregated_unused_labels if x in current_unused_labels_set]
+    #/ for unused_labels in all_unused_labels[1:]:
+  #/ if len(all_unused_labels) == 0:
+
+
+  if do_open_ended_analysis:
+    open_ended_response = "\n\n".join(open_ended_responses)
+  else:
+    open_ended_response = None
+
+  if do_closed_ended_analysis:
+    closed_ended_response = "\n\n".join(closed_ended_responses)
+  else:
+    closed_ended_response = None
 
 
   # cleanup zero valued counts in totals
@@ -1134,7 +1425,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     # "expressions_tuples": expressions_tuples_out,
     "counts": totals,
     "unexpected_labels": unexpected_labels,
-    "unused_labels": unused_labels,
+    "unused_labels": aggregated_unused_labels,
     "raw_expressions_labeling_response": closed_ended_response,
     "qualitative_evaluation": open_ended_response   # TODO: split person A and person B from qualitative description into separate dictionary fields
   }
@@ -1319,7 +1610,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
                 )
               + '\n<div style="font: bold 1em Arial;">Qualitative summary:</div><br>'
               + '\n<div style="font: 1em Arial;">' 
-              + '\n' + open_ended_response 
+              + '\n' + "<br><br>".join(open_ended_responses) # TODO: add part numbers to chunks
               + '\n</div>'
               + '\n<br><br><br>'
               + '\n<div style="font: bold 1em Arial;">Labelled input:</div><br>'

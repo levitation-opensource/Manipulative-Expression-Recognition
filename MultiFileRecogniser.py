@@ -90,7 +90,7 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
   
   
   if len(all_unused_labels) == 0:
-    aggregated_unused_labels = []
+    aggregated_unused_labels = [] if do_closed_ended_analysis else None
   else:
     # this algorithm keeps the order of the unused labels list
     aggregated_unused_labels = all_unused_labels[0]
@@ -138,7 +138,7 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
 
   aggregated_analysis_response = {
     "counts": aggregated_counts,
-    "unexpected_labels": aggregated_unexpected_labels,
+    "unexpected_labels": aggregated_unexpected_labels,  # TODO: use dict with counts in single-file output too
     "unused_labels": aggregated_unused_labels,
     "grouped_labels": grouped_labels,
   }

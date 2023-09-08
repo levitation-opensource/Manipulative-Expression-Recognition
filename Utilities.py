@@ -487,6 +487,49 @@ def strtobool(val):
 #/ def strtobool(val):
 
 
+def get_type_full_name(arg):
+
+  t = type(arg)
+  return t.__module__ + "." + t.__name__
+
+#/ def get_type_full_name(arg):
+
+
+def convert_arg_to_cache_key(arg):
+
+  t = get_type_full_name(arg)
+  if t == "tiktoken.core.Encoding":
+    return t + ":" + arg.name
+  else:
+    return arg
+
+#/ def convert_arg_to_cache_key(args):
+
+
+def convert_args_to_cache_key(args):
+
+  result = []
+  for arg in args:
+    converted = convert_arg_to_cache_key(arg)
+    result.append(converted)
+
+  return result
+
+#/ def convert_args_to_cache_key(args):
+
+
+def convert_kwargs_to_cache_key(kwargs):
+
+  result = OrderedDict()
+  for key, arg in kwargs.items():
+    converted = convert_arg_to_cache_key(arg)
+    result[key] = converted
+
+  return result
+
+#/ def convert_args_to_cache_key(args):
+
+
 async def async_cached(cache_version, func, *args, **kwargs):
 
   enable_cache = (cache_version is not None)
@@ -496,8 +539,8 @@ async def async_cached(cache_version, func, *args, **kwargs):
     # NB! this cache key and the cache will not contain the OpenAI key, so it is safe to publish the cache files
     kwargs_ordered = OrderedDict(sorted(kwargs.items()))
     cache_key = OrderedDict([
-      ("args", args),
-      ("kwargs", kwargs_ordered)
+      ("args", convert_args_to_cache_key(args)),
+      ("kwargs", convert_kwargs_to_cache_key(kwargs_ordered))
     ])
     params_json = json_tricks.dumps(cache_key).encode("utf-8")   # json_tricks preserves dictionary orderings
     cache_key = hashlib.sha512(params_json).digest()
@@ -546,8 +589,8 @@ async def async_cached_encrypted(cache_version, func, *args, **kwargs):
     # NB! this cache key and the cache will not contain the OpenAI key, so it is safe to publish the cache files
     kwargs_ordered = OrderedDict(sorted(kwargs.items()))
     cache_key = OrderedDict([
-      ("args", args),
-      ("kwargs", kwargs_ordered)
+      ("args", convert_args_to_cache_key(args)),
+      ("kwargs", convert_kwargs_to_cache_key(kwargs_ordered))
     ])
     params_json = json_tricks.dumps(cache_key).encode("utf-8")   # json_tricks preserves dictionary orderings
     cache_key = hashlib.sha512(params_json).digest()
