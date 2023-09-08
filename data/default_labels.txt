@@ -9,6 +9,7 @@
 - Invalidation 
 - Aggression
 - Evasion
+- Giving too brief or incomplete answers
 - Changing the topic
 - Unrelated comments
 - Being impatient
@@ -40,6 +41,7 @@
 - Mind games
 - Convincing to give up something important
 - Making others more dependent on them
+- Making others more dependent on them for information
 - Strategic facts sharing
 - Gaining superiority
 - Generalization
@@ -48,6 +50,7 @@
 - Poking at others weaknesses
 - Making others feel insecure
 - Confusing others
+- Making others doubt themselves
 - Making others question their own reality
 - Passive aggression
 - Undermining
@@ -72,11 +75,14 @@
 - Judging
 - Judgemental expressions
 - Ridiculing
+- Belittiling
+- Condescending
 - Making other feel like they are doing something wrong
 - Focus on negative aspects
 - Not offering constructive solutions
 - Accusations based on assumptions
 - Not verifying the negative assumptions about the other person
+- Making assumptions
 - Exaggerated accusations
 - Being oppositional
 - Not asking for the other person's viewpoint on relevant matters
@@ -103,6 +109,13 @@
 - Sending contradictory messages
 - Sending mixed signals
 - Ignoring relation repair attempts
+- Intentionally frustrating others
+- Antagonism
+- Answering a different question than was asked
+- Not answering a question
+- Word salad
+- Future faking
+- Making promises about great future while neglecting present situation
 - Foot-in-the-Door Technique
 - Door-in-the-Face Technique
 - Low-Ball Technique
