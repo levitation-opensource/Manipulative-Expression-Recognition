@@ -53,6 +53,8 @@
     <Content Include="data\ignored_labels.txt" />
     <Content Include="data\open_ended_system_instruction.txt" />
     <Content Include="data\script_gaslight.txt" />
+    <Content Include="data\script_gaslight_evaluation.json" />
+    <Content Include="data\script_gaslight_evaluation.pdf" />
     <Content Include="data\test_evaluation.html" />
     <Content Include="data\test_evaluation.json" />
     <Content Include="data\test_evaluation.pdf" />
