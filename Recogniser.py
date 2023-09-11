@@ -29,6 +29,7 @@ import hashlib
 import string
 import base64
 from bisect import bisect_right
+import statistics
 
 import rapidfuzz.process
 import rapidfuzz.fuzz
@@ -665,24 +666,14 @@ def parse_labels(all_labels_as_text):
 #/ def parse_labels():
 
 
-def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False):  # TODO: overlap_chunks_at_least_halfway
-
-  #paragraphs_tokens = []
-  #for paragraph in paragraphs:
-  #  tokens = encoding.encode(paragraph)
-  #  paragraphs_tokens.append(tokens)
-
-  separator_tokens = encoding.encode(separator)
-  separator_token_count = len(separator_tokens)
+def split_text_into_chunks_worker(encoding, paragraphs, paragraph_token_counts, separator, separator_token_count, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False):  # TODO: overlap_chunks_at_least_halfway
 
   chunks = []
   current_chunk = []  # chunk consists of a list of paragraphs
   current_chunk_token_count = 0
-  # for paragraph_tokens in paragraphs_tokens:
-  for paragraph in paragraphs:
+  for index, paragraph in enumerate(paragraphs):
     
-    paragraph_tokens = encoding.encode(paragraph)
-    paragraph_token_count = len(paragraph_tokens)
+    paragraph_token_count = paragraph_token_counts[index]
 
     if current_chunk_token_count > 0:
 
@@ -692,7 +683,7 @@ def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk
         current_chunk.append(paragraph)
         continue
       else: # current chunk has become full, so lets finalise it and start a new chunk
-        chunks.append(current_chunk)
+        chunks.append((current_chunk, current_chunk_token_count), )
         current_chunk = []
         current_chunk_token_count = 0
 
@@ -704,18 +695,83 @@ def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk
     else:
       assert(False) # TODO
 
-  #/ for paragraph_tokens in paragraphs_tokens:
+  #/ for paragraph in paragraphs:
 
   if current_chunk_token_count > 0:
-    chunks.append(current_chunk)
-
-  chunks = ["".join(chunk_paragraphs) for chunk_paragraphs in chunks]
+    chunks.append((current_chunk, current_chunk_token_count), )
 
   # TODO: find a way to distribute the characters roughly evenly over chunks so that the last chunk is not smaller than the other chunks. This probably needs some combinatorial optimisation to achieve it though.
 
   return chunks
 
-#/ def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False)
+#/ def split_text_into_chunks_worker(encoding, paragraphs, paragraph_token_counts, separator, separator_token_count, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False)
+
+
+def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False, balance_chunk_sizes = True):  # TODO: overlap_chunks_at_least_halfway
+
+  paragraph_token_counts = []
+  for paragraph in paragraphs:    
+    paragraph_tokens = encoding.encode(paragraph)
+    paragraph_token_count = len(paragraph_tokens)
+    paragraph_token_counts.append(paragraph_token_count)
+
+  separator_tokens = encoding.encode(separator)
+  separator_token_count = len(separator_tokens)
+
+
+  chunks = split_text_into_chunks_worker(encoding, paragraphs, paragraph_token_counts, separator, separator_token_count, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False)
+
+  if balance_chunk_sizes and len(chunks) > 1:
+
+    max_allowed_chunks = len(chunks)
+
+    best_score = None
+    best_variance = None
+    best_chunks = None
+
+    try_count = 1 # for debugging
+
+    while True:
+
+      chunk_sizes_in_tokens = [chunk_token_count for (chunk_paragraphs, chunk_token_count) in chunks]
+      average = statistics.mean(chunk_sizes_in_tokens)
+      smallest = min(chunk_sizes_in_tokens)
+      score = smallest - average   # TODO: think about alternative formulas
+      variance = statistics.variance(chunk_sizes_in_tokens)
+
+      if best_score is None or score > best_score:
+        best_score = score
+        best_variance = variance
+        best_chunks = chunks
+      elif score == best_score and variance < best_variance:
+        best_score = score
+        best_variance = variance
+        best_chunks = chunks
+
+
+      # retry with smaller chunk size limit
+
+      biggest = max(chunk_sizes_in_tokens)
+      max_tokens_per_chunk = biggest - 1
+
+      chunks = split_text_into_chunks_worker(encoding, paragraphs, paragraph_token_counts, separator, separator_token_count, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False)
+      try_count += 1
+
+      if len(chunks) > max_allowed_chunks:  # if number of chunks starts increasing then stop balancing
+        break
+
+    #/ while True:
+
+    chunks = best_chunks
+
+  #/ if balance_chunk_sizes and len(chunks) > 1:
+
+  
+  chunks = ["".join(chunk_paragraphs) for (chunk_paragraphs, chunk_token_count) in chunks]
+
+  return chunks
+
+#/ def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False) 
 
 
 async def recogniser_process_chunk(user_input, config, instructions, encoding, do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, extract_line_numbers = None):
@@ -1299,7 +1355,8 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
   # max_tokens_per_chunk = 500  # for debugging
 
-  chunks = split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False)   # TODO: balance chunk lengths
+  with Timer("Splitting text into chunks with balanced lengths"):
+    chunks = split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False, balance_chunk_sizes = True)   # TODO: balance chunk lengths
 
 
   # analyse each chunk
