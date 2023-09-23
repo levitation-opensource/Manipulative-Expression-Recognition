@@ -34,6 +34,7 @@ import statistics
 import rapidfuzz.process
 import rapidfuzz.fuzz
 from fuzzysearch import find_near_matches
+from ncls import NCLS
 
 import json_tricks
 
@@ -71,6 +72,13 @@ def remove_quotes(text):
   return text.replace("'", "").replace('"', '')
 
 
+def remove_percent(text):
+  if text[-1:] == "%":
+    return text[:-1]
+  else:
+    return text
+
+
 def rotate_list(list, n):
   return list[n:] + list[:n]
 
@@ -100,6 +108,9 @@ def get_config():
   ignore_incorrectly_assigned_citations = strtobool(remove_quotes(config.get("MER", "IgnoreIncorrectlyAssignedCitations", fallback="false")))
   allow_multiple_citations_per_message = strtobool(remove_quotes(config.get("MER", "AllowMultipleCitationsPerMessage", fallback="true")))
   citation_lookup_time_limit = float(remove_quotes(config.get("MER", "CitationLookupTimeLimit", fallback="0.1")))
+  temperature = float(remove_quotes(config.get("MER", "Temperature", fallback="0.0")))
+  sample_count = int(remove_quotes(config.get("MER", "SampleCount", fallback="1")))
+  default_label_treshold_sample_percent = float(remove_percent(remove_quotes(config.get("MER", "DefaultLabelThresholdSamplePercent", fallback="50"))))
 
 
   result = { 
@@ -122,6 +133,9 @@ def get_config():
     "ignore_incorrectly_assigned_citations": ignore_incorrectly_assigned_citations,
     "allow_multiple_citations_per_message": allow_multiple_citations_per_message,
     "citation_lookup_time_limit": citation_lookup_time_limit,
+    "temperature": temperature,
+    "sample_count": sample_count,
+    "default_label_treshold_sample_percent": default_label_treshold_sample_percent,
   }
 
   return result
@@ -303,7 +317,7 @@ def get_max_tokens_for_model(model_name):
 #/ def get_max_tokens_for_model(model_name):
 
 
-async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages, continuation_request):
+async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = 0): # sample_index is used only for cache keying and not inside this function
 
   responses = []
   max_tokens = get_max_tokens_for_model(model_name)
@@ -336,7 +350,7 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
 
 
       buffer_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config        
-      max_tokens2 = max_tokens - num_input_tokens - 1 - buffer_tokens  # need to subtract number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
+      max_tokens2 = max_tokens - num_input_tokens - 1 - buffer_tokens  # need to subtract the number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
       assert(max_tokens2 > 0)
 
       time_start = time.time()
@@ -354,7 +368,7 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
         stream = False,   # TODO
         # user = "",    # TODO
 
-        temperature = 0, # 1,   0 means deterministic output
+        temperature = temperature, # 1,   0 means deterministic output  # TODO: increase in case of sampling the GPT multiple times per same text
         top_p = 1,
         max_tokens = max_tokens2,
         presence_penalty = 0,
@@ -387,14 +401,14 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
 #/ async def run_llm_analysis_uncached():
 
 
-async def run_llm_analysis(config, model_name, encoding, gpt_timeout, messages, continuation_request, enable_cache = True):
+async def run_llm_analysis(config, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = 0, enable_cache = True):
 
   encrypt_cache_data = config["encrypt_cache_data"]
-
+  
   if encrypt_cache_data:
-    result = await async_cached_encrypted(1 if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request)
+    result = await async_cached_encrypted(1 if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index)
   else:
-    result = await async_cached(1 if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request)
+    result = await async_cached(1 if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index)
 
   return result
 
@@ -609,7 +623,7 @@ def render_highlights_uncached(user_input, expression_dicts):
                         {
                           "start": entry["start_char"], 
                           "end": entry["end_char"], 
-                          "label": ", ".join(entry["labels"])
+                          "label": ", ".join(entry["labels"].keys()) # TODO: use label strength percent
                         } 
                         for entry 
                         in expression_dicts
@@ -671,9 +685,8 @@ def split_text_into_chunks_worker(encoding, paragraphs, paragraph_token_counts, 
   chunks = []
   current_chunk = []  # chunk consists of a list of paragraphs
   current_chunk_token_count = 0
-  for index, paragraph in enumerate(paragraphs):
-    
-    paragraph_token_count = paragraph_token_counts[index]
+
+  for paragraph, paragraph_token_count in zip(paragraphs, paragraph_token_counts):
 
     if current_chunk_token_count > 0:
 
@@ -725,40 +738,46 @@ def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk
 
     max_allowed_chunks = len(chunks)
 
-    best_score = None
-    best_variance = None
     best_chunks = None
+    upper_bound = None
+    exclusive_lower_bound = 0
 
+    best_chunk_try_index = None # for debugging
     try_count = 1 # for debugging
 
-    while True:
+    # using binary search for finding smallest max_tokens_per_chunk. Assuming that the split with smallest max_tokens_per_chunk always wins with regards to the balancedness metric
+    while True:  # TODO: apply time limit to this loop  
 
       chunk_sizes_in_tokens = [chunk_token_count for (chunk_paragraphs, chunk_token_count) in chunks]
-      average = statistics.mean(chunk_sizes_in_tokens)
-      smallest = min(chunk_sizes_in_tokens)
-      score = smallest - average   # TODO: think about alternative formulas
-      variance = statistics.variance(chunk_sizes_in_tokens)
-
-      if best_score is None or score > best_score:
-        best_score = score
-        best_variance = variance
-        best_chunks = chunks
-      elif score == best_score and variance < best_variance:
-        best_score = score
-        best_variance = variance
-        best_chunks = chunks
-
-
-      # retry with smaller chunk size limit
-
       biggest = max(chunk_sizes_in_tokens)
-      max_tokens_per_chunk = biggest - 1
+
+
+      if len(chunks) > max_allowed_chunks:
+
+        exclusive_lower_bound = max_tokens_per_chunk
+        max_tokens_per_chunk = int((upper_bound + exclusive_lower_bound + 1) / 2) # round up
+
+        if max_tokens_per_chunk == upper_bound:   # tried that already
+          break
+
+      else: # if len(chunks) > max_allowed_chunks:
+
+        best_chunks = chunks
+        best_chunk_try_index = try_count
+
+        upper_bound = biggest
+        max_tokens_per_chunk = int((upper_bound + exclusive_lower_bound) / 2) # round down
+
+        if max_tokens_per_chunk == exclusive_lower_bound:   # tried that already
+          break
+
+      #/ if len(chunks) > max_allowed_chunks:
+
+
+      # retry with different chunk size limit
 
       chunks = split_text_into_chunks_worker(encoding, paragraphs, paragraph_token_counts, separator, separator_token_count, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False)
       try_count += 1
-
-      if len(chunks) > max_allowed_chunks:  # if number of chunks starts increasing then stop balancing
-        break
 
     #/ while True:
 
@@ -774,7 +793,77 @@ def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk
 #/ def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False) 
 
 
-async def recogniser_process_chunk(user_input, config, instructions, encoding, do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, extract_line_numbers = None):
+#def split_text_into_chunks_alternate(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False, balance_chunk_sizes = True):  # TODO: overlap_chunks_at_least_halfway
+
+#  paragraph_token_counts = []
+#  for paragraph in paragraphs:    
+#    paragraph_tokens = encoding.encode(paragraph)
+#    paragraph_token_count = len(paragraph_tokens)
+#    paragraph_token_counts.append(paragraph_token_count)
+
+#  separator_tokens = encoding.encode(separator)
+#  separator_token_count = len(separator_tokens)
+
+
+#  chunks = split_text_into_chunks_worker(encoding, paragraphs, paragraph_token_counts, separator, separator_token_count, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False)
+
+#  if balance_chunk_sizes and len(chunks) > 1:
+
+#    max_allowed_chunks = len(chunks)
+
+#    best_score = None
+#    best_variance = None
+#    best_chunks = None
+
+#    best_chunk_try_index = None # for debugging
+#    try_count = 1 # for debugging
+
+#    while True:  # TODO: apply time limit to this loop
+
+#      chunk_sizes_in_tokens = [chunk_token_count for (chunk_paragraphs, chunk_token_count) in chunks]
+#      average = statistics.mean(chunk_sizes_in_tokens)
+#      smallest = min(chunk_sizes_in_tokens)
+#      score = smallest - average   # TODO: think about alternative formulas
+#      variance = statistics.variance(chunk_sizes_in_tokens)
+
+#      if best_score is None or score > best_score:
+#        best_score = score
+#        best_variance = variance
+#        best_chunks = chunks
+#        best_chunk_try_index = try_count
+#      elif score == best_score and variance < best_variance:
+#        best_score = score
+#        best_variance = variance
+#        best_chunks = chunks
+#        best_chunk_try_index = try_count
+
+
+#      # retry with smaller chunk size limit
+
+#      biggest = max(chunk_sizes_in_tokens)
+#      max_tokens_per_chunk = biggest - 1
+
+#      chunks = split_text_into_chunks_worker(encoding, paragraphs, paragraph_token_counts, separator, separator_token_count, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False)
+#      try_count += 1
+
+#      if len(chunks) > max_allowed_chunks:  # if number of chunks starts increasing then stop balancing
+#        break
+
+#    #/ while True:
+
+#    chunks = best_chunks
+
+#  #/ if balance_chunk_sizes and len(chunks) > 1:
+
+  
+#  chunks = ["".join(chunk_paragraphs) for (chunk_paragraphs, chunk_token_count) in chunks]
+
+#  return chunks
+
+##/ def split_text_into_chunks_alternate(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False) 
+
+
+async def recogniser_process_chunk(user_input, config, instructions, encoding, do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, extract_line_numbers = None, sample_index = 0):
 
 
   gpt_model = config["gpt_model"]
@@ -798,9 +887,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
       {"role": "user", "content": user_input},
     ]
 
-    # TODO: add temperature parameter
-
-    open_ended_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request)
+    open_ended_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = sample_index)  # NB! temperature config setting is applied only to closed ended analysis
 
   else: #/ if do_open_ended_analysis:
 
@@ -815,9 +902,9 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
       {"role": "user", "content": user_input},
     ]
 
-    # TODO: add temperature parameter
+    temperature = config["temperature"]
 
-    closed_ended_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request)
+    closed_ended_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index)
 
 
     # parse the closed ended response by extracting persons, citations, and labels
@@ -826,9 +913,9 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
 
     expressions_tuples = []
     detected_persons = set()
-    unexpected_labels = set()
-    unused_labels = list(labels_list)   # clone
-    unused_labels_set = set(labels_list)
+    # unexpected_labels = set()
+    # unused_labels = list(labels_list)   # clone   # NB! use list type to keep the unused labels in the order they appear in labels list file
+    # unused_labels_set = set(labels_list)
 
     if extract_message_indexes: 
 
@@ -837,7 +924,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
         {"role": "user", "content": user_input},
       ]
       # TODO: use regex for extracting the names instead of calling GPT
-      names_of_participants_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request)
+      names_of_participants_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = 0) # NB! do not use sampling here # NB! temperature config setting is applied only to closed ended analysis
 
       # Try to detect persons from the input text. This is necessary for preserving proper message indexing in the output in case some person is not cited by LLM at all.
       re_matches = re.findall(r"[\r\n]+\[?([^\]\n]*)\]?", "\n" + names_of_participants_response)
@@ -847,6 +934,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
     #/ if extract_message_indexes:
 
     # Process LLM response
+    keep_unexpected_labels = config.get("keep_unexpected_labels")
     re_matches = re.findall(r"[\r\n]+\[(.*)\]:(.*)\{(.*)\}", "\n" + closed_ended_response)
     for re_match in re_matches:
 
@@ -866,21 +954,21 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
         if label in ignored_labels_list:
           continue
 
-        if label not in labels_list:
+        #if label not in labels_list:
 
-          unexpected_labels.add(label)
+        #  unexpected_labels.add(label)
 
-          if config.get("keep_unexpected_labels"):
-            labels_list.append(label)
-          else:
-            continue  # throw away any non-requested labels
+        #  if keep_unexpected_labels:
+        #    labels_list.append(label)
+        #  else:
+        #    continue  # throw away any non-requested labels
 
-        #/ if label not in labels_list:
+        ##/ if label not in labels_list:
 
         filtered_labels.append(label)
-        if label in unused_labels_set:
-          unused_labels.remove(label)
-          unused_labels_set.remove(label)
+        #if label in unused_labels_set:
+        #  unused_labels.remove(label)
+        #  unused_labels_set.remove(label)
 
       #/ for label in labels:
 
@@ -1149,7 +1237,6 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
 
         entry.update({ 
           "message_index": overall_message_index 
-          # TODO: save line number
         })
       #/ if extract_message_indexes:
 
@@ -1159,7 +1246,6 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
 
         entry.update({ 
           "line_number": line_number + 1 # line numbers start from 1
-          # TODO: save line number
         })
       #/ if extract_line_numbers:
 
@@ -1190,8 +1276,8 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
     totals = None
     expression_dicts = None
     # expressions_tuples = None
-    unexpected_labels = None
-    unused_labels = None
+    # unexpected_labels = None
+    # unused_labels = None
     num_messages = None
     num_lines = None
     user_input_len = None
@@ -1208,12 +1294,17 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
     labels = entry["labels"]
 
     for label in labels:
+      if label not in totals[person]:  # happens in case of unexpected labels
+        totals[person][label] = 0
       totals[person][label] += 1
 
   #/ for entry in expression_dicts:
 
 
-  result = (expression_dicts, totals, unexpected_labels, unused_labels, closed_ended_response, open_ended_response, num_messages, num_lines, user_input_len) # TODO: return dict instead of tuple
+  result = (expression_dicts, totals, 
+            # unexpected_labels, 
+            # unused_labels, 
+            closed_ended_response, open_ended_response, num_messages, num_lines, user_input_len) # TODO: return dict instead of tuple
   return result
 
 #/ async def recogniser_process_chunk():
@@ -1338,7 +1429,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
   model_max_tokens = get_max_tokens_for_model(gpt_model)
 
   buffer_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config        
-  model_max_tokens2 = model_max_tokens - 1 - buffer_tokens  # need to subtract number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
+  model_max_tokens2 = model_max_tokens - 1 - buffer_tokens  # need to subtract the number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
 
   closed_ended_instruction_token_count = len(encoding.encode(closed_ended_system_instruction_with_labels))
   max_tokens_per_closed_ended_chunk = int((model_max_tokens2 - closed_ended_instruction_token_count) / (1 + 1.5)) # NB! assuming that each analysis response is up to 1.5 times as long as the user input text length   # TODO: config for this coefficient
@@ -1359,118 +1450,368 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     chunks = split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False, balance_chunk_sizes = True)   # TODO: balance chunk lengths
 
 
-  # analyse each chunk
-  chunk_analysis_results = []
-  for index, chunk_text in enumerate(chunks):
-    with Timer(f"Analysing chunk {(index + 1)}"):
-      chunk_analysis_result = await recogniser_process_chunk(chunk_text, config, instructions, encoding, do_open_ended_analysis, do_closed_ended_analysis, extract_message_indexes, extract_line_numbers)
-      chunk_analysis_results.append(chunk_analysis_result)
 
-
-  # aggregate the results and adjust the label chat offsets, message indexes and line numbers
+  sample_count = config["sample_count"]
+  default_label_treshold_sample_percent = config["default_label_treshold_sample_percent"]
+  expression_dicts_samples = []
 
   open_ended_responses = []
   closed_ended_responses = []    
 
-  if do_closed_ended_analysis:
+  for sample_index in range(0, sample_count):
 
-    totals = defaultdict(lambda: OrderedDict([(label, 0) for label in labels_list]))    # defaultdict: do not report persons and labels which are not detected  # need to initialise the inner dict to preserve proper label ordering
-    expression_dicts = []
-    unexpected_labels = set()
+    safeprint(f"Collecting sample {(sample_index + 1)} / {sample_count}")
 
-  else:   #/ if do_closed_ended_analysis:
+    # analyse each chunk
+    chunk_analysis_results = []
+    for index, chunk_text in enumerate(chunks):
+      with Timer(f"Analysing chunk {(index + 1)} / {len(chunks)} of sample {(sample_index + 1)}"):
 
-    totals = None
-    expression_dicts = None
-    # expressions_tuples = None
-    unexpected_labels = None
+        chunk_analysis_result = await recogniser_process_chunk(chunk_text, config, instructions, encoding, (do_open_ended_analysis if sample_index == 0 else False), do_closed_ended_analysis, extract_message_indexes, extract_line_numbers, sample_index)
 
-  #/ if do_closed_ended_analysis:
+        chunk_analysis_results.append(chunk_analysis_result)
 
 
-  prev_chunks_lengths_sum = 0
-  prev_chunks_messages_count = 0
-  prev_chunks_lines_count = 0
+    # aggregate the results and adjust the label chat offsets, message indexes and line numbers
 
-  all_unused_labels = []
+    if do_closed_ended_analysis:
 
-  for result in chunk_analysis_results:
+      totals = defaultdict(lambda: OrderedDict([(label, 0) for label in labels_list]))    # defaultdict: do not report persons and labels which are not detected  # need to initialise the inner dict to preserve proper label ordering
+      expression_dicts = []
+      # unexpected_labels = set()
 
-    (chunk_expression_dicts, chunk_totals, chunk_unexpected_labels, chunk_unused_labels, chunk_closed_ended_response, chunk_open_ended_response, chunk_num_messages, chunk_num_lines, chunk_user_input_len) = result
+    else:   #/ if do_closed_ended_analysis:
+
+      totals = None
+      expression_dicts = None
+      # expressions_tuples = None
+      # unexpected_labels = None
+
+    #/ if do_closed_ended_analysis:
 
 
-    # adjust the char offsets, message indexes, and line numbers
-    for expression_dict in chunk_expression_dicts:
+    prev_chunks_lengths_sum = 0
+    prev_chunks_messages_count = 0
+    prev_chunks_lines_count = 0
 
-      expression_dict["start_char"] += prev_chunks_lengths_sum
-      expression_dict["end_char"] += prev_chunks_lengths_sum
+    # all_unused_labels = []
+
+    for result in chunk_analysis_results:
+
+      (chunk_expression_dicts, chunk_totals, 
+       # chunk_unexpected_labels, 
+       # chunk_unused_labels, 
+       chunk_closed_ended_response, chunk_open_ended_response, chunk_num_messages, chunk_num_lines, chunk_user_input_len) = result
+
+
+      # adjust the char offsets, message indexes, and line numbers
+      if do_closed_ended_analysis:
+        for expression_dict in chunk_expression_dicts:
+
+          expression_dict["start_char"] += prev_chunks_lengths_sum
+          expression_dict["end_char"] += prev_chunks_lengths_sum
+          if extract_message_indexes:
+            expression_dict["message_index"] += prev_chunks_messages_count
+          if extract_line_numbers:
+            expression_dict["line_number"] += prev_chunks_lines_count
+
+          expression_dicts.append(expression_dict)
+
+        #/ for expression_dict in chunk_expression_dicts:
+      #/ if do_closed_ended_analysis:
+
+
+      prev_chunks_lengths_sum += chunk_user_input_len + len(separator)
+
       if extract_message_indexes:
-        expression_dict["message_index"] += prev_chunks_messages_count
+        prev_chunks_messages_count += chunk_num_messages
+
       if extract_line_numbers:
-        expression_dict["line_number"] += prev_chunks_lines_count
-
-      expression_dicts.append(expression_dict)
-
-    #/ for expression_dict in chunk_expression_dicts:
+        prev_chunks_lines_count += chunk_num_lines
 
 
-    prev_chunks_lengths_sum += chunk_user_input_len + len(separator)
+      for person, counts in chunk_totals.items():
+        for label, count in counts.items():
+          if label not in totals[person]:  # happens in case of unexpected labels
+            totals[person][label] = 0
+          totals[person][label] += count
 
-    if extract_message_indexes:
-      prev_chunks_messages_count += chunk_num_messages
+      # for x in chunk_unexpected_labels:
+      #   unexpected_labels.add(x)
 
-    if extract_line_numbers:
-      prev_chunks_lines_count += chunk_num_lines
+      # all_unused_labels.append(chunk_unused_labels)
 
 
-    for person, counts in chunk_totals.items():
-      for label, count in counts.items():
-        totals[person][label] += count
+      if do_closed_ended_analysis:
+        closed_ended_responses.append(chunk_closed_ended_response)
+      if do_open_ended_analysis and sample_index == 0: # TODO in future: collect open-ended analysis multiple times and somehow summarise over these results?
+        open_ended_responses.append(chunk_open_ended_response)
 
-    for x in chunk_unexpected_labels:
-      unexpected_labels.add(x)
+    #/ for result in chunk_analysis_results:
+    
+  
+    #if len(all_unused_labels) == 0:
+    #  aggregated_unused_labels = [] if do_closed_ended_analysis else None
+    #else:
+    #  # this algorithm keeps the order of the unused labels list
+    #  aggregated_unused_labels = all_unused_labels[0]
+    #  for current_unused_labels in all_unused_labels[1:]:
+    #    current_unused_labels_set = set(current_unused_labels) # optimisation
+    #    aggregated_unused_labels = [x for x in aggregated_unused_labels if x in current_unused_labels_set]
+    #  #/ for unused_labels in all_unused_labels[1:]:
+    ##/ if len(all_unused_labels) == 0:
 
-    all_unused_labels.append(chunk_unused_labels)
+
+    if sample_index == 0: # TODO in future: collect open-ended analysis multiple times and somehow summarise over these results?
+      if do_open_ended_analysis:
+        open_ended_response = "\n\n".join(open_ended_responses)
+      else:
+        open_ended_response = None
+    #/ if sample_index == 0
 
 
     if do_closed_ended_analysis:
-      closed_ended_responses.append(chunk_closed_ended_response)
-    if do_open_ended_analysis:
-      open_ended_responses.append(chunk_open_ended_response)
+      closed_ended_response = "\n\n".join(closed_ended_responses)
+    else:
+      closed_ended_response = None
 
-  #/ for result in chunk_analysis_results:
+
+    if do_closed_ended_analysis:
+      expression_dicts_samples.append(expression_dicts)
+
+  #/ for sample_index in range(0, sample_count):
+
+
+  if not do_closed_ended_analysis:
+
+    filtered_expression_dicts = None
+    filtered_totals = None
+    filtered_unexpected_labels = None
+    filtered_aggregated_unused_labels = None
+
+  elif sample_count == 1:
+
+    filtered_expression_dicts = expression_dicts_samples[0]
+    for entry in filtered_expression_dicts: # convert labels field to dict
+      entry["labels"] = OrderedDict([(label, 100) for label in entry["labels"]])
+
+    filtered_totals = totals
+    # filtered_unexpected_labels = unexpected_labels
+    # filtered_aggregated_unused_labels = aggregated_unused_labels
+
+  else:
+
+    with Timer("Filtering labels based on confidence level"):
+
+      # create interval trees from expression_dicts_samples
+      # also create list of all unique start and end points
+      starts = []
+      ends = []
+      intervals = []
+      unique_start_points = set()
+      unique_end_points = set()
+      unique_points = set()
+      for expression_dicts in expression_dicts_samples:
+        for expression_dict in expression_dicts:
+
+          start_char = expression_dict["start_char"]
+          end_char = expression_dict["end_char"]
+      
+          unique_start_points.add(start_char)
+          unique_end_points.add(end_char)
+          unique_points.add(start_char)
+          unique_points.add(end_char)
+
+          starts.append(start_char)
+          ends.append(end_char)
+
+          intervals.append(expression_dict)
+
+        #/ for expression_dict in expression_dicts:
+      #/ for expression_dicts in expression_dicts_samples:
     
-  
-  if len(all_unused_labels) == 0:
-    aggregated_unused_labels = [] if do_closed_ended_analysis else None
+      if len(intervals) > 0: # else NCLS constructor throws an exception
+        ncls = NCLS(starts, ends, range(0, len(intervals)))
+
+      unique_start_points = list(unique_start_points)
+      unique_end_points = list(unique_end_points)
+      unique_points = list(unique_points)
+      unique_start_points.sort()
+      unique_end_points.sort()
+      unique_points.sort()
+
+
+      # extract overlapping intervals from interval trees and filter the labels
+
+      default_label_treshold_float = sample_count * default_label_treshold_sample_percent / 100
+
+      filtered_expression_dicts = []
+      prev_point = 0
+      for point in unique_points:
+
+        spans = ncls.find_overlap(prev_point, point)
+
+        intervals_per_span_range_dict = defaultdict(list)
+        for span in spans:
+
+          (start_char, end_char, interval_id) = span
+          interval = intervals[interval_id]
+
+          qqq = True
+          if prev_point != start_char or point != end_char:
+            qqq = True
+
+          span_start = max(prev_point, start_char)
+          span_end = min(point, end_char)
+          key = (span_start, span_end) # str(span_start) + "_" + str(span_end)
+          intervals_per_span_range_dict[key].append(interval)
+
+        #/ for span in spans:
+
+
+        for (span_start, span_end), intervals_per_span_range in intervals_per_span_range_dict.items():
+
+          label_counts_in_span_range = Counter()
+          persons = set()   # used for sanity check
+
+          for interval in intervals_per_span_range:        
+
+            for label in interval["labels"]:
+              label_counts_in_span_range[label] += 1
+
+            person = interval["person"]
+            persons.add(person)
+
+          #/ for interval in intervals_per_span_range:
+
+          assert(len(persons) == 1)
+
+
+          filtered_labels = OrderedDict() # NB! here we will use dict format instead of list going forward
+          for label, count in label_counts_in_span_range.items():
+            if default_label_treshold_sample_percent < 100: # NB! if default_label_treshold_sample_percent < 100 then the threshold is EXCLUSIVE
+              if count > default_label_treshold_float:
+                filtered_labels[label] = count / sample_count * 100
+            else: # NB! if default_label_treshold_sample_percent = 100 then the threshold is INCLUSIVE
+              if count == sample_count:
+                filtered_labels[label] = 100
+          #/ for label, count in label_counts_in_span_range.items():
+
+          if len(filtered_labels) > 0:
+
+            entry = {
+              "person": person,
+              "start_char": span_start,
+              "end_char": span_end,
+              "text": user_input[span_start:span_end], 
+              "labels": filtered_labels,
+            }
+
+            if extract_message_indexes:
+              entry.update({ 
+                "message_index": intervals_per_span_range[0]["message_index"]
+              })
+
+            if extract_line_numbers:
+              entry.update({ 
+                "line_number": intervals_per_span_range[0]["line_number"]
+              })
+
+            filtered_expression_dicts.append(entry)
+
+          #/ if len(filtered_labels) > 0:
+
+        #/ for intervals_per_span_range in intervals_per_span_range_dict.items():
+
+        prev_point = point
+
+      #/ for point in unique_points:
+
+      # need to sort again since filtering might have changed the order of spans
+      filtered_expression_dicts.sort(key = lambda entry: entry["start_char"])
+
+
+      # recalculate totals
+
+      filtered_totals = defaultdict(lambda: OrderedDict([(label, 0) for label in labels_list]))    # defaultdict: do not report persons and labels which are not detected  # need to initialise the inner dict to preserve proper label ordering
+      unexpected_labels = set()
+
+
+      for entry in filtered_expression_dicts:
+
+        person = entry["person"]
+        labels = entry["labels"]
+
+        for label, percent in labels.items():   # TODO: use label strength percent
+          if label not in filtered_totals[person]:  # happens in case of unexpected labels
+            filtered_totals[person][label] = 0
+          filtered_totals[person][label] += 1
+
+      #/ for entry in filtered_expression_dicts:
+
+    #/ with Timer("Filtering labels based on confidence level"):
+
+  #/ if sample_count == 1:
+
+
+  if not do_closed_ended_analysis:
+
+    filtered_unexpected_labels = None
+
   else:
-    # this algorithm keeps the order of the unused labels list
-    aggregated_unused_labels = all_unused_labels[0]
-    for current_unused_labels in all_unused_labels[1:]:
-      current_unused_labels_set = set(current_unused_labels) # optimisation
-      aggregated_unused_labels = [x for x in aggregated_unused_labels if x in current_unused_labels_set]
-    #/ for unused_labels in all_unused_labels[1:]:
-  #/ if len(all_unused_labels) == 0:
+
+    # compute unexpected labels and unused labels lists
+
+    keep_unexpected_labels = config.get("keep_unexpected_labels")
+    filtered_unexpected_labels = set()
+
+    filtered_aggregated_unused_labels = list(labels_list)   # clone   # NB! use list type to keep the unused labels in the order they appear in labels list file
+    filtered_aggregated_unused_labels_set = set(labels_list)
+
+    for entry in filtered_expression_dicts:
+
+      labels = entry["labels"]
+            
+      if not keep_unexpected_labels:
+        filtered_labels = OrderedDict()
+
+      for label, percent in labels.items():
+
+        if label not in labels_list:
+
+          unexpected_labels.add(label)
+
+          if not keep_unexpected_labels:
+            pass  # throw away any non-requested labels
+
+        else: #/ if label not in labels_list:
+
+          if not keep_unexpected_labels:
+            filtered_labels[label] = percent
+
+        #/ if label not in labels_list:
+
+        if label in filtered_aggregated_unused_labels_set:
+          filtered_aggregated_unused_labels.remove(label)
+          filtered_aggregated_unused_labels_set.remove(label)
+
+      #/ for label, percent in labels.items():
+
+      if not keep_unexpected_labels:
+        entry["labels"] = filtered_labels
+
+    #/ for entry in filtered_expression_dicts:
 
 
-  if do_open_ended_analysis:
-    open_ended_response = "\n\n".join(open_ended_responses)
-  else:
-    open_ended_response = None
-
-  if do_closed_ended_analysis:
-    closed_ended_response = "\n\n".join(closed_ended_responses)
-  else:
-    closed_ended_response = None
+    filtered_unexpected_labels = list(filtered_unexpected_labels)   # convert set() to list() for enabling conversion into json
+    filtered_unexpected_labels.sort()
 
 
-  # cleanup zero valued counts in totals
-  for (person, person_counts) in totals.items():
-    totals[person] = OrderedDict([(key, value) for (key, value) in person_counts.items() if value > 0])
+    # cleanup zero valued counts in totals
+    for (person, person_counts) in filtered_totals.items():
+      filtered_totals[person] = OrderedDict([(key, value) for (key, value) in person_counts.items() if value > 0])
 
-
-  unexpected_labels = list(unexpected_labels)   # convert set() to list() for enabling conversion into json
-  unexpected_labels.sort()
+  #/ if not do_closed_ended_analysis:
 
   analysis_response = {
 
@@ -1478,11 +1819,10 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     "error_msg": "",  # TODO
 
     "sanitised_text": user_input,
-    "expressions": expression_dicts,
-    # "expressions_tuples": expressions_tuples_out,
-    "counts": totals,
-    "unexpected_labels": unexpected_labels,
-    "unused_labels": aggregated_unused_labels,
+    "expressions": filtered_expression_dicts,
+    "counts": filtered_totals,
+    "unexpected_labels": filtered_unexpected_labels,
+    "unused_labels": filtered_aggregated_unused_labels,
     "raw_expressions_labeling_response": closed_ended_response,
     "qualitative_evaluation": open_ended_response   # TODO: split person A and person B from qualitative description into separate dictionary fields
   }
@@ -1607,7 +1947,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     response_html_filename = os.path.splitext(response_filename)[0] + ".html" if using_user_input_filename else "test_evaluation.html"
 
 
-    highlights_html = await render_highlights(config, user_input, expression_dicts)
+    highlights_html = await render_highlights(config, user_input, filtered_expression_dicts)
 
 
     def get_full_html(for_pdfkit = False):
