@@ -115,7 +115,7 @@ The software produces output in four formats:
 * HTML, which contains rendering of the conversation with highlighted relevants parts and their labels. 
 * The HTML includes an SVG diagram with a summary of the detected labels per person.
 * PDF version of the above HTML. For setting up PDF rendering support, see <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/install_steps.txt"><u>install_steps.txt</u></a>. See <a href="#example-output"><u>Example output</u></a> section in this document for links to examples.
-* JSON, which contains the following structure. The numbers after labels in ```expressions``` dictionary indicate confidence level in percent. The confidence level is computed by sampling LLM labelling output multiple times according to ```SampleCount``` parameter in configuration file. Low confidence labels are automatically removed correspondingly to ```DefaultLabelThresholdSamplePercent``` parameter.
+* JSON, which contains the following structure. The numbers after labels in ```expressions``` dictionaries indicate confidence level in percent. The confidence level is computed by sampling LLM labelling output multiple times according to ```SampleCount``` parameter in configuration file. Low confidence labels are automatically removed correspondingly to ```DefaultLabelThresholdSamplePercent``` parameter.
 
     ```
     {

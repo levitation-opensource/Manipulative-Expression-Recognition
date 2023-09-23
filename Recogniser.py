@@ -1734,7 +1734,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
       # recalculate totals
 
       filtered_totals = defaultdict(lambda: OrderedDict([(label, 0) for label in labels_list]))    # defaultdict: do not report persons and labels which are not detected  # need to initialise the inner dict to preserve proper label ordering
-      unexpected_labels = set()
+      # unexpected_labels = set()
 
 
       for entry in filtered_expression_dicts:
@@ -1779,7 +1779,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
         if label not in labels_list:
 
-          unexpected_labels.add(label)
+          filtered_unexpected_labels.add(label)
 
           if not keep_unexpected_labels:
             pass  # throw away any non-requested labels
@@ -1810,6 +1810,10 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     # cleanup zero valued counts in totals
     for (person, person_counts) in filtered_totals.items():
       filtered_totals[person] = OrderedDict([(key, value) for (key, value) in person_counts.items() if value > 0])
+
+
+    del expression_dicts
+    del totals
 
   #/ if not do_closed_ended_analysis:
 
@@ -1890,12 +1894,12 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     nonzero_labels_list = []  # this variable needs to be computed even when chart is not rendered, since if the nonzero_labels_list is empty then a message is shown that no manipulation was detected
     if True:
       for label in labels_list:
-        for (person, person_counts) in totals.items():
+        for (person, person_counts) in filtered_totals.items():
           count = person_counts.get(label, 0)
           if count > 0:
             nonzero_labels_list.append(label)
             break   # go to next label
-        #/ for (person, person_counts) in totals.items():
+        #/ for (person, person_counts) in filtered_totals.items():
       #/ for label in labels_list:
 
   
@@ -1912,7 +1916,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
       # series_dict = {}
       if True:
-        for (person, person_counts) in totals.items():
+        for (person, person_counts) in filtered_totals.items():
           series = [person_counts.get(label, 0) for label in x_labels]
           chart.add(person, series)
           # series_dict[person] = series
