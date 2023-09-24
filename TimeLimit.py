@@ -8,7 +8,7 @@
 
 
 import time
-from contextlib import contextmanager
+# from contextlib import contextmanager
 import threading
 
 import sys
@@ -19,103 +19,107 @@ else:
 
 
 
-time_limit_disable_count = 0
-timeout_pending = False
-timeout_seconds = None
-timeout_msg = None
-
-
-
 # the original source of the idea is here:
 # http://stackoverflow.com/questions/366682/how-to-limit-execution-time-of-a-function-call-in-python
 
+class time_limit:
 
+  def __init__(self, seconds, msg=''):
 
-def disable_time_limit():
-  global time_limit_disable_count
+    self.seconds = seconds
+    self.msg = msg
 
-  time_limit_disable_count += 1
+    self.time_limit_disable_count = 0
+    self.timeout_pending = False
+    self.timeout_seconds = None
+    self.timeout_msg = None
 
+  #/ def __init__(self, seconds, msg=''):
 
-def enable_time_limit():
-  global time_limit_disable_count, timeout_pending, timeout_seconds, timeout_msg
+  def __enter__(self):
 
-  time_limit_disable_count -= 1
+    if self.seconds is not None: 
 
-  if time_limit_disable_count == 0 and timeout_pending:
+      if self.seconds > 0:
 
-    timeout_pending = False
-    timeout_seconds = None
-    timeout_msg = None
+        self.timer = threading.Timer(
+          self.seconds, 
+          lambda: self.time_limit_handler(self.seconds, self.msg)
+        )
+        self.timer.start()
 
-    try:
-      interrupt_main()  # Raise a KeyboardInterrupt exception in the main thread. A subthread can use this function to interrupt the main thread.
-    except KeyboardInterrupt:
-      raise TimeoutError("Timed out for operation '{0}' after {1} seconds".format(timeout_msg1, timeout_seconds1))
+      else:   # self.seconds <= 0:
 
-  #/ if time_limit_disable_count == 0 and timeout_pending:
+        try:
+          self.time_limit_handler(self.seconds, self.msg)  # Raise a KeyboardInterrupt exception in the main thread. A subthread can use this function to interrupt the main thread.
+        except KeyboardInterrupt:
+          raise TimeoutError("Timed out for operation '{0}' after {1} seconds".format(self.msg, self.seconds))
 
-#/ def enable_time_limit():
-
-
-def time_limit_handler(timeout_seconds_in, timeout_msg_in):
-  global time_limit_disable_count, timeout_pending, timeout_seconds, timeout_msg
-
-  if time_limit_disable_count == 0:
-
-    interrupt_main()  # Raise a KeyboardInterrupt exception in the main thread. A subthread can use this function to interrupt the main thread.
-
-  else: # this branch activates when disable_time_limit() was called and after that time limit has been reached
-
-    timeout_pending = True
-    timeout_seconds = timeout_seconds_in
-    timeout_msg = timeout_msg_in
-
-  #/ if time_limit_disable_count == 0:
-
-#/ def time_limit_handler(timeout_seconds_in, timeout_msg_in):
-
-
-@contextmanager
-def time_limit(seconds, msg=''):
-  global timeout_pending, timeout_seconds, timeout_msg
-
-  if seconds is not None: 
-
-    if seconds > 0:
-
-      timer = threading.Timer(
-        seconds, 
-        lambda: time_limit_handler(seconds, msg)
-      )
-      timer.start()
-
-      try:
-        yield
-      except KeyboardInterrupt:
-
-        raise TimeoutError("Timed out for operation '{0}' after {1} seconds".format(msg, seconds))
-      finally:
-        # if the action ends in specified time, timer is canceled
-        timer.cancel()
-
-    else:   # seconds <= 0:
-
-      try:
-        time_limit_handler(seconds, msg)  # Raise a KeyboardInterrupt exception in the main thread. A subthread can use this function to interrupt the main thread.
-      except KeyboardInterrupt:
-
-        raise TimeoutError("Timed out for operation '{0}' after {1} seconds".format(msg, seconds))
-
-
-      # NB! it might be that timeouts are disabled, so we need to yield properly even when seconds is past due
-      yield 
+        # NB! it might be that timeouts are disabled, so we need to yield properly even when seconds is past due
+        pass 
       
-    #/ if seconds > 0:
+      #/ if self.seconds > 0:
 
-  else:   #/ if (seconds is not None):   # no time limit
+    else:   #/ if (self.seconds is not None):   # no time limit
 
-    yield
+      pass
+    
+    return self  
 
-#/ def time_limit(seconds, msg=''):
+  def __exit__(self, exc_type, exc_value, traceback):
+
+    if self.seconds > 0:
+
+      self.timer.cancel()
+
+      if exc_type is KeyboardInterrupt:
+        raise TimeoutError("Timed out for operation '{0}' after {1} seconds".format(self.msg, self.seconds))
+
+    #/ if self.seconds > 0:
+
+  #/ def __exit__(self, exc_type, exc_value, traceback):
+
+  def time_limit_handler(self, timeout_seconds_in, timeout_msg_in):
+
+    self.timeout_pending = True
+    self.timeout_seconds = timeout_seconds_in
+    self.timeout_msg = timeout_msg_in
+
+    if self.time_limit_disable_count == 0:
+
+      interrupt_main()  # Raise a KeyboardInterrupt exception in the main thread. A subthread can use this function to interrupt the main thread.
+
+    else: # this branch activates when disable_time_limit() was called and after that time limit has been reached
+
+      pass
+
+    #/ if time_limit_disable_count == 0:
+  #/ def time_limit_handler(timeout_seconds_in, timeout_msg_in):
+
+  def disable_time_limit(self):
+
+    self.time_limit_disable_count += 1
+
+
+  def enable_time_limit(self):
+
+    self.time_limit_disable_count -= 1
+
+    if self.time_limit_disable_count == 0 and self.timeout_pending:
+
+      self.timeout_pending = False
+      self.timeout_seconds = None
+      self.timeout_msg = None
+
+      try:
+        interrupt_main()  # Raise a KeyboardInterrupt exception in the main thread. A subthread can use this function to interrupt the main thread.
+      except KeyboardInterrupt:
+        raise TimeoutError("Timed out for operation '{0}' after {1} seconds".format(self.msg, self.seconds))
+
+    #/ if time_limit_disable_count == 0 and timeout_pending:
+
+  #/ def enable_time_limit():
+
+#/ class TimeLimit:
+
 

@@ -93,7 +93,7 @@ def get_config():
 
   
   gpt_model = remove_quotes(config.get("MER", "GPTModel", fallback="gpt-3.5-turbo-16k")).strip()
-  gpt_timeout = int(remove_quotes(config.get("MER", "GPTTimeoutInSeconds", fallback="60")).strip())
+  gpt_timeout = int(remove_quotes(config.get("MER", "GPTTimeoutInSeconds", fallback="600")).strip())
   extract_message_indexes = strtobool(remove_quotes(config.get("MER", "ExtractMessageIndexes", fallback="false")))
   extract_line_numbers = strtobool(remove_quotes(config.get("MER", "ExtractLineNumbers", fallback="false")))
   do_open_ended_analysis = strtobool(remove_quotes(config.get("MER", "DoOpenEndedAnalysis", fallback="true")))
@@ -326,7 +326,10 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
   max_tokens = get_max_tokens_for_model(model_name)
 
   with Timer("Sending OpenAI API requests"):
+
     continue_analysis = True
+    too_long = False
+    model_upgraded = False
     while continue_analysis:
 
       num_input_tokens = num_tokens_from_messages(messages, model_name, encoding)
@@ -336,24 +339,34 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
       #  break
 
 
-      assert(num_input_tokens < max_tokens)
-      # TODO: configuration for model override thresholds
-      #if num_input_tokens >= (8192 * 1.5) and max_tokens == 16384:    # current model: "gpt-4"
-      #  model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
-      #  max_tokens = 32768
-      #  safeprint(f"Overriding model with {model_name} due to input token count")
-      #elif num_input_tokens >= (4096 * 1.5) and max_tokens == 8192:    # current model: "gpt-4"
-      #  model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
-      #  max_tokens = 16384
-      #  safeprint(f"Overriding model with {model_name} due to input token count")
-      #elif num_input_tokens >= (2048 * 1.5) and max_tokens == 4096:  # current model: "gpt-3.5-turbo"
-      #  model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
-      #  max_tokens = 16384
-      #  safeprint(f"Overriding model with {model_name} due to input token count")
+      # assert(num_input_tokens < max_tokens)
+      # TODO: configuration for model override thresholds and for override model names
+
+      # TODO: how to handle finish_reason == "length" in case the model is gpt-4-32k?
+      if num_input_tokens >= (8192 * 1.5) and model_name == "gpt-3.5-turbo-16k": # max_tokens == 16384:    # current model: "gpt-3.5-turbo-16k"
+        if not too_long or model_upgraded:
+          assert(False) 
+        model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
+        max_tokens = 32768
+        safeprint(f"Overriding model with {model_name} due to input token count")
+      elif num_input_tokens >= (4096 * 1.5) and model_name == "gpt-4": # max_tokens == 8192:    # current model: "gpt-4"
+        if not too_long or model_upgraded:
+          assert(False) 
+        #model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+        #max_tokens = 16384
+        model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
+        max_tokens = 32768
+        safeprint(f"Overriding model with {model_name} due to input token count")
+      elif num_input_tokens >= (2048 * 1.5) and model_name == "gpt-3.5-turbo": # max_tokens <= 4096:  # current model: "gpt-3.5-turbo"
+        if not too_long or model_upgraded:
+          assert(False) 
+        model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+        max_tokens = 16384
+        safeprint(f"Overriding model with {model_name} due to input token count")
 
 
-      buffer_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config        
-      max_tokens2 = max_tokens - num_input_tokens - 1 - buffer_tokens  # need to subtract the number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
+      reserve_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config        
+      max_tokens2 = max_tokens - num_input_tokens - 1 - reserve_tokens  # need to subtract the number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
       assert(max_tokens2 > 0)
 
       time_start = time.time()
@@ -384,16 +397,44 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
       responses.append(response_content)
       too_long = (finish_reason == "length")
 
-      messages.append({"role": "assistant", "content": response_content})
-      num_total_tokens = num_tokens_from_messages(messages, model_name, encoding)
+      messages2 = list(messages)  # clone
+      messages2.append({"role": "assistant", "content": response_content})    # need messages2 immediately in order to compute num_total_tokens
+      num_total_tokens = num_tokens_from_messages(messages2, model_name, encoding)
       num_output_tokens = num_total_tokens - num_input_tokens
       safeprint(f"num_total_tokens: {num_total_tokens} num_output_tokens: {num_output_tokens} max_tokens: {max_tokens} performance: {(num_output_tokens / time_elapsed)} output_tokens/sec")
 
       if too_long:
-        # messages.append({"role": "assistant", "content": response_content})
-        messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality
-      else:
+
+        # first switch to more powerful model without continuation prompt, by instead repeating original prompt on a more powerful model. Only if model upgrade does not help, use continuation prompt.
+
+        if model_name == "gpt-3.5-turbo-16k": # max_tokens == 16384:    # current model: "gpt-3.5-turbo-16k"
+          model_upgraded = True
+          model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
+          max_tokens = 32768
+          safeprint(f"Overriding model with {model_name} due to output token count")
+        elif model_name == "gpt-4": # max_tokens == 8192:    # current model: "gpt-4"
+          model_upgraded = True
+          #model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+          #max_tokens = 16384
+          model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
+          max_tokens = 32768
+          safeprint(f"Overriding model with {model_name} due to output token count")
+        elif model_name == "gpt-3.5-turbo": # max_tokens <= 4096:  # current model: "gpt-3.5-turbo"
+          model_upgraded = True
+          model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+          max_tokens = 16384
+          safeprint(f"Overriding model with {model_name} due to output token count")
+        else:
+          model_upgraded = False
+          messages = messages2
+          messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality
+
+      else: #/ if too_long:
+
+        messages = messages2
         continue_analysis = False
+
+      #/ if too_long:
 
     #/ while continue_analysis:
   #/ with Timer("Sending OpenAI API requests"):
@@ -1181,7 +1222,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
           citation_lookup_time_limit = config["citation_lookup_time_limit"]
 
           outer_time_limit = citation_lookup_time_limit
-          with time_limit(outer_time_limit, msg = "find_near_matches outer"):
+          with time_limit(outer_time_limit, msg = "find_near_matches outer") as time_limit_handler:
 
             for max_l_dist in range(0, min(len(citation), len(nearest_message))): # len(shortest_text)-1 is maximum reasonable distance. After that empty strings will match too   # TODO: apply time limit to this loop  
 
@@ -1196,6 +1237,8 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
               matches = find_near_matches(citation, nearest_message, max_l_dist=max_l_dist)  
           
               if len(matches) > 0:
+
+                time_limit_handler.disable_time_limit()   # do not trigger time limit in the middle of this block of code
 
                 # TODO: if there are multiple expressions with same text in the input then mark them all, not just the first one
                 start_char = person_message_start_char + matches[0].start
@@ -1215,6 +1258,10 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
                 break
 
               #/ if len(matches) > 0:
+
+              if time_limit_handler.timeout_pending:  # sometimes the time limit handler does not fire the KeyboardInterrupt signal for some reason, in this case lets abort the loop manually
+                raise TimeoutError("Timed out for operation '{0}' after {1} seconds".format(time_limit_handler.msg, time_limit_handler.seconds))
+
             #/ for max_l_dist in range(0, len(citation)):
 
           #/ with time_limit(0.1):
@@ -1431,14 +1478,14 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
   encoding = get_encoding_for_model(gpt_model)
   model_max_tokens = get_max_tokens_for_model(gpt_model)
 
-  buffer_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config        
-  model_max_tokens2 = model_max_tokens - 1 - buffer_tokens  # need to subtract the number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
+  reserve_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config        
+  model_max_tokens2 = model_max_tokens - 1 - reserve_tokens  # need to subtract the number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
 
   closed_ended_instruction_token_count = len(encoding.encode(closed_ended_system_instruction_with_labels))
-  max_tokens_per_closed_ended_chunk = int((model_max_tokens2 - closed_ended_instruction_token_count) / (1 + 1.5)) # NB! assuming that each analysis response is up to 1.5 times as long as the user input text length   # TODO: config for this coefficient
+  max_tokens_per_closed_ended_chunk = int((model_max_tokens2 - closed_ended_instruction_token_count) / (1 + 1.5)) # NB! assuming that each analysis response is up to 1.5 times as long as the user input text length   # TODO: config for this coefficient   # TODO: change coefficient to 1.75
 
   open_ended_instruction_token_count = len(encoding.encode(open_ended_system_instruction))
-  max_tokens_per_open_ended_chunk = int((model_max_tokens2 - open_ended_instruction_token_count) / (1 + 0.5)) # assuming that open ended analysis response length is about 0.5 of the user input text length # TODO: config for this coefficient
+  max_tokens_per_open_ended_chunk = int((model_max_tokens2 - open_ended_instruction_token_count) / (1 + 0.5)) # assuming that open ended analysis response length is about 0.5 of the user input text length # TODO: config for this coefficient   # TODO: change coefficient to 0.75
 
   if do_closed_ended_analysis and do_open_ended_analysis:
     max_tokens_per_chunk = min(max_tokens_per_closed_ended_chunk, max_tokens_per_open_ended_chunk)
@@ -1707,6 +1754,8 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
           if len(filtered_labels) > 0:
 
             text = user_input[span_start:span_end]
+
+            filtered_labels = OrderedDict(sorted(filtered_labels.items()))
 
             if not letters_regex.search(text): # ignore spans that do not contain any letters # NB! do not look for letter pairs since the letters may be spaced by whitespaces or underscores
               continue
