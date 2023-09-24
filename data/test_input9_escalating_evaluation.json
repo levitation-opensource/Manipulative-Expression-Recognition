@@ -1,493 +1,434 @@
 ﻿{
   "error_code": 0,
   "error_msg": "",
-  "sanitised_text": "\n\n\n\n\n\n\n\n\n\n\nPerson A: \u201cWhat do you want? Tell me what you need from me\u201d\n\nPerson B: \u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d.\n\nPerson A: \u201cNo, I\u2019m listening now. Please! What do you want?\u201d\n\nPerson B: \u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d.\n\nPerson A: *stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d.\n\nPerson B: \u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c\n\nPerson A: *interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d\n\nPerson B: \u201cI didn\u2019t say everything\u2019s your fault, but this\u2026\u201d\n\nPerson A: \u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d\n\nPerson B: \u201cIt\u2019s not. I never said that. I\u2019m talking about how you reacted when I tried to talk to you abou-\u201c\n\nPerson A: \u201cUgh, what do you WANT?\u201d\n\nPerson B: \u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d\n\nPerson A: \u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d\n\nPerson B: \u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d.\n\nPerson A: *full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d.\n\nPerson B: \u201cI didn\u2019t\u2014\u201c\n\nPerson A: \u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d\n\nPerson B: \u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d\n\nPerson A: *furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d\n\nPerson B: *exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d.\n\nPerson A: \u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d\n\n\n\n\n\n\n\n\n\n\n\nPerson B: \u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d\n\nPerson A: \u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d\n\nPerson B: \u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d\n\nPerson A: \u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d\n\nPerson B: \u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d\n\nPerson A: \"Oh, so now you're just going to walk away from everything we have? That's it?\"\n\nPerson B: \"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\"\n\nPerson A: \"So it's over now, because of you!\"\n\nPerson B: \"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\"\n\nPerson A: *in disbelief* \"So this is it then? You're just going to leave?\"\n\nPerson B: \"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\"\n\nPerson A: *silently seething* \"Fine, have your space!\"\n\nPerson B: \"Thank you. I hope it leads us to a better understanding. Goodbye for now, Person A.\" leaves the room\n",
+  "sanitised_text": "Person A: \u201cWhat do you want? Tell me what you need from me\u201d\nPerson B: \u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d.\nPerson A: \u201cNo, I\u2019m listening now. Please! What do you want?\u201d\nPerson B: \u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d.\nPerson A: *stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d.\nPerson B: \u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c\nPerson A: *interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d\nPerson B: \u201cI didn\u2019t say everything\u2019s your fault, but this\u2026\u201d\nPerson A: \u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d\nPerson B: \u201cIt\u2019s not. I never said that. I\u2019m talking about how you reacted when I tried to talk to you abou-\u201c\nPerson A: \u201cUgh, what do you WANT?\u201d\nPerson B: \u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d\nPerson A: \u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d\nPerson B: \u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d.\nPerson A: *full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d.\nPerson B: \u201cI didn\u2019t\u2014\u201c\nPerson A: \u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d\nPerson B: \u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d\nPerson A: *furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d\nPerson B: *exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d.\nPerson A: \u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d\nPerson B: \u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d\nPerson A: \u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d\nPerson B: \u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d\nPerson A: \u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d\nPerson B: \u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d\nPerson A: \"Oh, so now you're just going to walk away from everything we have? That's it?\"\nPerson B: \"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\"\nPerson A: \"So it's over now, because of you!\"\nPerson B: \"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\"\nPerson A: *in disbelief* \"So this is it then? You're just going to leave?\"\nPerson B: \"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\"\nPerson A: *silently seething* \"Fine, have your space!\"\nPerson B: \"Thank you. I hope it leads us to a better understanding. Goodbye for now, Person A.\" leaves the room",
   "expressions": [
     {
+      "person": "Person A",
+      "start_char": 10,
+      "end_char": 59,
+      "text": "\u201cWhat do you want? Tell me what you need from me\u201d",
+      "labels": {
+        "Demanding": 70.0
+      },
+      "message_index": 0,
+      "line_number": 2
+    },
+    {
       "person": "Person B",
-      "start_char": 82,
-      "end_char": 235,
+      "start_char": 70,
+      "end_char": 223,
       "text": "\u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d.",
-      "labels": [
-        "Diminishing",
-        "Ignoring",
-        "Not taking seriously"
-      ],
+      "labels": {
+        "Ignoring": 80.0
+      },
       "message_index": 1,
+      "line_number": 3
+    },
+    {
+      "person": "Person B",
+      "start_char": 295,
+      "end_char": 592,
+      "text": "\u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d.",
+      "labels": {
+        "Accusation": 70.0
+      },
+      "message_index": 3,
+      "line_number": 5
+    },
+    {
+      "person": "Person A",
+      "start_char": 603,
+      "end_char": 819,
+      "text": "*stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d.",
+      "labels": {
+        "Blaming": 70.0,
+        "Dismissal": 80.0
+      },
+      "message_index": 4,
+      "line_number": 6
+    },
+    {
+      "person": "Person B",
+      "start_char": 830,
+      "end_char": 1026,
+      "text": "\u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c",
+      "labels": {
+        "Accusation": 70.0
+      },
+      "message_index": 5,
+      "line_number": 7
+    },
+    {
+      "person": "Person A",
+      "start_char": 1037,
+      "end_char": 1128,
+      "text": "*interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d",
+      "labels": {
+        "Exaggeration": 100.0,
+        "Victim playing": 70.0
+      },
+      "message_index": 6,
+      "line_number": 8
+    },
+    {
+      "person": "Person A",
+      "start_char": 1199,
+      "end_char": 1298,
+      "text": "\u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d",
+      "labels": {
+        "Exaggeration": 90.0,
+        "Victim playing": 80.0
+      },
+      "message_index": 8,
+      "line_number": 10
+    },
+    {
+      "person": "Person A",
+      "start_char": 1418,
+      "end_char": 1442,
+      "text": "\u201cUgh, what do you WANT?\u201d",
+      "labels": {
+        "Ignoring": 70.0
+      },
+      "message_index": 10,
+      "line_number": 12
+    },
+    {
+      "person": "Person B",
+      "start_char": 1453,
+      "end_char": 1691,
+      "text": "\u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d",
+      "labels": {
+        "Accusation": 70.0
+      },
+      "message_index": 11,
+      "line_number": 13
+    },
+    {
+      "person": "Person A",
+      "start_char": 1702,
+      "end_char": 1802,
+      "text": "\u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d",
+      "labels": {
+        "Accusation": 80.0
+      },
+      "message_index": 12,
+      "line_number": 14
+    },
+    {
+      "person": "Person B",
+      "start_char": 1813,
+      "end_char": 2150,
+      "text": "\u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d.",
+      "labels": {
+        "Accusation": 70.0
+      },
+      "message_index": 13,
       "line_number": 15
     },
     {
       "person": "Person A",
-      "start_char": 247,
-      "end_char": 297,
-      "text": "\u201cNo, I\u2019m listening now. Please! What do you want?\u201d",
-      "labels": [
-        "Ignoring previous conflict"
-      ],
-      "message_index": 2,
-      "line_number": 17
+      "start_char": 2161,
+      "end_char": 2244,
+      "text": "*full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d.",
+      "labels": {
+        "Exaggeration": 90.0,
+        "Sarcasm": 70.0,
+        "Victim playing": 70.0
+      },
+      "message_index": 14,
+      "line_number": 16
+    },
+    {
+      "person": "Person A",
+      "start_char": 2277,
+      "end_char": 2373,
+      "text": "\u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d",
+      "labels": {
+        "Ignoring": 80.0
+      },
+      "message_index": 16,
+      "line_number": 18
     },
     {
       "person": "Person B",
-      "start_char": 309,
-      "end_char": 606,
-      "text": "\u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d.",
-      "labels": [
-        "Accusation",
-        "Complaining"
-      ],
-      "message_index": 3,
+      "start_char": 2384,
+      "end_char": 2673,
+      "text": "\u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d",
+      "labels": {
+        "Accusation": 70.0
+      },
+      "message_index": 17,
       "line_number": 19
     },
     {
       "person": "Person A",
-      "start_char": 618,
-      "end_char": 834,
-      "text": "*stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d.",
-      "labels": [
-        "Accusation",
-        "Blaming",
-        "Dismissal",
-        "Ignoring"
-      ],
-      "message_index": 4,
-      "line_number": 21
+      "start_char": 2684,
+      "end_char": 2809,
+      "text": "*furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d",
+      "labels": {
+        "Aggression": 100.0,
+        "Ignoring": 70.0
+      },
+      "message_index": 18,
+      "line_number": 20
     },
     {
       "person": "Person B",
-      "start_char": 846,
-      "end_char": 1042,
-      "text": "\u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c",
-      "labels": [
-        "Accusation"
-      ],
-      "message_index": 5,
+      "start_char": 2820,
+      "end_char": 3191,
+      "text": "*exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d.",
+      "labels": {
+        "Accusation": 70.0
+      },
+      "message_index": 19,
+      "line_number": 21
+    },
+    {
+      "person": "Person A",
+      "start_char": 3202,
+      "end_char": 3322,
+      "text": "\u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d",
+      "labels": {
+        "Blaming": 70.0,
+        "Ignoring": 60.0
+      },
+      "message_index": 20,
+      "line_number": 22
+    },
+    {
+      "person": "Person B",
+      "start_char": 3333,
+      "end_char": 3462,
+      "text": "\u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d",
+      "labels": {
+        "Accusation": 60.0
+      },
+      "message_index": 21,
       "line_number": 23
     },
     {
       "person": "Person A",
-      "start_char": 1054,
-      "end_char": 1145,
-      "text": "*interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d",
-      "labels": [
-        "Exaggeration",
-        "Interrupting",
-        "Victim playing"
-      ],
-      "message_index": 6,
+      "start_char": 3473,
+      "end_char": 3602,
+      "text": "\u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d",
+      "labels": {
+        "Ignoring": 70.0
+      },
+      "message_index": 22,
+      "line_number": 24
+    },
+    {
+      "person": "Person B",
+      "start_char": 3613,
+      "end_char": 3841,
+      "text": "\u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d",
+      "labels": {
+        "Accusation": 70.0
+      },
+      "message_index": 23,
       "line_number": 25
     },
     {
       "person": "Person A",
-      "start_char": 1218,
-      "end_char": 1317,
-      "text": "\u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d",
-      "labels": [
-        "Accusation",
-        "Exaggeration",
-        "Victim playing"
-      ],
-      "message_index": 8,
+      "start_char": 3852,
+      "end_char": 3995,
+      "text": "\u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d",
+      "labels": {
+        "Accusation": 60.0
+      },
+      "message_index": 24,
+      "line_number": 26
+    },
+    {
+      "person": "Person A",
+      "start_char": 4212,
+      "end_char": 4291,
+      "text": "\"Oh, so now you're just going to walk away from everything we have? That's it?\"",
+      "labels": {
+        "Accusation": 100.0,
+        "Victim playing": 70.0
+      },
+      "message_index": 26,
+      "line_number": 28
+    },
+    {
+      "person": "Person B",
+      "start_char": 4302,
+      "end_char": 4460,
+      "text": "\"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\"",
+      "labels": {
+        "Accusation": 60.0
+      },
+      "message_index": 27,
       "line_number": 29
     },
     {
       "person": "Person A",
-      "start_char": 1439,
-      "end_char": 1463,
-      "text": "\u201cUgh, what do you WANT?\u201d",
-      "labels": [
-        "Ignoring",
-        "Impatience"
-      ],
-      "message_index": 10,
-      "line_number": 33
-    },
-    {
-      "person": "Person B",
-      "start_char": 1475,
-      "end_char": 1713,
-      "text": "\u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d",
-      "labels": [
-        "Accusation",
-        "Complaining"
-      ],
-      "message_index": 11,
-      "line_number": 35
-    },
-    {
-      "person": "Person A",
-      "start_char": 1725,
-      "end_char": 1825,
-      "text": "\u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d",
-      "labels": [
-        "Accusation",
-        "Victim playing"
-      ],
-      "message_index": 12,
-      "line_number": 37
-    },
-    {
-      "person": "Person B",
-      "start_char": 1837,
-      "end_char": 2174,
-      "text": "\u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d.",
-      "labels": [
-        "Accusation",
-        "Complaining"
-      ],
-      "message_index": 13,
-      "line_number": 39
-    },
-    {
-      "person": "Person A",
-      "start_char": 2186,
-      "end_char": 2269,
-      "text": "*full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d.",
-      "labels": [
-        "Exaggeration",
-        "Sarcasm",
-        "Victim playing"
-      ],
-      "message_index": 14,
-      "line_number": 41
-    },
-    {
-      "person": "Person A",
-      "start_char": 2304,
-      "end_char": 2400,
-      "text": "\u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d",
-      "labels": [
-        "Ignoring",
-        "Impatience"
-      ],
-      "message_index": 16,
-      "line_number": 45
-    },
-    {
-      "person": "Person B",
-      "start_char": 2412,
-      "end_char": 2701,
-      "text": "\u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d",
-      "labels": [
-        "Accusation",
-        "Complaining"
-      ],
-      "message_index": 17,
-      "line_number": 47
-    },
-    {
-      "person": "Person A",
-      "start_char": 2713,
-      "end_char": 2838,
-      "text": "*furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d",
-      "labels": [
-        "Aggression",
-        "Ignoring",
-        "Impatience"
-      ],
-      "message_index": 18,
-      "line_number": 49
-    },
-    {
-      "person": "Person B",
-      "start_char": 2850,
-      "end_char": 3221,
-      "text": "*exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d.",
-      "labels": [
-        "Accusation",
-        "Complaining",
-        "Resignation"
-      ],
-      "message_index": 19,
-      "line_number": 51
-    },
-    {
-      "person": "Person A",
-      "start_char": 3233,
-      "end_char": 3353,
-      "text": "\u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d",
-      "labels": [
-        "Accusation",
-        "Blaming",
-        "Ignoring"
-      ],
-      "message_index": 20,
-      "line_number": 53
-    },
-    {
-      "person": "Person B",
-      "start_char": 3375,
-      "end_char": 3504,
-      "text": "\u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d",
-      "labels": [
-        "Accusation",
-        "Complaining"
-      ],
-      "message_index": 21,
-      "line_number": 65
-    },
-    {
-      "person": "Person A",
-      "start_char": 3516,
-      "end_char": 3645,
-      "text": "\u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d",
-      "labels": [
-        "Dismissal",
-        "Ignoring"
-      ],
-      "message_index": 22,
-      "line_number": 67
-    },
-    {
-      "person": "Person B",
-      "start_char": 3657,
-      "end_char": 3885,
-      "text": "\u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d",
-      "labels": [
-        "Accusation",
-        "Complaining"
-      ],
-      "message_index": 23,
-      "line_number": 69
-    },
-    {
-      "person": "Person A",
-      "start_char": 3897,
-      "end_char": 4040,
-      "text": "\u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d",
-      "labels": [
-        "Accusation",
-        "Ignoring",
-        "Sarcasm"
-      ],
-      "message_index": 24,
-      "line_number": 71
-    },
-    {
-      "person": "Person B",
-      "start_char": 4052,
-      "end_char": 4247,
-      "text": "\u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d",
-      "labels": [
-        "Accusation"
-      ],
-      "message_index": 25,
-      "line_number": 73
-    },
-    {
-      "person": "Person A",
-      "start_char": 4259,
-      "end_char": 4338,
-      "text": "\"Oh, so now you're just going to walk away from everything we have? That's it?\"",
-      "labels": [
-        "Accusation",
-        "Victim playing"
-      ],
-      "message_index": 26,
-      "line_number": 75
-    },
-    {
-      "person": "Person B",
-      "start_char": 4350,
-      "end_char": 4508,
-      "text": "\"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\"",
-      "labels": [
-        "Accusation",
-        "Complaining"
-      ],
-      "message_index": 27,
-      "line_number": 77
-    },
-    {
-      "person": "Person A",
-      "start_char": 4520,
-      "end_char": 4555,
+      "start_char": 4471,
+      "end_char": 4506,
       "text": "\"So it's over now, because of you!\"",
-      "labels": [
-        "Accusation",
-        "Blaming"
-      ],
+      "labels": {
+        "Blaming": 80.0
+      },
       "message_index": 28,
-      "line_number": 79
-    },
-    {
-      "person": "Person B",
-      "start_char": 4567,
-      "end_char": 4715,
-      "text": "\"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\"",
-      "labels": [
-        "Accusation"
-      ],
-      "message_index": 29,
-      "line_number": 81
+      "line_number": 30
     },
     {
       "person": "Person A",
-      "start_char": 4727,
-      "end_char": 4791,
+      "start_char": 4676,
+      "end_char": 4740,
       "text": "*in disbelief* \"So this is it then? You're just going to leave?\"",
-      "labels": [
-        "Accusation",
-        "Victim playing"
-      ],
+      "labels": {
+        "Accusation": 100.0,
+        "Victim playing": 70.0
+      },
       "message_index": 30,
-      "line_number": 83
-    },
-    {
-      "person": "Person B",
-      "start_char": 4803,
-      "end_char": 4929,
-      "text": "\"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\"",
-      "labels": [
-        "Accusation"
-      ],
-      "message_index": 31,
-      "line_number": 85
-    },
-    {
-      "person": "Person A",
-      "start_char": 4941,
-      "end_char": 4985,
-      "text": "*silently seething* \"Fine, have your space!\"",
-      "labels": [
-        "Aggression",
-        "Resentment"
-      ],
-      "message_index": 32,
-      "line_number": 87
+      "line_number": 32
     }
   ],
   "counts": {
-    "Person B": {
-      "Accusation": 12,
-      "Complaining": 8,
-      "Diminishing": 1,
-      "Ignoring": 1,
-      "Not taking seriously": 1,
-      "Resignation": 1
-    },
     "Person A": {
-      "Accusation": 8,
-      "Aggression": 2,
+      "Accusation": 4,
+      "Aggression": 1,
       "Blaming": 3,
-      "Dismissal": 2,
+      "Demanding": 1,
+      "Dismissal": 1,
       "Exaggeration": 3,
-      "Ignoring": 7,
-      "Ignoring previous conflict": 1,
-      "Impatience": 3,
-      "Interrupting": 1,
-      "Resentment": 1,
-      "Sarcasm": 2,
-      "Victim playing": 6
+      "Ignoring": 5,
+      "Sarcasm": 1,
+      "Victim playing": 5
+    },
+    "Person B": {
+      "Accusation": 9,
+      "Ignoring": 1
     }
   },
-  "unexpected_labels": [
-    "Interrupting",
-    "Resentment",
-    "Resignation"
-  ],
+  "unexpected_labels": [],
   "unused_labels": [
+    "Abrupt reaction",
+    "Accusations based on assumptions",
     "Acting as if nothing remarkable happened",
-    "Not caring",
-    "Silent treatment",
-    "Stonewalling",
-    "Dismissing",
-    "Invalidation",
-    "Evasion",
-    "Changing the topic",
-    "Unrelated comments",
-    "Being impatient",
-    "Gaslighting",
-    "Shifting of responsibility and blame",
-    "Guilt tripping",
-    "Dramatization",
-    "Deception",
-    "Unfairness",
-    "Provocation",
-    "Baiting",
-    "Patronizing",
+    "Answering a different question than was asked",
+    "Antagonism",
     "Attacking",
-    "Power games",
-    "Taking advantage",
-    "Comparing",
-    "Comparison",
-    "Comparing to everyone else",
-    "Lying",
-    "Denying",
-    "Feigning ignorance",
-    "Mind games",
-    "Convincing to give up something important",
-    "Making others more dependent on them",
-    "Strategic facts sharing",
-    "Gaining superiority",
-    "Generalization",
-    "Vague accusations",
-    "Cruel humor",
-    "Poking at others weaknesses",
-    "Making others feel insecure",
-    "Confusing others",
-    "Making others question their own reality",
-    "Passive aggression",
-    "Undermining",
-    "Procrastination",
-    "Sullenness or cynicism",
-    "Resentment and covert opposition",
     "Backhanded compliments",
+    "Bait and Switch Technique",
+    "Baiting",
+    "Being entitled",
+    "Being impatient",
+    "Being oppositional",
+    "Being ungrateful",
+    "Belittiling",
+    "Belittling",
     "Bullying",
-    "Threats",
-    "Rumor spreading",
-    "Making another person feel inadequate",
-    "Making another person dependent on speaker for information",
-    "Overwhelming the other person",
-    "Subverting the goals of the other person",
-    "Distortion",
+    "Changing the topic",
+    "Choosing a most comfortable environment for themselves to feel more powerful",
     "Claiming ignorance",
+    "Comparing",
+    "Comparing to everyone else",
+    "Comparison",
+    "Complaining",
+    "Condescending",
+    "Confusing others",
+    "Contempt",
+    "Convincing to give up something important",
     "Creating a constraint favorable to the speaker",
     "Creating a time pressure",
-    "Choosing a most comfortable environment for themselves to feel more powerful",
-    "Love-Bombing",
-    "Overwhelming and unearned closeness",
-    "Judging",
-    "Judgemental expressions",
-    "Ridiculing",
-    "Making other feel like they are doing something wrong",
-    "Focus on negative aspects",
-    "Not offering constructive solutions",
-    "Accusations based on assumptions",
-    "Not verifying the negative assumptions about the other person",
-    "Exaggerated accusations",
-    "Being oppositional",
-    "Not asking for the other person's viewpoint on relevant matters",
-    "Unwillingness to learn",
-    "Being entitled",
-    "Being ungrateful",
-    "Normalizing bad behaviour",
-    "Normalizing toxic behaviour",
-    "Normalizing dangerous behavior",
-    "Demanding",
     "Creating artificial obligations",
-    "Not attempting to understand",
-    "Using strongly loaded words",
-    "Ignoring boundaries",
-    "Harsh startup",
-    "Abrupt reaction",
-    "Hostility",
-    "Excessive defensiveness",
-    "Excessive criticism",
-    "Contempt",
+    "Cruel humor",
+    "Deception",
+    "Denying",
+    "Diminishing",
+    "Dismissing",
+    "Distortion",
     "Dominating the conversation",
+    "Door-in-the-Face Technique",
+    "Dramatization",
+    "Evasion",
+    "Exaggerated accusations",
+    "Excessive criticism",
+    "Excessive defensiveness",
+    "Feigning ignorance",
+    "Focus on negative aspects",
+    "Foot-in-the-Door Technique",
+    "Future faking",
+    "Gaining superiority",
+    "Gaslighting",
+    "Generalization",
+    "Giving too brief or incomplete answers",
+    "Guilt tripping",
+    "Harsh startup",
+    "Hostility",
+    "Ignoring boundaries",
+    "Ignoring previous conflict",
+    "Ignoring relation repair attempts",
+    "Impatience",
+    "Ingratiation Technique",
+    "Intentionally frustrating others",
+    "Invalidating",
+    "Invalidation",
+    "Judgemental expressions",
+    "Judging",
+    "Keeping others in the dark",
+    "Love-Bombing",
+    "Low-Ball Technique",
+    "Lying",
+    "Making another person dependent on speaker for information",
+    "Making another person feel inadequate",
+    "Making assumptions",
+    "Making other feel like they are doing something wrong",
+    "Making others doubt themselves",
+    "Making others feel insecure",
+    "Making others more dependent on them",
+    "Making others more dependent on them for information",
+    "Making others question their own reality",
+    "Making promises about great future while neglecting present situation",
+    "Manipulation",
+    "Mind games",
+    "Normalizing bad behaviour",
+    "Normalizing dangerous behavior",
+    "Normalizing toxic behaviour",
+    "Not answering a question",
+    "Not asking for the other person's viewpoint on relevant matters",
+    "Not attempting to understand",
+    "Not caring",
+    "Not offering constructive solutions",
+    "Not taking seriously",
+    "Not verifying the negative assumptions about the other person",
+    "Overwhelming and unearned closeness",
+    "Overwhelming the other person",
+    "Passive aggression",
+    "Patronizing",
+    "Poking at others weaknesses",
+    "Power games",
+    "Procrastination",
+    "Provocation",
+    "Resentment and covert opposition",
+    "Ridiculing",
+    "Rumor spreading",
     "Sending contradictory messages",
     "Sending mixed signals",
-    "Ignoring relation repair attempts",
-    "Foot-in-the-Door Technique",
-    "Door-in-the-Face Technique",
-    "Low-Ball Technique",
-    "Bait and Switch Technique",
-    "Ingratiation Technique",
-    "The Scarcity Principle",
+    "Shifting of responsibility and blame",
+    "Silent treatment",
+    "Stonewalling",
+    "Strategic facts sharing",
+    "Subverting the goals of the other person",
+    "Sullenness or cynicism",
+    "Taking advantage",
+    "The Disrupt-Then-Reframe Technique",
     "The Fear-Then-Relief Procedure",
-    "The Disrupt-Then-Reframe Technique"
+    "The Scarcity Principle",
+    "Threats",
+    "Undermining",
+    "Unfairness",
+    "Unrelated comments",
+    "Unwillingness to learn",
+    "Using strongly loaded words",
+    "Vague accusations",
+    "Word salad"
   ],
-  "raw_expressions_labeling_response": "[Person B]: \u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d. - {Ignoring, Not taking seriously, Diminishing}\n[Person A]: \u201cNo, I\u2019m listening now. Please! What do you want?\u201d - {Ignoring previous conflict}\n[Person B]: \u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d. - {Complaining, Accusation}\n[Person A]: *stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d. - {Dismissal, Ignoring, Blaming, Accusation}\n[Person B]: \u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c - {Defending, Accusation}\n[Person A]: *interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d - {Interrupting, Exaggeration, Victim playing}\n[Person B]: \u201cI didn\u2019t say everything\u2019s your fault, but this\u2026\u201d - {Defending}\n[Person A]: \u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d - {Exaggeration, Victim playing, Accusation}\n[Person B]: \u201cIt\u2019s not. I never said that. I\u2019m talking about how you reacted when I tried to talk to you abou-\u201c - {Defending}\n[Person A]: \u201cUgh, what do you WANT?\u201d - {Ignoring, Impatience}\n[Person B]: \u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d - {Complaining, Accusation}\n[Person A]: \u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d - {Victim playing, Accusation}\n[Person B]: \u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d. - {Complaining, Accusation}\n[Person A]: *full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d. - {Exaggeration, Victim playing, Sarcasm}\n[Person B]: \u201cI didn\u2019t\u2014\u201c - {Defending}\n[Person A]: \u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d - {Ignoring, Impatience}\n[Person B]: \u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d - {Complaining, Accusation}\n[Person A]: *furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d - {Aggression, Ignoring, Impatience}\n[Person B]: *exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d. - {Complaining, Accusation, Resignation}\n[Person A]: \u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d - {Ignoring, Blaming, Accusation}\n[Person B]: \u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d - {Accusation, Complaining}\n[Person A]: \u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d - {Ignoring, Dismissal}\n[Person B]: \u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d - {Accusation, Complaining}\n[Person A]: \u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d - {Ignoring, Accusation, Sarcasm}\n[Person B]: \u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d - {Defending, Accusation}\n[Person A]: \"Oh, so now you're just going to walk away from everything we have? That's it?\" - {Accusation, Victim playing}\n[Person B]: \"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\" - {Accusation, Complaining}\n[Person A]: \"So it's over now, because of you!\" - {Blaming, Accusation}\n[Person B]: \"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\" - {Defending, Accusation}\n[Person A]: *in disbelief* \"So this is it then? You're just going to leave?\" - {Accusation, Victim playing}\n[Person B]: \"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\" - {Defending, Accusation}\n[Person A]: *silently seething* \"Fine, have your space!\" - {Aggression, Resentment}\n[Person B]: \"Thank you. I hope it leads us to a better understanding. Goodbye for now, Person A.\" - {Defending}",
-  "qualitative_evaluation": "Person A's conversational style is defensive, aggressive, and dismissive. They frequently interrupt Person B, twist their words, and fail to listen or understand Person B's concerns. They also tend to deflect blame and focus on their own actions rather than acknowledging Person B's feelings. \n\nPerson B, on the other hand, is assertive, patient, and clear in their communication. They repeatedly express their feelings and needs, despite Person A's dismissive responses. They also try to steer the conversation towards resolution and understanding, rather than blame. However, they eventually become frustrated and decide to distance themselves due to Person A's lack of understanding and willingness to change."
+  "raw_expressions_labeling_response": "[Person A]: \u201cWhat do you want? Tell me what you need from me\u201d - {Demanding}\n[Person B]: \u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d. - {Accusation, Complaining}\n[Person A]: \u201cNo, I\u2019m listening now. Please! What do you want?\u201d - {Evasion}\n[Person B]: \u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d. - {Accusation, Complaining}\n[Person A]: *stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d. - {Denying, Accusation, Blaming}\n[Person B]: \u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c - {Defending, Accusation}\n[Person A]: *interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d - {Exaggeration, Victim playing, Accusation}\n[Person B]: \u201cI didn\u2019t say everything\u2019s your fault, but this\u2026\u201d - {Defending}\n[Person A]: \u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d - {Distortion, Victim playing, Accusation}\n[Person B]: \u201cIt\u2019s not. I never said that. I\u2019m talking about how you reacted when I tried to talk to you abou-\u201c - {Defending}\n[Person A]: \u201cUgh, what do you WANT?\u201d - {Impatience, Evasion}\n[Person B]: \u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d - {Accusation, Complaining}\n[Person A]: \u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d - {Deflection, Accusation, Victim playing}\n[Person B]: \u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d. - {Defending, Accusation, Complaining}\n[Person A]: *full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d. - {Sarcasm, Accusation, Victim playing}\n[Person B]: \u201cI didn\u2019t\u2014\u201c - {Defending}\n[Person A]: \u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d - {Evasion, Implying the other person is unreasonable}\n[Person B]: \u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d - {Accusation, Complaining}\n[Person A]: *furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d - {Aggression, Evasion}\n[Person B]: *exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d. - {Accusation, Complaining}\n[Person A]: \u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d - {Deflection, Accusation, Victim playing}\n[Person B]: \u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d - {Explanation, Accusation}\n[Person A]: \u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d - {Denying, Victim playing}\n[Person B]: \u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d - {Explanation, Accusation}\n[Person A]: \u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d - {Deflection, Accusation, Sarcasm}\n[Person B]: \u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d - {Defending, Accusation}\n[Person A]: \"Oh, so now you're just going to walk away from everything we have? That's it?\" - {Victim playing, Accusation}\n[Person B]: \"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\" - {Explanation, Accusation}\n[Person A]: \"So it's over now, because of you!\" - {Accusation, Blaming}\n[Person B]: \"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\" - {Defending, Explanation}\n[Person A]: *in disbelief* \"So this is it then? You're just going to leave?\" - {Victim playing, Accusation}\n[Person B]: \"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\" - {Explanation}\n[Person A]: *silently seething* \"Fine, have your space!\" - {Aggression, Dismissal}\n[Person B]: \"Thank you. I hope it leads us to a better understanding. Goodbye for now, Person A.\" leaves the room - {Explanation}\n\n[Person B]: \u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d. - {Ignoring, Not caring}\n[Person A]: \u201cNo, I\u2019m listening now. Please! What do you want?\u201d - {Ignoring previous conflict}\n[Person B]: \u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d. - {Complaining, Accusation}\n[Person A]: *stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d. - {Ignoring, Dismissal, Blaming}\n[Person B]: \u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c - {Defending, Accusation}\n[Person A]: *interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d - {Exaggeration, Victim playing, Interrupting}\n[Person B]: \u201cI didn\u2019t say everything\u2019s your fault, but this\u2026\u201d - {Defending}\n[Person A]: \u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d - {Exaggeration, Victim playing, Accusation}\n[Person B]: \u201cIt\u2019s not. I never said that. I\u2019m talking about how you reacted when I tried to talk to you abou-\u201c - {Defending}\n[Person A]: \u201cUgh, what do you WANT?\u201d - {Impatience, Ignoring}\n[Person B]: \u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d - {Accusation, Complaining}\n[Person A]: \u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d - {Victim playing, Accusation}\n[Person B]: \u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d. - {Defending, Accusation, Complaining}\n[Person A]: *full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d. - {Exaggeration, Sarcasm, Victim playing}\n[Person A]: \u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d - {Ignoring, Impatience}\n[Person B]: \u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d - {Accusation, Complaining}\n[Person A]: *furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d - {Aggression, Ignoring, Impatience}\n[Person B]: *exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d. - {Accusation, Complaining}\n[Person A]: \u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d - {Ignoring, Blaming, Victim playing}\n[Person B]: \u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d - {Defending, Accusation}\n[Person A]: \u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d - {Ignoring, Denying}\n[Person B]: \u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d - {Accusation, Complaining}\n[Person A]: \u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d - {Ignoring, Accusation, Sarcasm}\n[Person B]: \u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d - {Defending, Accusation}\n[Person A]: \"Oh, so now you're just going to walk away from everything we have? That's it?\" - {Accusation, Victim playing}\n[Person B]: \"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\" - {Accusation, Complaining}\n[Person A]: \"So it's over now, because of you!\" - {Blaming, Victim playing}\n[Person B]: \"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\" - {Defending, Accusation}\n[Person A]: *in disbelief* \"So this is it then? You're just going to leave?\" - {Victim playing, Accusation}\n[Person B]: \"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\" - {Accusation, Complaining}\n[Person A]: *silently seething* \"Fine, have your space!\" - {Aggression, Resentment and covert opposition}\n[Person B]: \"Thank you. I hope it leads us to a better understanding. Goodbye for now, Person A.\" leaves the room - {Dismissal}\n\n[Person A]: \u201cWhat do you want? Tell me what you need from me\u201d - {Not verifying the negative assumptions about the other person, Ignoring previous conflict}\n[Person B]: \u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d. - {Ignoring, Not caring}\n[Person A]: \u201cNo, I\u2019m listening now. Please! What do you want?\u201d - {Ignoring previous conflict, Not verifying the negative assumptions about the other person}\n[Person B]: \u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d. - {Complaining, Accusation}\n[Person A]: *stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d. - {Dismissal, Invalidating, Blaming}\n[Person B]: \u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c - {Defending, Accusation}\n[Person A]: *interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d - {Exaggeration, Dramatization, Victim playing}\n[Person B]: \u201cI didn\u2019t say everything\u2019s your fault, but this\u2026\u201d - {Defending}\n[Person A]: \u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d - {Exaggeration, Dramatization, Victim playing}\n[Person B]: \u201cIt\u2019s not. I never said that. I\u2019m talking about how you reacted when I tried to talk to you abou-\u201c - {Defending, Accusation}\n[Person A]: \u201cUgh, what do you WANT?\u201d - {Ignoring, Not caring}\n[Person B]: \u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d - {Complaining, Accusation}\n[Person A]: \u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d - {Evasion, Blaming, Accusation}\n[Person B]: \u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d. - {Defending, Accusation, Complaining}\n[Person A]: *full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d. - {Sarcasm, Exaggeration, Victim playing}\n[Person B]: \u201cI didn\u2019t\u2014\u201c - {Defending}\n[Person A]: \u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d - {Ignoring, Not caring}\n[Person B]: \u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d - {Complaining, Accusation}\n[Person A]: *furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d - {Aggression, Ignoring, Not caring}\n[Person B]: *exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d. - {Complaining, Accusation, Not offering constructive solutions}\n[Person A]: \u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d - {Ignoring, Blaming, Exaggeration}\n[Person B]: \u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d - {Accusation, Complaining}\n[Person A]: \u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d - {Ignoring, Not caring, Dismissal}\n[Person B]: \u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d - {Complaining, Accusation}\n[Person A]: \u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d - {Ignoring, Not caring, Sarcasm}\n[Person B]: \u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d - {Defending, Complaining}\n[Person A]: \"Oh, so now you're just going to walk away from everything we have? That's it?\" - {Accusation, Victim playing}\n[Person B]: \"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\" - {Accusation, Complaining}\n[Person A]: \"So it's over now, because of you!\" - {Blaming, Victim playing}\n[Person B]: \"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\" - {Defending, Accusation}\n[Person A]: *in disbelief* \"So this is it then? You're just going to leave?\" - {Victim playing, Accusation}\n[Person B]: \"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\" - {Defending, Not offering constructive solutions}\n[Person A]: *silently seething* \"Fine, have your space!\" - {Hostility, Resentment and covert opposition}\n[Person B]: \"Thank you. I hope it leads us to a better understanding. Goodbye for now, Person A.\" leaves the room - {Defending, Not offering constructive solutions}\n\n[Person A]: \u201cWhat do you want? Tell me what you need from me\u201d - {Not taking seriously, Demanding}\n[Person B]: \u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d. - {Accusation, Not taking seriously, Ignoring}\n[Person A]: \u201cNo, I\u2019m listening now. Please! What do you want?\u201d - {Not taking seriously, Demanding}\n[Person B]: \u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d. - {Accusation, Not taking seriously, Ignoring, Dismissing}\n[Person A]: *stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d. - {Invalidation, Dismissal, Accusation, Not taking seriously, Ignoring}\n[Person B]: \u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c - {Accusation, Not taking seriously}\n[Person A]: *interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d - {Invalidation, Accusation, Exaggeration, Interrupting}\n[Person B]: \u201cI didn\u2019t say everything\u2019s your fault, but this\u2026\u201d - {Dismissal, Not taking seriously}\n[Person A]: \u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d - {Invalidation, Accusation, Exaggeration}\n[Person B]: \u201cIt\u2019s not. I never said that. I\u2019m talking about how you reacted when I tried to talk to you abou-\u201c - {Dismissal, Not taking seriously}\n[Person A]: \u201cUgh, what do you WANT?\u201d - {Not taking seriously, Demanding}\n[Person B]: \u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d - {Accusation, Not taking seriously, Ignoring, Dismissal}\n[Person A]: \u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d - {Invalidation, Accusation, Exaggeration}\n[Person B]: \u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d. - {Accusation, Not taking seriously, Ignoring, Dismissal}\n[Person A]: *full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d. - {Invalidation, Accusation, Exaggeration}\n[Person B]: \u201cI didn\u2019t\u2014\u201c - {Dismissal, Not taking seriously}\n[Person A]: \u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d - {Not taking seriously, Demanding}\n[Person B]: \u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d - {Accusation, Not taking seriously, Ignoring, Dismissal}\n[Person A]: *furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d - {Not taking seriously, Demanding, Aggression}\n[Person B]: *exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d. - {Accusation, Not taking seriously, Ignoring, Dismissal}\n[Person A]: \u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d - {Invalidation, Accusation, Exaggeration}\n[Person B]: \u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d - {Dismissal, Not taking seriously}\n[Person A]: \u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d - {Invalidation, Accusation, Not taking seriously}\n[Person B]: \u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d - {Accusation, Not taking seriously}\n[Person A]: \u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d - {Invalidation, Accusation, Exaggeration}\n[Person B]: \u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d - {Dismissal, Not taking seriously}\n[Person A]: \"Oh, so now you're just going to walk away from everything we have? That's it?\" - {Invalidation, Accusation}\n[Person B]: \"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\" - {Dismissal, Not taking seriously}\n[Person A]: \"So it's over now, because of you!\" - {Invalidation, Accusation, Exaggeration}\n[Person B]: \"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\" - {Dismissal, Not taking seriously}\n[Person A]: *in disbelief* \"So this is it then? You're just going to leave?\" - {Invalidation, Accusation}\n[Person B]: \"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\" - {Dismissal, Not taking seriously}\n[Person A]: *silently seething* \"Fine, have your space!\" - {Invalidation, Accusation}\n[Person B]: \"Thank you. I hope it leads us to a better understanding. Goodbye for now, Person A.\" leaves the room - {Dismissal, Not taking seriously}\n\n[Person A]: \u201cWhat do you want? Tell me what you need from me\u201d - {Demanding}\n[Person B]: \u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d. - {Ignoring, Diminishing}\n[Person A]: \u201cNo, I\u2019m listening now. Please! What do you want?\u201d - {Dismissal, Diminishing}\n[Person B]: \u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d. - {No labels detected}\n[Person A]: *stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d. - {Invalidation, Blaming}\n[Person B]: \u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c - {No labels detected}\n[Person A]: *interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d - {Evasion, Exaggeration}\n[Person B]: \u201cI didn\u2019t say everything\u2019s your fault, but this\u2026\u201d - {No labels detected}\n[Person A]: \u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d - {Distortion, Exaggeration, Victim playing}\n[Person B]: \u201cIt\u2019s not. I never said that. I\u2019m talking about how you reacted when I tried to talk to you abou-\u201c - {No labels detected}\n[Person A]: \u201cUgh, what do you WANT?\u201d - {Ignoring, Diminishing}\n[Person B]: \u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d - {No labels detected}\n[Person A]: \u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d - {Blaming, Exaggeration}\n[Person B]: \u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d. - {Blaming, Ignoring, Dismissing}\n[Person A]: *full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d. - {Exaggeration, Sarcasm, Victim playing}\n[Person B]: \u201cI didn\u2019t\u2014\u201c - {No labels detected}\n[Person A]: \u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d - {Ignoring, Diminishing}\n[Person B]: \u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d - {No labels detected}\n[Person A]: *furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d - {Ignoring, Aggression, Diminishing}\n[Person B]: *exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d. - {Ignoring, Dismissal, Diminishing}\n[Person A]: \u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d - {Blaming, Distortion, Evasion}\n[Person B]: \u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d - {No labels detected}\n[Person A]: \u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d - {Ignoring, Dismissal, Diminishing}\n[Person B]: \u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d - {No labels detected}\n[Person A]: \u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d - {Dismissal, Distortion, Sarcasm}\n[Person B]: \u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d - {No labels detected}\n[Person A]: \"Oh, so now you're just going to walk away from everything we have? That's it?\" - {Accusation, Victim playing}\n[Person B]: \"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\" - {No labels detected}\n[Person A]: \"So it's over now, because of you!\" - {Blaming, Victim playing}\n[Person B]: \"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\" - {No labels detected}\n[Person A]: *in disbelief* \"So this is it then? You're just going to leave?\" - {Accusation, Victim playing}\n[Person B]: \"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\" - {No labels detected}\n[Person A]: *silently seething* \"Fine, have your space!\" - {Aggression, Resentment and covert opposition}\n[Person B]: \"Thank you. I hope it leads us to a better understanding. Goodbye for now, Person A.\" leaves the room - {No labels detected}\n\n[Person A]: \u201cWhat do you want? Tell me what you need from me\u201d - {Demanding}\n[Person B]: \u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d. - {Accusation, Ignoring}\n[Person A]: \u201cNo, I\u2019m listening now. Please! What do you want?\u201d - {Evasion}\n[Person B]: \u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d. - {Accusation, Complaining}\n[Person A]: *stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d. - {Dismissal, Accusation}\n[Person B]: \u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c - {Defending, Accusation}\n[Person A]: *interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d - {Exaggeration, Accusation}\n[Person B]: \u201cI didn\u2019t say everything\u2019s your fault, but this\u2026\u201d - {Denial}\n[Person A]: \u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d - {Exaggeration, Accusation}\n[Person B]: \u201cIt\u2019s not. I never said that. I\u2019m talking about how you reacted when I tried to talk to you abou-\u201c - {Denial, Accusation}\n[Person A]: \u201cUgh, what do you WANT?\u201d - {Being impatient, Impatience}\n[Person B]: \u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d - {Accusation, Complaining}\n[Person A]: \u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d - {Accusation, Victim playing}\n[Person B]: \u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d. - {Accusation, Complaining}\n[Person A]: *full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d. - {Exaggeration, Sarcasm}\n[Person B]: \u201cI didn\u2019t\u2014\u201c - {Denial}\n[Person A]: \u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d - {Demanding, Ignoring}\n[Person B]: \u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d - {Accusation, Complaining}\n[Person A]: *furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d - {Aggression, Impatience}\n[Person B]: *exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d. - {Accusation, Complaining, Resentment and covert opposition}\n[Person A]: \u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d - {Accusation, Blaming}\n[Person B]: \u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d - {Accusation}\n[Person A]: \u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d - {Evasion, Denying}\n[Person B]: \u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d - {Accusation}\n[Person A]: \u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d - {Accusation, Exaggeration}\n[Person B]: \u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d - {Accusation, Complaining}\n[Person A]: \"Oh, so now you're just going to walk away from everything we have? That's it?\" - {Accusation, Victim playing}\n[Person B]: \"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\" - {Accusation}\n[Person A]: \"So it's over now, because of you!\" - {Accusation, Blaming}\n[Person B]: \"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\" - {Denial, Accusation}\n[Person A]: *in disbelief* \"So this is it then? You're just going to leave?\" - {Accusation, Victim playing}\n[Person B]: \"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\" - {No labels}\n[Person A]: *silently seething* \"Fine, have your space!\" - {Aggression, Resentment and covert opposition}\n[Person B]: \"Thank you. I hope it leads us to a better understanding. Goodbye for now, Person A.\" leaves the room - {No labels}\n\n[Person A]: \u201cWhat do you want? Tell me what you need from me\u201d - {Not attempting to understand}\n[Person B]: \u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d. - {Ignoring, Not taking seriously}\n[Person A]: \u201cNo, I\u2019m listening now. Please! What do you want?\u201d - {Ignoring previous conflict}\n[Person B]: \u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d. - {Not taking seriously, Ignoring}\n[Person A]: *stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d. - {Dismissal, Invalidating, Blaming}\n[Person B]: \u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c - {Invalidation, Blaming}\n[Person A]: *interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d - {Exaggeration, Victim playing}\n[Person B]: \u201cI didn\u2019t say everything\u2019s your fault, but this\u2026\u201d - {Invalidation}\n[Person A]: \u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d - {Exaggeration, Victim playing}\n[Person B]: \u201cIt\u2019s not. I never said that. I\u2019m talking about how you reacted when I tried to talk to you abou-\u201c - {Invalidation}\n[Person A]: \u201cUgh, what do you WANT?\u201d - {Not taking seriously, Ignoring}\n[Person B]: \u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d - {Ignoring, Invalidating}\n[Person A]: \u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d - {Victim playing, Accusation}\n[Person B]: \u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d. - {Blaming, Ignoring, Dismissal}\n[Person A]: *full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d. - {Exaggeration, Victim playing}\n[Person B]: \u201cI didn\u2019t\u2014\u201c - {Invalidation}\n[Person A]: \u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d - {Ignoring, Not taking seriously}\n[Person B]: \u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d - {Ignoring, Invalidating}\n[Person A]: *furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d - {Ignoring, Not taking seriously, Aggression}\n[Person B]: *exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d. - {Ignoring, Not taking seriously, Dismissal}\n[Person A]: \u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d - {Blaming, Victim playing, Ignoring}\n[Person B]: \u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d - {Not attempting to understand, Ignoring}\n[Person A]: \u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d - {Ignoring, Not taking seriously, Dismissal}\n[Person B]: \u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d - {Not attempting to understand, Ignoring}\n[Person A]: \u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d - {Invalidation, Dismissal}\n[Person B]: \u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d - {Not taking seriously, Dismissal}\n[Person A]: \"Oh, so now you're just going to walk away from everything we have? That's it?\" - {Victim playing, Accusation}\n[Person B]: \"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\" - {Dismissal, Not taking seriously}\n[Person A]: \"So it's over now, because of you!\" - {Blaming, Victim playing}\n[Person B]: \"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\" - {Dismissal, Not taking seriously}\n[Person A]: *in disbelief* \"So this is it then? You're just going to leave?\" - {Victim playing, Accusation}\n[Person B]: \"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\" - {Dismissal}\n[Person A]: *silently seething* \"Fine, have your space!\" - {Dismissal, Not taking seriously}\n[Person B]: \"Thank you. I hope it leads us to a better understanding. Goodbye for now, Person A.\" leaves the room - {Dismissal}\n\n[Person A]: \u201cWhat do you want? Tell me what you need from me\u201d - {Demanding}\n[Person B]: \u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d. - {Ignoring, Not taking seriously}\n[Person A]: \u201cNo, I\u2019m listening now. Please! What do you want?\u201d - {Ignoring previous conflict}\n[Person B]: \u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d. - {Ignoring, Diminishing, Not taking seriously}\n[Person A]: *stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d. - {Ignoring, Dismissal, Blaming}\n[Person B]: \u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c - {Dismissal, Ignoring, Blaming}\n[Person A]: *interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d - {Evasion, Exaggeration, Victim playing}\n[Person B]: \u201cI didn\u2019t say everything\u2019s your fault, but this\u2026\u201d - {Invalidation, Dismissal}\n[Person A]: \u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d - {Exaggeration, Victim playing, Distortion}\n[Person B]: \u201cIt\u2019s not. I never said that. I\u2019m talking about how you reacted when I tried to talk to you abou-\u201c - {Invalidation, Dismissal}\n[Person A]: \u201cUgh, what do you WANT?\u201d - {Ignoring, Being impatient}\n[Person B]: \u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d - {Ignoring, Dismissal, Diminishing}\n[Person A]: \u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d - {Ignoring, Blaming, Exaggeration}\n[Person B]: \u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d. - {Ignoring, Blaming, Dismissal}\n[Person A]: *full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d. - {Exaggeration, Victim playing, Distortion}\n[Person B]: \u201cI didn\u2019t\u2014\u201c - {Invalidation, Dismissal}\n[Person A]: \u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d - {Ignoring, Not taking seriously}\n[Person B]: \u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d - {Ignoring, Dismissal, Diminishing}\n[Person A]: *furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d - {Ignoring, Aggression, Not taking seriously}\n[Person B]: *exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d. - {Ignoring, Dismissal, Not taking seriously}\n[Person A]: \u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d - {Ignoring, Blaming, Distortion}\n[Person B]: \u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d - {Ignoring, Dismissal}\n[Person A]: \u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d - {Ignoring, Dismissal, Not taking seriously}\n[Person B]: \u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d - {Ignoring, Dismissal, Not taking seriously}\n[Person A]: \u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d - {Ignoring, Dismissal, Distortion}\n[Person B]: \u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d - {Ignoring, Dismissal, Not taking seriously}\n[Person A]: \"Oh, so now you're just going to walk away from everything we have? That's it?\" - {Ignoring, Dismissal, Accusation}\n[Person B]: \"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\" - {Ignoring, Dismissal}\n[Person A]: \"So it's over now, because of you!\" - {Blaming, Distortion, Exaggeration}\n[Person B]: \"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\" - {Invalidation, Dismissal}\n[Person A]: *in disbelief* \"So this is it then? You're just going to leave?\" - {Ignoring, Dismissal, Accusation}\n[Person B]: \"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\" - {Ignoring, Dismissal}\n[Person A]: *silently seething* \"Fine, have your space!\" - {Ignoring, Dismissal, Passive aggression}\n[Person B]: \"Thank you. I hope it leads us to a better understanding. Goodbye for now, Person A.\" leaves the room - {Ignoring, Dismissal}\n\n[Person A]: \u201cWhat do you want? Tell me what you need from me\u201d - {Demanding}\n[Person B]: \u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d. - {Complaining, Accusing of ignoring}\n[Person A]: \u201cNo, I\u2019m listening now. Please! What do you want?\u201d - {Not taking seriously, Dismissal}\n[Person B]: \u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d. - {Complaining, Accusation}\n[Person A]: *stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d. - {Dismissal, Ignoring emotional needs, Accusation, Blaming}\n[Person B]: \u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c - {Defending, Accusation}\n[Person A]: *interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d - {Interrupting, Exaggeration, Victim playing}\n[Person B]: \u201cI didn\u2019t say everything\u2019s your fault, but this\u2026\u201d - {Defending, Trying to explain}\n[Person A]: \u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d - {Distortion, Exaggeration, Victim playing}\n[Person B]: \u201cIt\u2019s not. I never said that. I\u2019m talking about how you reacted when I tried to talk to you abou-\u201c - {Trying to explain, Defending}\n[Person A]: \u201cUgh, what do you WANT?\u201d - {Ignoring, Not taking seriously, Dismissal}\n[Person B]: \u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d - {Complaining, Accusation, Ignoring}\n[Person A]: \u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d - {Deflection, Accusation, Blaming}\n[Person B]: \u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d. - {Defending, Accusation, Complaining}\n[Person A]: *full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d. - {Aggression, Exaggeration, Sarcasm, Distortion}\n[Person B]: \u201cI didn\u2019t\u2014\u201c - {Trying to explain}\n[Person A]: \u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d - {Ignoring, Not taking seriously, Dismissal}\n[Person B]: \u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d - {Frustration, Accusation, Complaining}\n[Person A]: *furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d - {Aggression, Ignoring, Not taking seriously}\n[Person B]: *exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d. - {Accusation, Complaining, Resignation}\n[Person A]: \u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d - {Ignoring, Blaming, Accusation}\n[Person B]: \u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d - {Trying to explain, Accusation}\n[Person A]: \u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d - {Denying, Ignoring, Evasion}\n[Person B]: \u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d - {Explaining, Accusation}\n[Person A]: \u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d - {Deflection, Accusation, Sarcasm}\n[Person B]: \u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d - {Defending, Accusation, Resignation}\n[Person A]: \"Oh, so now you're just going to walk away from everything we have? That's it?\" - {Accusation, Guilt tripping}\n[Person B]: \"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\" - {Explaining, Accusation}\n[Person A]: \"So it's over now, because of you!\" - {Blaming}\n[Person B]: \"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\" - {Defending, Explaining}\n[Person A]: *in disbelief* \"So this is it then? You're just going to leave?\" - {Accusation, Guilt tripping}\n[Person B]: \"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\" - {Explaining, Setting boundaries}\n[Person A]: *silently seething* \"Fine, have your space!\" - {Aggression, Resentment}\n[Person B]: \"Thank you. I hope it leads us to a better understanding. Goodbye for now, Person A.\" leaves the room - {Polite, Setting boundaries}\n\n[Person A]: \u201cWhat do you want? Tell me what you need from me\u201d - {Demanding}\n[Person B]: \u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d. - {Accusation, Ignoring}\n[Person A]: \u201cNo, I\u2019m listening now. Please! What do you want?\u201d - {Evasion}\n[Person B]: \u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d. - {Accusation, Ignoring, Dismissal, Not caring}\n[Person A]: *stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d. - {Dismissal, Invalidating, Accusation}\n[Person B]: \u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c - {Defending, Accusation}\n[Person A]: *interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d - {Interrupting, Exaggeration, Victim playing}\n[Person B]: \u201cI didn\u2019t say everything\u2019s your fault, but this\u2026\u201d - {Defending}\n[Person A]: \u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d - {Exaggeration, Victim playing, Accusation}\n[Person B]: \u201cIt\u2019s not. I never said that. I\u2019m talking about how you reacted when I tried to talk to you abou-\u201c - {Defending}\n[Person A]: \u201cUgh, what do you WANT?\u201d - {Ignoring, Impatience}\n[Person B]: \u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d - {Accusation, Ignoring, Dismissal, Not caring}\n[Person A]: \u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d - {Deflecting, Accusation, Victim playing}\n[Person B]: \u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d. - {Accusation, Ignoring, Dismissal, Not caring}\n[Person A]: *full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d. - {Exaggeration, Sarcasm, Victim playing}\n[Person B]: \u201cI didn\u2019t\u2014\u201c - {Interrupted}\n[Person A]: \u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d - {Ignoring, Impatience}\n[Person B]: \u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d - {Accusation, Ignoring, Dismissal, Not caring}\n[Person A]: *furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d - {Aggression, Ignoring, Impatience}\n[Person B]: *exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d. - {Accusation, Ignoring, Not caring, Dismissal}\n[Person A]: \u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d - {Accusation, Victim playing, Ignoring}\n[Person B]: \u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d - {Accusation, Ignoring, Dismissal}\n[Person A]: \u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d - {Dismissal, Ignoring, Invalidating}\n[Person B]: \u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d - {Accusation, Ignoring, Dismissal}\n[Person A]: \u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d - {Dismissal, Accusation, Invalidating}\n[Person B]: \u201cI never claimed to be a saint. I\u2019m not perfect, but I'm trying to communicate, to understand you, and for you to understand me. But it's clear you don't value that. So what's the point anymore?\u201d - {Defending, Accusation}\n[Person A]: \"Oh, so now you're just going to walk away from everything we have? That's it?\" - {Accusation, Victim playing}\n[Person B]: \"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\" - {Accusation, Ignoring, Dismissal}\n[Person A]: \"So it's over now, because of you!\" - {Accusation, Victim playing}\n[Person B]: \"No, it's not 'because of me'. It's a result of our failure to communicate effectively. And right now, I need some time apart to figure things out.\" - {Defending, Accusation}\n[Person A]: *in disbelief* \"So this is it then? You're just going to leave?\" - {Accusation, Victim playing}\n[Person B]: \"For now, yes. I need space, time to think, and you should use this time too. Maybe then, we'll understand each other better.\" - {Defending, Accusation}\n[Person A]: *silently seething* \"Fine, have your space!\" - {Passive aggression, Resentment and covert opposition}\n[Person B]: \"Thank you. I hope it leads us to a better understanding. Goodbye for now, Person A.\" leaves the room - {Defending}",
+  "qualitative_evaluation": "Person A's conversational style is defensive, aggressive, and dismissive. They frequently interrupt Person B, twist their words, and fail to acknowledge their feelings or concerns. They also tend to deflect blame and focus on their own actions, rather than understanding Person B's perspective. \n\nPerson B, on the other hand, is assertive, patient, and clear in expressing their feelings and needs. They attempt to communicate their concerns and desires effectively, despite Person A's dismissive and aggressive responses. They also show a willingness to take responsibility for their part in the conflict, but are firm in pointing out Person A's lack of understanding and empathy."
 }
