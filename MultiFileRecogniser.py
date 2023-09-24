@@ -109,7 +109,7 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
     for current_file, person_expressions in all_expressions:
       for expression_data in person_expressions:
         expression_labels = expression_data["labels"]
-        if grouped_label in expression_labels:
+        if grouped_label in expression_labels.keys():
           
           entry = {
             "grouped_label": grouped_label,

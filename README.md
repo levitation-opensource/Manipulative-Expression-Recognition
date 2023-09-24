@@ -62,11 +62,11 @@ The vision for MER is to foster a culture of communication that is more transpar
 
 ## Example output
 
+For quick online preview, an automatic human-readable PDF rendering of the sample output is added here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.pdf"><u>data/test_evaluation.pdf</u></a>
+
 Sample JSON output can be found here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.json"><u>data/test_evaluation.json</u></a>
 
-Sample HTML output can be found here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.html"><u>data/test_evaluation.html</u></a>
-
-For quick online preview, a PDF rendering of the sample HTML output is added here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.pdf"><u>data/test_evaluation.pdf</u></a>
+Sample HTML output from which the above PDF was generated can be found here: <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/test_evaluation.html"><u>data/test_evaluation.html</u></a>
 
 In addition to labelled highlights on the field `expressions` there is a summary statistics with total counts of manipulation styles for data analysis purposes on the field `counts`. Also a qualitative summary text is provided on the field `qualitative_evaluation`.
 
@@ -81,7 +81,7 @@ Windows setup:
 Main command:
 <br>`python Recogniser.py ["input_file.txt" ["output_file.json" ["list_of_labels.txt" ["ignored_labels.txt"]]]]`
 
-The user provided files are expected to be in the same folder as the main Python script, unless an absolute path is provided. If run without arguments then sample files in the `data` folder are used. If the user provides input file name but no output file name then the output JSON file name will be calculated as `input filename` + `_evaluation.json` and the output HTML file name will be calculated as `input filename` + `_evaluation.html`.
+The user provided files are expected to be in the same folder as the main Python script, unless an absolute path is provided. If run without arguments then sample files in the `data` folder are used. If the user provides input file name but no output file name then the output JSON file name will be calculated as `input filename` + `_evaluation.json` and the output HTML and PDF file names will be calculated as `input filename` + `_evaluation.html` and `input filename` + `_evaluation.pdf`.
 
 
 ## Input format example

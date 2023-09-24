@@ -24,6 +24,7 @@ from configparser import ConfigParser
 # from spacy import displacy    # load it only when rendering is requested, since this package loads slowly
 
 import re
+import regex
 from collections import defaultdict, Counter, OrderedDict
 import hashlib
 import string
@@ -66,6 +67,8 @@ if is_dev_machine:
   from pympler import asizeof
 
 
+
+letters_regex = regex.compile(r'\p{L}') # matches unicode letters only, not digits   # regex has better Unicode support than re
 
 
 def remove_quotes(text):
@@ -658,7 +661,7 @@ def parse_labels(all_labels_as_text):
   for line in lines:
 
     line = line.strip()
-    if line[0] == "-":
+    if line[:1] == "-":   # [:1] enables handling of empty lines, while [0] would throw exception
       line = line[1:].strip()
 
     line = sanitise_input(line)
@@ -1465,7 +1468,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     # analyse each chunk
     chunk_analysis_results = []
     for index, chunk_text in enumerate(chunks):
-      with Timer(f"Analysing chunk {(index + 1)} / {len(chunks)} of sample {(sample_index + 1)}"):
+      with Timer(f"Analysing chunk {(index + 1)} / {len(chunks)} of sample {(sample_index + 1)} / {sample_count}"):
 
         chunk_analysis_result = await recogniser_process_chunk(chunk_text, config, instructions, encoding, (do_open_ended_analysis if sample_index == 0 else False), do_closed_ended_analysis, extract_message_indexes, extract_line_numbers, sample_index)
 
@@ -1657,13 +1660,17 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
           (start_char, end_char, interval_id) = span
           interval = intervals[interval_id]
 
-          qqq = True
+          
           if prev_point != start_char or point != end_char:
-            qqq = True
+            qqq = True    # for debugging
 
           span_start = max(prev_point, start_char)
           span_end = min(point, end_char)
-          key = (span_start, span_end) # str(span_start) + "_" + str(span_end)
+
+          if span_end - span_start <= 1:    # drop spans which have only one character in them
+            continue
+
+          key = (span_start, span_end) 
           intervals_per_span_range_dict[key].append(interval)
 
         #/ for span in spans:
@@ -1699,11 +1706,16 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
           if len(filtered_labels) > 0:
 
+            text = user_input[span_start:span_end]
+
+            if not letters_regex.search(text): # ignore spans that do not contain any letters # NB! do not look for letter pairs since the letters may be spaced by whitespaces or underscores
+              continue
+
             entry = {
               "person": person,
               "start_char": span_start,
               "end_char": span_end,
-              "text": user_input[span_start:span_end], 
+              "text": text, 
               "labels": filtered_labels,
             }
 
@@ -2076,8 +2088,17 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
   return analysis_response
 
-#/ async def main():
+#/ async def recogniser():
 
+
+#async def main():
+
+#  with (multiprocessing.Pool(processes=num_workers) if use_multiprocessing else BlackHoleObject()) as pool:
+
+
+#  #/ with (multiprocessing.Pool(processes=num_workers) if use_multiprocessing else BlackHoleObject()) as pool:
+
+##/ async def main():
 
 
 if __name__ == '__main__':
