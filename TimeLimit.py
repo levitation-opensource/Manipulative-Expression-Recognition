@@ -5,17 +5,17 @@
 #
 # roland@simplify.ee
 #
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+#
 
 
 import time
-# from contextlib import contextmanager
 import threading
 
 import sys
-if sys.version_info[0] < 3: 
-  from thread import interrupt_main
-else:
-  from _thread import interrupt_main
+from _thread import interrupt_main
 
 
 
