@@ -90,6 +90,8 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
       aggregated_unexpected_labels[label] += 1
 
   aggregated_counts = OrderedDict(aggregated_counts.most_common())
+  aggregated_counts = OrderedDict(sorted(aggregated_counts.items()))  # Sort persons in counts field
+
   aggregated_unexpected_labels = OrderedDict(aggregated_unexpected_labels.most_common())
   
   

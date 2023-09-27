@@ -1422,6 +1422,8 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
   # format user input
   user_input = remove_comments(user_input)    # TODO: config flag   # NB! not calling .strip() in order to not mess up line indexing
+  all_labels_as_text = remove_comments(all_labels_as_text).strip()
+  all_ignored_labels_as_text = remove_comments(all_ignored_labels_as_text).strip()
 
 
   anonymise_names = config.get("anonymise_names")
@@ -1873,6 +1875,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
 
     # cleanup zero valued counts in totals
+    filtered_totals = OrderedDict(sorted(filtered_totals.items()))  # Sort persons in counts field
     for (person, person_counts) in filtered_totals.items():
       filtered_totals[person] = OrderedDict([(key, value) for (key, value) in person_counts.items() if value > 0])
 
