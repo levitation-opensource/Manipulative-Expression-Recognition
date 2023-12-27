@@ -60,6 +60,8 @@ decompression_limit = 1 * 1024 * 1024 * 1024     # TODO: tune, config file
 loop = asyncio.get_event_loop()
 
 
+sentinel = object() # https://web.archive.org/web/20200221224620id_/http://effbot.org/zone/default-values.htm
+
 
 is_dev_machine = (os.name == 'nt')
 debugging = (is_dev_machine and sys.gettrace() is not None) and (1 == 1)  # debugging switches
@@ -247,7 +249,7 @@ async def rename_temp_file(filename, make_backup = False):  # NB! make_backup is
 
       try_index += 1
       safeprint("retrying temp file rename: " + filename)
-      asyncio.sleep(5)
+      await asyncio.sleep(5)
       continue
 
     #/ try:
@@ -296,8 +298,12 @@ def init_logging(caller_filename = "", caller_name = "", log_dir = "logs", max_o
 #/ def init_logging():
 
 
-async def read_file(filename, default_data = {}, quiet = False):
+async def read_file(filename, default_data = sentinel, quiet = False):
   """Reads a pickled file"""
+
+  # https://web.archive.org/web/20200221224620id_/http://effbot.org/zone/default-values.htm
+  if default_data is sentinel:
+    default_data = {}
 
   fullfilename = os.path.join(data_dir, filename)
 
@@ -445,7 +451,7 @@ async def read_txt(filename, default_data = None, quiet = False):
 #/ async def read_txt(filename, quiet = False):
 
 
-async def save_txt(filename, str, quiet = False, make_backup = False, append = True):
+async def save_txt(filename, str, quiet = False, make_backup = False, append = False, use_bom = True):
   """Writes to a text file"""
 
   message_template = "file saving {} num of characters: {}"
@@ -458,15 +464,17 @@ async def save_txt(filename, str, quiet = False, make_backup = False, append = T
     if (1 == 1):    # enable async code
 
       async with aiofiles.open(fullfilename + ("" if append else ".tmp"), 'at' if append else 'wt', 1024 * 1024, encoding="utf-8") as afh:    # wt format automatically handles line breaks depending on the current OS type
-        await afh.write(codecs.BOM_UTF8.decode("utf-8"))
+        if use_bom:
+          await afh.write(codecs.BOM_UTF8.decode("utf-8"))
         await afh.write(str)
         await afh.flush()
 
     else:   #/ if (1 == 0):
 
       with open(fullfilename + ("" if append else ".tmp"), 'at' if append else 'wt', 1024 * 1024, encoding="utf-8") as fh:    # wt format automatically handles line breaks depending on the current OS type
-        # fh.write(codecs.BOM_UTF8 + str.encode("utf-8", "ignore"))
-        fh.write(codecs.BOM_UTF8.decode("utf-8"))
+        if use_bom:
+          # fh.write(codecs.BOM_UTF8 + str.encode("utf-8", "ignore"))
+          fh.write(codecs.BOM_UTF8.decode("utf-8"))
         fh.write(str)
         fh.flush()  # just in case
 
@@ -554,7 +562,6 @@ async def async_cached(cache_version, func, *args, **kwargs):
     cache_key = base64.b32encode(cache_key).decode("utf8").lower().replace("=", "0") 
     cache_key = "func=" + func.__name__ + "-ver=" + str(cache_version) + "-args=" + cache_key
 
-    # TODO: move this block to Utilities.py
     fulldirname = os.path.join(data_dir, "cache")
     os.makedirs(fulldirname, exist_ok = True)
 
@@ -604,7 +611,6 @@ async def async_cached_encrypted(cache_version, func, *args, **kwargs):
     cache_key = base64.b32encode(cache_key).decode("utf8").lower().replace("=", "0") 
     cache_key = "func=" + func.__name__ + "-ver=" + str(cache_version) + "-args=" + cache_key
 
-    # TODO: move this block to Utilities.py
     fulldirname = os.path.join(data_dir, "cache")
     os.makedirs(fulldirname, exist_ok = True)
 

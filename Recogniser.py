@@ -97,6 +97,7 @@ def get_config():
 
   
   gpt_model = remove_quotes(config.get("MER", "GPTModel", fallback="gpt-3.5-turbo-16k")).strip()
+  enable_auto_override_to_gpt4_32k = strtobool(remove_quotes(config.get("MER", "EnableAutoOverrideToGPT4_32k", fallback="false")))
   gpt_timeout = int(remove_quotes(config.get("MER", "GPTTimeoutInSeconds", fallback="600")).strip())
   extract_message_indexes = strtobool(remove_quotes(config.get("MER", "ExtractMessageIndexes", fallback="false")))
   extract_line_numbers = strtobool(remove_quotes(config.get("MER", "ExtractLineNumbers", fallback="false")))
@@ -115,6 +116,7 @@ def get_config():
   ignore_incorrectly_assigned_citations = strtobool(remove_quotes(config.get("MER", "IgnoreIncorrectlyAssignedCitations", fallback="false")))
   allow_multiple_citations_per_message = strtobool(remove_quotes(config.get("MER", "AllowMultipleCitationsPerMessage", fallback="true")))
   citation_lookup_time_limit = float(remove_quotes(config.get("MER", "CitationLookupTimeLimit", fallback="0.1")))
+  citation_lookup_outer_time_limit = float(remove_quotes(config.get("MER", "CitationLookupOuterTimeLimit", fallback="1.0")))
   temperature = float(remove_quotes(config.get("MER", "Temperature", fallback="0.0")))
   sample_count = int(remove_quotes(config.get("MER", "SampleCount", fallback="1")))
   default_label_treshold_sample_percent = float(remove_percent(remove_quotes(config.get("MER", "DefaultLabelThresholdSamplePercent", fallback="50"))))
@@ -122,6 +124,7 @@ def get_config():
 
   result = { 
     "gpt_model": gpt_model,
+    "enable_auto_override_to_gpt4_32k": enable_auto_override_to_gpt4_32k,
     "gpt_timeout": gpt_timeout,
     "extract_message_indexes": extract_message_indexes,
     "extract_line_numbers": extract_line_numbers,
@@ -140,6 +143,7 @@ def get_config():
     "ignore_incorrectly_assigned_citations": ignore_incorrectly_assigned_citations,
     "allow_multiple_citations_per_message": allow_multiple_citations_per_message,
     "citation_lookup_time_limit": citation_lookup_time_limit,
+    "citation_lookup_outer_time_limit": citation_lookup_outer_time_limit,
     "temperature": temperature,
     "sample_count": sample_count,
     "default_label_treshold_sample_percent": default_label_treshold_sample_percent,
@@ -324,7 +328,7 @@ def get_max_tokens_for_model(model_name):
 #/ def get_max_tokens_for_model(model_name):
 
 
-async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = 0): # sample_index is used only for cache keying and not inside this function
+async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = 0, enable_auto_override_to_gpt4_32k = False): # sample_index is used only for cache keying and not inside this function
 
   responses = []
   max_tokens = get_max_tokens_for_model(model_name)
@@ -347,7 +351,7 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
       # TODO: configuration for model override thresholds and for override model names
 
       # TODO: how to handle finish_reason == "length" in case the model is gpt-4-32k?
-      if num_input_tokens >= (8192 * 1.5) and model_name == "gpt-3.5-turbo-16k": # max_tokens == 16384:    # current model: "gpt-3.5-turbo-16k"
+      if enable_auto_override_to_gpt4_32k and num_input_tokens >= (8192 * 1.5) and model_name == "gpt-3.5-turbo-16k": # max_tokens == 16384:    # current model: "gpt-3.5-turbo-16k"
         if not too_long or model_upgraded:
           assert(False) 
         model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
@@ -356,10 +360,14 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
       elif num_input_tokens >= (4096 * 1.5) and model_name == "gpt-4": # max_tokens == 8192:    # current model: "gpt-4"
         if not too_long or model_upgraded:
           assert(False) 
-        #model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
-        #max_tokens = 16384
-        model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
-        max_tokens = 32768
+
+        if not enable_auto_override_to_gpt4_32k:
+          model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+          max_tokens = 16384
+        else:
+          model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
+          max_tokens = 32768
+
         safeprint(f"Overriding model with {model_name} due to input token count")
       elif num_input_tokens >= (2048 * 1.5) and model_name == "gpt-3.5-turbo": # max_tokens <= 4096:  # current model: "gpt-3.5-turbo"
         if not too_long or model_upgraded:
@@ -411,17 +419,21 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
 
         # first switch to more powerful model without continuation prompt, by instead repeating original prompt on a more powerful model. Only if model upgrade does not help, use continuation prompt.
 
-        if model_name == "gpt-3.5-turbo-16k": # max_tokens == 16384:    # current model: "gpt-3.5-turbo-16k"
+        if enable_auto_override_to_gpt4_32k and model_name == "gpt-3.5-turbo-16k": # max_tokens == 16384:    # current model: "gpt-3.5-turbo-16k"
           model_upgraded = True
           model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
           max_tokens = 32768
           safeprint(f"Overriding model with {model_name} due to output token count")
         elif model_name == "gpt-4": # max_tokens == 8192:    # current model: "gpt-4"
           model_upgraded = True
-          #model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
-          #max_tokens = 16384
-          model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
-          max_tokens = 32768
+
+          if not enable_auto_override_to_gpt4_32k:
+            model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+            max_tokens = 16384
+          else:
+            model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
+            max_tokens = 32768
+
           safeprint(f"Overriding model with {model_name} due to output token count")
         elif model_name == "gpt-3.5-turbo": # max_tokens <= 4096:  # current model: "gpt-3.5-turbo"
           model_upgraded = True
@@ -452,11 +464,18 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
 async def run_llm_analysis(config, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = 0, enable_cache = True):
 
   encrypt_cache_data = config["encrypt_cache_data"]
+  enable_auto_override_to_gpt4_32k = config["enable_auto_override_to_gpt4_32k"] # TODO: move to function argument?
   
+  kwargs = {}
+  if enable_auto_override_to_gpt4_32k:  # else do not bust caches of old code
+    kwargs.update({
+      "enable_auto_override_to_gpt4_32k": enable_auto_override_to_gpt4_32k
+    })
+
   if encrypt_cache_data:
-    result = await async_cached_encrypted(1 if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index)
+    result = await async_cached_encrypted(1 if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index, **kwargs)
   else:
-    result = await async_cached(1 if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index)
+    result = await async_cached(1 if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index, **kwargs)
 
   return result
 
@@ -465,7 +484,8 @@ async def run_llm_analysis(config, model_name, encoding, gpt_timeout, messages, 
 
 def remove_comments(text):
   # re.sub does global search and replace, replacing all matching instances
-  text = re.sub(r"(^|[\r\n]+)\s*#[^\r\n]*", r"\1", text)   # NB! keep the newlines before the comment in order to preserve line indexing # TODO: ensure that this does not affect LLM analysis
+  # keep text before comment, if it exists
+  text = re.sub(r"(^|[\r\n]+[^#]*)\s*#[^\r\n]*", r"\1", text)   # NB! keep the newlines before the comment in order to preserve line indexing # TODO: ensure that this does not affect LLM analysis
   return text
 #/ def remove_comments(text):
 
@@ -474,7 +494,8 @@ def sanitise_input(text):
   # re.sub does global search and replace, replacing all matching instances
   text = re.sub(r"[{\[]", "(", text)
   text = re.sub(r"[}\]]", ")", text)
-  text = re.sub(r"-{3,}", "--", text)   # TODO: use some other separator between system instruction and user input
+  text = re.sub(r"-{2,}", "-", text)   # TODO: use some other separator between system instruction and user input
+  # text = re.sub(r"-{3,}", "--", text)   # TODO: use some other separator between system instruction and user input
   return text
 #/ def sanitise_input(text):
 
@@ -770,6 +791,10 @@ def split_text_into_chunks_worker(encoding, paragraphs, paragraph_token_counts, 
 
 def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False, balance_chunk_sizes = True):  # TODO: overlap_chunks_at_least_halfway
 
+
+  assert(max_tokens_per_chunk > 0)
+
+
   paragraph_token_counts = []
   for paragraph in paragraphs:    
     paragraph_tokens = encoding.encode(paragraph)
@@ -975,23 +1000,39 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
       names_of_participants_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = 0) # NB! do not use sampling here # NB! temperature config setting is applied only to closed ended analysis
 
       # Try to detect persons from the input text. This is necessary for preserving proper message indexing in the output in case some person is not cited by LLM at all.
-      re_matches = re.findall(r"[\r\n]+\[?([^\]\n]*)\]?", "\n" + names_of_participants_response)
+      re_matches = re.findall(r"[\r\n]+\[?([^:\]\n]*)\]?", "\n" + names_of_participants_response) # NB! exclude ":" character from the name just in case
       for re_match in re_matches:
-        detected_persons.add(re_match)
+        person = re_match.strip()
+        if len(person) != 0:
+          detected_persons.add(person)
 
     #/ if extract_message_indexes:
 
     # Process LLM response
     keep_unexpected_labels = config.get("keep_unexpected_labels")
-    re_matches = re.findall(r"[\r\n]+\[(.*)\]:(.*)\{(.*)\}", "\n" + closed_ended_response)
+    re_matches = re.findall(r"[\r\n]+\[([^:\]\n]*)\]:(.*)\{(.*)\}", "\n" + closed_ended_response)   # need to exclude colon from person name since the regex is greedy and would otherwise match some emoticon inside the text
+    if len(re_matches) == 0:  # sometimes LLM response omits the requested brackets, so lets fall back to alternative regex
+      re_matches = re.findall(r"[\r\n]+\[?([^:\]\n]*)\]?:(.*)[ ]+--[ ]+(.*)", "\n" + closed_ended_response)   # need to exclude colon from person name since the regex is greedy and would otherwise match some emoticon inside the text
+
     for re_match in re_matches:
 
       (person, citation, labels) = re_match
-      citation = citation.strip()
-      if citation[-1] == "-":   # remove the dash between the citation and labels. Note that ChatGPT may omit this dash even if it is present in the instruction
-        citation = citation[0:-1].strip()
+      citation = citation.strip()   # TODO: configurable option: if citation is just a link or number then discard it
 
-      detected_persons.add(person)
+      if len(person) == 0:
+        # TODO: log error message
+        continue 
+
+      while citation[-1:] == "-":   # remove the dash between the citation and labels. Note that ChatGPT may omit this dash even if it is present in the instruction
+        citation = citation[:-1].strip()
+
+      if len(citation) == 0:  # recheck citation again after stripping the "-" at the end
+        # TODO: log error message
+        continue 
+
+
+      if person not in detected_persons:  # for debugging
+        detected_persons.add(person)
 
 
       labels = [x.strip() for x in labels.split(",")]
@@ -1221,14 +1262,17 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
         # TODO: cache results of this loop in cases it runs longer than n milliseconds
 
         max_l_dist = None
+        matches = []
+        inner_time_limits_encountered = False
+        outer_time_limit_encountered = False
         try: # NB! try needs to be outside of the time_limit context
 
-          citation_lookup_time_limit = config["citation_lookup_time_limit"]
+          inner_time_limit = config["citation_lookup_time_limit"]
+          outer_time_limit = config["citation_lookup_outer_time_limit"]
 
-          outer_time_limit = citation_lookup_time_limit
-          with time_limit(outer_time_limit, msg = "find_near_matches outer") as time_limit_handler:
+          with time_limit(outer_time_limit, msg = "find_near_matches outer") as outer_time_limit_handler:
 
-            for max_l_dist in range(0, min(len(citation), len(nearest_message))): # len(shortest_text)-1 is maximum reasonable distance. After that empty strings will match too   # TODO: apply time limit to this loop  
+            for max_l_dist in range(0, min(len(citation), len(nearest_message))): # len(shortest_text)-1 is maximum reasonable distance. After that empty strings will match too
 
               # NB! need to apply time limit to this function since in some cases it hangs
               #try: # NB! try needs to be outside of the time_limit context
@@ -1238,11 +1282,21 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
               #except TimeoutError:
               #  safeprint(f"Encountered an inner time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}")
               #  matches = []
-              matches = find_near_matches(citation, nearest_message, max_l_dist=max_l_dist)  
+
+              try:
+                with time_limit(inner_time_limit, msg = "find_near_matches inner") as inner_time_limit_handler:
+                  matches = find_near_matches(citation, nearest_message, max_l_dist=max_l_dist)  
+
+              except TimeoutError:
+                outer_time_limit_handler.disable_time_limit()   # do not trigger time limit in the middle of this block of code
+                inner_time_limits_encountered = True
+                safeprint(f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Trying again with a greater max_l_dist parameter value.")
+                outer_time_limit_handler.enable_time_limit()
           
+
               if len(matches) > 0:
 
-                time_limit_handler.disable_time_limit()   # do not trigger time limit in the middle of this block of code
+                outer_time_limit_handler.disable_time_limit()   # do not trigger time limit in the middle of this block of code
 
                 # TODO: if there are multiple expressions with same text in the input then mark them all, not just the first one
                 start_char = person_message_start_char + matches[0].start
@@ -1263,15 +1317,19 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
 
               #/ if len(matches) > 0:
 
-              if time_limit_handler.timeout_pending:  # sometimes the time limit handler does not fire the KeyboardInterrupt signal for some reason, in this case lets abort the loop manually
-                raise TimeoutError("Timed out for operation '{0}' after {1} seconds".format(time_limit_handler.msg, time_limit_handler.seconds))
+              if outer_time_limit_handler.timeout_pending:  # sometimes the time limit handler does not fire the KeyboardInterrupt signal for some reason, in this case lets abort the loop manually
+                raise TimeoutError("Timed out for operation '{0}' after {1} seconds".format(outer_time_limit_handler.msg, outer_time_limit_handler.seconds))
 
             #/ for max_l_dist in range(0, len(citation)):
 
           #/ with time_limit(0.1):
         except TimeoutError:
+          outer_time_limit_encountered = True
           safeprint(f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
           continue # Skip this citation from the output, do not even use the whole message. It is likely that the citation does not meaningfully match the content of nearest_message variable.
+
+        if len(matches) == 0 and inner_time_limits_encountered and not outer_time_limit_encountered:
+          safeprint(f"Encountered time limits during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
 
       #/ if allow_multiple_citations_per_message
 
@@ -1382,22 +1440,25 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     extract_line_numbers = config["extract_line_numbers"]
 
 
+  theme = "manipulation"
+
+
   labels_filename = argv[3] if len(argv) > 3 else None
   if labels_filename:
     labels_filename = os.path.join("..", labels_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
   else:
-    labels_filename = "default_labels.txt"
+    labels_filename = theme + "_labels.txt"
 
 
   ignored_labels_filename = argv[4] if len(argv) > 4 else None
   if ignored_labels_filename:
     ignored_labels_filename = os.path.join("..", ignored_labels_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
   else:
-    ignored_labels_filename = "ignored_labels.txt"
+    ignored_labels_filename = theme + "_ignored_labels.txt"
 
 
-  closed_ended_system_instruction = (await read_txt("closed_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
-  open_ended_system_instruction = (await read_txt("open_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
+  closed_ended_system_instruction = (await read_txt(theme + "_closed_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
+  open_ended_system_instruction = (await read_txt(theme + "_open_ended_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
   extract_names_of_participants_system_instruction = (await read_txt("extract_names_of_participants_system_instruction.txt", quiet = True)).lstrip()   # NB! use .lstrip() here so that the user input can be appended with newlines still between the instruction and user input
   all_labels_as_text = (await read_txt(labels_filename, quiet = True)).strip()
   all_ignored_labels_as_text = (await read_txt(ignored_labels_filename, quiet = True)).strip()
@@ -1480,27 +1541,65 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
 
   # split text into chunks
-  gpt_model = config["gpt_model"]
-  encoding = get_encoding_for_model(gpt_model)
-  model_max_tokens = get_max_tokens_for_model(gpt_model)
+  enable_auto_override_to_gpt4_32k = config["enable_auto_override_to_gpt4_32k"]
+  model_upgraded = False
+  while True:
 
-  reserve_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config        
-  model_max_tokens2 = model_max_tokens - 1 - reserve_tokens  # need to subtract the number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
+    gpt_model = config["gpt_model"]
+    encoding = get_encoding_for_model(gpt_model)
+    model_max_tokens = get_max_tokens_for_model(gpt_model)
 
-  closed_ended_instruction_token_count = len(encoding.encode(closed_ended_system_instruction_with_labels))
-  max_tokens_per_closed_ended_chunk = int((model_max_tokens2 - closed_ended_instruction_token_count) / (1 + 1.5)) # NB! assuming that each analysis response is up to 1.5 times as long as the user input text length   # TODO: config for this coefficient   # TODO: change coefficient to 1.75
+    reserve_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config        
+    model_max_tokens2 = model_max_tokens - 1 - reserve_tokens  # need to subtract the number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
 
-  open_ended_instruction_token_count = len(encoding.encode(open_ended_system_instruction))
-  max_tokens_per_open_ended_chunk = int((model_max_tokens2 - open_ended_instruction_token_count) / (1 + 0.5)) # assuming that open ended analysis response length is about 0.5 of the user input text length # TODO: config for this coefficient   # TODO: change coefficient to 0.75
+    closed_ended_instruction_token_count = len(encoding.encode(closed_ended_system_instruction_with_labels))
+    max_tokens_per_closed_ended_chunk = int((model_max_tokens2 - closed_ended_instruction_token_count) / (1 + 1.5)) # NB! assuming that each analysis response is up to 1.5 times as long as the user input text length   # TODO: config for this coefficient   # TODO: change coefficient to 1.75
 
-  if do_closed_ended_analysis and do_open_ended_analysis:
-    max_tokens_per_chunk = min(max_tokens_per_closed_ended_chunk, max_tokens_per_open_ended_chunk)
-  elif do_closed_ended_analysis:
-    max_tokens_per_chunk = max_tokens_per_closed_ended_chunk
-  elif do_open_ended_analysis:
-    max_tokens_per_chunk = max_tokens_per_open_ended_chunk
+    open_ended_instruction_token_count = len(encoding.encode(open_ended_system_instruction))
+    max_tokens_per_open_ended_chunk = int((model_max_tokens2 - open_ended_instruction_token_count) / (1 + 0.5)) # assuming that open ended analysis response length is about 0.5 of the user input text length # TODO: config for this coefficient   # TODO: change coefficient to 0.75
+
+    if do_closed_ended_analysis and do_open_ended_analysis:
+      max_tokens_per_chunk = min(max_tokens_per_closed_ended_chunk, max_tokens_per_open_ended_chunk)
+    elif do_closed_ended_analysis:
+      max_tokens_per_chunk = max_tokens_per_closed_ended_chunk
+    elif do_open_ended_analysis:
+      max_tokens_per_chunk = max_tokens_per_open_ended_chunk
+
+    
+
+    # some instructions or labels lists may be so long that there is no room for user input and LLM response tokens
+    if enable_auto_override_to_gpt4_32k and max_tokens_per_chunk < (16384 * 0.25) and gpt_model == "gpt-3.5-turbo-16k": # max_tokens == 16384:    # current model: "gpt-3.5-turbo-16k"
+      #if model_upgraded:
+      #  assert(False) 
+      config["gpt_model"] = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
+      # model_max_tokens = 32768
+      safeprint(f"Overriding model with {gpt_model} due to instruction token count")
+    elif max_tokens_per_chunk < (8192 * 0.25) and gpt_model == "gpt-4": # max_tokens == 8192:    # current model: "gpt-4"
+      #if model_upgraded:
+      #  assert(False) 
+
+      if not enable_auto_override_to_gpt4_32k:
+        config["gpt_model"] = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+        # model_max_tokens = 16384
+      else:
+        config["gpt_model"] = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
+        # model_max_tokens = 32768
+
+      safeprint(f"Overriding model with {gpt_model} due to instruction token count")
+    elif max_tokens_per_chunk < (4096 * 0.25) and gpt_model == "gpt-3.5-turbo": # max_tokens <= 4096:  # current model: "gpt-3.5-turbo"
+      #if model_upgraded:
+      #  assert(False) 
+      config["gpt_model"] = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+      # model_max_tokens = 16384
+      safeprint(f"Overriding model with {gpt_model} due to instruction token count")
+    else:
+      break
+
+  #/ while True:
+
 
   # max_tokens_per_chunk = 500  # for debugging
+  assert(max_tokens_per_chunk > 0)
 
   with Timer("Splitting text into chunks with balanced lengths"):
     chunks = split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False, balance_chunk_sizes = True)   # TODO: balance chunk lengths
@@ -1952,14 +2051,14 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
       chart = pygal.HorizontalBar(style=style, order_min=0)   # order_min specifies scale step in log10
       reverse_labels_order = True
       shift_labels_order_left = False
-    else:
+    else: # chart_type == "off":
       chart = None
       reverse_labels_order = False
       shift_labels_order_left = False
         
 
     # keep only labels which have nonzero values for at least one person
-    nonzero_labels_list = []  # this variable needs to be computed even when chart is not rendered, since if the nonzero_labels_list is empty then a message is shown that no manipulation was detected
+    nonzero_labels_list = []  # this variable needs to be computed even when chart is not rendered, since if the nonzero_labels_list is empty then a message will be shown that no labels were detected
     if True:
       for label in labels_list:
         for (person, person_counts) in filtered_totals.items():
@@ -2075,7 +2174,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
                     ''
                   ) 
                   if len(nonzero_labels_list) > 0 else                 
-                  '\n<div style="font: bold 1em Arial;">No manipulative expressions detected.</div>\n<br><br><br>'
+                  '\n<div style="font: bold 1em Arial;">No labeled expressions detected.</div>\n<br><br><br>'
                 )
               + '\n<div style="font: bold 1em Arial;">Qualitative summary:</div><br>'
               + '\n<div style="font: 1em Arial;">' 

@@ -6,7 +6,7 @@
 - Stonewalling
 - Dismissal
 - Dismissing
-- Invalidation 
+- Invalidation
 - Aggression
 - Evasion
 - Giving too brief or incomplete answers
@@ -17,6 +17,8 @@
 - Gaslighting
 - Shifting of responsibility and blame
 - Guilt tripping
+- Triggering
+- Reactive abuse
 - Victim playing
 - Exaggeration
 - Dramatization
@@ -101,6 +103,7 @@
 - Ignoring boundaries
 - Harsh startup
 - Abrupt reaction
+- Being abrupt
 - Hostility
 - Excessive defensiveness
 - Excessive criticism
@@ -118,6 +121,9 @@
 - Belittling
 - Invalidating
 - Keeping others in the dark
+- Repeating a question that was already answered
+- Group pressure
+- Disrespect
 - Manipulation
 - Foot-in-the-Door Technique
 - Door-in-the-Face Technique

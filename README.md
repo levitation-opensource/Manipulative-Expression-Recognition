@@ -99,14 +99,14 @@ The input conversation is provided as a UTF-8 text file with a log of a conversa
 	Etc...
 
 
-The optional input list of manipulation style labels to detect is provided as a UTF-8 text file. The labels are separated by newlines. The `data` folder contains a list of default labels in the file <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/default_labels.txt"><u>default_labels.txt</u></a> which is used when a user does not supply their own list of labels. The list format example follows.
+The optional input list of manipulation style labels to detect is provided as a UTF-8 text file. The labels are separated by newlines. The `data` folder contains a list of default labels in the file <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/manipulation_labels.txt"><u>manipulation_labels.txt</u></a> which is used when a user does not supply their own list of labels. The list format example follows.
 
     - Diminishing
     - Ignoring
     - Victim playing
     Etc...
 
-See <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/default_labels.txt"><u>default_labels.txt</u></a> for the complete list of default labels.
+See <a href="https://github.com/levitation-opensource/Manipulative-Expression-Recognition/blob/main/data/manipulation_labels.txt"><u>manipulation_labels.txt</u></a> for the complete list of default labels.
 
 
 ## Output format example
