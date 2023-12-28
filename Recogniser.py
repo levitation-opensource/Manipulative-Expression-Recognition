@@ -1263,7 +1263,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
 
         max_l_dist = None
         matches = []
-        inner_time_limits_encountered = False
+        inner_time_limits_encountered = []
         outer_time_limit_encountered = False
         try: # NB! try needs to be outside of the time_limit context
 
@@ -1288,10 +1288,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
                   matches = find_near_matches(citation, nearest_message, max_l_dist=max_l_dist)  
 
               except TimeoutError:
-                outer_time_limit_handler.disable_time_limit()   # do not trigger time limit in the middle of this block of code
-                inner_time_limits_encountered = True
-                safeprint(f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Trying again with a greater max_l_dist parameter value.")
-                outer_time_limit_handler.enable_time_limit()
+                inner_time_limits_encountered.append(max_l_dist)
           
 
               if len(matches) > 0:
@@ -1328,7 +1325,11 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
           safeprint(f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
           continue # Skip this citation from the output, do not even use the whole message. It is likely that the citation does not meaningfully match the content of nearest_message variable.
 
-        if len(matches) == 0 and inner_time_limits_encountered and not outer_time_limit_encountered:
+        # NB! Print the warning messages only outside of the time limited loop
+        for max_l_dist2 in inner_time_limits_encountered:
+          safeprint(f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist2}. Tried again with a greater max_l_dist parameter value.")
+
+        if len(matches) == 0 and len(inner_time_limits_encountered) > 0 and not outer_time_limit_encountered:
           safeprint(f"Encountered time limits during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
 
       #/ if allow_multiple_citations_per_message
