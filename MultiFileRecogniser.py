@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Author: Roland Pihlakas, 2023 - 2023
+# Author: Roland Pihlakas, 2023 - 2024
 #
 # roland@simplify.ee
 #
@@ -85,7 +85,7 @@ async def multi_file_recogniser(do_open_ended_analysis = None, do_closed_ended_a
       aggregated_counts += person_counts
 
   aggregated_unexpected_labels = Counter()
-  for unexpected_labels in aggregated_unexpected_labels:
+  for unexpected_labels in all_unexpected_labels:
     for label in unexpected_labels:
       aggregated_unexpected_labels[label] += 1
 

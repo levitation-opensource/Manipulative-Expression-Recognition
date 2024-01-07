@@ -1,104 +1,98 @@
 ﻿{
   "error_code": 0,
   "error_msg": "",
-  "sanitised_text": "Bob, is married to Sue. Sue cooked him dinner and was up till midnight waiting for Bob to come home. His cell was turned off and her increasingly desperate messages went right to voicemail and her texts were never answered.\nBob missed dinner because he went out for drinks with some male colleagues after work and they ended up at a strip club, They all got very drunk and had lap dances.\nHe came home very drunk with his clothing disheveled and in no condition to answer any of Sue\u2019s questions coherently.\nThe next morning, Sue asks Bob to explain why he missed dinner and didn\u2019t answer her texts. Bob becomes extremely defensive and tries to side step her questions.\nBob: Please leave me alone. My head hurts.\nSue: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?\nBob: Look, let\u2019s talk about it some other time.\nSue: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.\nBob: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?\nSue: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?\nBob: Shut up b*tch!",
+  "sanitised_text": "Bob, is married to Sue. Sue cooked him dinner and was up till midnight waiting for Bob to come home. His cell was turned off and her increasingly desperate messages went right to voicemail and her texts were never answered.\n\nBob missed dinner because he went out for drinks with some male colleagues after work and they ended up at a strip club, They all got very drunk and had lap dances.\n\nHe came home very drunk with his clothing disheveled and in no condition to answer any of Sue\u2019s questions coherently.\n\nThe next morning, Sue asks Bob to explain why he missed dinner and didn\u2019t answer her texts. Bob becomes extremely defensive and tries to side step her questions.\n\nBob: Please leave me alone. My head hurts.\n\nSue: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?\n\nBob: Look, let\u2019s talk about it some other time.\n\nSue: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.\n\nBob: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?\n\nSue: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?\n\nBob: Shut up b*tch!",
   "expressions": [
     {
       "person": "Bob",
-      "start_char": 674,
-      "end_char": 711,
+      "start_char": 678,
+      "end_char": 715,
       "text": "Please leave me alone. My head hurts.",
       "labels": {
-        "Evasion": 100.0,
-        "Not taking seriously": 60.0
+        "Evasion": 100
       },
       "message_index": 0,
-      "line_number": 6
-    },
-    {
-      "person": "Sue",
-      "start_char": 717,
-      "end_char": 901,
-      "text": "Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?",
-      "labels": {
-        "Accusation": 80.0
-      },
-      "message_index": 1,
-      "line_number": 7
-    },
-    {
-      "person": "Bob",
-      "start_char": 907,
-      "end_char": 949,
-      "text": "Look, let\u2019s talk about it some other time.",
-      "labels": {
-        "Evasion": 100.0,
-        "Procrastination": 100.0
-      },
-      "message_index": 2,
-      "line_number": 8
-    },
-    {
-      "person": "Sue",
-      "start_char": 955,
-      "end_char": 1058,
-      "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.",
-      "labels": {
-        "Accusation": 70.0,
-        "Demanding": 70.0
-      },
-      "message_index": 3,
-      "line_number": 9
-    },
-    {
-      "person": "Bob",
-      "start_char": 1064,
-      "end_char": 1140,
-      "text": "I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?",
-      "labels": {
-        "Being entitled": 70.0,
-        "Evasion": 80.0,
-        "Shifting of responsibility and blame": 100.0
-      },
-      "message_index": 4,
       "line_number": 10
     },
     {
       "person": "Sue",
-      "start_char": 1146,
-      "end_char": 1244,
-      "text": "But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?",
+      "start_char": 722,
+      "end_char": 906,
+      "text": "Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?",
       "labels": {
-        "Accusation": 90.0
+        "Accusation": 100
       },
-      "message_index": 5,
-      "line_number": 11
+      "message_index": 1,
+      "line_number": 12
     },
     {
       "person": "Bob",
-      "start_char": 1250,
-      "end_char": 1264,
+      "start_char": 913,
+      "end_char": 955,
+      "text": "Look, let\u2019s talk about it some other time.",
+      "labels": {
+        "Evasion": 100,
+        "Procrastination": 100
+      },
+      "message_index": 2,
+      "line_number": 14
+    },
+    {
+      "person": "Sue",
+      "start_char": 962,
+      "end_char": 1065,
+      "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.",
+      "labels": {
+        "Demanding": 100
+      },
+      "message_index": 3,
+      "line_number": 16
+    },
+    {
+      "person": "Bob",
+      "start_char": 1072,
+      "end_char": 1148,
+      "text": "I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?",
+      "labels": {
+        "Shifting of responsibility and blame": 80.0
+      },
+      "message_index": 4,
+      "line_number": 18
+    },
+    {
+      "person": "Sue",
+      "start_char": 1155,
+      "end_char": 1253,
+      "text": "But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?",
+      "labels": {
+        "Accusation": 100
+      },
+      "message_index": 5,
+      "line_number": 20
+    },
+    {
+      "person": "Bob",
+      "start_char": 1260,
+      "end_char": 1274,
       "text": "Shut up b*tch!",
       "labels": {
-        "Aggression": 100.0,
-        "Dismissal": 80.0
+        "Aggression": 100,
+        "Disrespect": 100
       },
       "message_index": 6,
-      "line_number": 12
+      "line_number": 22
     }
   ],
   "counts": {
     "Bob": {
       "Aggression": 1,
-      "Being entitled": 1,
-      "Dismissal": 1,
-      "Evasion": 3,
-      "Not taking seriously": 1,
+      "Disrespect": 1,
+      "Evasion": 2,
       "Procrastination": 1,
       "Shifting of responsibility and blame": 1
     },
     "Sue": {
-      "Accusation": 3,
+      "Accusation": 2,
       "Demanding": 1
     }
   },
@@ -113,6 +107,8 @@
     "Backhanded compliments",
     "Bait and Switch Technique",
     "Baiting",
+    "Being abrupt",
+    "Being entitled",
     "Being impatient",
     "Being oppositional",
     "Being ungrateful",
@@ -138,9 +134,9 @@
     "Deception",
     "Denying",
     "Diminishing",
+    "Dismissal",
     "Dismissing",
     "Distortion",
-    "Dominating the conversation",
     "Door-in-the-Face Technique",
     "Dramatization",
     "Exaggerated accusations",
@@ -155,6 +151,7 @@
     "Gaslighting",
     "Generalization",
     "Giving too brief or incomplete answers",
+    "Group pressure",
     "Guilt tripping",
     "Harsh startup",
     "Hostility",
@@ -163,6 +160,7 @@
     "Ignoring previous conflict",
     "Ignoring relation repair attempts",
     "Impatience",
+    "Indifference",
     "Ingratiation Technique",
     "Intentionally frustrating others",
     "Invalidating",
@@ -201,6 +199,8 @@
     "Poking at others weaknesses",
     "Power games",
     "Provocation",
+    "Reactive abuse",
+    "Repeating a question that was already answered",
     "Resentment and covert opposition",
     "Ridiculing",
     "Rumor spreading",
@@ -217,6 +217,7 @@
     "The Fear-Then-Relief Procedure",
     "The Scarcity Principle",
     "Threats",
+    "Triggering",
     "Undermining",
     "Unfairness",
     "Unrelated comments",
@@ -226,6 +227,6 @@
     "Victim playing",
     "Word salad"
   ],
-  "raw_expressions_labeling_response": "[Bob]: Please leave me alone. My head hurts. - {Evasion, Not taking seriously, Not attempting to understand, Ignoring}\n[Bob]: Look, let\u2019s talk about it some other time. - {Procrastination, Evasion, Ignoring, Not taking seriously}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Evasion, Not taking seriously, Shifting of responsibility and blame, Being entitled}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation}\n[Bob]: Shut up b*tch! - {Aggression, Dismissal, Not taking seriously}\n\n[Bob]: Please leave me alone. My head hurts. - {Dismissal, Evasion, Giving too brief or incomplete answers}\n[Bob]: Look, let\u2019s talk about it some other time. - {Evasion, Procrastination}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Shifting of responsibility and blame, Victim playing, Dismissal}\n[Bob]: Shut up b*tch! - {Aggression, Disrespect}\n\n[Bob]: Please leave me alone. My head hurts. - {Evasion, Not taking seriously, Dismissal}\n[Sue]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? - {Accusation, Victim playing}\n[Bob]: Look, let\u2019s talk about it some other time. - {Evasion, Procrastination}\n[Sue]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. - {Accusation, Victim playing}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Shifting of responsibility and blame, Being entitled}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation, Victim playing}\n[Bob]: Shut up b*tch! - {Aggression, Dismissal, Hostility}\n\n[Bob]: Please leave me alone. My head hurts. - {Evasion, Not taking seriously, Dismissal}\n[Sue]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? - {Accusation, Demanding}\n[Bob]: Look, let\u2019s talk about it some other time. - {Evasion, Procrastination, Dismissal}\n[Sue]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. - {Accusation, Demanding}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Evasion, Shifting of responsibility and blame, Being entitled}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation, Victim playing}\n[Bob]: Shut up b*tch! - {Aggression, Dismissal, Hostility}\n\n[Bob]: Please leave me alone. My head hurts. - {Evasion, Not taking seriously, Diminishing}\n[Sue]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? - {Accusation}\n[Bob]: Look, let\u2019s talk about it some other time. - {Evasion, Procrastination, Not taking seriously}\n[Sue]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. - {Accusation, Demanding}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Evasion, Shifting of responsibility and blame, Being entitled}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation, Judging}\n[Bob]: Shut up b*tch! - {Aggression, Dismissal, Hostility}\n\n[Bob]: Please leave me alone. My head hurts. - {Evasion, Giving too brief or incomplete answers}\n[Sue]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? - {Accusation}\n[Bob]: Look, let\u2019s talk about it some other time. - {Evasion, Procrastination}\n[Sue]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. - {Demanding, Accusation}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Evasion, Shifting of responsibility and blame, Being entitled}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation}\n[Bob]: Shut up b*tch! - {Aggression, Hostility}\n\n[Bob]: Please leave me alone. My head hurts. - {Evasion, Not taking seriously, Diminishing}\n[Sue]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? - {Accusation, Demanding}\n[Bob]: Look, let\u2019s talk about it some other time. - {Evasion, Procrastination}\n[Sue]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. - {Accusation, Demanding}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Evasion, Shifting of responsibility and blame, Being entitled}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation, Victim playing}\n[Bob]: Shut up b*tch! - {Aggression, Dismissal}\n\n[Bob]: Please leave me alone. My head hurts. - {Evasion, Giving too brief or incomplete answers, Dismissal}\n[Sue]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? - {Accusation, Demanding}\n[Bob]: Look, let\u2019s talk about it some other time. - {Evasion, Procrastination}\n[Sue]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. - {Demanding}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Evasion, Shifting of responsibility and blame}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation}\n[Bob]: Shut up b*tch! - {Aggression, Dismissal}\n\n[Bob]: Please leave me alone. My head hurts. - {Evasion, Not taking seriously, Dismissal}\n[Sue]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? - {Accusation}\n[Bob]: Look, let\u2019s talk about it some other time. - {Evasion, Procrastination}\n[Sue]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. - {Demanding, Accusation}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Evasion, Shifting of responsibility and blame, Being entitled}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation, Victim playing}\n[Bob]: Shut up b*tch! - {Aggression, Dismissal}\n\n[Bob]: Please leave me alone. My head hurts. - {Evasion, Ignoring, Not caring}\n[Sue]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? - {Accusation, Demanding}\n[Bob]: Look, let\u2019s talk about it some other time. - {Evasion, Procrastination}\n[Sue]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. - {Demanding, Accusation}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? - {Shifting of responsibility and blame, Evasion, Not taking seriously}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? - {Accusation, Victim playing}\n[Bob]: Shut up b*tch! - {Aggression, Dismissal}",
-  "qualitative_evaluation": "Bob's conversational style is defensive and evasive. He avoids answering Sue's questions directly and tries to deflect the conversation. He also becomes aggressive and disrespectful towards the end. Sue, on the other hand, is assertive and persistent. She demands answers and clarity from Bob, expressing her feelings of being neglected and disrespected. She maintains a tone of confrontation throughout the conversation."
+  "raw_expressions_labeling_response": "[Bob]: Please leave me alone. My head hurts. -- {Evasion, Giving too brief or incomplete answers, Not answering a question}\n[Sue]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? -- {Accusation}\n[Bob]: Look, let\u2019s talk about it some other time. -- {Evasion, Procrastination, Not answering a question}\n[Sue]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. -- {Demanding}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? -- {Evasion, Not answering a question, Being entitled}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? -- {Accusation, Judging}\n[Bob]: Shut up b*tch! -- {Aggression, Disrespect}\n\n[Bob]: Please leave me alone. My head hurts. -- {Evasion, Giving too brief or incomplete answers}\n[Sue]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? -- {Accusation, Judging}\n[Bob]: Look, let\u2019s talk about it some other time. -- {Evasion, Procrastination}\n[Sue]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. -- {Demanding, Accusation}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? -- {Evasion, Shifting of responsibility and blame}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? -- {Accusation, Judging}\n[Bob]: Shut up b*tch! -- {Aggression, Disrespect}\n\n[Bob]: Please leave me alone. My head hurts. -- {Evasion, Dismissal, Not caring}\n[Sue]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? -- {Accusation, Complaining}\n[Bob]: Look, let\u2019s talk about it some other time. -- {Evasion, Procrastination}\n[Sue]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. -- {Demanding, Accusation}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? -- {Defensiveness, Shifting of responsibility and blame}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? -- {Accusation, Complaining}\n[Bob]: Shut up b*tch! -- {Aggression, Disrespect}\n\n[Bob]: Please leave me alone. My head hurts. -- {Evasion, Dismissal, Not caring}\n[Sue]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? -- {Accusation, Demanding}\n[Bob]: Look, let\u2019s talk about it some other time. -- {Procrastination, Evasion}\n[Sue]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. -- {Demanding, Accusation}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? -- {Shifting of responsibility and blame, Being entitled}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? -- {Accusation, Judging}\n[Bob]: Shut up b*tch! -- {Aggression, Disrespect}\n\n[Bob]: Please leave me alone. My head hurts. -- {Evasion, Dismissal}\n[Sue]: Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know? -- {Demanding, Accusation}\n[Bob]: Look, let\u2019s talk about it some other time. -- {Evasion, Procrastination}\n[Sue]: You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open. -- {Demanding}\n[Bob]: I work hard all day. Aren\u2019t I entitled to relax and have a drink after work? -- {Evasion, Shifting of responsibility and blame, Being entitled}\n[Sue]: But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel? -- {Accusation}\n[Bob]: Shut up b*tch! -- {Aggression, Disrespect}",
+  "qualitative_evaluation": "Bob's conversational style is defensive and evasive. He avoids answering Sue's questions directly, tries to deflect the conversation, and becomes aggressive when pressed. Sue's style is assertive and persistent. She insists on getting an explanation from Bob, expresses her feelings of being neglected, and confronts him about his behavior."
 }

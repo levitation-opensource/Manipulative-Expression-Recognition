@@ -45,11 +45,12 @@
     <Content Include=".gitignore" />
     <Content Include="data\aggregated_stats.json" />
     <Content Include="data\continuation_request.txt" />
-    <Content Include="data\default_labels.txt" />
     <Content Include="data\extract_names_of_participants_system_instruction.txt" />
     <Content Include="data\filtered_labels.json" />
-    <Content Include="data\ignored_labels.txt" />
-    <Content Include="data\open_ended_system_instruction.txt" />
+    <Content Include="data\manipulation_closed_ended_system_instruction.txt" />
+    <Content Include="data\manipulation_ignored_labels.txt" />
+    <Content Include="data\manipulation_labels.txt" />
+    <Content Include="data\manipulation_open_ended_system_instruction.txt" />
     <Content Include="data\script_gaslight.txt" />
     <Content Include="data\script_gaslight_evaluation.json" />
     <Content Include="data\script_gaslight_evaluation.pdf" />
@@ -67,10 +68,9 @@
     <Content Include="data\test_input9_escalating.txt" />
     <Content Include="install_steps.txt" />
     <Content Include="LICENSE" />
-    <Content Include="MER.ini" />
+    <Content Include="Recogniser.ini" />
     <Content Include="README.md" />
     <Content Include="requirements.txt" />
-    <Content Include="data\closed_ended_system_instruction.txt" />
     <Content Include="data\test_input.txt" />
     <Content Include="test_input_sources.txt" />
   </ItemGroup>

@@ -1,50 +1,50 @@
 ﻿{
   "counts": {
-    "Accusation": 60,
-    "Dismissal": 39,
-    "Exaggeration": 18,
-    "Evasion": 13,
-    "Victim playing": 13,
-    "Demanding": 10,
-    "Blaming": 9,
-    "Ignoring": 7,
-    "Not taking seriously": 5,
-    "Aggression": 4,
-    "Gaslighting": 4,
-    "Sarcasm": 3,
-    "Shifting of responsibility and blame": 3,
-    "Feigning ignorance": 3,
-    "Comparing": 3,
-    "Provocation": 3,
-    "Ignoring previous conflict": 2,
-    "Threats": 2,
-    "Changing the topic": 2,
-    "Creating artificial obligations": 2,
-    "Invalidation": 2,
-    "Acting as if nothing remarkable happened": 1,
-    "Diminishing": 1,
-    "Making assumptions": 1,
-    "Denying": 1,
     "Abrupt reaction": 1,
-    "Ignoring boundaries": 1,
-    "Ignoring relation repair attempts": 1,
-    "Manipulation": 1,
-    "Sullenness or cynicism": 1,
-    "Distortion": 1,
+    "Accusation": 52,
+    "Aggression": 3,
+    "Blaming": 7,
+    "Changing the topic": 1,
+    "Comparing": 2,
+    "Complaining": 5,
+    "Creating artificial obligations": 2,
     "Deception": 1,
-    "Being entitled": 1,
+    "Demanding": 11,
+    "Denying": 2,
+    "Diminishing": 1,
+    "Dismissal": 24,
+    "Disrespect": 2,
+    "Distortion": 2,
+    "Evasion": 12,
+    "Exaggeration": 13,
+    "Feigning ignorance": 3,
+    "Gaslighting": 4,
+    "Ignoring": 1,
+    "Ignoring previous conflict": 3,
+    "Invalidating": 1,
+    "Invalidation": 2,
+    "Manipulation": 2,
     "Procrastination": 1,
-    "Attacking": 1,
-    "Silent treatment": 1
+    "Provocation": 7,
+    "Sarcasm": 1,
+    "Shifting of responsibility and blame": 3,
+    "Silent treatment": 1,
+    "Sullenness or cynicism": 1,
+    "Threats": 2,
+    "Victim playing": 9
   },
   "unexpected_labels": {},
   "unused_labels": [
     "Accusations based on assumptions",
+    "Acting as if nothing remarkable happened",
     "Answering a different question than was asked",
     "Antagonism",
+    "Attacking",
     "Backhanded compliments",
     "Bait and Switch Technique",
     "Baiting",
+    "Being abrupt",
+    "Being entitled",
     "Being impatient",
     "Being oppositional",
     "Being ungrateful",
@@ -55,7 +55,6 @@
     "Claiming ignorance",
     "Comparing to everyone else",
     "Comparison",
-    "Complaining",
     "Condescending",
     "Confusing others",
     "Contempt",
@@ -64,7 +63,6 @@
     "Creating a time pressure",
     "Cruel humor",
     "Dismissing",
-    "Dominating the conversation",
     "Door-in-the-Face Technique",
     "Dramatization",
     "Exaggerated accusations",
@@ -76,13 +74,16 @@
     "Gaining superiority",
     "Generalization",
     "Giving too brief or incomplete answers",
+    "Group pressure",
     "Guilt tripping",
     "Harsh startup",
     "Hostility",
+    "Ignoring boundaries",
+    "Ignoring relation repair attempts",
     "Impatience",
+    "Indifference",
     "Ingratiation Technique",
     "Intentionally frustrating others",
-    "Invalidating",
     "Judgemental expressions",
     "Judging",
     "Keeping others in the dark",
@@ -91,6 +92,7 @@
     "Lying",
     "Making another person dependent on speaker for information",
     "Making another person feel inadequate",
+    "Making assumptions",
     "Making other feel like they are doing something wrong",
     "Making others doubt themselves",
     "Making others feel insecure",
@@ -114,6 +116,8 @@
     "Patronizing",
     "Poking at others weaknesses",
     "Power games",
+    "Reactive abuse",
+    "Repeating a question that was already answered",
     "Resentment and covert opposition",
     "Ridiculing",
     "Rumor spreading",
@@ -126,6 +130,7 @@
     "The Disrupt-Then-Reframe Technique",
     "The Fear-Then-Relief Procedure",
     "The Scarcity Principle",
+    "Triggering",
     "Undermining",
     "Unfairness",
     "Unrelated comments",
@@ -135,85 +140,52 @@
     "Word salad"
   ],
   "grouped_labels": {
+    "Abrupt reaction": [
+      {
+        "grouped_label": "Abrupt reaction",
+        "all_labels": {
+          "Abrupt reaction": 100.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "I gotta goooo.....seeeyah....(click)",
+        "message_index": 67,
+        "line_number": 136
+      }
+    ],
     "Accusation": [
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 90.0,
+          "Accusation": 100.0,
           "Exaggeration": 80.0,
           "Victim playing": 100.0
         },
         "file": "data\\test_input.txt",
         "text": "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!",
         "message_index": 6,
-        "line_number": 8
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 80.0,
-          "Exaggeration": 100.0,
-          "Victim playing": 100.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!",
-        "message_index": 8,
-        "line_number": 10
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 80.0,
-          "Exaggeration": 80.0,
-          "Victim playing": 60.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!",
-        "message_index": 10,
-        "line_number": 12
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 90.0,
-          "Making assumptions": 60.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT",
-        "message_index": 12,
         "line_number": 14
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Blaming": 60.0,
-          "Dismissal": 60.0,
-          "Accusation": 70.0
+          "Accusation": 100.0,
+          "Provocation": 100.0
         },
-        "file": "data\\test_input2.txt",
-        "text": "Yes. It happens that our entire existence here is your space, too. There\u2019s other things that go on here that you think have nothing to do with you, too, but they actually do. Because, you know, they\u2019re ours. You don\u2019t think in terms of OURS.",
-        "message_index": 10,
-        "line_number": 12
+        "file": "data\\test_input.txt",
+        "text": "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT",
+        "message_index": 12,
+        "line_number": 26
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 100.0
+          "Accusation": 100.0,
+          "Blaming": 100.0
         },
         "file": "data\\test_input2.txt",
         "text": "So instead of asking me if this would be a good time, to do some stuff in \u201cmy space,\u201d you had to create all of this?",
         "message_index": 11,
-        "line_number": 13
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 70.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "By using the wrong language, by not jumping up to come and help you, instead I asked if I could help instead of making this my project so we could work on it as a team, even though maybe it\u2019s not really convenient for me at the moment because I was in the middle of some number stuff\u2026",
-        "message_index": 13,
-        "line_number": 15
+        "line_number": 24
       },
       {
         "grouped_label": "Accusation",
@@ -221,153 +193,110 @@
           "Accusation": 80.0
         },
         "file": "data\\test_input2.txt",
-        "text": "So why are you so offended when I say, \u201ccan I help you\u201d \u2026",
-        "message_index": 15,
-        "line_number": 17
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 90.0
-        },
-        "file": "data\\test_input2.txt",
         "text": "What should have been so pitifully obvious is that you\u2019re setting it up so I can say no.",
         "message_index": 20,
-        "line_number": 22
+        "line_number": 42
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 90.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "No, you did not. You said you wanted to move the plywood. I asked if you needed any help. You said no. So how am I supposed to interpret that? Instead of asking if you need help I should have just jumped up, come out here and we would have done this thing together and then everything would have been fine. Is that what you\u2019re telling me?",
-        "message_index": 23,
-        "line_number": 25
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 60.0,
-          "Dismissal": 60.0
+          "Accusation": 80.0
         },
         "file": "data\\test_input2.txt",
         "text": "Why wouldn\u2019t you do that? That\u2019s what I\u2019m wondering.",
         "message_index": 24,
-        "line_number": 26
+        "line_number": 50
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 60.0
+          "Accusation": 80.0
         },
         "file": "data\\test_input2.txt",
-        "text": "No, because when I asked you if you needed help you said no. So I assumed A \u2013 you were going to do something else first or B \u2013 you\u2019re going to do it yourself because I am busy. When I ask somebody else if they need my help, there\u2019s no judgement in it, its simply, can I assist you in any way?",
-        "message_index": 27,
-        "line_number": 29
+        "text": "I don\u2019t see why you\u2019re so offended if I ask you if you need my assistance",
+        "message_index": 29,
+        "line_number": 62
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 80.0,
-          "Dismissal": 60.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "What are you so busy with that you can\u2019t help me?",
-        "message_index": 28,
-        "line_number": 30
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 90.0
+          "Accusation": 80.0
         },
         "file": "data\\test_input2.txt",
         "text": "Because\u2026You\u2019re not helping me at all!",
         "message_index": 30,
-        "line_number": 33
+        "line_number": 64
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 60.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Right, I\u2019m helping US. I get it. My thought process is off here. But it seems that my thought process is always off and we have this thing.",
-        "message_index": 31,
-        "line_number": 34
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 80.0,
-          "Dismissal": 60.0
+          "Accusation": 80.0
         },
         "file": "data\\test_input2.txt",
         "text": "it\u2019s this particular thing. This is it. Do you see the repetition in it?",
         "message_index": 32,
-        "line_number": 35
+        "line_number": 68
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 90.0
+          "Accusation": 80.0
         },
         "file": "data\\test_input2.txt",
         "text": "Yes, I do see the repetition and it really pisses me off.",
         "message_index": 33,
-        "line_number": 36
+        "line_number": 70
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": {
+          "Accusation": 80.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "Well, it pisses me off even more!",
+        "message_index": 34,
+        "line_number": 72
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": {
+          "Accusation": 80.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "Yeah? Well, I don\u2019t understand that if I tell you, if I say to you, I\u2019m offering you whatever assistance, how ever I can be of help why you\u2019re so offended by that. I have to use the exact language that you\u2026",
+        "message_index": 35,
+        "line_number": 74
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": {
+          "Accusation": 80.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "Because you never take the lead.",
+        "message_index": 36,
+        "line_number": 76
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": {
+          "Accusation": 80.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "When I take the lead, you change how things are going.",
+        "message_index": 37,
+        "line_number": 78
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
           "Accusation": 80.0,
-          "Dismissal": 60.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Well, it pisses me off even more!",
-        "message_index": 34,
-        "line_number": 37
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 70.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Yeah? Well, I don\u2019t understand that if I tell you, if I say to you, I\u2019m offering you whatever assistance, how ever I can be of help why you\u2019re so offended by that. I have to use the exact language that you\u2026",
-        "message_index": 35,
-        "line_number": 38
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 90.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Because you never take the lead.",
-        "message_index": 36,
-        "line_number": 39
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 90.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "When I take the lead, you change how things are going.",
-        "message_index": 37,
-        "line_number": 40
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 90.0
+          "Blaming": 80.0
         },
         "file": "data\\test_input2.txt",
         "text": "Because you are the one who decides how the project goes in the end.",
         "message_index": 41,
-        "line_number": 44
+        "line_number": 86
       },
       {
         "grouped_label": "Accusation",
@@ -377,7 +306,7 @@
         "file": "data\\test_input2.txt",
         "text": "In the end YOU determine how things happen around here, in all things. Don\u2019t give me that shit! It\u2019s a very passive aggressive command form. That\u2019s what I\u2019m objecting to! Years and years of it!",
         "message_index": 42,
-        "line_number": 45
+        "line_number": 88
       },
       {
         "grouped_label": "Accusation",
@@ -387,18 +316,18 @@
         "file": "data\\test_input3.txt",
         "text": "(impatiently and angrily): Ohhh come on!! I can't believe how selfish you are being!",
         "message_index": 21,
-        "line_number": 23
+        "line_number": 44
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 70.0,
-          "Exaggeration": 80.0
+          "Accusation": 100.0,
+          "Exaggeration": 100.0
         },
         "file": "data\\test_input3.txt",
         "text": "(rapidly and angrily): Here comes the control!!! I will not be controlled!! I am a free bird!! I need to be free!!",
         "message_index": 33,
-        "line_number": 35
+        "line_number": 68
       },
       {
         "grouped_label": "Accusation",
@@ -409,269 +338,203 @@
         "file": "data\\test_input3.txt",
         "text": "Yes, it's not fair!! You are wrong! I need your car.....",
         "message_index": 35,
-        "line_number": 37
+        "line_number": 72
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Exaggeration": 60.0,
-          "Accusation": 60.0
+          "Accusation": 100.0,
+          "Exaggeration": 80.0
         },
         "file": "data\\test_input3.txt",
         "text": "(crankily): Oh my God! No, no, no....I am not to be controlled!!",
         "message_index": 43,
-        "line_number": 45
+        "line_number": 88
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 90.0,
-          "Exaggeration": 60.0
+          "Accusation": 100.0
         },
         "file": "data\\test_input3.txt",
-        "text": "You are not Mr. Innocent... you flirted!! You flirted, and I could tell. After all, why was she smiling at you!! You were flir........",
+        "text": "You are not Mr. Innocent... you flirted!! You flirted, and I could tell. After all, why was she smiling at you!! You were flir.........",
         "message_index": 59,
-        "line_number": 61
+        "line_number": 120
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 60.0
+          "Accusation": 100.0
         },
         "file": "data\\test_input4.txt",
         "text": "are you saying I'm lazy?",
         "message_index": 2,
-        "line_number": 4
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Distortion": 60.0,
-          "Accusation": 60.0
-        },
-        "file": "data\\test_input4.txt",
-        "text": "So you're saying it's my fault that your apartment is messy?",
-        "message_index": 4,
         "line_number": 6
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 80.0
+          "Accusation": 100.0
         },
         "file": "data\\test_input4.txt",
-        "text": "Now you're trying to make me feel bad.",
-        "message_index": 8,
+        "text": "So you're saying it's my fault that your apartment is messy?",
+        "message_index": 4,
         "line_number": 10
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Comparing": 70.0,
-          "Victim playing": 100.0,
-          "Accusation": 60.0
+          "Accusation": 80.0,
+          "Blaming": 100.0
         },
         "file": "data\\test_input4.txt",
-        "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me.",
-        "message_index": 12,
+        "text": "Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault.",
+        "message_index": 6,
         "line_number": 14
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
+          "Accusation": 100.0
+        },
+        "file": "data\\test_input4.txt",
+        "text": "Now you're trying to make me feel bad.",
+        "message_index": 8,
+        "line_number": 18
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": {
           "Accusation": 100.0,
-          "Victim playing": 90.0
+          "Victim playing": 100.0
+        },
+        "file": "data\\test_input4.txt",
+        "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me.",
+        "message_index": 12,
+        "line_number": 26
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Victim playing": 100.0
         },
         "file": "data\\test_input4.txt",
         "text": "There you go, making this my fault again.",
         "message_index": 18,
-        "line_number": 20
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Dismissal": 90.0,
-          "Invalidation": 80.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "Your head does NOT hurt, you\u2019re just being lazy. I just worked 8 long hours and I don\u2019t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache.",
-        "message_index": 7,
-        "line_number": 11
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Blaming": 60.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "You know we missed the thing. You did that on purpose.",
-        "message_index": 11,
-        "line_number": 16
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Exaggeration": 100.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "So you\u2019re comparing our relationship to other people\u2019s? I don\u2019t know if I can be in a relationship like this anymore. My friend (random girl/ guy name), says that anytime someone does that it\u2019s time to leave. I will NOT put up with that FUCKING SHIT!",
-        "message_index": 15,
-        "line_number": 20
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Exaggeration": 100.0,
-          "Blaming": 70.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "You don\u2019t respect me. You\u2019re always telling me my head doesn\u2019t hurt. You\u2019re always taking naps and ruining our plans.",
-        "message_index": 17,
-        "line_number": 22
+        "line_number": 38
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
           "Accusation": 80.0,
-          "Gaslighting": 90.0
+          "Dismissal": 80.0,
+          "Invalidation": 80.0
         },
         "file": "data\\test_input5.txt",
-        "text": "Bull shit. You know I\u2019m right. You even said I was right before you took a nap. I said your head doesn\u2019t even hurt and you said \u2018you\u2019re right\u2019 and went to sleep.",
-        "message_index": 19,
-        "line_number": 24
+        "text": "Your head does NOT hurt, you\u2019re just being lazy. I just worked 8 long hours and I don\u2019t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache.",
+        "message_index": 7,
+        "line_number": 20
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 90.0,
+          "Accusation": 100.0,
+          "Blaming": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "You know we missed the thing. You did that on purpose.",
+        "message_index": 11,
+        "line_number": 30
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": {
+          "Accusation": 80.0,
+          "Exaggeration": 80.0,
+          "Provocation": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "So you\u2019re comparing our relationship to other people\u2019s? I don\u2019t know if I can be in a relationship like this anymore. My friend (random girl/ guy name), says that anytime someone does that it\u2019s time to leave. I will NOT put up with that FUCKING SHIT!",
+        "message_index": 15,
+        "line_number": 38
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Blaming": 80.0,
+          "Exaggeration": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "You don\u2019t respect me. You\u2019re always telling me my head doesn\u2019t hurt. You\u2019re always taking naps and ruining our plans.",
+        "message_index": 17,
+        "line_number": 42
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Distortion": 80.0,
           "Gaslighting": 100.0
         },
         "file": "data\\test_input5.txt",
         "text": "I promise you, you\u2019re lying. You SAID I WAS RIGHT because you KNOW your head wasn\u2019t hurting. You even SAID you were a horrible person before you went to sleep.",
         "message_index": 21,
-        "line_number": 26
+        "line_number": 50
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 60.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "Anyways, (Earlier mentioned Guy/Girl friend) went with me instead to the thing, while you were snoring like a FUCKING pig. She/He said they would never put up with that shit.",
-        "message_index": 23,
-        "line_number": 28
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 80.0,
-          "Blaming": 90.0,
-          "Gaslighting": 90.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "I told you it wasn\u2019t a date! You are always over-exaggerating. This is all your fault anyway. You didn\u2019t have to take a nap. You chose to take a nap.",
-        "message_index": 27,
-        "line_number": 32
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Evasion": 60.0
+          "Accusation": 100.0
         },
         "file": "data\\test_input5.txt",
         "text": "STOP PLAYING GAMES. YOU KNOW WHY.",
         "message_index": 37,
-        "line_number": 42
+        "line_number": 82
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 80.0
+          "Accusation": 100.0
         },
         "file": "data\\test_input6.txt",
         "text": "Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?",
         "message_index": 1,
-        "line_number": 7
+        "line_number": 12
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 70.0,
-          "Demanding": 70.0
-        },
-        "file": "data\\test_input6.txt",
-        "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.",
-        "message_index": 3,
-        "line_number": 9
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 90.0
+          "Accusation": 100.0
         },
         "file": "data\\test_input6.txt",
         "text": "But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?",
         "message_index": 5,
-        "line_number": 11
+        "line_number": 20
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
           "Accusation": 100.0,
-          "Exaggeration": 90.0,
-          "Provocation": 60.0
+          "Exaggeration": 80.0,
+          "Provocation": 100.0
         },
         "file": "data\\test_input7.txt",
         "text": "\"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\"",
         "message_index": 4,
-        "line_number": 10
+        "line_number": 18
       },
       {
         "grouped_label": "Accusation",
         "all_labels": {
           "Accusation": 100.0,
-          "Attacking": 70.0,
-          "Exaggeration": 100.0
+          "Provocation": 100.0
         },
         "file": "data\\test_input7.txt",
         "text": "\"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\"",
         "message_index": 6,
-        "line_number": 13
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d.",
-        "message_index": 3,
-        "line_number": 5
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c",
-        "message_index": 5,
-        "line_number": 7
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d",
-        "message_index": 11,
-        "line_number": 13
+        "line_number": 24
       },
       {
         "grouped_label": "Accusation",
@@ -679,1000 +542,405 @@
           "Accusation": 80.0
         },
         "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d",
-        "message_index": 12,
-        "line_number": 14
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d.",
-        "message_index": 13,
-        "line_number": 15
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d",
-        "message_index": 17,
-        "line_number": 19
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d.",
-        "message_index": 19,
-        "line_number": 21
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 60.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d",
-        "message_index": 21,
-        "line_number": 23
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d",
-        "message_index": 23,
-        "line_number": 25
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 60.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d",
-        "message_index": 24,
-        "line_number": 26
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Victim playing": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\"Oh, so now you're just going to walk away from everything we have? That's it?\"",
-        "message_index": 26,
-        "line_number": 28
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 60.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\"",
-        "message_index": 27,
-        "line_number": 29
-      },
-      {
-        "grouped_label": "Accusation",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Victim playing": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*in disbelief* \"So this is it then? You're just going to leave?\"",
-        "message_index": 30,
-        "line_number": 32
-      }
-    ],
-    "Dismissal": [
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 80.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat.",
-        "message_index": 13,
-        "line_number": 15
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 80.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "OK :/",
-        "message_index": 17,
-        "line_number": 19
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 80.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "I don\u2019t want to. No.",
-        "message_index": 20,
-        "line_number": 24
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 100.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "So it has to be my decision\u2026",
-        "message_index": 1,
-        "line_number": 3
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 70.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "It does!",
-        "message_index": 2,
-        "line_number": 4
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 90.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "I have to volunteer\u2026",
-        "message_index": 3,
-        "line_number": 5
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 70.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Yes!",
-        "message_index": 4,
-        "line_number": 6
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 80.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "I have to change the entire language of the entire conversation to me helping you.",
-        "message_index": 5,
-        "line_number": 7
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 80.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "So I have to take your project and instantly make it my own and go and assist you so that we can work as a team.",
-        "message_index": 7,
-        "line_number": 9
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 60.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "It\u2019s your project. For starters, it\u2019s in your space. Entirely in your space.",
-        "message_index": 8,
-        "line_number": 10
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 80.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "So anything that happens in my space, I need to involve myself and make it my project\u2026",
-        "message_index": 9,
-        "line_number": 11
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Blaming": 60.0,
-          "Dismissal": 60.0,
-          "Accusation": 70.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Yes. It happens that our entire existence here is your space, too. There\u2019s other things that go on here that you think have nothing to do with you, too, but they actually do. Because, you know, they\u2019re ours. You don\u2019t think in terms of OURS.",
-        "message_index": 10,
-        "line_number": 12
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 80.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Well, certainly, if you came and asked me\u2026if you said to me, \u201cyou need to get that saddle down\u2026\u201d I\u2019d jump right up and help with that because it\u2019s something that would take two people and, you know, my stuff is all over it. So obviously you\u2019re going to have some hassles dealing with my stuff so I wouldn\u2019t even hesitate. I\u2019m there.",
-        "message_index": 14,
-        "line_number": 16
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 60.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "You could have just said, yeah, I need some help\u2026",
-        "message_index": 17,
-        "line_number": 19
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 70.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Sure, go ahead.",
-        "message_index": 19,
-        "line_number": 21
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 80.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Why can\u2019t you say yes?",
-        "message_index": 21,
-        "line_number": 23
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Accusation": 60.0,
-          "Dismissal": 60.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Why wouldn\u2019t you do that? That\u2019s what I\u2019m wondering.",
-        "message_index": 24,
-        "line_number": 26
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Accusation": 80.0,
-          "Dismissal": 60.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "What are you so busy with that you can\u2019t help me?",
-        "message_index": 28,
-        "line_number": 30
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 60.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "I don\u2019t see why you\u2019re so offended if I ask you if you need my assistance",
-        "message_index": 29,
-        "line_number": 32
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Accusation": 80.0,
-          "Dismissal": 60.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "it\u2019s this particular thing. This is it. Do you see the repetition in it?",
-        "message_index": 32,
-        "line_number": 35
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Accusation": 80.0,
-          "Dismissal": 60.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Well, it pisses me off even more!",
-        "message_index": 34,
-        "line_number": 37
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 100.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Well, of course.",
-        "message_index": 38,
-        "line_number": 41
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 70.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Why should I take the lead then?",
-        "message_index": 39,
-        "line_number": 42
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 90.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Why should I take the lead?",
-        "message_index": 40,
-        "line_number": 43
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 100.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "Exactly!! What's the big deal.",
-        "message_index": 13,
-        "line_number": 15
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 100.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "Come on what does it matter, we are just going to go out clubbing!",
-        "message_index": 19,
-        "line_number": 21
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 90.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "What does that have to do with anything? Why does that even matter??",
-        "message_index": 41,
-        "line_number": 43
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Comparing": 100.0,
-          "Dismissal": 60.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "Maybe I should take a nap and you should wake ME up. My head hurts wayy more than yours does.",
-        "message_index": 3,
-        "line_number": 7
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 80.0,
-          "Invalidation": 80.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "Nope. Mine definitely hurts worse. Your head doesn\u2019t even hurt. You\u2019re just saying that. Look, you\u2019re not even napping, you\u2019re still talking to me.",
-        "message_index": 5,
-        "line_number": 9
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Dismissal": 90.0,
-          "Invalidation": 80.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "Your head does NOT hurt, you\u2019re just being lazy. I just worked 8 long hours and I don\u2019t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache.",
-        "message_index": 7,
-        "line_number": 11
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 100.0,
-          "Not taking seriously": 60.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "(walks off mumbling) This is bullshit.",
-        "message_index": 9,
-        "line_number": 13
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Aggression": 100.0,
-          "Dismissal": 80.0
-        },
-        "file": "data\\test_input6.txt",
-        "text": "Shut up b*tch!",
-        "message_index": 6,
-        "line_number": 12
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 60.0
-        },
-        "file": "data\\test_input7.txt",
-        "text": "\"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\"",
-        "message_index": 1,
-        "line_number": 5
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 70.0
-        },
-        "file": "data\\test_input7.txt",
-        "text": "\"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\"",
-        "message_index": 5,
-        "line_number": 11
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 90.0
-        },
-        "file": "data\\test_input8.txt",
-        "text": "\u201cYes. They don't live here anymore.\u201d",
+        "text": "\u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d.",
         "message_index": 1,
         "line_number": 4
       },
       {
-        "grouped_label": "Dismissal",
+        "grouped_label": "Accusation",
         "all_labels": {
-          "Dismissal": 70.0
+          "Accusation": 80.0,
+          "Complaining": 80.0
         },
-        "file": "data\\test_input8.txt",
-        "text": "\u201cI let them go free.\u201d",
-        "message_index": 5,
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d.",
+        "message_index": 3,
         "line_number": 8
       },
       {
-        "grouped_label": "Dismissal",
+        "grouped_label": "Accusation",
         "all_labels": {
-          "Dismissal": 80.0
-        },
-        "file": "data\\test_input8.txt",
-        "text": "\u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d",
-        "message_index": 7,
-        "line_number": 10
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Dismissal": 100.0,
-          "Not taking seriously": 80.0
-        },
-        "file": "data\\test_input8.txt",
-        "text": "\u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d",
-        "message_index": 8,
-        "line_number": 12
-      },
-      {
-        "grouped_label": "Dismissal",
-        "all_labels": {
-          "Blaming": 70.0,
+          "Accusation": 100.0,
           "Dismissal": 80.0
         },
         "file": "data\\test_input9_escalating.txt",
         "text": "*stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d.",
         "message_index": 4,
-        "line_number": 6
-      }
-    ],
-    "Exaggeration": [
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": {
-          "Accusation": 90.0,
-          "Exaggeration": 80.0,
-          "Victim playing": 100.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!",
-        "message_index": 6,
-        "line_number": 8
-      },
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": {
-          "Accusation": 80.0,
-          "Exaggeration": 100.0,
-          "Victim playing": 100.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!",
-        "message_index": 8,
         "line_number": 10
       },
       {
-        "grouped_label": "Exaggeration",
+        "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 80.0,
-          "Exaggeration": 80.0,
-          "Victim playing": 60.0
+          "Accusation": 80.0
         },
-        "file": "data\\test_input.txt",
-        "text": "I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!",
-        "message_index": 10,
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c",
+        "message_index": 5,
         "line_number": 12
       },
       {
-        "grouped_label": "Exaggeration",
+        "grouped_label": "Accusation",
         "all_labels": {
-          "Victim playing": 100.0,
-          "Exaggeration": 80.0
+          "Accusation": 80.0,
+          "Complaining": 80.0
         },
-        "file": "data\\test_input.txt",
-        "text": "OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this?",
-        "message_index": 18,
-        "line_number": 20
-      },
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": {
-          "Exaggeration": 90.0,
-          "Victim playing": 100.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.",
-        "message_index": 21,
-        "line_number": 25
-      },
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": {
-          "Exaggeration": 100.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "(insistently): Come on, just pick me and Lula up, and we can drop you off back at your place. It will only take a half hour.",
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d",
         "message_index": 11,
-        "line_number": 13
+        "line_number": 24
       },
       {
-        "grouped_label": "Exaggeration",
+        "grouped_label": "Accusation",
         "all_labels": {
-          "Exaggeration": 70.0
+          "Accusation": 100.0
         },
-        "file": "data\\test_input3.txt",
-        "text": "(explosively): I knew it!!! I KNEW IT!!!",
-        "message_index": 31,
-        "line_number": 33
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d",
+        "message_index": 12,
+        "line_number": 26
       },
       {
-        "grouped_label": "Exaggeration",
+        "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 70.0,
-          "Exaggeration": 80.0
+          "Accusation": 80.0,
+          "Complaining": 80.0
         },
-        "file": "data\\test_input3.txt",
-        "text": "(rapidly and angrily): Here comes the control!!! I will not be controlled!! I am a free bird!! I need to be free!!",
-        "message_index": 33,
-        "line_number": 35
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d.",
+        "message_index": 13,
+        "line_number": 28
       },
       {
-        "grouped_label": "Exaggeration",
+        "grouped_label": "Accusation",
         "all_labels": {
-          "Exaggeration": 60.0,
-          "Accusation": 60.0
+          "Accusation": 80.0,
+          "Complaining": 80.0
         },
-        "file": "data\\test_input3.txt",
-        "text": "(crankily): Oh my God! No, no, no....I am not to be controlled!!",
-        "message_index": 43,
-        "line_number": 45
-      },
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": {
-          "Accusation": 90.0,
-          "Exaggeration": 60.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "You are not Mr. Innocent... you flirted!! You flirted, and I could tell. After all, why was she smiling at you!! You were flir........",
-        "message_index": 59,
-        "line_number": 61
-      },
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": {
-          "Exaggeration": 100.0,
-          "Victim playing": 100.0
-        },
-        "file": "data\\test_input4.txt",
-        "text": "So you care more about eggshells than you care about me.",
-        "message_index": 10,
-        "line_number": 12
-      },
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Exaggeration": 100.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "So you\u2019re comparing our relationship to other people\u2019s? I don\u2019t know if I can be in a relationship like this anymore. My friend (random girl/ guy name), says that anytime someone does that it\u2019s time to leave. I will NOT put up with that FUCKING SHIT!",
-        "message_index": 15,
-        "line_number": 20
-      },
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Exaggeration": 100.0,
-          "Blaming": 70.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "You don\u2019t respect me. You\u2019re always telling me my head doesn\u2019t hurt. You\u2019re always taking naps and ruining our plans.",
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d",
         "message_index": 17,
-        "line_number": 22
-      },
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Exaggeration": 90.0,
-          "Provocation": 60.0
-        },
-        "file": "data\\test_input7.txt",
-        "text": "\"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\"",
-        "message_index": 4,
-        "line_number": 10
-      },
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Attacking": 70.0,
-          "Exaggeration": 100.0
-        },
-        "file": "data\\test_input7.txt",
-        "text": "\"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\"",
-        "message_index": 6,
-        "line_number": 13
-      },
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": {
-          "Exaggeration": 100.0,
-          "Victim playing": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d",
-        "message_index": 6,
-        "line_number": 8
-      },
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": {
-          "Exaggeration": 90.0,
-          "Victim playing": 80.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d",
-        "message_index": 8,
-        "line_number": 10
-      },
-      {
-        "grouped_label": "Exaggeration",
-        "all_labels": {
-          "Exaggeration": 90.0,
-          "Sarcasm": 70.0,
-          "Victim playing": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d.",
-        "message_index": 14,
-        "line_number": 16
-      }
-    ],
-    "Evasion": [
-      {
-        "grouped_label": "Evasion",
-        "all_labels": {
-          "Evasion": 100.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it.",
-        "message_index": 2,
-        "line_number": 4
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": {
-          "Evasion": 100.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "(evasively): Umm, I don't have to get into that with you?",
-        "message_index": 17,
-        "line_number": 19
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": {
-          "Evasion": 100.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "(evasively): Hmmmmm. yeah\u2026so? What are you saying?? What does that have to do with anything?",
-        "message_index": 49,
-        "line_number": 51
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": {
-          "Evasion": 100.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "(defensively and angrily) That was different...wait\u2026..what does that have to do with anything?",
-        "message_index": 55,
-        "line_number": 57
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": {
-          "Deception": 80.0,
-          "Evasion": 70.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "It wasn\u2019t a date. I didn\u2019t let her/him kiss me like she/he wanted to.",
-        "message_index": 25,
-        "line_number": 30
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": {
-          "Evasion": 80.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "No, I\u2019m not going to that. And you know why.",
-        "message_index": 31,
         "line_number": 36
       },
       {
-        "grouped_label": "Evasion",
+        "grouped_label": "Accusation",
         "all_labels": {
-          "Evasion": 90.0
+          "Accusation": 80.0,
+          "Complaining": 80.0
         },
-        "file": "data\\test_input5.txt",
-        "text": "I\u2019m not going. You KNOW WHY. So I\u2019m not going to tell you why.",
-        "message_index": 33,
-        "line_number": 38
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": {
-          "Evasion": 80.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "You KNOW why.",
-        "message_index": 35,
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d.",
+        "message_index": 19,
         "line_number": 40
       },
       {
-        "grouped_label": "Evasion",
+        "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 100.0,
-          "Evasion": 60.0
+          "Accusation": 80.0
         },
-        "file": "data\\test_input5.txt",
-        "text": "STOP PLAYING GAMES. YOU KNOW WHY.",
-        "message_index": 37,
-        "line_number": 42
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": {
-          "Evasion": 80.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "NO because you KNOW WHY.",
-        "message_index": 39,
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d",
+        "message_index": 21,
         "line_number": 44
       },
       {
-        "grouped_label": "Evasion",
+        "grouped_label": "Accusation",
         "all_labels": {
-          "Evasion": 100.0,
-          "Not taking seriously": 60.0
-        },
-        "file": "data\\test_input6.txt",
-        "text": "Please leave me alone. My head hurts.",
-        "message_index": 0,
-        "line_number": 6
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": {
-          "Evasion": 100.0,
-          "Procrastination": 100.0
-        },
-        "file": "data\\test_input6.txt",
-        "text": "Look, let\u2019s talk about it some other time.",
-        "message_index": 2,
-        "line_number": 8
-      },
-      {
-        "grouped_label": "Evasion",
-        "all_labels": {
-          "Being entitled": 70.0,
-          "Evasion": 80.0,
-          "Shifting of responsibility and blame": 100.0
-        },
-        "file": "data\\test_input6.txt",
-        "text": "I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?",
-        "message_index": 4,
-        "line_number": 10
-      }
-    ],
-    "Victim playing": [
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": {
-          "Accusation": 90.0,
-          "Exaggeration": 80.0,
-          "Victim playing": 100.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!",
-        "message_index": 6,
-        "line_number": 8
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": {
-          "Accusation": 80.0,
-          "Exaggeration": 100.0,
-          "Victim playing": 100.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!",
-        "message_index": 8,
-        "line_number": 10
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": {
-          "Accusation": 80.0,
-          "Exaggeration": 80.0,
-          "Victim playing": 60.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!",
-        "message_index": 10,
-        "line_number": 12
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": {
-          "Victim playing": 100.0,
-          "Exaggeration": 80.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this?",
-        "message_index": 18,
-        "line_number": 20
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": {
-          "Exaggeration": 90.0,
-          "Victim playing": 100.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.",
-        "message_index": 21,
-        "line_number": 25
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": {
-          "Exaggeration": 100.0,
-          "Victim playing": 100.0
-        },
-        "file": "data\\test_input4.txt",
-        "text": "So you care more about eggshells than you care about me.",
-        "message_index": 10,
-        "line_number": 12
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": {
-          "Comparing": 70.0,
-          "Victim playing": 100.0,
-          "Accusation": 60.0
-        },
-        "file": "data\\test_input4.txt",
-        "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me.",
-        "message_index": 12,
-        "line_number": 14
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Victim playing": 90.0
-        },
-        "file": "data\\test_input4.txt",
-        "text": "There you go, making this my fault again.",
-        "message_index": 18,
-        "line_number": 20
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": {
-          "Exaggeration": 100.0,
-          "Victim playing": 70.0
+          "Accusation": 80.0
         },
         "file": "data\\test_input9_escalating.txt",
-        "text": "*interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d",
-        "message_index": 6,
-        "line_number": 8
+        "text": "\u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d",
+        "message_index": 23,
+        "line_number": 48
       },
       {
-        "grouped_label": "Victim playing",
+        "grouped_label": "Accusation",
         "all_labels": {
-          "Exaggeration": 90.0,
-          "Victim playing": 80.0
+          "Accusation": 100.0
         },
         "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d",
-        "message_index": 8,
-        "line_number": 10
+        "text": "\u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d",
+        "message_index": 24,
+        "line_number": 50
       },
       {
-        "grouped_label": "Victim playing",
+        "grouped_label": "Accusation",
         "all_labels": {
-          "Exaggeration": 90.0,
-          "Sarcasm": 70.0,
-          "Victim playing": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d.",
-        "message_index": 14,
-        "line_number": 16
-      },
-      {
-        "grouped_label": "Victim playing",
-        "all_labels": {
-          "Accusation": 100.0,
-          "Victim playing": 70.0
+          "Accusation": 100.0
         },
         "file": "data\\test_input9_escalating.txt",
         "text": "\"Oh, so now you're just going to walk away from everything we have? That's it?\"",
         "message_index": 26,
-        "line_number": 28
+        "line_number": 54
       },
       {
-        "grouped_label": "Victim playing",
+        "grouped_label": "Accusation",
         "all_labels": {
-          "Accusation": 100.0,
-          "Victim playing": 70.0
+          "Accusation": 80.0
+        },
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\"",
+        "message_index": 27,
+        "line_number": 56
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": {
+          "Accusation": 100.0
+        },
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\"So it's over now, because of you!\"",
+        "message_index": 28,
+        "line_number": 58
+      },
+      {
+        "grouped_label": "Accusation",
+        "all_labels": {
+          "Accusation": 100.0
         },
         "file": "data\\test_input9_escalating.txt",
         "text": "*in disbelief* \"So this is it then? You're just going to leave?\"",
         "message_index": 30,
-        "line_number": 32
+        "line_number": 62
+      }
+    ],
+    "Aggression": [
+      {
+        "grouped_label": "Aggression",
+        "all_labels": {
+          "Aggression": 80.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "(shouting angrily): What?!?!?",
+        "message_index": 61,
+        "line_number": 124
+      },
+      {
+        "grouped_label": "Aggression",
+        "all_labels": {
+          "Aggression": 100.0,
+          "Disrespect": 100.0
+        },
+        "file": "data\\test_input6.txt",
+        "text": "Shut up b*tch!",
+        "message_index": 6,
+        "line_number": 22
+      },
+      {
+        "grouped_label": "Aggression",
+        "all_labels": {
+          "Aggression": 100.0
+        },
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d",
+        "message_index": 18,
+        "line_number": 38
+      }
+    ],
+    "Blaming": [
+      {
+        "grouped_label": "Blaming",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Blaming": 100.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "So instead of asking me if this would be a good time, to do some stuff in \u201cmy space,\u201d you had to create all of this?",
+        "message_index": 11,
+        "line_number": 24
+      },
+      {
+        "grouped_label": "Blaming",
+        "all_labels": {
+          "Accusation": 80.0,
+          "Blaming": 80.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "Because you are the one who decides how the project goes in the end.",
+        "message_index": 41,
+        "line_number": 86
+      },
+      {
+        "grouped_label": "Blaming",
+        "all_labels": {
+          "Accusation": 80.0,
+          "Blaming": 100.0
+        },
+        "file": "data\\test_input4.txt",
+        "text": "Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault.",
+        "message_index": 6,
+        "line_number": 14
+      },
+      {
+        "grouped_label": "Blaming",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Blaming": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "You know we missed the thing. You did that on purpose.",
+        "message_index": 11,
+        "line_number": 30
+      },
+      {
+        "grouped_label": "Blaming",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Blaming": 80.0,
+          "Exaggeration": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "You don\u2019t respect me. You\u2019re always telling me my head doesn\u2019t hurt. You\u2019re always taking naps and ruining our plans.",
+        "message_index": 17,
+        "line_number": 42
+      },
+      {
+        "grouped_label": "Blaming",
+        "all_labels": {
+          "Blaming": 100.0,
+          "Gaslighting": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "I told you it wasn\u2019t a date! You are always over-exaggerating. This is all your fault anyway. You didn\u2019t have to take a nap. You chose to take a nap.",
+        "message_index": 27,
+        "line_number": 62
+      },
+      {
+        "grouped_label": "Blaming",
+        "all_labels": {
+          "Blaming": 100.0,
+          "Gaslighting": 100.0,
+          "Invalidating": 80.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "That\u2019s because YOU are the problem. Feeling this and feeling that. That\u2019s not even how it is, but you are wayyy too sensitive. I can\u2019t help it if you FEEL like walking on eggshells. You can\u2019t blame your feelings on me.",
+        "message_index": 29,
+        "line_number": 66
+      }
+    ],
+    "Changing the topic": [
+      {
+        "grouped_label": "Changing the topic",
+        "all_labels": {
+          "Changing the topic": 100.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "(silence...then abruptly): Hey did you hear about that Trump thing!!",
+        "message_index": 63,
+        "line_number": 128
+      }
+    ],
+    "Comparing": [
+      {
+        "grouped_label": "Comparing",
+        "all_labels": {
+          "Comparing": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "I\u2019ve got a headache too. My day was sooo worse than yours. First, this happened, then that happened, then all this other stuff happened.",
+        "message_index": 1,
+        "line_number": 6
+      },
+      {
+        "grouped_label": "Comparing",
+        "all_labels": {
+          "Comparing": 80.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "Maybe I should take a nap and you should wake ME up. My head hurts wayy more than yours does.",
+        "message_index": 3,
+        "line_number": 12
+      }
+    ],
+    "Complaining": [
+      {
+        "grouped_label": "Complaining",
+        "all_labels": {
+          "Accusation": 80.0,
+          "Complaining": 80.0
+        },
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d.",
+        "message_index": 3,
+        "line_number": 8
+      },
+      {
+        "grouped_label": "Complaining",
+        "all_labels": {
+          "Accusation": 80.0,
+          "Complaining": 80.0
+        },
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d",
+        "message_index": 11,
+        "line_number": 24
+      },
+      {
+        "grouped_label": "Complaining",
+        "all_labels": {
+          "Accusation": 80.0,
+          "Complaining": 80.0
+        },
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d.",
+        "message_index": 13,
+        "line_number": 28
+      },
+      {
+        "grouped_label": "Complaining",
+        "all_labels": {
+          "Accusation": 80.0,
+          "Complaining": 80.0
+        },
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d",
+        "message_index": 17,
+        "line_number": 36
+      },
+      {
+        "grouped_label": "Complaining",
+        "all_labels": {
+          "Accusation": 80.0,
+          "Complaining": 80.0
+        },
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d.",
+        "message_index": 19,
+        "line_number": 40
+      }
+    ],
+    "Creating artificial obligations": [
+      {
+        "grouped_label": "Creating artificial obligations",
+        "all_labels": {
+          "Creating artificial obligations": 100.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "Hi...I need a favor....what are doing right now?",
+        "message_index": 1,
+        "line_number": 4
+      },
+      {
+        "grouped_label": "Creating artificial obligations",
+        "all_labels": {
+          "Creating artificial obligations": 80.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "Well, I was just wondering if maybe I could borrow your car....",
+        "message_index": 5,
+        "line_number": 12
+      }
+    ],
+    "Deception": [
+      {
+        "grouped_label": "Deception",
+        "all_labels": {
+          "Deception": 80.0,
+          "Evasion": 80.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "It wasn\u2019t a date. I didn\u2019t let her/him kiss me like she/he wanted to.",
+        "message_index": 25,
+        "line_number": 58
       }
     ],
     "Demanding": [
@@ -1689,14 +957,13 @@
       {
         "grouped_label": "Demanding",
         "all_labels": {
-          "Demanding": 100.0,
-          "Diminishing": 70.0,
-          "Acting as if nothing remarkable happened": 60.0
+          "Demanding": 80.0,
+          "Diminishing": 100.0
         },
         "file": "data\\test_input.txt",
         "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.",
         "message_index": 4,
-        "line_number": 6
+        "line_number": 10
       },
       {
         "grouped_label": "Demanding",
@@ -1707,17 +974,17 @@
         "file": "data\\test_input.txt",
         "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon.",
         "message_index": 14,
-        "line_number": 16
+        "line_number": 30
       },
       {
         "grouped_label": "Demanding",
         "all_labels": {
-          "Demanding": 90.0
+          "Demanding": 80.0
         },
         "file": "data\\test_input3.txt",
         "text": "(with conviction): Right now!",
         "message_index": 7,
-        "line_number": 9
+        "line_number": 16
       },
       {
         "grouped_label": "Demanding",
@@ -1728,453 +995,672 @@
         "file": "data\\test_input3.txt",
         "text": "Yes, it's not fair!! You are wrong! I need your car.....",
         "message_index": 35,
-        "line_number": 37
+        "line_number": 72
       },
       {
         "grouped_label": "Demanding",
         "all_labels": {
-          "Demanding": 100.0,
-          "Ignoring previous conflict": 60.0
+          "Demanding": 80.0,
+          "Ignoring previous conflict": 80.0
         },
         "file": "data\\test_input3.txt",
         "text": "(angrily): Look are you going to pick me and Lula up or not?",
         "message_index": 65,
-        "line_number": 67
+        "line_number": 132
       },
       {
         "grouped_label": "Demanding",
         "all_labels": {
-          "Demanding": 90.0
+          "Demanding": 100.0
         },
         "file": "data\\test_input4.txt",
         "text": "Well an apology would be a good start.",
         "message_index": 14,
+        "line_number": 30
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": {
+          "Demanding": 100.0
+        },
+        "file": "data\\test_input4.txt",
+        "text": "You should apologize for making me feel bad.",
+        "message_index": 20,
+        "line_number": 42
+      },
+      {
+        "grouped_label": "Demanding",
+        "all_labels": {
+          "Demanding": 100.0
+        },
+        "file": "data\\test_input6.txt",
+        "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.",
+        "message_index": 3,
         "line_number": 16
       },
       {
         "grouped_label": "Demanding",
         "all_labels": {
-          "Demanding": 90.0
-        },
-        "file": "data\\test_input4.txt",
-        "text": "You should apologize for making me feel bad.",
-        "message_index": 20,
-        "line_number": 22
-      },
-      {
-        "grouped_label": "Demanding",
-        "all_labels": {
-          "Accusation": 70.0,
-          "Demanding": 70.0
-        },
-        "file": "data\\test_input6.txt",
-        "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.",
-        "message_index": 3,
-        "line_number": 9
-      },
-      {
-        "grouped_label": "Demanding",
-        "all_labels": {
-          "Demanding": 70.0
+          "Demanding": 80.0
         },
         "file": "data\\test_input9_escalating.txt",
         "text": "\u201cWhat do you want? Tell me what you need from me\u201d",
         "message_index": 0,
         "line_number": 2
-      }
-    ],
-    "Blaming": [
-      {
-        "grouped_label": "Blaming",
-        "all_labels": {
-          "Blaming": 60.0,
-          "Dismissal": 60.0,
-          "Accusation": 70.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "Yes. It happens that our entire existence here is your space, too. There\u2019s other things that go on here that you think have nothing to do with you, too, but they actually do. Because, you know, they\u2019re ours. You don\u2019t think in terms of OURS.",
-        "message_index": 10,
-        "line_number": 12
       },
       {
-        "grouped_label": "Blaming",
+        "grouped_label": "Demanding",
         "all_labels": {
-          "Blaming": 70.0,
-          "Changing the topic": 70.0
+          "Demanding": 80.0
         },
-        "file": "data\\test_input4.txt",
-        "text": "Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault.",
-        "message_index": 6,
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d",
+        "message_index": 16,
+        "line_number": 34
+      }
+    ],
+    "Denying": [
+      {
+        "grouped_label": "Denying",
+        "all_labels": {
+          "Denying": 80.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "I did say yes.",
+        "message_index": 22,
+        "line_number": 46
+      },
+      {
+        "grouped_label": "Denying",
+        "all_labels": {
+          "Denying": 80.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "I didn\u2019t hear you say that.",
+        "message_index": 26,
+        "line_number": 54
+      }
+    ],
+    "Diminishing": [
+      {
+        "grouped_label": "Diminishing",
+        "all_labels": {
+          "Demanding": 80.0,
+          "Diminishing": 100.0
+        },
+        "file": "data\\test_input.txt",
+        "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.",
+        "message_index": 4,
+        "line_number": 10
+      }
+    ],
+    "Dismissal": [
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 80.0
+        },
+        "file": "data\\test_input.txt",
+        "text": "OK :/",
+        "message_index": 17,
+        "line_number": 36
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 80.0
+        },
+        "file": "data\\test_input.txt",
+        "text": "I don\u2019t want to. No.",
+        "message_index": 20,
+        "line_number": 46
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 80.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "So it has to be my decision\u2026",
+        "message_index": 1,
+        "line_number": 4
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 80.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "It does!",
+        "message_index": 2,
+        "line_number": 6
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 80.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "I have to volunteer\u2026",
+        "message_index": 3,
         "line_number": 8
       },
       {
-        "grouped_label": "Blaming",
+        "grouped_label": "Dismissal",
         "all_labels": {
-          "Accusation": 100.0,
-          "Blaming": 60.0
+          "Dismissal": 80.0
         },
-        "file": "data\\test_input5.txt",
-        "text": "You know we missed the thing. You did that on purpose.",
-        "message_index": 11,
+        "file": "data\\test_input2.txt",
+        "text": "Yes!",
+        "message_index": 4,
+        "line_number": 10
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 100.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "I have to change the entire language of the entire conversation to me helping you.",
+        "message_index": 5,
+        "line_number": 12
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 100.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "So I have to take your project and instantly make it my own and go and assist you so that we can work as a team.",
+        "message_index": 7,
         "line_number": 16
       },
       {
-        "grouped_label": "Blaming",
+        "grouped_label": "Dismissal",
         "all_labels": {
-          "Accusation": 100.0,
-          "Exaggeration": 100.0,
-          "Blaming": 70.0
+          "Dismissal": 100.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "So anything that happens in my space, I need to involve myself and make it my project\u2026",
+        "message_index": 9,
+        "line_number": 20
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 100.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "Well, of course.",
+        "message_index": 38,
+        "line_number": 80
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 80.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "Why should I take the lead?",
+        "message_index": 40,
+        "line_number": 84
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 100.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "Come on what does it matter, we are just going to go out clubbing!",
+        "message_index": 19,
+        "line_number": 40
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 80.0,
+          "Ignoring": 80.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "(angrily): I don't want talk about whatever it is you want talk about. I am not going to rehash!! The past is past. Now is now. I need to know if you will lend me your car right now.",
+        "message_index": 29,
+        "line_number": 60
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 100.0,
+          "Evasion": 100.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "What does that have to do with anything? Why does that even matter??",
+        "message_index": 41,
+        "line_number": 84
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 80.0
+        },
+        "file": "data\\test_input4.txt",
+        "text": "I'm sorry I've made you feel bad.",
+        "message_index": 21,
+        "line_number": 44
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 80.0,
+          "Invalidation": 80.0
         },
         "file": "data\\test_input5.txt",
-        "text": "You don\u2019t respect me. You\u2019re always telling me my head doesn\u2019t hurt. You\u2019re always taking naps and ruining our plans.",
-        "message_index": 17,
+        "text": "Nope. Mine definitely hurts worse. Your head doesn\u2019t even hurt. You\u2019re just saying that. Look, you\u2019re not even napping, you\u2019re still talking to me.",
+        "message_index": 5,
+        "line_number": 16
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Accusation": 80.0,
+          "Dismissal": 80.0,
+          "Invalidation": 80.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "Your head does NOT hurt, you\u2019re just being lazy. I just worked 8 long hours and I don\u2019t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache.",
+        "message_index": 7,
+        "line_number": 20
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "(walks off mumbling) This is bullshit.",
+        "message_index": 9,
+        "line_number": 24
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 80.0
+        },
+        "file": "data\\test_input7.txt",
+        "text": "\"Person B, your baby needs nutrients and protein. Here's some for her.\"",
+        "message_index": 2,
+        "line_number": 10
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 100.0
+        },
+        "file": "data\\test_input8.txt",
+        "text": "\u201cYes. They don't live here anymore.\u201d",
+        "message_index": 1,
+        "line_number": 6
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 100.0
+        },
+        "file": "data\\test_input8.txt",
+        "text": "\u201cI let them go free.\u201d",
+        "message_index": 5,
+        "line_number": 14
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 100.0
+        },
+        "file": "data\\test_input8.txt",
+        "text": "\u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d",
+        "message_index": 7,
+        "line_number": 18
+      },
+      {
+        "grouped_label": "Dismissal",
+        "all_labels": {
+          "Dismissal": 100.0
+        },
+        "file": "data\\test_input8.txt",
+        "text": "\u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d",
+        "message_index": 8,
         "line_number": 22
       },
       {
-        "grouped_label": "Blaming",
+        "grouped_label": "Dismissal",
         "all_labels": {
-          "Accusation": 80.0,
-          "Blaming": 90.0,
-          "Gaslighting": 90.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "I told you it wasn\u2019t a date! You are always over-exaggerating. This is all your fault anyway. You didn\u2019t have to take a nap. You chose to take a nap.",
-        "message_index": 27,
-        "line_number": 32
-      },
-      {
-        "grouped_label": "Blaming",
-        "all_labels": {
-          "Blaming": 100.0,
-          "Gaslighting": 70.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "That\u2019s because YOU are the problem. Feeling this and feeling that. That\u2019s not even how it is, but you are wayyy too sensitive. I can\u2019t help it if you FEEL like walking on eggshells. You can\u2019t blame your feelings on me.",
-        "message_index": 29,
-        "line_number": 34
-      },
-      {
-        "grouped_label": "Blaming",
-        "all_labels": {
-          "Blaming": 70.0,
+          "Accusation": 100.0,
           "Dismissal": 80.0
         },
         "file": "data\\test_input9_escalating.txt",
         "text": "*stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d.",
         "message_index": 4,
-        "line_number": 6
-      },
-      {
-        "grouped_label": "Blaming",
-        "all_labels": {
-          "Blaming": 70.0,
-          "Ignoring": 60.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d",
-        "message_index": 20,
-        "line_number": 22
-      },
-      {
-        "grouped_label": "Blaming",
-        "all_labels": {
-          "Blaming": 80.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\"So it's over now, because of you!\"",
-        "message_index": 28,
-        "line_number": 30
+        "line_number": 10
       }
     ],
-    "Ignoring": [
+    "Disrespect": [
       {
-        "grouped_label": "Ignoring",
+        "grouped_label": "Disrespect",
         "all_labels": {
-          "Ignoring": 70.0,
-          "Not taking seriously": 70.0
+          "Disrespect": 80.0,
+          "Provocation": 100.0
         },
-        "file": "data\\test_input7.txt",
-        "text": "\"Person B, your baby needs nutrients and protein. Here's some for her.\"",
-        "message_index": 2,
-        "line_number": 6
-      },
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": {
-          "Ignoring": 80.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d.",
-        "message_index": 1,
-        "line_number": 3
-      },
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": {
-          "Ignoring": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cUgh, what do you WANT?\u201d",
-        "message_index": 10,
-        "line_number": 12
-      },
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": {
-          "Ignoring": 80.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d",
-        "message_index": 16,
-        "line_number": 18
-      },
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": {
-          "Aggression": 100.0,
-          "Ignoring": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d",
-        "message_index": 18,
-        "line_number": 20
-      },
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": {
-          "Blaming": 70.0,
-          "Ignoring": 60.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cAgain with this?? There was no problem until you started one again! Now you turn it around so everything is my fault!!\u201d",
-        "message_index": 20,
-        "line_number": 22
-      },
-      {
-        "grouped_label": "Ignoring",
-        "all_labels": {
-          "Ignoring": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "\u201cI don\u2019t even know what these issues are you\u2019re talking about! Can't you see that I'm doing everything I can to make you happy?!\u201d",
+        "file": "data\\test_input4.txt",
+        "text": "There. Holy Christ, was that so hard? *throws another eggshell on the floor*",
         "message_index": 22,
-        "line_number": 24
-      }
-    ],
-    "Not taking seriously": [
-      {
-        "grouped_label": "Not taking seriously",
-        "all_labels": {
-          "Dismissal": 100.0,
-          "Not taking seriously": 60.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "(walks off mumbling) This is bullshit.",
-        "message_index": 9,
-        "line_number": 13
+        "line_number": 46
       },
       {
-        "grouped_label": "Not taking seriously",
-        "all_labels": {
-          "Evasion": 100.0,
-          "Not taking seriously": 60.0
-        },
-        "file": "data\\test_input6.txt",
-        "text": "Please leave me alone. My head hurts.",
-        "message_index": 0,
-        "line_number": 6
-      },
-      {
-        "grouped_label": "Not taking seriously",
-        "all_labels": {
-          "Not taking seriously": 90.0
-        },
-        "file": "data\\test_input7.txt",
-        "text": "\"You should really give her some of this breakfast I just cooked.\"",
-        "message_index": 0,
-        "line_number": 4
-      },
-      {
-        "grouped_label": "Not taking seriously",
-        "all_labels": {
-          "Ignoring": 70.0,
-          "Not taking seriously": 70.0
-        },
-        "file": "data\\test_input7.txt",
-        "text": "\"Person B, your baby needs nutrients and protein. Here's some for her.\"",
-        "message_index": 2,
-        "line_number": 6
-      },
-      {
-        "grouped_label": "Not taking seriously",
-        "all_labels": {
-          "Dismissal": 100.0,
-          "Not taking seriously": 80.0
-        },
-        "file": "data\\test_input8.txt",
-        "text": "\u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d",
-        "message_index": 8,
-        "line_number": 12
-      }
-    ],
-    "Aggression": [
-      {
-        "grouped_label": "Aggression",
-        "all_labels": {
-          "Aggression": 80.0,
-          "Threats": 100.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY.",
-        "message_index": 16,
-        "line_number": 18
-      },
-      {
-        "grouped_label": "Aggression",
-        "all_labels": {
-          "Aggression": 60.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "(shouting angrily): What?!?!?",
-        "message_index": 61,
-        "line_number": 63
-      },
-      {
-        "grouped_label": "Aggression",
+        "grouped_label": "Disrespect",
         "all_labels": {
           "Aggression": 100.0,
-          "Dismissal": 80.0
+          "Disrespect": 100.0
         },
         "file": "data\\test_input6.txt",
         "text": "Shut up b*tch!",
         "message_index": 6,
-        "line_number": 12
-      },
-      {
-        "grouped_label": "Aggression",
-        "all_labels": {
-          "Aggression": 100.0,
-          "Ignoring": 70.0
-        },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d",
-        "message_index": 18,
-        "line_number": 20
+        "line_number": 22
       }
     ],
-    "Gaslighting": [
+    "Distortion": [
       {
-        "grouped_label": "Gaslighting",
+        "grouped_label": "Distortion",
         "all_labels": {
-          "Accusation": 80.0,
-          "Gaslighting": 90.0
+          "Distortion": 100.0,
+          "Gaslighting": 100.0
         },
         "file": "data\\test_input5.txt",
         "text": "Bull shit. You know I\u2019m right. You even said I was right before you took a nap. I said your head doesn\u2019t even hurt and you said \u2018you\u2019re right\u2019 and went to sleep.",
         "message_index": 19,
-        "line_number": 24
+        "line_number": 46
       },
       {
-        "grouped_label": "Gaslighting",
+        "grouped_label": "Distortion",
         "all_labels": {
-          "Accusation": 90.0,
+          "Accusation": 100.0,
+          "Distortion": 80.0,
           "Gaslighting": 100.0
         },
         "file": "data\\test_input5.txt",
         "text": "I promise you, you\u2019re lying. You SAID I WAS RIGHT because you KNOW your head wasn\u2019t hurting. You even SAID you were a horrible person before you went to sleep.",
         "message_index": 21,
-        "line_number": 26
-      },
-      {
-        "grouped_label": "Gaslighting",
-        "all_labels": {
-          "Accusation": 80.0,
-          "Blaming": 90.0,
-          "Gaslighting": 90.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "I told you it wasn\u2019t a date! You are always over-exaggerating. This is all your fault anyway. You didn\u2019t have to take a nap. You chose to take a nap.",
-        "message_index": 27,
-        "line_number": 32
-      },
-      {
-        "grouped_label": "Gaslighting",
-        "all_labels": {
-          "Blaming": 100.0,
-          "Gaslighting": 70.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "That\u2019s because YOU are the problem. Feeling this and feeling that. That\u2019s not even how it is, but you are wayyy too sensitive. I can\u2019t help it if you FEEL like walking on eggshells. You can\u2019t blame your feelings on me.",
-        "message_index": 29,
-        "line_number": 34
+        "line_number": 50
       }
     ],
-    "Sarcasm": [
+    "Evasion": [
       {
-        "grouped_label": "Sarcasm",
+        "grouped_label": "Evasion",
         "all_labels": {
-          "Sarcasm": 100.0
+          "Evasion": 100.0
         },
         "file": "data\\test_input.txt",
-        "text": "You mean a more fun side than this? Can\u2019t wait.",
-        "message_index": 15,
-        "line_number": 17
+        "text": "I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it.",
+        "message_index": 2,
+        "line_number": 6
       },
       {
-        "grouped_label": "Sarcasm",
+        "grouped_label": "Evasion",
         "all_labels": {
-          "Sarcasm": 60.0
+          "Evasion": 100.0
         },
-        "file": "data\\test_input4.txt",
-        "text": "I'm\u2026 sorry that you're so upset that you threw garbage on my floor.",
+        "file": "data\\test_input3.txt",
+        "text": "(evasively): Umm, I don't have to get into that with you?",
         "message_index": 17,
-        "line_number": 19
+        "line_number": 36
       },
       {
-        "grouped_label": "Sarcasm",
+        "grouped_label": "Evasion",
         "all_labels": {
-          "Exaggeration": 90.0,
-          "Sarcasm": 70.0,
-          "Victim playing": 70.0
+          "Dismissal": 100.0,
+          "Evasion": 100.0
         },
-        "file": "data\\test_input9_escalating.txt",
-        "text": "*full rage* \u201c Yeah yeah, everything is my fault and you\u2019re perfect, like you said\u201d.",
-        "message_index": 14,
-        "line_number": 16
+        "file": "data\\test_input3.txt",
+        "text": "What does that have to do with anything? Why does that even matter??",
+        "message_index": 41,
+        "line_number": 84
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": {
+          "Evasion": 100.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "(evasively): Hmmmmm. yeah\u2026so? What are you saying?? What does that have to do with anything?",
+        "message_index": 49,
+        "line_number": 100
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": {
+          "Evasion": 100.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "(defensively and angrily) That was different...wait\u2026..what does that have to do with anything?",
+        "message_index": 55,
+        "line_number": 112
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": {
+          "Deception": 80.0,
+          "Evasion": 80.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "It wasn\u2019t a date. I didn\u2019t let her/him kiss me like she/he wanted to.",
+        "message_index": 25,
+        "line_number": 58
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": {
+          "Evasion": 80.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "No, I\u2019m not going to that. And you know why.",
+        "message_index": 31,
+        "line_number": 70
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": {
+          "Evasion": 80.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "I\u2019m not going. You KNOW WHY. So I\u2019m not going to tell you why.",
+        "message_index": 33,
+        "line_number": 74
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": {
+          "Evasion": 80.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "You KNOW why.",
+        "message_index": 35,
+        "line_number": 78
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": {
+          "Evasion": 80.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "NO because you KNOW WHY.",
+        "message_index": 39,
+        "line_number": 86
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": {
+          "Evasion": 100.0
+        },
+        "file": "data\\test_input6.txt",
+        "text": "Please leave me alone. My head hurts.",
+        "message_index": 0,
+        "line_number": 10
+      },
+      {
+        "grouped_label": "Evasion",
+        "all_labels": {
+          "Evasion": 100.0,
+          "Procrastination": 100.0
+        },
+        "file": "data\\test_input6.txt",
+        "text": "Look, let\u2019s talk about it some other time.",
+        "message_index": 2,
+        "line_number": 14
       }
     ],
-    "Shifting of responsibility and blame": [
+    "Exaggeration": [
       {
-        "grouped_label": "Shifting of responsibility and blame",
+        "grouped_label": "Exaggeration",
         "all_labels": {
-          "Shifting of responsibility and blame": 100.0
+          "Accusation": 100.0,
+          "Exaggeration": 80.0,
+          "Victim playing": 100.0
         },
-        "file": "data\\test_input2.txt",
-        "text": "I don\u2019t feel that I created this, I think that you did.",
-        "message_index": 12,
+        "file": "data\\test_input.txt",
+        "text": "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!",
+        "message_index": 6,
         "line_number": 14
       },
       {
-        "grouped_label": "Shifting of responsibility and blame",
+        "grouped_label": "Exaggeration",
         "all_labels": {
-          "Shifting of responsibility and blame": 100.0
+          "Exaggeration": 100.0,
+          "Victim playing": 100.0
         },
-        "file": "data\\test_input5.txt",
-        "text": "I\u2019m not responsible for your life. Don\u2019t blame this on me.",
-        "message_index": 13,
+        "file": "data\\test_input.txt",
+        "text": "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!",
+        "message_index": 8,
         "line_number": 18
       },
       {
-        "grouped_label": "Shifting of responsibility and blame",
+        "grouped_label": "Exaggeration",
         "all_labels": {
-          "Being entitled": 70.0,
-          "Evasion": 80.0,
-          "Shifting of responsibility and blame": 100.0
+          "Exaggeration": 100.0
         },
-        "file": "data\\test_input6.txt",
-        "text": "I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?",
+        "file": "data\\test_input.txt",
+        "text": "I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!",
+        "message_index": 10,
+        "line_number": 22
+      },
+      {
+        "grouped_label": "Exaggeration",
+        "all_labels": {
+          "Exaggeration": 100.0,
+          "Victim playing": 100.0
+        },
+        "file": "data\\test_input.txt",
+        "text": "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.",
+        "message_index": 21,
+        "line_number": 48
+      },
+      {
+        "grouped_label": "Exaggeration",
+        "all_labels": {
+          "Exaggeration": 80.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "(explosively): I knew it!!! I KNEW IT!!!",
+        "message_index": 31,
+        "line_number": 64
+      },
+      {
+        "grouped_label": "Exaggeration",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Exaggeration": 100.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "(rapidly and angrily): Here comes the control!!! I will not be controlled!! I am a free bird!! I need to be free!!",
+        "message_index": 33,
+        "line_number": 68
+      },
+      {
+        "grouped_label": "Exaggeration",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Exaggeration": 80.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "(crankily): Oh my God! No, no, no....I am not to be controlled!!",
+        "message_index": 43,
+        "line_number": 88
+      },
+      {
+        "grouped_label": "Exaggeration",
+        "all_labels": {
+          "Exaggeration": 100.0,
+          "Victim playing": 100.0
+        },
+        "file": "data\\test_input4.txt",
+        "text": "So you care more about eggshells than you care about me.",
+        "message_index": 10,
+        "line_number": 22
+      },
+      {
+        "grouped_label": "Exaggeration",
+        "all_labels": {
+          "Accusation": 80.0,
+          "Exaggeration": 80.0,
+          "Provocation": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "So you\u2019re comparing our relationship to other people\u2019s? I don\u2019t know if I can be in a relationship like this anymore. My friend (random girl/ guy name), says that anytime someone does that it\u2019s time to leave. I will NOT put up with that FUCKING SHIT!",
+        "message_index": 15,
+        "line_number": 38
+      },
+      {
+        "grouped_label": "Exaggeration",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Blaming": 80.0,
+          "Exaggeration": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "You don\u2019t respect me. You\u2019re always telling me my head doesn\u2019t hurt. You\u2019re always taking naps and ruining our plans.",
+        "message_index": 17,
+        "line_number": 42
+      },
+      {
+        "grouped_label": "Exaggeration",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Exaggeration": 80.0,
+          "Provocation": 100.0
+        },
+        "file": "data\\test_input7.txt",
+        "text": "\"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\"",
         "message_index": 4,
-        "line_number": 10
+        "line_number": 18
+      },
+      {
+        "grouped_label": "Exaggeration",
+        "all_labels": {
+          "Exaggeration": 100.0,
+          "Victim playing": 80.0
+        },
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d",
+        "message_index": 6,
+        "line_number": 14
+      },
+      {
+        "grouped_label": "Exaggeration",
+        "all_labels": {
+          "Exaggeration": 100.0,
+          "Victim playing": 80.0
+        },
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d",
+        "message_index": 8,
+        "line_number": 18
       }
     ],
     "Feigning ignorance": [
@@ -2186,17 +1672,17 @@
         "file": "data\\test_input3.txt",
         "text": "Kidding....kidding you about what?",
         "message_index": 39,
-        "line_number": 41
+        "line_number": 80
       },
       {
         "grouped_label": "Feigning ignorance",
         "all_labels": {
-          "Feigning ignorance": 80.0
+          "Feigning ignorance": 100.0
         },
         "file": "data\\test_input3.txt",
         "text": "What that supposed to mean?",
         "message_index": 51,
-        "line_number": 53
+        "line_number": 104
       },
       {
         "grouped_label": "Feigning ignorance",
@@ -2206,168 +1692,115 @@
         "file": "data\\test_input3.txt",
         "text": "I literally have no idea what you are talking about!!",
         "message_index": 53,
-        "line_number": 55
+        "line_number": 108
       }
     ],
-    "Comparing": [
+    "Gaslighting": [
       {
-        "grouped_label": "Comparing",
+        "grouped_label": "Gaslighting",
         "all_labels": {
-          "Comparing": 70.0,
-          "Victim playing": 100.0,
-          "Accusation": 60.0
-        },
-        "file": "data\\test_input4.txt",
-        "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me.",
-        "message_index": 12,
-        "line_number": 14
-      },
-      {
-        "grouped_label": "Comparing",
-        "all_labels": {
-          "Comparing": 100.0
+          "Distortion": 100.0,
+          "Gaslighting": 100.0
         },
         "file": "data\\test_input5.txt",
-        "text": "I\u2019ve got a headache too. My day was sooo worse than yours. First, this happened, then that happened, then all this other stuff happened.",
-        "message_index": 1,
-        "line_number": 4
+        "text": "Bull shit. You know I\u2019m right. You even said I was right before you took a nap. I said your head doesn\u2019t even hurt and you said \u2018you\u2019re right\u2019 and went to sleep.",
+        "message_index": 19,
+        "line_number": 46
       },
       {
-        "grouped_label": "Comparing",
-        "all_labels": {
-          "Comparing": 100.0,
-          "Dismissal": 60.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "Maybe I should take a nap and you should wake ME up. My head hurts wayy more than yours does.",
-        "message_index": 3,
-        "line_number": 7
-      }
-    ],
-    "Provocation": [
-      {
-        "grouped_label": "Provocation",
-        "all_labels": {
-          "Provocation": 80.0
-        },
-        "file": "data\\test_input4.txt",
-        "text": "What are you sorry for?",
-        "message_index": 16,
-        "line_number": 18
-      },
-      {
-        "grouped_label": "Provocation",
-        "all_labels": {
-          "Provocation": 80.0
-        },
-        "file": "data\\test_input4.txt",
-        "text": "There. Holy Christ, was that so hard? *throws another eggshell on the floor*",
-        "message_index": 22,
-        "line_number": 24
-      },
-      {
-        "grouped_label": "Provocation",
+        "grouped_label": "Gaslighting",
         "all_labels": {
           "Accusation": 100.0,
-          "Exaggeration": 90.0,
-          "Provocation": 60.0
+          "Distortion": 80.0,
+          "Gaslighting": 100.0
         },
-        "file": "data\\test_input7.txt",
-        "text": "\"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\"",
-        "message_index": 4,
-        "line_number": 10
+        "file": "data\\test_input5.txt",
+        "text": "I promise you, you\u2019re lying. You SAID I WAS RIGHT because you KNOW your head wasn\u2019t hurting. You even SAID you were a horrible person before you went to sleep.",
+        "message_index": 21,
+        "line_number": 50
+      },
+      {
+        "grouped_label": "Gaslighting",
+        "all_labels": {
+          "Blaming": 100.0,
+          "Gaslighting": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "I told you it wasn\u2019t a date! You are always over-exaggerating. This is all your fault anyway. You didn\u2019t have to take a nap. You chose to take a nap.",
+        "message_index": 27,
+        "line_number": 62
+      },
+      {
+        "grouped_label": "Gaslighting",
+        "all_labels": {
+          "Blaming": 100.0,
+          "Gaslighting": 100.0,
+          "Invalidating": 80.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "That\u2019s because YOU are the problem. Feeling this and feeling that. That\u2019s not even how it is, but you are wayyy too sensitive. I can\u2019t help it if you FEEL like walking on eggshells. You can\u2019t blame your feelings on me.",
+        "message_index": 29,
+        "line_number": 66
+      }
+    ],
+    "Ignoring": [
+      {
+        "grouped_label": "Ignoring",
+        "all_labels": {
+          "Dismissal": 80.0,
+          "Ignoring": 80.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "(angrily): I don't want talk about whatever it is you want talk about. I am not going to rehash!! The past is past. Now is now. I need to know if you will lend me your car right now.",
+        "message_index": 29,
+        "line_number": 60
       }
     ],
     "Ignoring previous conflict": [
       {
         "grouped_label": "Ignoring previous conflict",
         "all_labels": {
-          "Ignoring previous conflict": 90.0
+          "Ignoring previous conflict": 80.0
         },
         "file": "data\\test_input.txt",
         "text": "Hey, let\u2019s get a drink.",
         "message_index": 19,
-        "line_number": 23
+        "line_number": 44
       },
       {
         "grouped_label": "Ignoring previous conflict",
         "all_labels": {
-          "Demanding": 100.0,
-          "Ignoring previous conflict": 60.0
+          "Demanding": 80.0,
+          "Ignoring previous conflict": 80.0
         },
         "file": "data\\test_input3.txt",
         "text": "(angrily): Look are you going to pick me and Lula up or not?",
         "message_index": 65,
-        "line_number": 67
-      }
-    ],
-    "Threats": [
-      {
-        "grouped_label": "Threats",
-        "all_labels": {
-          "Demanding": 100.0,
-          "Threats": 100.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon.",
-        "message_index": 14,
-        "line_number": 16
+        "line_number": 132
       },
       {
-        "grouped_label": "Threats",
+        "grouped_label": "Ignoring previous conflict",
         "all_labels": {
-          "Aggression": 80.0,
-          "Threats": 100.0
+          "Ignoring previous conflict": 80.0
         },
-        "file": "data\\test_input.txt",
-        "text": "THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY.",
-        "message_index": 16,
-        "line_number": 18
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cNo, I\u2019m listening now. Please! What do you want?\u201d",
+        "message_index": 2,
+        "line_number": 6
       }
     ],
-    "Changing the topic": [
+    "Invalidating": [
       {
-        "grouped_label": "Changing the topic",
+        "grouped_label": "Invalidating",
         "all_labels": {
-          "Changing the topic": 100.0
+          "Blaming": 100.0,
+          "Gaslighting": 100.0,
+          "Invalidating": 80.0
         },
-        "file": "data\\test_input3.txt",
-        "text": "(silence...then abruptly): Hey did you hear about that Trump thing!!",
-        "message_index": 63,
-        "line_number": 65
-      },
-      {
-        "grouped_label": "Changing the topic",
-        "all_labels": {
-          "Blaming": 70.0,
-          "Changing the topic": 70.0
-        },
-        "file": "data\\test_input4.txt",
-        "text": "Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault.",
-        "message_index": 6,
-        "line_number": 8
-      }
-    ],
-    "Creating artificial obligations": [
-      {
-        "grouped_label": "Creating artificial obligations",
-        "all_labels": {
-          "Creating artificial obligations": 90.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "Hi...I need a favor....what are doing right now?",
-        "message_index": 1,
-        "line_number": 3
-      },
-      {
-        "grouped_label": "Creating artificial obligations",
-        "all_labels": {
-          "Creating artificial obligations": 100.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "Well, I was just wondering if maybe I could borrow your car....",
-        "message_index": 5,
-        "line_number": 7
+        "file": "data\\test_input5.txt",
+        "text": "That\u2019s because YOU are the problem. Feeling this and feeling that. That\u2019s not even how it is, but you are wayyy too sensitive. I can\u2019t help it if you FEEL like walking on eggshells. You can\u2019t blame your feelings on me.",
+        "message_index": 29,
+        "line_number": 66
       }
     ],
     "Invalidation": [
@@ -2380,110 +1813,19 @@
         "file": "data\\test_input5.txt",
         "text": "Nope. Mine definitely hurts worse. Your head doesn\u2019t even hurt. You\u2019re just saying that. Look, you\u2019re not even napping, you\u2019re still talking to me.",
         "message_index": 5,
-        "line_number": 9
+        "line_number": 16
       },
       {
         "grouped_label": "Invalidation",
         "all_labels": {
-          "Accusation": 100.0,
-          "Dismissal": 90.0,
+          "Accusation": 80.0,
+          "Dismissal": 80.0,
           "Invalidation": 80.0
         },
         "file": "data\\test_input5.txt",
         "text": "Your head does NOT hurt, you\u2019re just being lazy. I just worked 8 long hours and I don\u2019t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache.",
         "message_index": 7,
-        "line_number": 11
-      }
-    ],
-    "Acting as if nothing remarkable happened": [
-      {
-        "grouped_label": "Acting as if nothing remarkable happened",
-        "all_labels": {
-          "Demanding": 100.0,
-          "Diminishing": 70.0,
-          "Acting as if nothing remarkable happened": 60.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.",
-        "message_index": 4,
-        "line_number": 6
-      }
-    ],
-    "Diminishing": [
-      {
-        "grouped_label": "Diminishing",
-        "all_labels": {
-          "Demanding": 100.0,
-          "Diminishing": 70.0,
-          "Acting as if nothing remarkable happened": 60.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.",
-        "message_index": 4,
-        "line_number": 6
-      }
-    ],
-    "Making assumptions": [
-      {
-        "grouped_label": "Making assumptions",
-        "all_labels": {
-          "Accusation": 90.0,
-          "Making assumptions": 60.0
-        },
-        "file": "data\\test_input.txt",
-        "text": "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT",
-        "message_index": 12,
-        "line_number": 14
-      }
-    ],
-    "Denying": [
-      {
-        "grouped_label": "Denying",
-        "all_labels": {
-          "Denying": 60.0
-        },
-        "file": "data\\test_input2.txt",
-        "text": "I didn\u2019t hear you say that.",
-        "message_index": 26,
-        "line_number": 28
-      }
-    ],
-    "Abrupt reaction": [
-      {
-        "grouped_label": "Abrupt reaction",
-        "all_labels": {
-          "Ignoring relation repair attempts": 60.0,
-          "Abrupt reaction": 60.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "I gotta goooo.....seeeyah....(click)",
-        "message_index": 67,
-        "line_number": 69
-      }
-    ],
-    "Ignoring boundaries": [
-      {
-        "grouped_label": "Ignoring boundaries",
-        "all_labels": {
-          "Ignoring boundaries": 70.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "Yes, me and Lula want to go out.",
-        "message_index": 9,
-        "line_number": 11
-      }
-    ],
-    "Ignoring relation repair attempts": [
-      {
-        "grouped_label": "Ignoring relation repair attempts",
-        "all_labels": {
-          "Ignoring relation repair attempts": 60.0,
-          "Abrupt reaction": 60.0
-        },
-        "file": "data\\test_input3.txt",
-        "text": "I gotta goooo.....seeeyah....(click)",
-        "message_index": 67,
-        "line_number": 69
+        "line_number": 20
       }
     ],
     "Manipulation": [
@@ -2493,61 +1835,19 @@
           "Manipulation": 100.0
         },
         "file": "data\\test_input3.txt",
-        "text": "That's right, I need to be free just to be me. I just want to spread my wings and zoom here, there, and everywhere!! But of course I need you to be my guide and take care of me.",
-        "message_index": 45,
-        "line_number": 47
-      }
-    ],
-    "Sullenness or cynicism": [
+        "text": "(insistently): Come on, just pick me and Lula up, and we can drop you off back at your place. It will only take a half hour.",
+        "message_index": 11,
+        "line_number": 24
+      },
       {
-        "grouped_label": "Sullenness or cynicism",
+        "grouped_label": "Manipulation",
         "all_labels": {
-          "Sullenness or cynicism": 100.0
+          "Manipulation": 100.0
         },
         "file": "data\\test_input3.txt",
-        "text": "(sullenly): Ohhh......ok..\u2026..",
-        "message_index": 3,
-        "line_number": 5
-      }
-    ],
-    "Distortion": [
-      {
-        "grouped_label": "Distortion",
-        "all_labels": {
-          "Distortion": 60.0,
-          "Accusation": 60.0
-        },
-        "file": "data\\test_input4.txt",
-        "text": "So you're saying it's my fault that your apartment is messy?",
-        "message_index": 4,
-        "line_number": 6
-      }
-    ],
-    "Deception": [
-      {
-        "grouped_label": "Deception",
-        "all_labels": {
-          "Deception": 80.0,
-          "Evasion": 70.0
-        },
-        "file": "data\\test_input5.txt",
-        "text": "It wasn\u2019t a date. I didn\u2019t let her/him kiss me like she/he wanted to.",
-        "message_index": 25,
-        "line_number": 30
-      }
-    ],
-    "Being entitled": [
-      {
-        "grouped_label": "Being entitled",
-        "all_labels": {
-          "Being entitled": 70.0,
-          "Evasion": 80.0,
-          "Shifting of responsibility and blame": 100.0
-        },
-        "file": "data\\test_input6.txt",
-        "text": "I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?",
-        "message_index": 4,
-        "line_number": 10
+        "text": "That's right, I need to be free just to be me. I just want to spread my wings and zoom here, there, and everywhere!! But of course I need you to be my guide and take care of me.",
+        "message_index": 45,
+        "line_number": 92
       }
     ],
     "Procrastination": [
@@ -2560,33 +1860,278 @@
         "file": "data\\test_input6.txt",
         "text": "Look, let\u2019s talk about it some other time.",
         "message_index": 2,
-        "line_number": 8
+        "line_number": 14
       }
     ],
-    "Attacking": [
+    "Provocation": [
       {
-        "grouped_label": "Attacking",
+        "grouped_label": "Provocation",
         "all_labels": {
           "Accusation": 100.0,
-          "Attacking": 70.0,
-          "Exaggeration": 100.0
+          "Provocation": 100.0
+        },
+        "file": "data\\test_input.txt",
+        "text": "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT",
+        "message_index": 12,
+        "line_number": 26
+      },
+      {
+        "grouped_label": "Provocation",
+        "all_labels": {
+          "Provocation": 80.0
+        },
+        "file": "data\\test_input4.txt",
+        "text": "What are you sorry for?",
+        "message_index": 16,
+        "line_number": 34
+      },
+      {
+        "grouped_label": "Provocation",
+        "all_labels": {
+          "Disrespect": 80.0,
+          "Provocation": 100.0
+        },
+        "file": "data\\test_input4.txt",
+        "text": "There. Holy Christ, was that so hard? *throws another eggshell on the floor*",
+        "message_index": 22,
+        "line_number": 46
+      },
+      {
+        "grouped_label": "Provocation",
+        "all_labels": {
+          "Accusation": 80.0,
+          "Exaggeration": 80.0,
+          "Provocation": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "So you\u2019re comparing our relationship to other people\u2019s? I don\u2019t know if I can be in a relationship like this anymore. My friend (random girl/ guy name), says that anytime someone does that it\u2019s time to leave. I will NOT put up with that FUCKING SHIT!",
+        "message_index": 15,
+        "line_number": 38
+      },
+      {
+        "grouped_label": "Provocation",
+        "all_labels": {
+          "Provocation": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "Anyways, (Earlier mentioned Guy/Girl friend) went with me instead to the thing, while you were snoring like a FUCKING pig. She/He said they would never put up with that shit.",
+        "message_index": 23,
+        "line_number": 54
+      },
+      {
+        "grouped_label": "Provocation",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Exaggeration": 80.0,
+          "Provocation": 100.0
+        },
+        "file": "data\\test_input7.txt",
+        "text": "\"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\"",
+        "message_index": 4,
+        "line_number": 18
+      },
+      {
+        "grouped_label": "Provocation",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Provocation": 100.0
         },
         "file": "data\\test_input7.txt",
         "text": "\"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\"",
         "message_index": 6,
-        "line_number": 13
+        "line_number": 24
+      }
+    ],
+    "Sarcasm": [
+      {
+        "grouped_label": "Sarcasm",
+        "all_labels": {
+          "Sarcasm": 100.0
+        },
+        "file": "data\\test_input.txt",
+        "text": "You mean a more fun side than this? Can\u2019t wait.",
+        "message_index": 15,
+        "line_number": 32
+      }
+    ],
+    "Shifting of responsibility and blame": [
+      {
+        "grouped_label": "Shifting of responsibility and blame",
+        "all_labels": {
+          "Shifting of responsibility and blame": 100.0
+        },
+        "file": "data\\test_input2.txt",
+        "text": "I don\u2019t feel that I created this, I think that you did.",
+        "message_index": 12,
+        "line_number": 26
+      },
+      {
+        "grouped_label": "Shifting of responsibility and blame",
+        "all_labels": {
+          "Shifting of responsibility and blame": 100.0
+        },
+        "file": "data\\test_input5.txt",
+        "text": "I\u2019m not responsible for your life. Don\u2019t blame this on me.",
+        "message_index": 13,
+        "line_number": 34
+      },
+      {
+        "grouped_label": "Shifting of responsibility and blame",
+        "all_labels": {
+          "Shifting of responsibility and blame": 80.0
+        },
+        "file": "data\\test_input6.txt",
+        "text": "I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?",
+        "message_index": 4,
+        "line_number": 18
       }
     ],
     "Silent treatment": [
       {
         "grouped_label": "Silent treatment",
         "all_labels": {
-          "Silent treatment": 100.0
+          "Silent treatment": 120.0
         },
         "file": "data\\test_input8.txt",
         "text": "*silence*",
         "message_index": 3,
-        "line_number": 6
+        "line_number": 10
+      }
+    ],
+    "Sullenness or cynicism": [
+      {
+        "grouped_label": "Sullenness or cynicism",
+        "all_labels": {
+          "Sullenness or cynicism": 100.0
+        },
+        "file": "data\\test_input3.txt",
+        "text": "(sullenly): Ohhh......ok..\u2026..",
+        "message_index": 3,
+        "line_number": 8
+      }
+    ],
+    "Threats": [
+      {
+        "grouped_label": "Threats",
+        "all_labels": {
+          "Demanding": 100.0,
+          "Threats": 100.0
+        },
+        "file": "data\\test_input.txt",
+        "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon.",
+        "message_index": 14,
+        "line_number": 30
+      },
+      {
+        "grouped_label": "Threats",
+        "all_labels": {
+          "Threats": 100.0
+        },
+        "file": "data\\test_input.txt",
+        "text": "THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY.",
+        "message_index": 16,
+        "line_number": 34
+      }
+    ],
+    "Victim playing": [
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Exaggeration": 80.0,
+          "Victim playing": 100.0
+        },
+        "file": "data\\test_input.txt",
+        "text": "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!",
+        "message_index": 6,
+        "line_number": 14
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": {
+          "Exaggeration": 100.0,
+          "Victim playing": 100.0
+        },
+        "file": "data\\test_input.txt",
+        "text": "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!",
+        "message_index": 8,
+        "line_number": 18
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": {
+          "Victim playing": 100.0
+        },
+        "file": "data\\test_input.txt",
+        "text": "OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this?",
+        "message_index": 18,
+        "line_number": 38
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": {
+          "Exaggeration": 100.0,
+          "Victim playing": 100.0
+        },
+        "file": "data\\test_input.txt",
+        "text": "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.",
+        "message_index": 21,
+        "line_number": 48
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": {
+          "Exaggeration": 100.0,
+          "Victim playing": 100.0
+        },
+        "file": "data\\test_input4.txt",
+        "text": "So you care more about eggshells than you care about me.",
+        "message_index": 10,
+        "line_number": 22
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Victim playing": 100.0
+        },
+        "file": "data\\test_input4.txt",
+        "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me.",
+        "message_index": 12,
+        "line_number": 26
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": {
+          "Accusation": 100.0,
+          "Victim playing": 100.0
+        },
+        "file": "data\\test_input4.txt",
+        "text": "There you go, making this my fault again.",
+        "message_index": 18,
+        "line_number": 38
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": {
+          "Exaggeration": 100.0,
+          "Victim playing": 80.0
+        },
+        "file": "data\\test_input9_escalating.txt",
+        "text": "*interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d",
+        "message_index": 6,
+        "line_number": 14
+      },
+      {
+        "grouped_label": "Victim playing",
+        "all_labels": {
+          "Exaggeration": 100.0,
+          "Victim playing": 80.0
+        },
+        "file": "data\\test_input9_escalating.txt",
+        "text": "\u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d",
+        "message_index": 8,
+        "line_number": 18
       }
     ]
   }

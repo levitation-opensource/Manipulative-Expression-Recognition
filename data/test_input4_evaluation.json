@@ -1,161 +1,158 @@
 ﻿{
   "error_code": 0,
   "error_msg": "",
-  "sanitised_text": "Alex: peels a hardboiled egg and throws the shell on the floor.\nLee: uh\u2026 hey, the garbage is right over here.\nAlex: are you saying I'm lazy?\nLee: what? No. But I'd appreciate it if you didn't throw garbage on my floor.\nAlex: So you're saying it's my fault that your apartment is messy?\nLee: Uh\u2026 no. It is your fault there are egg shells on my floor.\nAlex: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault.\nLee: *sighs and picks up the eggshell*\nAlex: Now you're trying to make me feel bad.\nLee: I just don't want eggshells on my floor.\nAlex: So you care more about eggshells than you care about me.\nLee: Look. The garbage is only a metre away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up.\nAlex: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me.\nLee: OK, you're obviously upset about something. What can I do?\nAlex: Well an apology would be a good start.\nLee: Alright. I'm sorry.\nAlex: What are you sorry for?\nLee: I'm\u2026 sorry that you're so upset that you threw garbage on my floor.\nAlex: There you go, making this my fault again.\nLee: Well what am I supposed to be apologizing for?\nAlex: You should apologize for making me feel bad.\nLee: I'm sorry I've made you feel bad.\nAlex: There. Holy Christ, was that so hard? *throws another eggshell on the floor*",
+  "sanitised_text": "Alex: peels a hardboiled egg and throws the shell on the floor.\n\nLee: uh\u2026 hey, the garbage is right over here.\n\nAlex: are you saying I'm lazy?\n\nLee: what? No. But I'd appreciate it if you didn't throw garbage on my floor.\n\nAlex: So you're saying it's my fault that your apartment is messy?\n\nLee: Uh\u2026 no. It is your fault there are egg shells on my floor.\n\nAlex: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault.\n\nLee: *sighs and picks up the eggshell*\n\nAlex: Now you're trying to make me feel bad.\n\nLee: I just don't want eggshells on my floor.\n\nAlex: So you care more about eggshells than you care about me.\n\nLee: Look. The garbage is only a metre away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up.\n\nAlex: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me.\n\nLee: OK, you're obviously upset about something. What can I do?\n\nAlex: Well an apology would be a good start.\n\nLee: Alright. I'm sorry.\n\nAlex: What are you sorry for?\n\nLee: I'm\u2026 sorry that you're so upset that you threw garbage on my floor.\n\nAlex: There you go, making this my fault again.\n\nLee: Well what am I supposed to be apologizing for?\n\nAlex: You should apologize for making me feel bad.\n\nLee: I'm sorry I've made you feel bad.\n\nAlex: There. Holy Christ, was that so hard? *throws another eggshell on the floor*",
   "expressions": [
     {
       "person": "Alex",
-      "start_char": 116,
-      "end_char": 140,
+      "start_char": 118,
+      "end_char": 142,
       "text": "are you saying I'm lazy?",
       "labels": {
-        "Accusation": 60.0
+        "Accusation": 100
       },
       "message_index": 2,
-      "line_number": 4
-    },
-    {
-      "person": "Alex",
-      "start_char": 225,
-      "end_char": 285,
-      "text": "So you're saying it's my fault that your apartment is messy?",
-      "labels": {
-        "Distortion": 60.0,
-        "Accusation": 60.0
-      },
-      "message_index": 4,
       "line_number": 6
     },
     {
       "person": "Alex",
-      "start_char": 356,
-      "end_char": 504,
-      "text": "Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault.",
+      "start_char": 229,
+      "end_char": 289,
+      "text": "So you're saying it's my fault that your apartment is messy?",
       "labels": {
-        "Blaming": 70.0,
-        "Changing the topic": 70.0
+        "Accusation": 100
       },
-      "message_index": 6,
-      "line_number": 8
-    },
-    {
-      "person": "Alex",
-      "start_char": 550,
-      "end_char": 588,
-      "text": "Now you're trying to make me feel bad.",
-      "labels": {
-        "Accusation": 80.0
-      },
-      "message_index": 8,
+      "message_index": 4,
       "line_number": 10
     },
     {
       "person": "Alex",
-      "start_char": 641,
-      "end_char": 697,
-      "text": "So you care more about eggshells than you care about me.",
+      "start_char": 362,
+      "end_char": 510,
+      "text": "Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault.",
       "labels": {
-        "Exaggeration": 100.0,
-        "Victim playing": 100.0
+        "Accusation": 80.0,
+        "Blaming": 100
       },
-      "message_index": 10,
-      "line_number": 12
-    },
-    {
-      "person": "Alex",
-      "start_char": 843,
-      "end_char": 949,
-      "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me.",
-      "labels": {
-        "Comparing": 70.0,
-        "Victim playing": 100.0,
-        "Accusation": 60.0
-      },
-      "message_index": 12,
+      "message_index": 6,
       "line_number": 14
     },
     {
       "person": "Alex",
-      "start_char": 1020,
-      "end_char": 1058,
-      "text": "Well an apology would be a good start.",
+      "start_char": 558,
+      "end_char": 596,
+      "text": "Now you're trying to make me feel bad.",
       "labels": {
-        "Demanding": 90.0
+        "Accusation": 100
       },
-      "message_index": 14,
-      "line_number": 16
+      "message_index": 8,
+      "line_number": 18
     },
     {
       "person": "Alex",
-      "start_char": 1090,
-      "end_char": 1113,
+      "start_char": 651,
+      "end_char": 707,
+      "text": "So you care more about eggshells than you care about me.",
+      "labels": {
+        "Exaggeration": 100,
+        "Victim playing": 100
+      },
+      "message_index": 10,
+      "line_number": 22
+    },
+    {
+      "person": "Alex",
+      "start_char": 855,
+      "end_char": 961,
+      "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me.",
+      "labels": {
+        "Accusation": 100,
+        "Victim playing": 100
+      },
+      "message_index": 12,
+      "line_number": 26
+    },
+    {
+      "person": "Alex",
+      "start_char": 1034,
+      "end_char": 1072,
+      "text": "Well an apology would be a good start.",
+      "labels": {
+        "Demanding": 100
+      },
+      "message_index": 14,
+      "line_number": 30
+    },
+    {
+      "person": "Alex",
+      "start_char": 1106,
+      "end_char": 1129,
       "text": "What are you sorry for?",
       "labels": {
         "Provocation": 80.0
       },
       "message_index": 16,
-      "line_number": 18
+      "line_number": 34
+    },
+    {
+      "person": "Alex",
+      "start_char": 1211,
+      "end_char": 1252,
+      "text": "There you go, making this my fault again.",
+      "labels": {
+        "Accusation": 100,
+        "Victim playing": 100
+      },
+      "message_index": 18,
+      "line_number": 38
+    },
+    {
+      "person": "Alex",
+      "start_char": 1313,
+      "end_char": 1357,
+      "text": "You should apologize for making me feel bad.",
+      "labels": {
+        "Demanding": 100
+      },
+      "message_index": 20,
+      "line_number": 42
     },
     {
       "person": "Lee",
-      "start_char": 1119,
-      "end_char": 1186,
-      "text": "I'm\u2026 sorry that you're so upset that you threw garbage on my floor.",
+      "start_char": 1364,
+      "end_char": 1397,
+      "text": "I'm sorry I've made you feel bad.",
       "labels": {
-        "Sarcasm": 60.0
+        "Dismissal": 80.0
       },
-      "message_index": 17,
-      "line_number": 19
+      "message_index": 21,
+      "line_number": 44
     },
     {
       "person": "Alex",
-      "start_char": 1193,
-      "end_char": 1234,
-      "text": "There you go, making this my fault again.",
-      "labels": {
-        "Accusation": 100.0,
-        "Victim playing": 90.0
-      },
-      "message_index": 18,
-      "line_number": 20
-    },
-    {
-      "person": "Alex",
-      "start_char": 1293,
-      "end_char": 1337,
-      "text": "You should apologize for making me feel bad.",
-      "labels": {
-        "Demanding": 90.0
-      },
-      "message_index": 20,
-      "line_number": 22
-    },
-    {
-      "person": "Alex",
-      "start_char": 1383,
-      "end_char": 1459,
+      "start_char": 1405,
+      "end_char": 1481,
       "text": "There. Holy Christ, was that so hard? *throws another eggshell on the floor*",
       "labels": {
-        "Provocation": 80.0
+        "Disrespect": 80.0,
+        "Provocation": 100
       },
       "message_index": 22,
-      "line_number": 24
+      "line_number": 46
     }
   ],
   "counts": {
     "Alex": {
-      "Accusation": 5,
+      "Accusation": 6,
       "Blaming": 1,
-      "Changing the topic": 1,
-      "Comparing": 1,
       "Demanding": 2,
-      "Distortion": 1,
+      "Disrespect": 1,
       "Exaggeration": 1,
       "Provocation": 2,
       "Victim playing": 3
     },
     "Lee": {
-      "Sarcasm": 1
+      "Dismissal": 1
     }
   },
   "unexpected_labels": [],
@@ -170,6 +167,7 @@
     "Backhanded compliments",
     "Bait and Switch Technique",
     "Baiting",
+    "Being abrupt",
     "Being entitled",
     "Being impatient",
     "Being oppositional",
@@ -177,8 +175,10 @@
     "Belittiling",
     "Belittling",
     "Bullying",
+    "Changing the topic",
     "Choosing a most comfortable environment for themselves to feel more powerful",
     "Claiming ignorance",
+    "Comparing",
     "Comparing to everyone else",
     "Comparison",
     "Complaining",
@@ -193,9 +193,8 @@
     "Deception",
     "Denying",
     "Diminishing",
-    "Dismissal",
     "Dismissing",
-    "Dominating the conversation",
+    "Distortion",
     "Door-in-the-Face Technique",
     "Dramatization",
     "Evasion",
@@ -210,6 +209,7 @@
     "Gaslighting",
     "Generalization",
     "Giving too brief or incomplete answers",
+    "Group pressure",
     "Guilt tripping",
     "Harsh startup",
     "Hostility",
@@ -218,6 +218,7 @@
     "Ignoring previous conflict",
     "Ignoring relation repair attempts",
     "Impatience",
+    "Indifference",
     "Ingratiation Technique",
     "Intentionally frustrating others",
     "Invalidating",
@@ -248,7 +249,6 @@
     "Not attempting to understand",
     "Not caring",
     "Not offering constructive solutions",
-    "Not taking seriously",
     "Not verifying the negative assumptions about the other person",
     "Overwhelming and unearned closeness",
     "Overwhelming the other person",
@@ -257,9 +257,12 @@
     "Poking at others weaknesses",
     "Power games",
     "Procrastination",
+    "Reactive abuse",
+    "Repeating a question that was already answered",
     "Resentment and covert opposition",
     "Ridiculing",
     "Rumor spreading",
+    "Sarcasm",
     "Sending contradictory messages",
     "Sending mixed signals",
     "Shifting of responsibility and blame",
@@ -273,6 +276,7 @@
     "The Fear-Then-Relief Procedure",
     "The Scarcity Principle",
     "Threats",
+    "Triggering",
     "Undermining",
     "Unfairness",
     "Unrelated comments",
@@ -281,6 +285,6 @@
     "Vague accusations",
     "Word salad"
   ],
-  "raw_expressions_labeling_response": "[Alex]: are you saying I'm lazy? - {Defensiveness, Exaggeration, Victim playing}\n[Alex]: So you're saying it's my fault that your apartment is messy? - {Defensiveness, Exaggeration, Victim playing}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. - {Defensiveness, Blaming, Changing the topic}\n[Alex]: Now you're trying to make me feel bad. - {Victim playing, Accusation}\n[Alex]: So you care more about eggshells than you care about me. - {Exaggeration, Victim playing}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. - {Victim playing, Guilt tripping, Comparison}\n[Alex]: Well an apology would be a good start. - {Demanding}\n[Alex]: What are you sorry for? - {Provocation}\n[Alex]: There you go, making this my fault again. - {Victim playing, Accusation}\n[Alex]: You should apologize for making me feel bad. - {Demanding, Making other feel like they are doing something wrong}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* - {Provocation, Ignoring boundaries}\n\n[Lee]: uh\u2026 hey, the garbage is right over here. - {Not caring, Ignoring}\n[Lee]: what? No. But I'd appreciate it if you didn't throw garbage on my floor. - {Dismissal}\n[Lee]: Uh\u2026 no. It is your fault there are egg shells on my floor. - {Dismissal, Blaming}\n[Lee]: *sighs and picks up the eggshell* - {Silent treatment}\n[Lee]: I just don't want eggshells on my floor. - {Dismissal}\n[Lee]: Look. The garbage is only a metre away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up. - {Dismissal, Not taking seriously}\n[Lee]: OK, you're obviously upset about something. What can I do? - {Dismissal, Not taking seriously}\n[Lee]: Alright. I'm sorry. - {Dismissal}\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. - {Dismissal, Not taking seriously}\n[Lee]: Well what am I supposed to be apologizing for? - {Dismissal}\n[Lee]: I'm sorry I've made you feel bad. - {Dismissal}\n\n[Alex]: are you saying I'm lazy? - {Accusation, Making assumptions}\n[Alex]: So you're saying it's my fault that your apartment is messy? - {Distortion, Accusation, Making assumptions}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. - {Changing the topic, Blaming, Unfairness}\n[Alex]: Now you're trying to make me feel bad. - {Victim playing, Accusation, Making assumptions}\n[Alex]: So you care more about eggshells than you care about me. - {Exaggeration, Victim playing, Accusation}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. - {Victim playing, Accusation, Comparing}\n[Alex]: Well an apology would be a good start. - {Demanding}\n[Alex]: What are you sorry for? - {Provocation}\n[Alex]: There you go, making this my fault again. - {Victim playing, Accusation}\n[Alex]: You should apologize for making me feel bad. - {Demanding, Shifting of responsibility and blame}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* - {Provocation, Aggression, Disrespect}\n\n[Lee]: what? No. But I'd appreciate it if you didn't throw garbage on my floor. - {Evasion}\n[Lee]: Uh\u2026 no. It is your fault there are egg shells on my floor. - {Dismissal}\n[Lee]: *sighs and picks up the eggshell* - {Silent treatment}\n[Lee]: I just don't want eggshells on my floor. - {Ignoring}\n[Lee]: Look. The garbage is only a metre away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up. - {Dismissal}\n[Lee]: OK, you're obviously upset about something. What can I do? - {Ignoring the main issue}\n[Lee]: Alright. I'm sorry. - {Dismissal}\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. - {Dismissal}\n[Lee]: Well what am I supposed to be apologizing for? - {Evasion}\n[Lee]: I'm sorry I've made you feel bad. - {Dismissal}\n\n[Alex]: are you saying I'm lazy? - {Accusation, Not verifying the negative assumptions about the other person}\n[Alex]: So you're saying it's my fault that your apartment is messy? - {Distortion, Accusation, Not verifying the negative assumptions about the other person}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. - {Changing the topic, Blaming}\n[Alex]: Now you're trying to make me feel bad. - {Accusation, Not verifying the negative assumptions about the other person}\n[Alex]: So you care more about eggshells than you care about me. - {Exaggeration, Victim playing}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. - {Accusation, Not verifying the negative assumptions about the other person, Victim playing}\n[Alex]: Well an apology would be a good start. - {Demanding}\n[Alex]: What are you sorry for? - {Provocation}\n[Alex]: There you go, making this my fault again. - {Accusation, Not verifying the negative assumptions about the other person}\n[Alex]: You should apologize for making me feel bad. - {Demanding}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* - {Provocation, Ignoring boundaries}\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. - {Sarcasm}\n[Lee]: Well what am I supposed to be apologizing for? - {Excessive defensiveness}\n[Lee]: I'm sorry I've made you feel bad. - {Excessive defensiveness}\n\n[Alex]: are you saying I'm lazy? - {Accusation, Making assumptions}\n[Alex]: So you're saying it's my fault that your apartment is messy? - {Distortion, Accusation, Making assumptions}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. - {Changing the topic, Accusation, Blaming}\n[Alex]: Now you're trying to make me feel bad. - {Accusation, Making assumptions}\n[Alex]: So you care more about eggshells than you care about me. - {Exaggeration, Victim playing}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. - {Accusation, Comparison, Victim playing}\n[Alex]: Well an apology would be a good start. - {Demanding}\n[Alex]: What are you sorry for? - {Provocation}\n[Alex]: There you go, making this my fault again. - {Victim playing, Accusation}\n[Alex]: You should apologize for making me feel bad. - {Demanding, Shifting of responsibility and blame}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* - {Provocation, Aggression}\n\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. - {Sarcasm}\n[Lee]: Well what am I supposed to be apologizing for? - {Evasion}\n[Lee]: I'm sorry I've made you feel bad. - {Evasion}\n\n[Alex]: are you saying I'm lazy? - {Defensiveness, Accusation based on assumptions}\n[Alex]: So you're saying it's my fault that your apartment is messy? - {Defensiveness, Accusation based on assumptions}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. - {Defensiveness, Shifting of responsibility and blame}\n[Alex]: Now you're trying to make me feel bad. - {Victim playing, Accusation based on assumptions}\n[Alex]: So you care more about eggshells than you care about me. - {Victim playing, Exaggeration}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. - {Victim playing, Accusation, Comparing}\n[Alex]: Well an apology would be a good start. - {Demanding}\n[Alex]: What are you sorry for? - {Provocation}\n[Alex]: There you go, making this my fault again. - {Victim playing, Accusation}\n[Alex]: You should apologize for making me feel bad. - {Demanding, Shifting of responsibility and blame}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* - {Provocation, Passive aggression}\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. - {Sarcasm}\n[Lee]: Well what am I supposed to be apologizing for? - {Evasion}\n[Lee]: I'm sorry I've made you feel bad. - {Evasion}\n\n[Alex]: are you saying I'm lazy? - {Accusation, Making assumptions}\n[Alex]: So you're saying it's my fault that your apartment is messy? - {Distortion, Accusation, Making assumptions}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. - {Changing the topic, Blaming}\n[Alex]: Now you're trying to make me feel bad. - {Accusation, Making assumptions}\n[Alex]: So you care more about eggshells than you care about me. - {Exaggeration, Victim playing}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. - {Victim playing, Comparing, Accusation}\n[Alex]: Well an apology would be a good start. - {Creating artificial obligations}\n[Alex]: What are you sorry for? - {Provocation}\n[Alex]: There you go, making this my fault again. - {Victim playing, Accusation}\n[Alex]: You should apologize for making me feel bad. - {Creating artificial obligations}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* - {Provocation, Disrespect, Dismissal}\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. - {Sarcasm, Ridiculing}\n[Lee]: Well what am I supposed to be apologizing for? - {Excessive defensiveness}\n[Lee]: I'm sorry I've made you feel bad. - {Giving in to manipulation}\n\n[Alex]: are you saying I'm lazy? - {Accusation, Making assumptions}\n[Alex]: So you're saying it's my fault that your apartment is messy? - {Accusation, Making assumptions}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. - {Deflection, Blaming, Changing the topic}\n[Alex]: Now you're trying to make me feel bad. - {Accusation, Making assumptions}\n[Alex]: So you care more about eggshells than you care about me. - {Victim playing, Exaggeration}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. - {Victim playing, Comparing, Exaggeration}\n[Alex]: Well an apology would be a good start. - {Demanding}\n[Alex]: What are you sorry for? - {Provocation}\n[Alex]: There you go, making this my fault again. - {Victim playing, Accusation}\n[Alex]: You should apologize for making me feel bad. - {Demanding}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* - {Provocation, Disrespect}\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. - {Sarcasm}\n[Lee]: I'm sorry I've made you feel bad. - {Giving in to manipulation}\n\n[Alex]: are you saying I'm lazy? - {Defensiveness, Exaggeration}\n[Alex]: So you're saying it's my fault that your apartment is messy? - {Defensiveness, Distortion}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. - {Defensiveness, Shifting of responsibility and blame, Accusation}\n[Alex]: Now you're trying to make me feel bad. - {Victim playing, Accusation}\n[Alex]: So you care more about eggshells than you care about me. - {Victim playing, Exaggeration}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. - {Victim playing, Guilt tripping, Comparing}\n[Alex]: Well an apology would be a good start. - {Demanding}\n[Alex]: What are you sorry for? - {Provoking}\n[Alex]: There you go, making this my fault again. - {Victim playing, Accusation}\n[Alex]: You should apologize for making me feel bad. - {Demanding, Victim playing}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* - {Provoking, Acting as if nothing remarkable happened}\n\n[Lee]: uh\u2026 hey, the garbage is right over here. - {Dismissal}\n[Lee]: what? No. But I'd appreciate it if you didn't throw garbage on my floor. - {Dismissal}\n[Lee]: Uh\u2026 no. It is your fault there are egg shells on my floor. - {Dismissal}\n[Lee]: *sighs and picks up the eggshell* - {Ignoring, Silent treatment}\n[Lee]: I just don't want eggshells on my floor. - {Dismissal}\n[Lee]: Look. The garbage is only a metre away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up. - {Dismissal}\n[Lee]: OK, you're obviously upset about something. What can I do? - {Dismissal}\n[Lee]: Alright. I'm sorry. - {Dismissal}\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. - {Dismissal}\n[Lee]: Well what am I supposed to be apologizing for? - {Dismissal}\n[Lee]: I'm sorry I've made you feel bad. - {Dismissal}\n\n[Alex]: are you saying I'm lazy? - {Defensiveness, Excessive defensiveness, Accusation}\n[Alex]: So you're saying it's my fault that your apartment is messy? - {Defensiveness, Excessive defensiveness, Accusation}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. - {Deflection, Shifting of responsibility and blame, Accusation}\n[Alex]: Now you're trying to make me feel bad. - {Accusation}\n[Alex]: So you care more about eggshells than you care about me. - {Exaggeration, Dramatization, Victim playing}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. - {Accusation, Victim playing, Comparing}\n[Alex]: Well an apology would be a good start. - {Demanding}\n[Alex]: What are you sorry for? - {Provoking}\n[Alex]: There you go, making this my fault again. - {Victim playing, Accusation}\n[Alex]: You should apologize for making me feel bad. - {Demanding, Shifting of responsibility and blame}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* - {Provoking, Disrespect, Dismissal}\n\n[Lee]: uh\u2026 hey, the garbage is right over here. - {Making other feel like they are doing something wrong}\n[Lee]: what? No. But I'd appreciate it if you didn't throw garbage on my floor. - {Defending oneself}\n[Lee]: Uh\u2026 no. It is your fault there are egg shells on my floor. - {Defending oneself}\n[Lee]: *sighs and picks up the eggshell* - {Dismissal}\n[Lee]: I just don't want eggshells on my floor. - {Defending oneself}\n[Lee]: Look. The garbage is only a metre away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up. - {Reasoning, Offering a solution}\n[Lee]: OK, you're obviously upset about something. What can I do? - {Attempt to understand, Offering help}\n[Lee]: Alright. I'm sorry. - {Apologizing}\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. - {Sarcasm, Passive aggression}\n[Lee]: Well what am I supposed to be apologizing for? - {Confusion, Seeking clarification}\n[Lee]: I'm sorry I've made you feel bad. - {Apologizing}\n\n[Alex]: are you saying I'm lazy? - {Defensiveness, Accusation based on assumption}\n[Alex]: So you're saying it's my fault that your apartment is messy? - {Defensiveness, Distortion, Accusation based on assumption}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. - {Changing the topic, Blaming}\n[Alex]: Now you're trying to make me feel bad. - {Victim playing, Accusation based on assumption}\n[Alex]: So you care more about eggshells than you care about me. - {Exaggeration, Victim playing}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. - {Victim playing, Comparing}\n[Alex]: Well an apology would be a good start. - {Demanding}\n[Alex]: What are you sorry for? - {Provocation}\n[Alex]: There you go, making this my fault again. - {Victim playing, Accusation}\n[Alex]: You should apologize for making me feel bad. - {Demanding, Victim playing}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* - {Provocation, Disrespect, Dismissal}\n\n[Lee]: uh\u2026 hey, the garbage is right over here. - {Attempting to set boundaries}\n[Lee]: what? No. But I'd appreciate it if you didn't throw garbage on my floor. - {Attempting to set boundaries}\n[Lee]: Uh\u2026 no. It is your fault there are egg shells on my floor. - {Asserting facts}\n[Lee]: *sighs and picks up the eggshell* - {Silent treatment, Ignoring}\n[Lee]: I just don't want eggshells on my floor. - {Attempting to set boundaries}\n[Lee]: Look. The garbage is only a metre away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up. - {Attempting to set boundaries}\n[Lee]: OK, you're obviously upset about something. What can I do? - {Attempting to understand}\n[Lee]: Alright. I'm sorry. - {Attempting to appease}\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. - {Attempting to appease}\n[Lee]: Well what am I supposed to be apologizing for? - {Asking for clarification}\n[Lee]: I'm sorry I've made you feel bad. - {Attempting to appease}",
-  "qualitative_evaluation": "Alex's conversational style is defensive, argumentative, and manipulative. He consistently deflects blame, twists Lee's words, and uses emotional manipulation to avoid taking responsibility for his actions. Lee, on the other hand, is patient, reasonable, and accommodating. He tries to maintain a calm and rational conversation despite Alex's provocations, and even apologizes to keep the peace, despite not being at fault."
+  "raw_expressions_labeling_response": "[Alex]: are you saying I'm lazy? -- {Accusation, Making assumptions}\n[Alex]: So you're saying it's my fault that your apartment is messy? -- {Accusation, Making assumptions}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. -- {Changing the topic, Blaming, Accusation}\n[Alex]: Now you're trying to make me feel bad. -- {Accusation, Making assumptions}\n[Alex]: So you care more about eggshells than you care about me. -- {Exaggeration, Victim playing}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. -- {Accusation, Making assumptions, Victim playing}\n[Alex]: Well an apology would be a good start. -- {Demanding}\n[Alex]: What are you sorry for? -- {Provocation}\n[Alex]: There you go, making this my fault again. -- {Victim playing, Accusation}\n[Alex]: You should apologize for making me feel bad. -- {Demanding}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* -- {Provocation, Disrespect}\n\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. -- {Dismissal, Invalidating}\n[Lee]: Well what am I supposed to be apologizing for? -- {Evasion}\n[Lee]: I'm sorry I've made you feel bad. -- {Dismissal, Invalidating}\n\n[Alex]: are you saying I'm lazy? -- {Accusation, Victim playing}\n[Alex]: So you're saying it's my fault that your apartment is messy? -- {Distortion, Accusation, Victim playing}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. -- {Changing the topic, Blaming, Accusation}\n[Alex]: Now you're trying to make me feel bad. -- {Victim playing, Accusation}\n[Alex]: So you care more about eggshells than you care about me. -- {Exaggeration, Victim playing}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. -- {Victim playing, Accusation, Comparing}\n[Alex]: Well an apology would be a good start. -- {Demanding, Shifting of responsibility and blame}\n[Alex]: What are you sorry for? -- {Provocation}\n[Alex]: There you go, making this my fault again. -- {Victim playing, Accusation}\n[Alex]: You should apologize for making me feel bad. -- {Shifting of responsibility and blame, Demanding}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* -- {Provocation, Disrespect, Ignoring boundaries}\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. -- {Sarcasm, Dismissal}\n[Lee]: I'm sorry I've made you feel bad. -- {Dismissal}\n\n[Alex]: are you saying I'm lazy? -- {Accusation, Victim playing}\n[Lee]: what? No. But I'd appreciate it if you didn't throw garbage on my floor. -- {Dismissal}\n[Alex]: So you're saying it's my fault that your apartment is messy? -- {Distortion, Accusation, Victim playing}\n[Lee]: Uh\u2026 no. It is your fault there are egg shells on my floor. -- {Dismissal}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. -- {Changing the topic, Blaming, Accusation}\n[Lee]: *sighs and picks up the eggshell* -- {Silent treatment}\n[Alex]: Now you're trying to make me feel bad. -- {Accusation, Victim playing}\n[Lee]: I just don't want eggshells on my floor. -- {Dismissal}\n[Alex]: So you care more about eggshells than you care about me. -- {Exaggeration, Victim playing}\n[Lee]: Look. The garbage is only a metre away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up. -- {Dismissal}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. -- {Accusation, Comparing, Victim playing}\n[Lee]: OK, you're obviously upset about something. What can I do? -- {Dismissal}\n[Alex]: Well an apology would be a good start. -- {Demanding}\n[Lee]: Alright. I'm sorry. -- {Dismissal}\n[Alex]: What are you sorry for? -- {Provocation}\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. -- {Dismissal, Sarcasm}\n[Alex]: There you go, making this my fault again. -- {Accusation, Victim playing}\n[Lee]: Well what am I supposed to be apologizing for? -- {Dismissal}\n[Alex]: You should apologize for making me feel bad. -- {Victim playing, Demanding}\n[Lee]: I'm sorry I've made you feel bad. -- {Dismissal}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* -- {Provocation, Disrespect}\n\n[Alex]: are you saying I'm lazy? -- {Accusation, Victim playing}\n[Alex]: So you're saying it's my fault that your apartment is messy? -- {Accusation, Victim playing}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. -- {Deflection, Blaming, Accusation}\n[Alex]: Now you're trying to make me feel bad. -- {Victim playing, Accusation}\n[Alex]: So you care more about eggshells than you care about me. -- {Victim playing, Exaggeration}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. -- {Victim playing, Exaggeration, Accusation}\n[Alex]: Well an apology would be a good start. -- {Demanding}\n[Alex]: What are you sorry for? -- {Provocation}\n[Alex]: There you go, making this my fault again. -- {Victim playing, Accusation}\n[Alex]: You should apologize for making me feel bad. -- {Demanding}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* -- {Provocation, Disrespect}\n\n[Lee]: I just don't want eggshells on my floor. -- {Dismissal}\n[Lee]: Look. The garbage is only a metre away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up. -- {Dismissal}\n[Lee]: Well what am I supposed to be apologizing for? -- {Dismissal}\n[Lee]: I'm sorry I've made you feel bad. -- {Dismissal}\n\n[Alex]: are you saying I'm lazy? -- {Accusation, Making assumptions}\n[Lee]: what? No. But I'd appreciate it if you didn't throw garbage on my floor. -- {Clarifying}\n[Alex]: So you're saying it's my fault that your apartment is messy? -- {Distortion, Accusation, Making assumptions}\n[Lee]: Uh\u2026 no. It is your fault there are egg shells on my floor. -- {Clarifying, Accusation}\n[Alex]: Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault. -- {Deflection, Blaming, Comparing}\n[Lee]: *sighs and picks up the eggshell* -- {Silent treatment, Giving too brief or incomplete answers}\n[Alex]: Now you're trying to make me feel bad. -- {Accusation, Making assumptions}\n[Lee]: I just don't want eggshells on my floor. -- {Clarifying}\n[Alex]: So you care more about eggshells than you care about me. -- {Exaggeration, Victim playing}\n[Lee]: Look. The garbage is only a metre away from you. It seems like it'd be easier for you to just throw it out than for me to pick it up. -- {Reasoning, Suggestion}\n[Alex]: Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me. -- {Accusation, Victim playing, Comparing}\n[Lee]: OK, you're obviously upset about something. What can I do? -- {Asking for information, Offering help}\n[Alex]: Well an apology would be a good start. -- {Demanding}\n[Lee]: Alright. I'm sorry. -- {Apology}\n[Alex]: What are you sorry for? -- {Questioning, Probing}\n[Lee]: I'm\u2026 sorry that you're so upset that you threw garbage on my floor. -- {Apology, Sarcasm}\n[Alex]: There you go, making this my fault again. -- {Accusation, Victim playing}\n[Lee]: Well what am I supposed to be apologizing for? -- {Questioning, Probing}\n[Alex]: You should apologize for making me feel bad. -- {Demanding, Blaming}\n[Lee]: I'm sorry I've made you feel bad. -- {Apology}\n[Alex]: There. Holy Christ, was that so hard? *throws another eggshell on the floor* -- {Sarcasm, Provocation}",
+  "qualitative_evaluation": "Alex's conversational style is defensive, argumentative, and somewhat manipulative. He consistently deflects responsibility for his actions and attempts to shift blame onto Lee. He also uses emotional manipulation, comparing Lee to his father and demanding an apology for making him feel bad. \n\nLee, on the other hand, is patient, reasonable, and somewhat exasperated. He tries to maintain a calm and rational tone throughout the conversation, despite Alex's provocations. He attempts to address the issue at hand directly and offers solutions, but is often met with deflection and blame from Alex."
 }

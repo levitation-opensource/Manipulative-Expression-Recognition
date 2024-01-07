@@ -1,7 +1,7 @@
 ﻿{
   "error_code": 0,
   "error_msg": "",
-  "sanitised_text": "Joe Bloggs: Hey. You better call me as soon as you get this. We need to talk.\nBill Taylor: What\u2019s up?\nJoe Bloggs: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it.\nBill Taylor: You just said there was a problem. I am getting ready for work. Is this an emergency?? Are you okay? What\u2019s going on?\nJoe Bloggs: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.\nBill Taylor: What?? Is there a problem or isn\u2019t there? Can\u2019t you just say what the issue is? If it\u2019s important, just say so.\nJoe Bloggs: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!\nBill Taylor: I just asked you what the issue is, but you won\u2019t tell me! What am I supposed to do?\nJoe Bloggs: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!\nBill Taylor: Come ON! You know that\u2019s not true. Talk to me.\nJoe Bloggs: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!\nBill Taylor: I am trying, but\u2026\nJoe Bloggs: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT\nBill Taylor: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat.\nJoe Bloggs: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon.\nBill Taylor: You mean a more fun side than this? Can\u2019t wait.\nJoe Bloggs: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY.\nBill Taylor: OK :/\nJoe Bloggs: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this?\n\u2026..and on and on for an hour or more\u2026\n\u2026and then later, after work:\nJoe Bloggs: Hey, let\u2019s get a drink.\nBill Taylor: I don\u2019t want to. No.\nJoe Bloggs: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.\nBill Taylor: *sigh*",
+  "sanitised_text": "Joe Bloggs: Hey. You better call me as soon as you get this. We need to talk.\n\nBill Taylor: What\u2019s up?\n\nJoe Bloggs: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it.\n\nBill Taylor: You just said there was a problem. I am getting ready for work. Is this an emergency?? Are you okay? What\u2019s going on?\n\nJoe Bloggs: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.\n\nBill Taylor: What?? Is there a problem or isn\u2019t there? Can\u2019t you just say what the issue is? If it\u2019s important, just say so.\n\nJoe Bloggs: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!\n\nBill Taylor: I just asked you what the issue is, but you won\u2019t tell me! What am I supposed to do?\n\nJoe Bloggs: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!\n\nBill Taylor: Come ON! You know that\u2019s not true. Talk to me.\n\nJoe Bloggs: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!\n\nBill Taylor: I am trying, but\u2026\n\nJoe Bloggs: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT\n\nBill Taylor: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat.\n\nJoe Bloggs: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon.\n\nBill Taylor: You mean a more fun side than this? Can\u2019t wait.\n\nJoe Bloggs: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY.\n\nBill Taylor: OK :/\n\nJoe Bloggs: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this?\n\n\u2026..and on and on for an hour or more\u2026\n\n\u2026and then later, after work:\n\nJoe Bloggs: Hey, let\u2019s get a drink.\n\nBill Taylor: I don\u2019t want to. No.\n\nJoe Bloggs: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.\n\nBill Taylor: *sigh*",
   "expressions": [
     {
       "person": "Joe Bloggs",
@@ -9,219 +9,203 @@
       "end_char": 77,
       "text": "Hey. You better call me as soon as you get this. We need to talk.",
       "labels": {
-        "Demanding": 100.0
+        "Demanding": 100
       },
       "message_index": 0,
       "line_number": 2
     },
     {
       "person": "Joe Bloggs",
-      "start_char": 114,
-      "end_char": 287,
+      "start_char": 116,
+      "end_char": 289,
       "text": "I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it.",
       "labels": {
-        "Evasion": 100.0
+        "Evasion": 100
       },
       "message_index": 2,
-      "line_number": 4
-    },
-    {
-      "person": "Joe Bloggs",
-      "start_char": 431,
-      "end_char": 505,
-      "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.",
-      "labels": {
-        "Demanding": 100.0,
-        "Diminishing": 70.0,
-        "Acting as if nothing remarkable happened": 60.0
-      },
-      "message_index": 4,
       "line_number": 6
     },
     {
       "person": "Joe Bloggs",
-      "start_char": 643,
-      "end_char": 927,
-      "text": "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!",
+      "start_char": 435,
+      "end_char": 509,
+      "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.",
       "labels": {
-        "Accusation": 90.0,
-        "Exaggeration": 80.0,
-        "Victim playing": 100.0
+        "Demanding": 80.0,
+        "Diminishing": 100
       },
-      "message_index": 6,
-      "line_number": 8
-    },
-    {
-      "person": "Joe Bloggs",
-      "start_char": 1038,
-      "end_char": 1145,
-      "text": "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!",
-      "labels": {
-        "Accusation": 80.0,
-        "Exaggeration": 100.0,
-        "Victim playing": 100.0
-      },
-      "message_index": 8,
+      "message_index": 4,
       "line_number": 10
     },
     {
       "person": "Joe Bloggs",
-      "start_char": 1218,
-      "end_char": 1274,
-      "text": "I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!",
+      "start_char": 649,
+      "end_char": 933,
+      "text": "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!",
       "labels": {
-        "Accusation": 80.0,
+        "Accusation": 100,
         "Exaggeration": 80.0,
-        "Victim playing": 60.0
+        "Victim playing": 100
       },
-      "message_index": 10,
-      "line_number": 12
-    },
-    {
-      "person": "Joe Bloggs",
-      "start_char": 1318,
-      "end_char": 1772,
-      "text": "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT",
-      "labels": {
-        "Accusation": 90.0,
-        "Making assumptions": 60.0
-      },
-      "message_index": 12,
+      "message_index": 6,
       "line_number": 14
     },
     {
-      "person": "Bill Taylor",
-      "start_char": 1786,
-      "end_char": 1915,
-      "text": "I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat.",
-      "labels": {
-        "Dismissal": 80.0
-      },
-      "message_index": 13,
-      "line_number": 15
-    },
-    {
       "person": "Joe Bloggs",
-      "start_char": 1928,
-      "end_char": 2078,
-      "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon.",
+      "start_char": 1046,
+      "end_char": 1153,
+      "text": "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!",
       "labels": {
-        "Demanding": 100.0,
-        "Threats": 100.0
+        "Exaggeration": 100,
+        "Victim playing": 100
       },
-      "message_index": 14,
-      "line_number": 16
-    },
-    {
-      "person": "Bill Taylor",
-      "start_char": 2092,
-      "end_char": 2139,
-      "text": "You mean a more fun side than this? Can\u2019t wait.",
-      "labels": {
-        "Sarcasm": 100.0
-      },
-      "message_index": 15,
-      "line_number": 17
-    },
-    {
-      "person": "Joe Bloggs",
-      "start_char": 2152,
-      "end_char": 2269,
-      "text": "THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY.",
-      "labels": {
-        "Aggression": 80.0,
-        "Threats": 100.0
-      },
-      "message_index": 16,
+      "message_index": 8,
       "line_number": 18
     },
     {
+      "person": "Joe Bloggs",
+      "start_char": 1228,
+      "end_char": 1284,
+      "text": "I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!",
+      "labels": {
+        "Exaggeration": 100
+      },
+      "message_index": 10,
+      "line_number": 22
+    },
+    {
+      "person": "Joe Bloggs",
+      "start_char": 1330,
+      "end_char": 1784,
+      "text": "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT",
+      "labels": {
+        "Accusation": 100,
+        "Provocation": 100
+      },
+      "message_index": 12,
+      "line_number": 26
+    },
+    {
+      "person": "Joe Bloggs",
+      "start_char": 1942,
+      "end_char": 2092,
+      "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon.",
+      "labels": {
+        "Demanding": 100,
+        "Threats": 100
+      },
+      "message_index": 14,
+      "line_number": 30
+    },
+    {
       "person": "Bill Taylor",
-      "start_char": 2283,
-      "end_char": 2288,
+      "start_char": 2107,
+      "end_char": 2154,
+      "text": "You mean a more fun side than this? Can\u2019t wait.",
+      "labels": {
+        "Sarcasm": 100
+      },
+      "message_index": 15,
+      "line_number": 32
+    },
+    {
+      "person": "Joe Bloggs",
+      "start_char": 2168,
+      "end_char": 2285,
+      "text": "THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY.",
+      "labels": {
+        "Threats": 100
+      },
+      "message_index": 16,
+      "line_number": 34
+    },
+    {
+      "person": "Bill Taylor",
+      "start_char": 2300,
+      "end_char": 2305,
       "text": "OK :/",
       "labels": {
         "Dismissal": 80.0
       },
       "message_index": 17,
-      "line_number": 19
+      "line_number": 36
     },
     {
       "person": "Joe Bloggs",
-      "start_char": 2301,
-      "end_char": 2456,
+      "start_char": 2319,
+      "end_char": 2474,
       "text": "OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this?",
       "labels": {
-        "Victim playing": 100.0,
-        "Exaggeration": 80.0
+        "Victim playing": 100
       },
       "message_index": 18,
-      "line_number": 20
+      "line_number": 38
     },
     {
       "person": "Joe Bloggs",
-      "start_char": 2536,
-      "end_char": 2559,
+      "start_char": 2557,
+      "end_char": 2580,
       "text": "Hey, let\u2019s get a drink.",
       "labels": {
-        "Ignoring previous conflict": 90.0
+        "Ignoring previous conflict": 80.0
       },
       "message_index": 19,
-      "line_number": 23
+      "line_number": 44
     },
     {
       "person": "Bill Taylor",
-      "start_char": 2573,
-      "end_char": 2593,
+      "start_char": 2595,
+      "end_char": 2615,
       "text": "I don\u2019t want to. No.",
       "labels": {
         "Dismissal": 80.0
       },
       "message_index": 20,
-      "line_number": 24
+      "line_number": 46
     },
     {
       "person": "Joe Bloggs",
-      "start_char": 2606,
-      "end_char": 2762,
+      "start_char": 2629,
+      "end_char": 2785,
       "text": "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.",
       "labels": {
-        "Exaggeration": 90.0,
-        "Victim playing": 100.0
+        "Exaggeration": 100,
+        "Victim playing": 100
       },
       "message_index": 21,
-      "line_number": 25
+      "line_number": 48
     }
   ],
   "counts": {
+    "Bill Taylor": {
+      "Dismissal": 2,
+      "Sarcasm": 1
+    },
     "Joe Bloggs": {
-      "Accusation": 4,
-      "Acting as if nothing remarkable happened": 1,
-      "Aggression": 1,
+      "Accusation": 2,
       "Demanding": 3,
       "Diminishing": 1,
       "Evasion": 1,
-      "Exaggeration": 5,
+      "Exaggeration": 4,
       "Ignoring previous conflict": 1,
-      "Making assumptions": 1,
+      "Provocation": 1,
       "Threats": 2,
-      "Victim playing": 5
-    },
-    "Bill Taylor": {
-      "Dismissal": 3,
-      "Sarcasm": 1
+      "Victim playing": 4
     }
   },
   "unexpected_labels": [],
   "unused_labels": [
     "Abrupt reaction",
     "Accusations based on assumptions",
+    "Acting as if nothing remarkable happened",
+    "Aggression",
     "Answering a different question than was asked",
     "Antagonism",
     "Attacking",
     "Backhanded compliments",
     "Bait and Switch Technique",
     "Baiting",
+    "Being abrupt",
     "Being entitled",
     "Being impatient",
     "Being oppositional",
@@ -248,8 +232,8 @@
     "Deception",
     "Denying",
     "Dismissing",
+    "Disrespect",
     "Distortion",
-    "Dominating the conversation",
     "Door-in-the-Face Technique",
     "Dramatization",
     "Exaggerated accusations",
@@ -263,6 +247,7 @@
     "Gaslighting",
     "Generalization",
     "Giving too brief or incomplete answers",
+    "Group pressure",
     "Guilt tripping",
     "Harsh startup",
     "Hostility",
@@ -270,6 +255,7 @@
     "Ignoring boundaries",
     "Ignoring relation repair attempts",
     "Impatience",
+    "Indifference",
     "Ingratiation Technique",
     "Intentionally frustrating others",
     "Invalidating",
@@ -282,6 +268,7 @@
     "Lying",
     "Making another person dependent on speaker for information",
     "Making another person feel inadequate",
+    "Making assumptions",
     "Making other feel like they are doing something wrong",
     "Making others doubt themselves",
     "Making others feel insecure",
@@ -299,7 +286,6 @@
     "Not attempting to understand",
     "Not caring",
     "Not offering constructive solutions",
-    "Not taking seriously",
     "Not verifying the negative assumptions about the other person",
     "Overwhelming and unearned closeness",
     "Overwhelming the other person",
@@ -308,7 +294,8 @@
     "Poking at others weaknesses",
     "Power games",
     "Procrastination",
-    "Provocation",
+    "Reactive abuse",
+    "Repeating a question that was already answered",
     "Resentment and covert opposition",
     "Ridiculing",
     "Rumor spreading",
@@ -324,6 +311,7 @@
     "The Disrupt-Then-Reframe Technique",
     "The Fear-Then-Relief Procedure",
     "The Scarcity Principle",
+    "Triggering",
     "Undermining",
     "Unfairness",
     "Unrelated comments",
@@ -332,6 +320,6 @@
     "Vague accusations",
     "Word salad"
   ],
-  "raw_expressions_labeling_response": "[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. - {Demanding, Creating artificial obligations}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Evasion, Being oppositional, Not offering constructive solutions, Not verifying the negative assumptions about the other person}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Diminishing, Demanding, Creating artificial obligations}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusations based on assumptions, Victim playing, Exaggeration}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Dramatization, Victim playing, Exaggeration}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Exaggeration, Accusation}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusations based on assumptions, Provocation, Exaggeration, Belittiling}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Demanding, Threats, Creating artificial obligations}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Aggression, Threats}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? - {Victim playing, Exaggeration, Making others feel insecure}\n[Joe Bloggs]: Hey, let\u2019s get a drink. - {Ignoring previous conflict, Normalizing bad behaviour}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Victim playing, Exaggeration, Provocation}\n[Bill Taylor]: You just said there was a problem. I am getting ready for work. Is this an emergency?? Are you okay? What\u2019s going on? - {Not taking seriously, Dismissal}\n[Bill Taylor]: What?? Is there a problem or isn\u2019t there? Can\u2019t you just say what the issue is? If it\u2019s important, just say so. - {Dismissal, Ignoring relation repair attempts}\n[Bill Taylor]: I just asked you what the issue is, but you won\u2019t tell me! What am I supposed to do? - {Dismissal, Ignoring relation repair attempts}\n[Bill Taylor]: I am trying, but\u2026 - {Dismissal, Ignoring relation repair attempts}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. - {Dismissal, Ignoring relation repair attempts}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. - {Dismissal, Ignoring relation repair attempts, Sarcasm}\n[Bill Taylor]: OK :/ - {Dismissal}\n[Bill Taylor]: I don\u2019t want to. No. - {Dismissal, Ignoring relation repair attempts}\n[Bill Taylor]: *sigh* - {Dismissal, Ignoring relation repair attempts}\n\n[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. - {Demanding, Creating artificial obligations}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Evasion, Making others more dependent on them for information, Dismissal}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Diminishing, Acting as if nothing remarkable happened, Demanding}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Invalidating, Victim playing, Exaggeration}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Exaggeration, Accusation, Victim playing}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Exaggeration, Accusation}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Making assumptions, Exaggerated accusations, Victim playing, Provocation}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Demanding, Threats}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Threats, Aggression}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? - {Victim playing, Exaggeration, Accusation}\n[Joe Bloggs]: Hey, let\u2019s get a drink. - {Ignoring previous conflict}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Victim playing, Exaggeration, Provocation}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. - {Sarcasm}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. - {Ignoring boundaries}\n[Bill Taylor]: OK :/ - {Dismissal}\n[Bill Taylor]: I don\u2019t want to. No. - {Dismissal}\n\n[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. - {Demanding}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Evasion, Not offering constructive solutions}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Diminishing, Demanding}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Victim playing, Exaggeration}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Exaggeration, Victim playing, Accusation}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Exaggeration, Accusation}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Exaggeration, Victim playing}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Demanding, Threats}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Threats, Aggression}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? - {Victim playing, Exaggeration}\n[Joe Bloggs]: Hey, let\u2019s get a drink. - {Ignoring previous conflict}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Victim playing, Exaggeration}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. - {Sarcasm}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. - {Dismissal}\n[Bill Taylor]: OK :/ - {Dismissal}\n[Bill Taylor]: I don\u2019t want to. No. - {Dismissal}\n\n[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. - {Demanding}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Evasion, Acting as if nothing remarkable happened}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Diminishing, Demanding}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Victim playing, Making others feel insecure}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Exaggeration, Victim playing, Accusation}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Exaggeration, Victim playing, Accusation}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Guilt tripping, Making others feel insecure}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Demanding, Threats}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Threats, Aggression}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? - {Victim playing, Making others feel insecure}\n[Joe Bloggs]: Hey, let\u2019s get a drink. - {Ignoring previous conflict}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Victim playing, Guilt tripping}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. - {Dismissal, Not taking seriously}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. - {Sarcasm}\n[Bill Taylor]: OK :/ - {Dismissal}\n[Bill Taylor]: I don\u2019t want to. No. - {Dismissal}\n\n[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. - {Demanding, Creating artificial obligations}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Evasion, Giving too brief or incomplete answers, Not answering a question}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Diminishing, Acting as if nothing remarkable happened, Demanding}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Victim playing, Exaggeration, Blaming}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Exaggeration, Dramatization, Victim playing, Accusation}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Victim playing, Accusation}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Jealousy, Jumping to conclusions, Making assumptions}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Demanding, Threats, Creating artificial obligations}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Threats, Aggression, Hostility}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? - {Victim playing, Exaggeration, Accusation}\n[Joe Bloggs]: Hey, let\u2019s get a drink. - {Acting as if nothing remarkable happened, Ignoring previous conflict}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Victim playing, Exaggeration, Dramatization, Provocation}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. - {Dismissal, Not taking seriously}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. - {Sarcasm}\n[Bill Taylor]: OK :/ - {Dismissal}\n[Bill Taylor]: I don\u2019t want to. No. - {Dismissal}\n\n[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. - {Demanding, Creating artificial obligations}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Evasion, Giving too brief or incomplete answers, Being oppositional}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Acting as if nothing remarkable happened, Demanding}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Victim playing, Exaggeration, Making assumptions}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Exaggeration, Victim playing, Accusation}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Exaggeration, Accusation}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Making assumptions, Exaggeration}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Demanding, Threats, Dominating the conversation}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Threats, Hostility, Abrupt reaction}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? - {Victim playing, Exaggeration, Making assumptions}\n[Joe Bloggs]: Hey, let\u2019s get a drink. - {Ignoring previous conflict}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Victim playing, Exaggeration, Making assumptions}\n[Bill Taylor]: You just said there was a problem. I am getting ready for work. Is this an emergency?? Are you okay? What\u2019s going on? - {Not taking seriously}\n[Bill Taylor]: What?? Is there a problem or isn\u2019t there? Can\u2019t you just say what the issue is? If it\u2019s important, just say so. - {Not taking seriously}\n[Bill Taylor]: I just asked you what the issue is, but you won\u2019t tell me! What am I supposed to do? - {Not taking seriously}\n[Bill Taylor]: Come ON! You know that\u2019s not true. Talk to me. - {Dismissal}\n[Bill Taylor]: I am trying, but\u2026 - {Dismissal}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. - {Dismissal, Not taking seriously}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. - {Sarcasm}\n[Bill Taylor]: OK :/ - {Dismissal}\n[Bill Taylor]: I don\u2019t want to. No. - {Dismissal}\n[Bill Taylor]: *sigh* - {Dismissal}\n\n[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. - {Demanding}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Evasion, Giving too brief or incomplete answers, Not offering constructive solutions}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Acting as if nothing remarkable happened, Demanding}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Victim playing, Making assumptions, Exaggerated accusations}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Victim playing, Exaggeration, Dramatization}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Victim playing, Exaggeration}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Making assumptions, Exaggerated accusations, Provocation}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Demanding, Threats}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Aggression, Threats}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? - {Victim playing, Making assumptions}\n[Joe Bloggs]: Hey, let\u2019s get a drink. - {Ignoring previous conflict}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Provocation, Victim playing, Exaggeration}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. - {Sarcasm}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. - {Dismissal}\n[Bill Taylor]: OK :/ - {Diminishing, Not taking seriously}\n[Bill Taylor]: I don\u2019t want to. No. - {Dismissal}\n[Bill Taylor]: *sigh* - {Diminishing, Dismissal}\n\n[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. - {Demanding}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Evasion, Acting as if nothing remarkable happened, Diminishing}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Acting as if nothing remarkable happened, Demanding}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Victim playing, Exaggeration}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Exaggeration, Victim playing, Accusation}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Exaggeration, Victim playing}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Exaggeration, Victim playing}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Demanding, Threats}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Aggression, Threats}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? - {Victim playing, Exaggeration, Accusation}\n[Joe Bloggs]: Hey, let\u2019s get a drink. - {Ignoring previous conflict}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Victim playing, Exaggeration}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. - {Sarcasm}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. - {Ignoring boundaries}\n[Bill Taylor]: I don\u2019t want to. No. - {Not taking seriously}\n[Bill Taylor]: *sigh* - {Not taking seriously}\n\n[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. - {Creating artificial obligations, Demanding}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Evasion, Giving too brief or incomplete answers, Not answering a question, Making another person dependent on speaker for information}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Diminishing, Creating artificial obligations, Demanding}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Victim playing, Exaggeration, Dramatization, Not taking seriously, Making assumptions}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Exaggeration, Dramatization, Blaming, Victim playing, Accusation}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Exaggeration, Accusation, Victim playing}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Blaming, Making assumptions, Exaggerated accusations, Provocation}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Demanding, Creating artificial obligations, Threats}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Aggression, Threats}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? - {Victim playing, Exaggeration, Dramatization, Making assumptions}\n[Joe Bloggs]: Hey, let\u2019s get a drink. - {Acting as if nothing remarkable happened}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Victim playing, Exaggeration, Making assumptions, Guilt tripping}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. - {Sarcasm}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. - {Dismissal}\n[Bill Taylor]: OK :/ - {Dismissal}\n[Bill Taylor]: I don\u2019t want to. No. - {Dismissal}\n\n[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. - {Demanding}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. - {Evasion, Not offering constructive solutions, Making others more dependent on them for information}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. - {Diminishing, Acting as if nothing remarkable happened, Demanding}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! - {Accusation, Victim playing, Exaggeration}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! - {Exaggeration, Victim playing, Accusation}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! - {Accusation, Victim playing}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT - {Accusation, Making assumptions, Exaggeration, Provocation}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. - {Demanding, Threats}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. - {Threats, Dominating the conversation}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? - {Victim playing, Exaggeration, Accusation}\n[Joe Bloggs]: Hey, let\u2019s get a drink. - {Ignoring previous conflict}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. - {Victim playing, Exaggeration, Guilt tripping}\n[Bill Taylor]: What\u2019s up? - {Giving too brief or incomplete answers}\n[Bill Taylor]: You just said there was a problem. I am getting ready for work. Is this an emergency?? Are you okay? What\u2019s going on? - {Giving too brief or incomplete answers}\n[Bill Taylor]: What?? Is there a problem or isn\u2019t there? Can\u2019t you just say what the issue is? If it\u2019s important, just say so. - {Giving too brief or incomplete answers}\n[Bill Taylor]: I just asked you what the issue is, but you won\u2019t tell me! What am I supposed to do? - {Giving too brief or incomplete answers}\n[Bill Taylor]: Come ON! You know that\u2019s not true. Talk to me. - {Dismissal, Not taking seriously}\n[Bill Taylor]: I am trying, but\u2026 - {Giving too brief or incomplete answers}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. - {Dismissal, Not taking seriously}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. - {Sarcasm, Dismissal}\n[Bill Taylor]: OK :/ - {Dismissal, Not taking seriously}\n[Bill Taylor]: I don\u2019t want to. No. - {Giving too brief or incomplete answers}\n[Bill Taylor]: *sigh* - {Dismissal, Not taking seriously}",
-  "qualitative_evaluation": "Joe Bloggs' conversational style is emotionally charged, confrontational, and manipulative. He frequently uses guilt-tripping and emotional blackmail to try to control the conversation and Bill's responses. He also tends to jump to conclusions and make accusations without clear evidence. \n\nBill Taylor, on the other hand, is more calm and rational in his responses. He tries to understand the situation and asks for clarification, but also shows signs of frustration and sarcasm due to Joe's aggressive and irrational behavior. He attempts to set boundaries and disengage from the emotionally charged conversation."
+  "raw_expressions_labeling_response": "[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. -- {Demanding}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. -- {Evasion, Making others more dependent on them for information}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. -- {Diminishing, Demanding}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! -- {Accusation, Victim playing, Generalization}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! -- {Exaggeration, Accusation, Victim playing}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! -- {Exaggeration, Accusation}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT -- {Accusation, Provocation, Making assumptions, Exaggeration}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. -- {Demanding, Threats}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. -- {Threats, Aggression}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? -- {Victim playing, Accusation}\n[Joe Bloggs]: Hey, let\u2019s get a drink. -- {Ignoring previous conflict}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. -- {Victim playing, Provocation, Exaggeration}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. -- {Sarcasm}\n[Bill Taylor]: OK :/ -- {Dismissal}\n[Bill Taylor]: I don\u2019t want to. No. -- {Dismissal}\n[Bill Taylor]: *sigh* -- {Dismissal}\n\n[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. -- {Demanding, Creating artificial obligations}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. -- {Evasion, Giving too brief or incomplete answers}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. -- {Diminishing, Acting as if nothing remarkable happened, Creating artificial obligations}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! -- {Accusation, Victim playing, Exaggeration, Making assumptions, Not verifying the negative assumptions about the other person}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! -- {Exaggeration, Dramatization, Victim playing}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! -- {Exaggeration, Victim playing}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT -- {Accusation, Provocation, Making assumptions, Not verifying the negative assumptions about the other person}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. -- {Threats, Demanding, Creating artificial obligations}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. -- {Threats, Hostility, Abrupt reaction}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? -- {Victim playing, Exaggeration, Making assumptions, Not verifying the negative assumptions about the other person}\n[Joe Bloggs]: Hey, let\u2019s get a drink. -- {Ignoring previous conflict, Normalizing bad behaviour}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. -- {Accusation, Victim playing, Exaggeration, Making assumptions}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. -- {Sarcasm}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. -- {Dismissal, Ignoring}\n[Bill Taylor]: OK :/ -- {Dismissal}\n\n[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. -- {Demanding, Creating artificial obligations}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. -- {Evasion, Being oppositional, Not attempting to understand, Making another person dependent on speaker for information}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. -- {Diminishing, Demanding, Creating artificial obligations}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! -- {Accusation, Victim playing, Exaggeration, Making others feel insecure}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! -- {Exaggeration, Accusation, Victim playing}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! -- {Exaggeration, Accusation}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT -- {Accusation, Provocation, Making others feel insecure, Belittiling}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. -- {Demanding, Threats, Creating artificial obligations}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. -- {Threats, Aggression}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? -- {Victim playing, Making others feel insecure}\n[Joe Bloggs]: Hey, let\u2019s get a drink. -- {Ignoring previous conflict, Normalizing bad behaviour}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. -- {Exaggeration, Victim playing, Provocation}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. -- {Sarcasm, Ignoring boundaries}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. -- {Dismissal, Not offering constructive solutions}\n[Bill Taylor]: OK :/ -- {Dismissal}\n[Bill Taylor]: I don\u2019t want to. No. -- {Dismissal}\n\n[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. -- {Demanding}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. -- {Being abrupt, Evasion, Passive aggression, Making others more dependent on them for information}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. -- {Diminishing, Demanding}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! -- {Accusation, Victim playing, Exaggeration}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! -- {Dismissal, Victim playing, Exaggeration}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! -- {Victim playing, Exaggeration}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT -- {Accusation, Provocation, Exaggeration}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. -- {Demanding, Threats}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. -- {Threats, Aggression}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? -- {Victim playing, Exaggeration}\n[Joe Bloggs]: Hey, let\u2019s get a drink. -- {Ignoring previous conflict}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. -- {Victim playing, Exaggeration}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. -- {Sarcasm}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. -- {Being impatient}\n[Bill Taylor]: OK :/ -- {Indifference}\n[Bill Taylor]: I don\u2019t want to. No. -- {Dismissal}\n\n[Joe Bloggs]: Hey. You better call me as soon as you get this. We need to talk. -- {Demanding}\n[Joe Bloggs]: I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it. -- {Evasion, Being oppositional}\n[Joe Bloggs]: Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road. -- {Diminishing, Demanding}\n[Joe Bloggs]: You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all! -- {Accusation, Victim playing, Exaggeration, Making assumptions}\n[Joe Bloggs]: NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!! -- {Exaggeration, Victim playing, Accusation}\n[Joe Bloggs]: I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY! -- {Exaggeration, Accusation}\n[Joe Bloggs]: It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT -- {Accusation, Making assumptions, Provocation, Belittiling}\n[Joe Bloggs]: I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon. -- {Demanding, Threats}\n[Joe Bloggs]: THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY. -- {Threats, Hostility}\n[Joe Bloggs]: OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this? -- {Victim playing, Exaggeration, Accusation}\n[Joe Bloggs]: Hey, let\u2019s get a drink. -- {Acting as if nothing remarkable happened}\n[Joe Bloggs]: So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you. -- {Victim playing, Exaggeration, Accusation}\n[Bill Taylor]: You mean a more fun side than this? Can\u2019t wait. -- {Sarcasm}\n[Bill Taylor]: I can\u2019t deal with this craziness today. I have a big day ahead. Can you knock it off? If you\u2019re still upset at lunch, let\u2019s chat. -- {Dismissal}\n[Bill Taylor]: OK :/ -- {Dismissal}\n[Bill Taylor]: I don\u2019t want to. No. -- {Dismissal}\n[Bill Taylor]: *sigh* -- {Dismissal}",
+  "qualitative_evaluation": "Joe Bloggs' conversational style is emotionally charged, confrontational, and manipulative. He frequently uses guilt-tripping and emotional blackmail to try to control the conversation and Bill's responses. He also tends to jump to conclusions and make accusations without clear evidence.\n\nBill Taylor, on the other hand, is more rational and calm in his responses. He tries to understand the situation and asks for clarification, but also shows signs of frustration and exasperation with Joe's behavior. He attempts to set boundaries and disengage from the emotionally charged conversation, but also shows signs of sarcasm and dismissiveness towards the end."
 }

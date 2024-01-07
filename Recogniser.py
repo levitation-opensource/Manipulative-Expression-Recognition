@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Author: Roland Pihlakas, 2023 - 2023
+# Author: Roland Pihlakas, 2023 - 2024
 #
 # roland@simplify.ee
 #
@@ -93,33 +93,35 @@ def rotate_list(list, n):
 def get_config():
 
   config = ConfigParser(inline_comment_prefixes=("#", ";"))  # by default, inline comments were not allowed
-  config.read('MER.ini')
+  config.read('Recogniser.ini')
 
-  
-  gpt_model = remove_quotes(config.get("MER", "GPTModel", fallback="gpt-3.5-turbo-16k")).strip()
-  enable_auto_override_to_gpt4_32k = strtobool(remove_quotes(config.get("MER", "EnableAutoOverrideToGPT4_32k", fallback="false")))
-  gpt_timeout = int(remove_quotes(config.get("MER", "GPTTimeoutInSeconds", fallback="600")).strip())
-  extract_message_indexes = strtobool(remove_quotes(config.get("MER", "ExtractMessageIndexes", fallback="false")))
-  extract_line_numbers = strtobool(remove_quotes(config.get("MER", "ExtractLineNumbers", fallback="false")))
-  do_open_ended_analysis = strtobool(remove_quotes(config.get("MER", "DoOpenEndedAnalysis", fallback="true")))
-  do_closed_ended_analysis = strtobool(remove_quotes(config.get("MER", "DoClosedEndedAnalysis", fallback="true")))
-  keep_unexpected_labels = strtobool(remove_quotes(config.get("MER", "KeepUnexpectedLabels", fallback="true")))
-  chart_type = remove_quotes(config.get("MER", "ChartType", fallback="radar")).strip()
-  render_output = strtobool(remove_quotes(config.get("MER", "RenderOutput", fallback="false")))
-  create_pdf = strtobool(remove_quotes(config.get("MER", "CreatePdf", fallback="true")))
-  treat_entire_text_as_one_person = strtobool(remove_quotes(config.get("MER", "TreatEntireTextAsOnePerson", fallback="false")))  # TODO
-  anonymise_names = strtobool(remove_quotes(config.get("MER", "AnonymiseNames", fallback="false")))
-  anonymise_numbers = strtobool(remove_quotes(config.get("MER", "AnonymiseNumbers", fallback="false")))
-  named_entity_recognition_model = remove_quotes(config.get("MER", "NamedEntityRecognitionModel", fallback="en_core_web_sm")).strip()
-  encrypt_cache_data = strtobool(remove_quotes(config.get("MER", "EncryptCacheData", fallback="true")))
-  split_messages_by = remove_quotes(config.get("MER", "SplitMessagesBy", fallback="")) # .strip()
-  ignore_incorrectly_assigned_citations = strtobool(remove_quotes(config.get("MER", "IgnoreIncorrectlyAssignedCitations", fallback="false")))
-  allow_multiple_citations_per_message = strtobool(remove_quotes(config.get("MER", "AllowMultipleCitationsPerMessage", fallback="true")))
-  citation_lookup_time_limit = float(remove_quotes(config.get("MER", "CitationLookupTimeLimit", fallback="0.1")))
-  citation_lookup_outer_time_limit = float(remove_quotes(config.get("MER", "CitationLookupOuterTimeLimit", fallback="1.0")))
-  temperature = float(remove_quotes(config.get("MER", "Temperature", fallback="0.0")))
-  sample_count = int(remove_quotes(config.get("MER", "SampleCount", fallback="1")))
-  default_label_treshold_sample_percent = float(remove_percent(remove_quotes(config.get("MER", "DefaultLabelThresholdSamplePercent", fallback="50"))))
+  config_section = "Recogniser"
+
+  gpt_model = remove_quotes(config.get(config_section, "GPTModel", fallback="gpt-3.5-turbo-16k")).strip()
+  enable_auto_override_to_gpt4_32k = strtobool(remove_quotes(config.get(config_section, "EnableAutoOverrideToGPT4_32k", fallback="false")))
+  gpt_timeout = int(remove_quotes(config.get(config_section, "GPTTimeoutInSeconds", fallback="600")).strip())
+  extract_message_indexes = strtobool(remove_quotes(config.get(config_section, "ExtractMessageIndexes", fallback="false")))
+  extract_line_numbers = strtobool(remove_quotes(config.get(config_section, "ExtractLineNumbers", fallback="false")))
+  do_open_ended_analysis = strtobool(remove_quotes(config.get(config_section, "DoOpenEndedAnalysis", fallback="true")))
+  do_closed_ended_analysis = strtobool(remove_quotes(config.get(config_section, "DoClosedEndedAnalysis", fallback="true")))
+  keep_unexpected_labels = strtobool(remove_quotes(config.get(config_section, "KeepUnexpectedLabels", fallback="true")))
+  chart_type = remove_quotes(config.get(config_section, "ChartType", fallback="radar")).strip()
+  render_output = strtobool(remove_quotes(config.get(config_section, "RenderOutput", fallback="false")))
+  create_pdf = strtobool(remove_quotes(config.get(config_section, "CreatePdf", fallback="true")))
+  treat_entire_text_as_one_person = strtobool(remove_quotes(config.get(config_section, "TreatEntireTextAsOnePerson", fallback="false")))  # TODO
+  anonymise_names = strtobool(remove_quotes(config.get(config_section, "AnonymiseNames", fallback="false")))
+  anonymise_numbers = strtobool(remove_quotes(config.get(config_section, "AnonymiseNumbers", fallback="false")))
+  named_entity_recognition_model = remove_quotes(config.get(config_section, "NamedEntityRecognitionModel", fallback="en_core_web_sm")).strip()
+  encrypt_cache_data = strtobool(remove_quotes(config.get(config_section, "EncryptCacheData", fallback="true")))
+  split_messages_by = remove_quotes(config.get(config_section, "SplitMessagesBy", fallback="")).strip()
+  keep_message_newlines_in_llm_input = strtobool(remove_quotes(config.get(config_section, "KeepMessageNewLinesInLLMInput", fallback="false")))
+  ignore_incorrectly_assigned_citations = strtobool(remove_quotes(config.get(config_section, "IgnoreIncorrectlyAssignedCitations", fallback="false")))
+  allow_multiple_citations_per_message = strtobool(remove_quotes(config.get(config_section, "AllowMultipleCitationsPerMessage", fallback="true")))
+  citation_lookup_time_limit = float(remove_quotes(config.get(config_section, "CitationLookupTimeLimit", fallback="0.1")))
+  citation_lookup_outer_time_limit = float(remove_quotes(config.get(config_section, "CitationLookupOuterTimeLimit", fallback="1.0")))
+  temperature = float(remove_quotes(config.get(config_section, "Temperature", fallback="0.0")))
+  sample_count = int(remove_quotes(config.get(config_section, "SampleCount", fallback="1")))
+  default_label_treshold_sample_percent = float(remove_percent(remove_quotes(config.get(config_section, "DefaultLabelThresholdSamplePercent", fallback="50"))))
 
 
   result = { 
@@ -140,6 +142,7 @@ def get_config():
     "named_entity_recognition_model": named_entity_recognition_model,
     "encrypt_cache_data": encrypt_cache_data,
     "split_messages_by": split_messages_by,
+    "keep_message_newlines_in_llm_input": keep_message_newlines_in_llm_input,
     "ignore_incorrectly_assigned_citations": ignore_incorrectly_assigned_citations,
     "allow_multiple_citations_per_message": allow_multiple_citations_per_message,
     "citation_lookup_time_limit": citation_lookup_time_limit,
@@ -443,7 +446,7 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
         else:
           model_upgraded = False
           messages = messages2
-          messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality
+          messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality. Should it be in user role instead?
 
       else: #/ if too_long:
 
@@ -472,10 +475,12 @@ async def run_llm_analysis(config, model_name, encoding, gpt_timeout, messages, 
       "enable_auto_override_to_gpt4_32k": enable_auto_override_to_gpt4_32k
     })
 
+  cache_version = 1
+
   if encrypt_cache_data:
-    result = await async_cached_encrypted(1 if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index, **kwargs)
+    result = await async_cached_encrypted(cache_version if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index, **kwargs)
   else:
-    result = await async_cached(1 if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index, **kwargs)
+    result = await async_cached(cache_version if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index, **kwargs)
 
   return result
 
@@ -496,6 +501,9 @@ def sanitise_input(text):
   text = re.sub(r"[}\]]", ")", text)
   text = re.sub(r"-{2,}", "-", text)   # TODO: use some other separator between system instruction and user input
   # text = re.sub(r"-{3,}", "--", text)   # TODO: use some other separator between system instruction and user input
+  text = re.sub(r"[^\S\r\n]+", " ", text)    # replace all repeating whitespace which is not newline with a single space
+  text = re.sub(r" ?[\r\n]+ ?", "\n", text)   # replace multiple consequtive newlines with a single newline, and drop any whitespace around the newlines
+
   return text
 #/ def sanitise_input(text):
 
@@ -670,10 +678,12 @@ async def anonymise(config, user_input, anonymise_names, anonymise_numbers, ner_
 
   encrypt_cache_data = config["encrypt_cache_data"]
 
+  cache_version = 1
+
   if encrypt_cache_data:
-    result = await async_cached_encrypted(1 if enable_cache else None, anonymise_uncached, user_input, anonymise_names, anonymise_numbers, ner_model)
+    result = await async_cached_encrypted(cache_version if enable_cache else None, anonymise_uncached, user_input, anonymise_names, anonymise_numbers, ner_model)
   else:
-    result = await async_cached(1 if enable_cache else None, anonymise_uncached, user_input, anonymise_names, anonymise_numbers, ner_model)
+    result = await async_cached(cache_version if enable_cache else None, anonymise_uncached, user_input, anonymise_names, anonymise_numbers, ner_model)
 
   return result
 
@@ -692,7 +702,11 @@ def render_highlights_uncached(user_input, expression_dicts):
                         {
                           "start": entry["start_char"], 
                           "end": entry["end_char"], 
-                          "label": ", ".join(entry["labels"].keys()) # TODO: use label strength percent
+                          # "label": ", ".join(entry["labels"].keys())
+                          "label": ", ".join([f"{label}: {percent:.0f}%" 
+                                                if percent is not None
+                                                else label
+                                              for label, percent in entry["labels"].items()])
                         } 
                         for entry 
                         in expression_dicts
@@ -710,10 +724,12 @@ async def render_highlights(config, user_input, expression_dicts, enable_cache =
 
   encrypt_cache_data = config["encrypt_cache_data"]
 
+  cache_version = 2
+
   if encrypt_cache_data:
-    result = await async_cached_encrypted(1 if enable_cache else None, render_highlights_uncached, user_input, expression_dicts)
+    result = await async_cached_encrypted(cache_version if enable_cache else None, render_highlights_uncached, user_input, expression_dicts)
   else:
-    result = await async_cached(1 if enable_cache else None, render_highlights_uncached, user_input, expression_dicts)
+    result = await async_cached(cache_version if enable_cache else None, render_highlights_uncached, user_input, expression_dicts)
 
   return result
 
@@ -739,6 +755,8 @@ def parse_labels(all_labels_as_text):
     labels_list.append(line)
 
   #/ for line in all_labels_as_text.splitlines(keepends=False):
+
+  labels_list = list(OrderedDict.fromkeys(labels_list))   # keep only unique labels, while preserving labels ordering
 
   all_labels_as_text = "\n".join("- " + x for x in labels_list)
   # labels_list.sort()
@@ -970,6 +988,14 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
 
   if do_closed_ended_analysis:
 
+    # https://towardsdatascience.com/how-i-won-singapores-gpt-4-prompt-engineering-competition-34c195a93d41
+    #
+    # Why should I provide instructions inside the System Prompt when I can also provide them in my first prompt to a new chat, before further conversations with the LLM?
+    #
+    # The answer is because LLMs have a limit to their conversational memory. In the latter case, as the conversation carries on, the LLM is likely to “forget” this first prompt you provided to the chat, making these instructions obsolete.
+    # 
+    # On the other hand, when instructions are provided in the System Prompt, these System Prompt instructions are automatically taken into account together with each new prompt provided to the chat. This ensures that the LLM continues to receive these instructions even as the conversation carries on.
+
     messages = [
       {"role": "system", "content": closed_ended_system_instruction_with_labels},
       {"role": "user", "content": user_input},
@@ -1010,9 +1036,20 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
 
     # Process LLM response
     keep_unexpected_labels = config.get("keep_unexpected_labels")
-    re_matches = re.findall(r"[\r\n]+\[([^:\]\n]*)\]:(.*)\{(.*)\}", "\n" + closed_ended_response)   # need to exclude colon from person name since the regex is greedy and would otherwise match some emoticon inside the text
+    keep_message_newlines_in_llm_input = config.get("keep_message_newlines_in_llm_input")
+ 
+    if keep_message_newlines_in_llm_input:
+      re_matches = re.findall(r"[\r\n]+\[([^:\]\r\n]+)\]: +([^{]+)\{([^}\r\n]+)\}", "\n" + closed_ended_response, re.DOTALL)   # re.DOTALL --> dot includes a newline  # need to exclude colon from person name since the regex is greedy and would otherwise match some emoticon inside the text
+    else:
+      re_matches = re.findall(r"[\r\n]+\[([^:\]\r\n]+)\]: +([^{\r\n]+)\{([^}\r\n]+)\}", "\n" + closed_ended_response, re_flags)  # # need to exclude colon from person name since the regex is greedy and would otherwise match some emoticon inside the text
+
     if len(re_matches) == 0:  # sometimes LLM response omits the requested brackets, so lets fall back to alternative regex
-      re_matches = re.findall(r"[\r\n]+\[?([^:\]\n]*)\]?:(.*)[ ]+--[ ]+(.*)", "\n" + closed_ended_response)   # need to exclude colon from person name since the regex is greedy and would otherwise match some emoticon inside the text
+      if keep_message_newlines_in_llm_input:
+        pass    # In this case it is difficult to compensate the missing brackets since lines starting with text and colon might be not participant names. Theoretically it could be still done, but not implemented yet.
+      else:
+        closed_ended_response2 = closed_ended_response.replace(" -- ", " \t\t ")  # temporarily replace -- with \t\t to make citation label matching simpler. NB! use \t\t to keep character positions same
+        re_matches = re.findall(r"[\r\n]+\[?([^:\]\r\n]+)\]?: +([^\t]+) +\t\t +\{?([^}\r\n]+)\}?", "\n" + closed_ended_response2)   # need to exclude colon from person name since the regex is greedy and would otherwise match some emoticon inside the text. Similarly, exclude } from labels capture
+        # re_matches = re.findall(r"[\r\n]+\[?([^:\]\r\n]+)\]?: +(.+) +-- +\{?([^}\r\n]+)\}?", "\n" + closed_ended_response)   # need to exclude colon from person name since the regex is greedy and would otherwise match some emoticon inside the text. Similarly, exclude } from labels capture
 
     for re_match in re_matches:
 
@@ -1023,7 +1060,10 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
         # TODO: log error message
         continue 
 
-      while citation[-1:] == "-":   # remove the dash between the citation and labels. Note that ChatGPT may omit this dash even if it is present in the instruction
+      if not keep_message_newlines_in_llm_input:
+        citation = citation.replace("\t", "-")    # just in case any dash inside the message was replaced
+
+      while citation[-1] == "-":   # remove the dash or tab between the citation and labels. Note that ChatGPT may omit this dash even if it is present in the instruction
         citation = citation[:-1].strip()
 
       if len(citation) == 0:  # recheck citation again after stripping the "-" at the end
@@ -1116,10 +1156,10 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
 
       # using finditer() since it provides match.start() in the results
       if split_messages_by_newline:
-        p = re.compile(r"[\r\n]+" + re.escape(person) + r":(.*)")   # NO re.DOTALL --> dot DOES NOT include a newline
+        p = re.compile(r"[\r\n]+" + re.escape(person) + r": +(.+)")   # NO re.DOTALL --> dot DOES NOT include a newline
         re_matches = p.finditer("\n" + user_input)    # TODO: ensure that ":" character inside messages does not mess the analysis up
       else:
-        p = re.compile(r"[\r\n]+" + re.escape(person) + r":(.*?)[\r\n]+" + re.escape(split_messages_by), re.DOTALL)   # re.DOTALL --> dot includes a newline
+        p = re.compile(r"[\r\n]+" + re.escape(person) + r": +(.+?)[\r\n]+" + re.escape(split_messages_by), re.DOTALL)   # re.DOTALL --> dot includes a newline
         re_matches = p.finditer("\n" + user_input + "\n" + split_messages_by)    # TODO: ensure that ":" character inside messages does not mess the analysis up
 
       for re_match in re_matches:
@@ -1204,10 +1244,22 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
         (person2_nearest_message, similarity, person2_message_index) = match
         similarity_is_partial_match = True
 
-        if len(citation) > len(person2_nearest_message):  # if the citation is longer than partial match then use simple ratio matching instead
+        if similarity < 70:
+          qqq = True    # for debugging
+
+        # TODO: configure partial_ratio similarity treshold
+        if len(citation) > len(person2_nearest_message) or similarity < 70:  # if the citation is longer than partial match then use simple ratio matching instead
           match = rapidfuzz.process.extractOne(citation, curr_person_messages, scorer=rapidfuzz.fuzz.ratio) 
           (person2_nearest_message, similarity, person2_message_index) = match
           similarity_is_partial_match = False
+
+          if similarity < 60:
+            qqq = True    # for debugging
+
+          # TODO: configure ratio similarity treshold AND citation extra length ratio treshold
+          if len(citation) / len(person2_nearest_message) >= 1.5 or similarity < 60:
+            continue    # there is something wrong with this match, lets try another match
+
 
 
         if (
@@ -1232,18 +1284,28 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
       #/ for person2 in persons:
 
 
-      if nearest_person != person:  # incorrectly assigned citation 
-        if ignore_incorrectly_assigned_citations:   
+      if nearest_person is None: # there is something wrong with the citation so it does not get any matches from rapidfuzz.process.extractOne
+        safeprint(f"Unable to match a citation. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
+        continue
+
+      elif nearest_person != person:  # incorrectly assigned citation 
+        if ignore_incorrectly_assigned_citations:  
+          safeprint(f"Unable to match a person in citation to the person in original text. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Person in citation: \"{person}\". Is a similar line formatted properly in the input file?")
           continue
-        elif nearest_person is None: # there is something wrong with the citation so it does not get any matches from rapidfuzz.process.extractOne
-          continue
+
         else:
-          person = nearest_person    
+          safeprint(f"Unable to match a person in citation to the person in original text. Overriding citation's person with person assigned to nearest message in original text. tuple_index={tuple_index} max_l_dist={max_l_dist}. Citation \"{citation}\". Person in citation: \"{person}\". Assigned person: {nearest_person}. Is a similar line formatted properly in the input file?")
+          person = nearest_person   
+      #/ if nearest_person != person:
 
 
       if not allow_multiple_citations_per_message:
-        if nearest_message in already_labelled_message_parts: # TODO: if LLM labels the message parts separately, then label them separately in HTML output as well
-          already_labelled_message_parts[nearest_message]["labels"] += labels
+        already_labelled_message_part = already_labelled_message_parts.get(nearest_message)
+        if already_labelled_message_part is not None: # TODO: if LLM labels the message parts separately, then label them separately in HTML output as well
+          assert already_labelled_message_part["person"] == person
+          already_labelled_message_part["labels"] += labels   # duplicate labels are filtered out later
+
+          safeprint(f"Ignoring multiple citations on same message. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
           continue  # if repeated citations have different labels, take labels from all of citations
         # else:
         #   already_labelled_message_parts.add(nearest_message)
@@ -1251,124 +1313,344 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
 
 
       # init with fallback values for case precise citation is not found
-      citation_in_nearest_message = nearest_message
       person_message_start_char = person_message_spans[person][nearest_person_message_index][0]
-      start_char = person_message_start_char
-      end_char = start_char + len(nearest_message)
 
 
-      if allow_multiple_citations_per_message:
+      if not allow_multiple_citations_per_message:
+
+        citations_in_nearest_message = [nearest_message]
+        start_chars = [person_message_start_char]
+        end_chars = [start_char + len(nearest_message)]
+
+      elif allow_multiple_citations_per_message:
+
+        citations_in_nearest_message = []
+        start_chars = []
+        end_chars = []
 
         # TODO: cache results of this loop in cases it runs longer than n milliseconds
 
-        max_l_dist = None
-        matches = []
-        inner_time_limits_encountered = []
-        outer_time_limit_encountered = False
-        try: # NB! try needs to be outside of the time_limit context
+        # TODO: split citation into sentences and match each sentence separately. This is necessary because sometimes citations omit some middle parts of a paragraph. Especially if these middle parts are inside brackets.
+        # TODO: Or remove any text inside brackets and try to match against this version if matching with original version fails
 
-          inner_time_limit = config["citation_lookup_time_limit"]
-          outer_time_limit = config["citation_lookup_outer_time_limit"]
+        matching_error_message = None
+        matching_warning_message = None   # Print only the last warning message per matching. Sometimes later messages override the earlier ones.
+        citation_part_matching_error_messages = []
+        for try_i in range(0, 3):
 
-          with time_limit(outer_time_limit, msg = "find_near_matches outer") as outer_time_limit_handler:
+          if try_i == 0:  # search from entire message
 
-            for max_l_dist in range(0, min(len(citation), len(nearest_message))): # len(shortest_text)-1 is maximum reasonable distance. After that empty strings will match too
+            citation_parts = [citation]
 
-              # NB! need to apply time limit to this function since in some cases it hangs
-              #try: # NB! try needs to be outside of the time_limit context
-              #  inner_time_limit = citation_lookup_time_limit
-              #  with time_limit(inner_time_limit if inner_time_limit < outer_time_limit else None, msg = "find_near_matches inner"): 
-              #    matches = find_near_matches(citation, nearest_message, max_l_dist=max_l_dist)  
-              #except TimeoutError:
-              #  safeprint(f"Encountered an inner time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}")
-              #  matches = []
+          # TODO: run bracket removal in a nested loop so that when searching individual sentences then bracket removal is also attempted
+          elif try_i == 1:    # try to remove any text in brackets if previous matching attempts failed. Sometimes LLM omits text in brackets from citations.
 
-              try:
-                with time_limit(inner_time_limit, msg = "find_near_matches inner") as inner_time_limit_handler:
-                  matches = find_near_matches(citation, nearest_message, max_l_dist=max_l_dist)  
+            citation_parts = [citation]
 
-              except TimeoutError:
-                inner_time_limits_encountered.append(max_l_dist)
+            nearest_message_orig = nearest_message
+            bracket_removal_loop_i = -1
+
+            while True:   # NB! loop to remove nested brackets
+
+              bracket_removal_loop_i += 1
+              nearest_message_prev = nearest_message
+              nearest_message = re.sub(r"[(]+[^()]*[)]+", "", nearest_message)   # NB! exclude (: from matches
+              if nearest_message_prev == nearest_message:
+                break
+              else:
+                if bracket_removal_loop_i >= 1:   # multiple brackets needed to be removed
+                  qqq = True    # for debugging
+
+            #/ while True:
+
+            if nearest_message == nearest_message_orig:
+              matching_error_message = f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?"
+              continue  # try next try_i strategy
+
+          #/ if try_i == 1: 
+          elif try_i == 2:    # search from individual sentences in the citation
+
+            nearest_message = nearest_message_orig    # NB! restore nearest_message that was modified by try_i == 1
+
+            # TODO: find a better way to handle warning messages
+            matching_warning_message = matching_warning_message.replace("Tried again successfully by ignoring text in brackets in the original text.", "Tried again successfully by splitting citation into individual sentences.")
+
+            sentence_boundary_token_re = re.compile(r'([.!?]+)')    # NB! match multiple punctuations in one split
+            splits = sentence_boundary_token_re.split(citation)
+            citation_parts = [
+                                (
+                                  splits[i] 
+                                  + (splits[i + 1] if i + 1 < len(splits) else "") 
+                                )
+                                .strip()
+                                for i in range(0, len(splits), 2)
+                             ]
+
+            citation_parts = [
+                                citation_part 
+                                for citation_part in citation_parts 
+                                if citation_part != ""    # this part occurs at the end of splits list, after last punctuation
+                                  and len(citation_part) >= 5     # drop too short splits which might be abbreviations with dots in between characters   # TODO: configure    # TODO: allow short words if they start with upper case letter, and there is a whitespace after punctuation.
+                                  and not re.match(r"^[.!?]+$", citation_part)    # drop citation parts that are only punctuation in the whole. happens when citation starts with a punctuation for some reason
+                             ]
+            if len(citation_parts) == 1: continue 
+            qqq = True  # for debugging
+
+          #/ elif try_i == 2:
+
+
+          for citation_part in citation_parts:
+
+            max_l_dist = None
+            matches = []
+            matches_found = False
+            inner_time_limits_encountered = []
+            outer_time_limit_encountered = False
+            try: # NB! try needs to be outside of the time_limit context
+
+              inner_time_limit = config["citation_lookup_time_limit"]
+              outer_time_limit = config["citation_lookup_outer_time_limit"]
+
+              with time_limit(outer_time_limit, msg = "find_near_matches outer", disable_time_limit=True) as outer_time_limit_handler:    # NB! need to disable_time_limit since it seems to interfere with async code. We use outer_time_limit_handler.get_timeout_pending() inside the loop instead.    # TODO: perphaps this time limit can be re-enabled now?
+
+                # cannot start with max_l_dist = rapidfuzz.distance.Levenshtein.distance(citation_part, nearest_message, weights=(0, 1, 1)) since levenstein distance would ignore dropped characters in the middle of the citation as well, but find_near_matches ignores dropped characters only at the beginning and end   # (0, 1, 1) = (insertion, deletion, substitution)
+                for max_l_dist in range(0, min(len(citation_part), len(nearest_message))): # len(shortest_text)-1 is maximum reasonable distance. After that empty strings will match too
+
+                  # NB! need to apply time limit to this function since in some cases it hangs
+                  #try: # NB! try needs to be outside of the time_limit context
+                  #  inner_time_limit = citation_lookup_time_limit
+                  #  with time_limit(inner_time_limit if inner_time_limit < outer_time_limit else None, msg = "find_near_matches inner"): 
+                  #    matches = find_near_matches(citation_part, nearest_message, max_l_dist=max_l_dist)  
+                  #except TimeoutError:
+                  #  safeprint(f"Encountered an inner time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}")
+                  #  matches = []
+
+                  try:
+                    with time_limit(inner_time_limit, msg = "find_near_matches inner") as inner_time_limit_handler:
+                      matches = find_near_matches(citation_part, nearest_message, max_l_dist=max_l_dist)  # TODO: ignore any non-alphanumeric characters in matching (except space). This will improve the matching significantly. The LLM often does not cite punctuation and formatting.
+
+                  except (TimeoutError, KeyboardInterrupt) as ex:   # TODO: remove KeyboardInterrupt from here
+                    inner_time_limits_encountered.append(max_l_dist)
+                  # matches = find_near_matches(citation_part, nearest_message, max_l_dist=max_l_dist)  # TODO: ignore any non-alphanumeric characters in matching (except space). This will improve the matching significantly. The LLM often does not cite punctuation and formatting. See also https://github.com/taleinat/fuzzysearch/issues/45
           
 
-              if len(matches) > 0:
+                  if len(matches) > 0:
 
-                outer_time_limit_handler.disable_time_limit()   # do not trigger time limit in the middle of this block of code
+                    outer_time_limit_handler.disable_time_limit()   # do not trigger time limit in the middle of this block of code
 
-                # TODO: if there are multiple expressions with same text in the input then mark them all, not just the first one
-                start_char = person_message_start_char + matches[0].start
-                end_char = start_char + matches[0].end - matches[0].start
-                citation_in_nearest_message = matches[0].matched
+                    # this does not hold since levenstein distance would ignore dropped characters in the middle of the citation as well, but find_near_matches ignores dropped characters only at the beginning and end
+                    #if max_l_dist != rapidfuzz.distance.Levenshtein.distance(citation_part, nearest_message, weights=(0, 1, 1)):   # (0, 1, 1) = (insertion, deletion, substitution)
+                    #  qqq = True    # for debugging
 
-                # for some reason the fuzzy matching keeps newlines in the nearest match even when they are not present in the citation. Lets remove them.
+                    # TODO: if there are multiple expressions with same text in the input then mark them all, not just the first one
+                    start_char = person_message_start_char + matches[0].start
 
-                len_before_strip = len(citation_in_nearest_message)
-                citation_in_nearest_message = citation_in_nearest_message.lstrip()
-                start_char += len_before_strip - len(citation_in_nearest_message)
 
-                len_before_strip = len(citation_in_nearest_message)
-                citation_in_nearest_message = citation_in_nearest_message.rstrip()
-                end_char -= len_before_strip - len(citation_in_nearest_message)
+                    if try_i == 0:  # search from entire message
 
-                break
+                      citation_in_nearest_message = matches[0].matched
+                      end_char = start_char + matches[0].end - matches[0].start
 
-              #/ if len(matches) > 0:
+                    elif try_i == 1:  # adjust the end_char and citation considering that some text in brackets was removed from the haystack string
 
-              if outer_time_limit_handler.timeout_pending:  # sometimes the time limit handler does not fire the KeyboardInterrupt signal for some reason, in this case lets abort the loop manually
-                raise TimeoutError("Timed out for operation '{0}' after {1} seconds".format(outer_time_limit_handler.msg, outer_time_limit_handler.seconds))
+                      # TODO: if there were brackets both inside the citation source AND before it then the highlight location will be off using the formulas here. Need to have a more precise character location mapping mechanism. This same mechanism can then be used to call find_near_matches() on original text with removed non-alphanumeric characters as well.
 
-            #/ for max_l_dist in range(0, len(citation)):
+                      end_char_distance_from_end = len(nearest_message) - matches[0].end
+                      matches_0_end_on_nearest_message_orig = len(nearest_message_orig) - end_char_distance_from_end
+                      citation_in_nearest_message = nearest_message_orig[matches[0].start : matches_0_end_on_nearest_message_orig]
 
-          #/ with time_limit(0.1):
-        except TimeoutError:
-          outer_time_limit_encountered = True
-          safeprint(f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
-          continue # Skip this citation from the output, do not even use the whole message. It is likely that the citation does not meaningfully match the content of nearest_message variable.
+                      end_char = start_char + matches_0_end_on_nearest_message_orig - matches[0].start
 
-        # NB! Print the warning messages only outside of the time limited loop
-        for max_l_dist2 in inner_time_limits_encountered:
-          safeprint(f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist2}. Tried again with a greater max_l_dist parameter value.")
+                    elif try_i == 2:    # search from individual sentences in the citation
 
-        if len(matches) == 0 and len(inner_time_limits_encountered) > 0 and not outer_time_limit_encountered:
-          safeprint(f"Encountered time limits during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
+                      # same code as for try_i == 0 branch
+                      citation_in_nearest_message = matches[0].matched
+                      end_char = start_char + matches[0].end - matches[0].start
+
+                    else:  #/ if try_i == 1:
+
+                      assert False
+
+
+                    # for some reason the fuzzy matching keeps newlines in the nearest match even when they are not present in the citation. Lets remove them.
+
+                    len_before_strip = len(citation_in_nearest_message)
+                    citation_in_nearest_message = citation_in_nearest_message.lstrip()
+                    start_char += len_before_strip - len(citation_in_nearest_message)
+
+                    len_before_strip = len(citation_in_nearest_message)
+                    citation_in_nearest_message = citation_in_nearest_message.rstrip()
+                    end_char -= len_before_strip - len(citation_in_nearest_message)
+
+                    matches_found = True
+
+
+                    start_chars.append(start_char)
+                    end_chars.append(end_char)
+                    citations_in_nearest_message.append(citation_in_nearest_message)
+
+                    break   #/ for max_l_dist in range(0, len(citation_part)):
+
+                  else: #/ if len(matches) > 0:
+
+                    matches_found = False
+
+
+                  if outer_time_limit_handler.get_timeout_pending():  # sometimes the time limit handler does not fire the KeyboardInterrupt signal for some reason, in this case lets abort the loop manually
+                    raise TimeoutError("Timed out for operation '{0}' after {1} seconds, but no KeyboardInterrupt signal received.".format(outer_time_limit_handler.msg, outer_time_limit_handler.seconds))
+
+                #/ for max_l_dist in range(0, len(citation_part)):
+
+              #/ with time_limit(0.1):
+            except (TimeoutError, KeyboardInterrupt) as ex:   # TODO: remove KeyboardInterrupt from here
+
+              outer_time_limit_encountered = True
+              if try_i == 0:
+                matching_warning_message = f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Tried again successfully by ignoring text in brackets in the original text. Citation: \"{citation_part}\". Is a similar line formatted properly in the input file?"    # NB! this message will be printed only if the attempt really will be successful, as it claims
+              elif try_i == 1:
+                matching_warning_message = f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Tried again successfully by splitting citation into individual sentences. Citation: \"{citation_part}\". Is a similar line formatted properly in the input file?"    # NB! this message will be printed only if the attempt really will be successful, as it claims
+              else:
+                citation_part_matching_error_messages.append(f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation_part}\". Is a similar line formatted properly in the input file?")
+              continue
+
+            #/ except (TimeoutError, KeyboardInterrupt) as ex:
+
+
+            # NB! Print the warning messages only outside of the time limited loop
+            for max_l_dist2 in inner_time_limits_encountered:
+              matching_warning_message = f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist2}. Tried again successfully with a greater max_l_dist parameter value."
+
+            if not matches_found and len(inner_time_limits_encountered) > 0 and not outer_time_limit_encountered:
+
+              if try_i == 0:
+                matching_warning_message = f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Tried again successfully by ignoring text in brackets in the original text. Citation: \"{citation_part}\". Is a similar line formatted properly in the input file?"    # NB! this message will be printed only if the attempt really will be successful, as it claims
+              elif try_i == 1:
+                matching_warning_message = f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Tried again successfully by splitting citation into individual sentences. Citation: \"{citation_part}\". Is a similar line formatted properly in the input file?"    # NB! this message will be printed only if the attempt really will be successful, as it claims
+              else:
+                citation_part_matching_error_messages.append(f"Encountered time limits during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation_part}\". Is a similar line formatted properly in the input file?")
+              continue
+
+            #/ if not matches_found and len(inner_time_limits_encountered) > 0 and not outer_time_limit_encountered:
+
+          #/ for citation_part in citation_parts:
+
+          if try_i < 2:
+
+            # skip_citation = False
+
+            # NB! attempt alphanumeric-only matching only on try_i == 0 and try_i == 1 since this alphanumeric-only strategy is matching with entire message
+            if len(citations_in_nearest_message) == 0:    # TODO: move this code into try_i loop
+
+              # Sometimes the citation ignores all formatting of whitespaces and newlines of the original text and that causes the levenstein distance to be big during find_near_matches() call. 
+              # Fortunateluy, this is more likely to happen when whole message is cited.
+              # So lets detect whole message citation here.
+              # TODO: maybe lets try to detect whole message citations right in the beginning so we do not need to wait for timeouts in the find_near_matches() ?
+              nearest_message_alphanumerics_only = re.sub(r"[\W_]+", " ", nearest_message, flags=re.UNICODE)    # NB! _ character needs to be specified separately here   # passing re.UNICODE is a no-op, and you pass re.ASCII to explicitly restrict the classes to match ASCII versions only    # \W matches whitespaces as well, so this regex avoids creating repeating whitespaces after other non-alphanumerics are replaced
+              citation_alphanumerics_only = re.sub(r"[\W_]+", " ", citation_part, flags=re.UNICODE)    # NB! _ character needs to be specified separately here   # passing re.UNICODE is a no-op, and you pass re.ASCII to explicitly restrict the classes to match ASCII versions only    # \W matches whitespaces as well, so this regex avoids creating repeating whitespaces after other non-alphanumerics are replaced
+              if rapidfuzz.distance.Levenshtein.distance(nearest_message_alphanumerics_only, citation_alphanumerics_only) <= max_l_dist:       # TODO: make this behaviour configurable
+
+                if try_i == 0:
+                  matching_warning_message = f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Tried again successfully by matching only alphanumeric characters. Citation: \"{citation_part}\". Is a similar line formatted properly in the input file?"
+                elif try_i == 1:
+                  matching_warning_message = f"Encountered a time limit during detection of citation location. tuple_index={tuple_index} max_l_dist={max_l_dist}. Tried again successfully by ignoring text in brackets in the original text and by matching only alphanumeric characters. Citation: \"{citation_part}\". Is a similar line formatted properly in the input file?"
+                else:
+                  assert False
+
+                # use whole citation 
+                citations_in_nearest_message = [nearest_message]
+                start_chars = [person_message_start_char]
+                end_chars = [start_char + len(nearest_message)]
+
+              else:
+
+                # skip_citation = True # Skip this citation from the output, do not even use the whole message. It is likely that the citation does not meaningfully match the content of nearest_message variable.
+                pass
+
+            #/ if not matches_found:
+
+            if len(citations_in_nearest_message) > 0:
+              break   # exit try_i loop
+            else:
+              qqq = True    # for debugging
+
+          #/ if try_i < 2:
+
+        #/ for try_i in range(0, 2):
+
+
+        if len(citation_part_matching_error_messages) > 0:
+          for citation_part_matching_warning_message in citation_part_matching_error_messages:
+            safeprint(citation_part_matching_warning_message)
+        elif matching_error_message is not None and len(citations_in_nearest_message) == 0: # NB! if len(citations_in_nearest_message) > 0 then that means try_i == 2 found some matches and the error message from try_i == 0 or try_i == 1 is obsolete
+          safeprint(matching_error_message)
+        elif matching_warning_message is not None:
+          safeprint(matching_warning_message)
+
+        # if skip_citation:
+        if len(citations_in_nearest_message) == 0:
+          continue
 
       #/ if allow_multiple_citations_per_message
 
 
-      entry = {
-        "person": person,
-        "start_char": start_char,
-        "end_char": end_char,
-        "text": citation_in_nearest_message,   # use original text not ChatGPT citation here
-        "labels": labels,
-      }
-
-      if extract_message_indexes:
-
-        # nearest_person_message_index = person_messages[person].index(nearest_message)
-        overall_message_index = overall_message_indexes[person][nearest_person_message_index]  
-
-        entry.update({ 
-          "message_index": overall_message_index 
-        })
-      #/ if extract_message_indexes:
-
-      if extract_line_numbers:
-
-        line_number = bisect_right(line_start_char_positions, start_char)
-
-        entry.update({ 
-          "line_number": line_number + 1 # line numbers start from 1
-        })
-      #/ if extract_line_numbers:
+      qqq = True    # for debugging
 
 
-      if not allow_multiple_citations_per_message:
-        already_labelled_message_parts[nearest_message] = entry
+      for (start_char, end_char, citation_in_nearest_message) in zip(start_chars, end_chars, citations_in_nearest_message):
 
-      expression_dicts.append(entry)
+        # allow multiple labels per citation, but if they overlap exactly then merge them while avoiding duplicate labels at the same time    # TODO: handle also partially overlapping citations
+        if allow_multiple_citations_per_message:
+          already_labelled_message_part = already_labelled_message_parts.get((start_char, end_char), )
+          if already_labelled_message_part is not None:
+            assert already_labelled_message_part["person"] == person
+            already_labelled_message_part["labels"] += labels   # duplicate labels are filtered out later
+            continue
+
+
+        entry = {
+          "person": person,
+          "start_char": start_char,
+          "end_char": end_char,
+          "text": citation_in_nearest_message,   # use original text not ChatGPT citation here
+          "labels": labels,
+        }
+
+        if extract_message_indexes:
+
+          # nearest_person_message_index = person_messages[person].index(nearest_message)
+          overall_message_index = overall_message_indexes[person][nearest_person_message_index]  
+
+          entry.update({ 
+            "message_index": overall_message_index 
+          })
+        #/ if extract_message_indexes:
+
+        if extract_line_numbers:
+
+          line_number = bisect_right(line_start_char_positions, start_char)
+
+          entry.update({ 
+            "line_number": line_number + 1 # line numbers start from 1
+          })
+        #/ if extract_line_numbers:
+
+
+        if not allow_multiple_citations_per_message:
+          already_labelled_message_parts[nearest_message] = entry
+        else: # allow multiple labels per citation, but if they overlap exactly then merge them while avoiding duplicate labels at the same time    # TODO: handle also partially overlapping citations
+          already_labelled_message_parts[(start_char, end_char)] = entry
+
+        expression_dicts.append(entry)
+
+      #/ for (start_char, end_char, citation_in_nearest_message) in zip(start_chars, end_chars, citations_in_nearest_message):
+
+
+      qqq = True    # for debugging
       
     #/ for expressions_tuple in expressions_tuples:
+
+
+    qqq = True    # for debugging
 
 
     # need to sort since ChatGPT sometimes does not cite the expressions in the order they appear originally
@@ -1466,9 +1748,6 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
   continuation_request = (await read_txt("continuation_request.txt", quiet = True)).strip()
 
 
-  closed_ended_system_instruction_with_labels = closed_ended_system_instruction.replace("%labels%", all_labels_as_text)
-
-
   # read user input
   input_filename = argv[1] if len(argv) > 1 else None
   if input_filename:
@@ -1480,6 +1759,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
 
   user_input = (await read_txt(input_filename, quiet = True))
+  assert user_input is not None, "Input file not found"
 
 
   # format user input
@@ -1506,6 +1786,9 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
   (ignored_labels_list, all_ignored_labels_as_text) = parse_labels(all_ignored_labels_as_text)
 
 
+  closed_ended_system_instruction_with_labels = closed_ended_system_instruction.replace("%labels%", all_labels_as_text)
+
+
   # set up instructions config for recogniser_process_chunk() function
   instructions = {
     "open_ended_system_instruction": open_ended_system_instruction,
@@ -1519,26 +1802,56 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
 
   # split text into messages
-  split_messages_by = config["split_messages_by"]
+  split_messages_by = config.get("split_messages_by", "")
   split_messages_by_newline = (split_messages_by == "")
+  keep_message_newlines_in_llm_input = config.get("keep_message_newlines_in_llm_input")
+
+  if keep_message_newlines_in_llm_input:
+    user_input = user_input.replace("\n", "\n\n")   # newlines are rendered by displacy only if there are two of them. And we cannot do this replacement inside render_highlights function since that would mess up the citation offsets. Therefore the extra newlines need to be present already in the LLM input.
 
   # using finditer() since it provides match.start() in the results
   if split_messages_by_newline:
-    separator = "\n"
+    message_separator = "\n\n"
     p = re.compile(r"[\r\n]+(.*)")   # NO re.DOTALL --> dot DOES NOT include a newline
     re_matches = p.finditer("\n" + user_input)    
   else:
-    separator = "\n" + split_messages_by + "\n"
+    message_separator = "\n\n" + split_messages_by + "\n\n"
     p = re.compile(r"[\r\n]+(.*?)[\r\n]+" + re.escape(split_messages_by), re.DOTALL)   # re.DOTALL --> dot includes a newline 
     re_matches = p.finditer("\n" + user_input + "\n" + split_messages_by) 
 
-  paragraphs = []
+  paragraphs_with_newlines = []
+  paragraphs_without_newlines = []
   for re_match in re_matches:
+
     paragraph = re_match.group(1)
     if paragraph.strip() != "":
-      paragraphs.append(paragraph)
 
-  user_input = separator.join(paragraphs)   # reformat the user input to ensure that the character positions are correct. The regex above matches multiple linefeeds, including \r characters, but later we join them back together using only single newlines
+      paragraphs_with_newlines.append(paragraph)
+
+      if not split_messages_by_newline and not keep_message_newlines_in_llm_input:
+
+        # TODO: this is not very good for representing lists in LLM input
+
+        parts = re.compile(r"[\r\n]+").split(paragraph)
+
+        for index, part in enumerate(parts):
+          if len(part) > 0 and part[-1] not in ":\-.!?":   # When joining linebreaks, add punctuation after each line.
+            part += "."
+            parts[index] = part
+
+        paragraph = " ".join(parts)
+        # paragraph = re.sub(r"[\r\n]+", " ", paragraph)   # NB! replace all newlines in paragraphs with spaces because we do not want any newlines in LLM citations   # NB! replace each newline char with one space char, to match character positions in the results
+
+      #/ if not split_messages_by_newline and not keep_message_newlines_in_llm_input:
+
+      paragraphs_without_newlines.append(paragraph)
+
+    #/ if paragraph.strip() != "":
+  #/ for re_match in re_matches:
+
+  # reformat the user input to ensure that the character positions are correct. The regex above matches multiple linefeeds, including \r characters, but later we join them back together using only single newlines
+  user_input_with_newlines = message_separator.join(paragraphs_with_newlines)   
+  user_input_without_newlines = message_separator.join(paragraphs_without_newlines)   
 
 
   # split text into chunks
@@ -1603,7 +1916,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
   assert(max_tokens_per_chunk > 0)
 
   with Timer("Splitting text into chunks with balanced lengths"):
-    chunks = split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False, balance_chunk_sizes = True)   # TODO: balance chunk lengths
+    chunks = split_text_into_chunks(encoding, paragraphs_without_newlines, message_separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False, balance_chunk_sizes = True)   # TODO: balance chunk lengths
 
 
 
@@ -1677,7 +1990,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
       #/ if do_closed_ended_analysis:
 
 
-      prev_chunks_lengths_sum += chunk_user_input_len + len(separator)
+      prev_chunks_lengths_sum += chunk_user_input_len + len(message_separator)
 
       if extract_message_indexes:
         prev_chunks_messages_count += chunk_num_messages
@@ -1749,7 +2062,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
     filtered_expression_dicts = expression_dicts_samples[0]
     for entry in filtered_expression_dicts: # convert labels field to dict
-      entry["labels"] = OrderedDict([(label, 100) for label in entry["labels"]])
+      entry["labels"] = OrderedDict([(label, None) for label in entry["labels"]])
 
     filtered_totals = totals
     # filtered_unexpected_labels = unexpected_labels
@@ -1851,7 +2164,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
           for label, count in label_counts_in_span_range.items():
             if default_label_treshold_sample_percent < 100: # NB! if default_label_treshold_sample_percent < 100 then the threshold is EXCLUSIVE
               if count > default_label_treshold_float:
-                filtered_labels[label] = count / sample_count * 100
+                filtered_labels[label] = min(100, count / sample_count * 100)     # NB! use min() to avoid cases where some citations are misassigned in such way that same sentence gets double labels
             else: # NB! if default_label_treshold_sample_percent = 100 then the threshold is INCLUSIVE
               if count == sample_count:
                 filtered_labels[label] = 100
@@ -1859,7 +2172,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
           if len(filtered_labels) > 0:
 
-            text = user_input[span_start:span_end]
+            text = user_input_with_newlines[span_start:span_end]
 
             filtered_labels = OrderedDict(sorted(filtered_labels.items()))
 
@@ -1990,7 +2303,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     "error_code": 0,  # TODO
     "error_msg": "",  # TODO
 
-    "sanitised_text": user_input,
+    "sanitised_text": user_input_with_newlines,
     "expressions": filtered_expression_dicts,
     "counts": filtered_totals,
     "unexpected_labels": filtered_unexpected_labels,
@@ -2009,9 +2322,10 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
   await save_txt(response_filename, response_json, quiet = True, make_backup = True, append = False)
 
+  safeprint("Analysis result json saved.")
 
 
-  safeprint("Analysis done.")
+  # safeprint("Analysis done.")
 
   
 
@@ -2105,6 +2419,8 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
       await save_raw(response_svg_filename, svg, quiet = True, make_backup = True, append = False)
 
+      safeprint("Analysis result diagram saved.")
+
     #/ if chart:
 
 
@@ -2119,7 +2435,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     response_html_filename = os.path.splitext(response_filename)[0] + ".html" if using_user_input_filename else "test_evaluation.html"
 
 
-    highlights_html = await render_highlights(config, user_input, filtered_expression_dicts)
+    highlights_html = await render_highlights(config, user_input_with_newlines, filtered_expression_dicts)
 
 
     def get_full_html(for_pdfkit = False):
@@ -2196,6 +2512,8 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
     await save_txt(response_html_filename, output_html, quiet = True, make_backup = True, append = False)
 
+    safeprint("Analysis result html saved.")
+
 
 
     create_pdf = config.get("create_pdf") 
@@ -2233,6 +2551,8 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
         response_pdf_filename = os.path.splitext(response_filename)[0] + ".pdf" if using_user_input_filename else "test_evaluation.pdf"
 
         await save_raw(response_pdf_filename, pdf, quiet = True, make_backup = True, append = False)
+
+        safeprint("Analysis result pdf saved.")
 
       #/ if pdf is not None:
 

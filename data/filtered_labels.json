@@ -1,173 +1,3041 @@
 ﻿[
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Demanding": 100
+    },
     "file": "data\\test_input.txt",
-    "filtered_labels": [
-      "Demanding"
-    ],
-    "all_labels": [
-      "Demanding"
-    ],
-    "text": "Hey. You better call me as soon as you get this. We need to talk."
+    "text": "Hey. You better call me as soon as you get this. We need to talk.",
+    "message_index": 0,
+    "line_number": 2
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 100
+    },
     "file": "data\\test_input.txt",
-    "filtered_labels": [
-      "Demanding"
-    ],
-    "all_labels": [
-      "Demanding",
-      "Diminishing"
-    ],
-    "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road."
+    "text": "I am not telling you what the issue is just so you can decide whether or not my problem is significant enough for you to be concerned about. I am not telling you. Forget it.",
+    "message_index": 2,
+    "line_number": 6
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Demanding": 80.0,
+      "Diminishing": 100
+    },
     "file": "data\\test_input.txt",
-    "filtered_labels": [
-      "Demanding"
-    ],
-    "all_labels": [
-      "Demanding",
-      "Threats"
-    ],
-    "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon."
+    "text": "Oh, it\u2019s nothing. But call me immediately. As soon as you get on the road.",
+    "message_index": 4,
+    "line_number": 10
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Exaggeration": 80.0,
+      "Victim playing": 100
+    },
+    "file": "data\\test_input.txt",
+    "text": "You\u2019re not really getting ready for work, are you? Why are you texting me if you are so busy?? You\u2019re not busy. You\u2019re just avoiding me! I don\u2019t have to take your abuse. You make me feel like a piece of garbage, like nothing I have to say is important. You don\u2019t care about me at all!",
+    "message_index": 6,
+    "line_number": 14
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Exaggeration": 100,
+      "Victim playing": 100
+    },
+    "file": "data\\test_input.txt",
+    "text": "NOTHING! FORGET I ASKED! IT\u2019S ALWAYS ALL ABOUT YOU AND WHAT YOU WANT. YOU COULD CARE LESS IF I WAS DYING!!!",
+    "message_index": 8,
+    "line_number": 18
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Exaggeration": 100
+    },
+    "file": "data\\test_input.txt",
+    "text": "I CAN\u2019T TALK TO YOU! YOU NEVER LISTEN TO ANYTHING I SAY!",
+    "message_index": 10,
+    "line_number": 22
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Provocation": 100
+    },
+    "file": "data\\test_input.txt",
+    "text": "It\u2019s been 30 minutes, and you still haven\u2019t called. What is taking so long? I bet you are texting someone else. Probably one of your many admirers\u2026I am surprised you have any time for anything else. Must feel great having all those people to talk to who stroke your ego any time you want. You know they only talk to you because they want to sleep with you, right? They are all the same, and you love it, just admit it. You love the attention. JUST SAY IT",
+    "message_index": 12,
+    "line_number": 26
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Demanding": 100,
+      "Threats": 100
+    },
+    "file": "data\\test_input.txt",
+    "text": "I must talk to you NOW, and your day is NOT going to dictate what I get from you. You WILL CALL or you will see a very different side of me real soon.",
+    "message_index": 14,
+    "line_number": 30
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Sarcasm": 100
+    },
+    "file": "data\\test_input.txt",
+    "text": "You mean a more fun side than this? Can\u2019t wait.",
+    "message_index": 15,
+    "line_number": 32
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Threats": 100
+    },
+    "file": "data\\test_input.txt",
+    "text": "THAT\u2019S IT!! YOU HAVE PISSED ME OFF FOR THE LAST TIME! MARK MY WORDS YOU WILL BE SORRY. I HAVE A MEETING NOW. GO AWAY.",
+    "message_index": 16,
+    "line_number": 34
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\test_input.txt",
+    "text": "OK :/",
+    "message_index": 17,
+    "line_number": 36
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Victim playing": 100
+    },
+    "file": "data\\test_input.txt",
+    "text": "OK?!?!?!? is that all you have to say? Just okay? God, what kind of horrible worthless piece of garbage must you think I am in order to treat me like this?",
+    "message_index": 18,
+    "line_number": 38
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Ignoring previous conflict": 80.0
+    },
+    "file": "data\\test_input.txt",
+    "text": "Hey, let\u2019s get a drink.",
+    "message_index": 19,
+    "line_number": 44
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\test_input.txt",
+    "text": "I don\u2019t want to. No.",
+    "message_index": 20,
+    "line_number": 46
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Exaggeration": 100,
+      "Victim playing": 100
+    },
+    "file": "data\\test_input.txt",
+    "text": "So you hate me now? Should I just not contact you ever again? Is that how it is? Tell me, so I won\u2019t have to waste another minute of my life talking to you.",
+    "message_index": 21,
+    "line_number": 48
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "So it has to be my decision\u2026",
+    "message_index": 1,
+    "line_number": 4
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "It does!",
+    "message_index": 2,
+    "line_number": 6
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "I have to volunteer\u2026",
+    "message_index": 3,
+    "line_number": 8
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "Yes!",
+    "message_index": 4,
+    "line_number": 10
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\test_input2.txt",
+    "text": "I have to change the entire language of the entire conversation to me helping you.",
+    "message_index": 5,
+    "line_number": 12
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\test_input2.txt",
+    "text": "So I have to take your project and instantly make it my own and go and assist you so that we can work as a team.",
+    "message_index": 7,
+    "line_number": 16
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\test_input2.txt",
+    "text": "So anything that happens in my space, I need to involve myself and make it my project\u2026",
+    "message_index": 9,
+    "line_number": 20
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Blaming": 100
+    },
+    "file": "data\\test_input2.txt",
+    "text": "So instead of asking me if this would be a good time, to do some stuff in \u201cmy space,\u201d you had to create all of this?",
+    "message_index": 11,
+    "line_number": 24
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Shifting of responsibility and blame": 100
+    },
+    "file": "data\\test_input2.txt",
+    "text": "I don\u2019t feel that I created this, I think that you did.",
+    "message_index": 12,
+    "line_number": 26
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "What should have been so pitifully obvious is that you\u2019re setting it up so I can say no.",
+    "message_index": 20,
+    "line_number": 42
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Denying": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "I did say yes.",
+    "message_index": 22,
+    "line_number": 46
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "Why wouldn\u2019t you do that? That\u2019s what I\u2019m wondering.",
+    "message_index": 24,
+    "line_number": 50
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Denying": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "I didn\u2019t hear you say that.",
+    "message_index": 26,
+    "line_number": 54
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "I don\u2019t see why you\u2019re so offended if I ask you if you need my assistance",
+    "message_index": 29,
+    "line_number": 62
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "Because\u2026You\u2019re not helping me at all!",
+    "message_index": 30,
+    "line_number": 64
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "it\u2019s this particular thing. This is it. Do you see the repetition in it?",
+    "message_index": 32,
+    "line_number": 68
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "Yes, I do see the repetition and it really pisses me off.",
+    "message_index": 33,
+    "line_number": 70
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "Well, it pisses me off even more!",
+    "message_index": 34,
+    "line_number": 72
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "Yeah? Well, I don\u2019t understand that if I tell you, if I say to you, I\u2019m offering you whatever assistance, how ever I can be of help why you\u2019re so offended by that. I have to use the exact language that you\u2026",
+    "message_index": 35,
+    "line_number": 74
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "Because you never take the lead.",
+    "message_index": 36,
+    "line_number": 76
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "When I take the lead, you change how things are going.",
+    "message_index": 37,
+    "line_number": 78
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\test_input2.txt",
+    "text": "Well, of course.",
+    "message_index": 38,
+    "line_number": 80
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "Why should I take the lead?",
+    "message_index": 40,
+    "line_number": 84
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0,
+      "Blaming": 80.0
+    },
+    "file": "data\\test_input2.txt",
+    "text": "Because you are the one who decides how the project goes in the end.",
+    "message_index": 41,
+    "line_number": 86
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\test_input2.txt",
+    "text": "In the end YOU determine how things happen around here, in all things. Don\u2019t give me that shit! It\u2019s a very passive aggressive command form. That\u2019s what I\u2019m objecting to! Years and years of it!",
+    "message_index": 42,
+    "line_number": 88
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Creating artificial obligations": 100
+    },
     "file": "data\\test_input3.txt",
-    "filtered_labels": [
-      "Creating artificial obligations"
-    ],
-    "all_labels": [
-      "Creating artificial obligations"
-    ],
-    "text": "Hi...I need a favor....what are doing right now?"
+    "text": "Hi...I need a favor....what are doing right now?",
+    "message_index": 1,
+    "line_number": 4
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Sullenness or cynicism": 100
+    },
     "file": "data\\test_input3.txt",
-    "filtered_labels": [
-      "Creating artificial obligations"
-    ],
-    "all_labels": [
-      "Creating artificial obligations"
-    ],
-    "text": "Well, I was just wondering if maybe I could borrow your car...."
+    "text": "(sullenly): Ohhh......ok..\u2026..",
+    "message_index": 3,
+    "line_number": 8
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Creating artificial obligations": 80.0
+    },
     "file": "data\\test_input3.txt",
-    "filtered_labels": [
-      "Demanding"
-    ],
-    "all_labels": [
-      "Demanding"
-    ],
-    "text": "(with conviction): Right now!"
+    "text": "Well, I was just wondering if maybe I could borrow your car....",
+    "message_index": 5,
+    "line_number": 12
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Demanding": 80.0
+    },
     "file": "data\\test_input3.txt",
-    "filtered_labels": [
-      "Creating artificial obligations"
-    ],
-    "all_labels": [
-      "Creating artificial obligations",
-      "Exaggeration"
-    ],
-    "text": "(insistently): Come on, just pick me and Person A up, and we can drop you off back at your place. It will only take a half hour."
+    "text": "(with conviction): Right now!",
+    "message_index": 7,
+    "line_number": 16
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 100
+    },
     "file": "data\\test_input3.txt",
-    "filtered_labels": [
-      "Demanding"
-    ],
-    "all_labels": [
-      "Demanding",
-      "Dismissal",
-      "Ignoring"
-    ],
-    "text": "(angrily): I don't want talk about whatever it is you want talk about. I am not going to rehash!! The past is past. Now is now. I need to know if you will lend me your car right now."
+    "text": "(insistently): Come on, just pick me and Lula up, and we can drop you off back at your place. It will only take a half hour.",
+    "message_index": 11,
+    "line_number": 24
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 100
+    },
     "file": "data\\test_input3.txt",
-    "filtered_labels": [
-      "Demanding"
-    ],
-    "all_labels": [
-      "Accusation",
-      "Demanding"
-    ],
-    "text": "Yes, it's not fair!! You are wrong! I need your car....."
+    "text": "(evasively): Umm, I don't have to get into that with you?",
+    "message_index": 17,
+    "line_number": 36
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
     "file": "data\\test_input3.txt",
-    "filtered_labels": [
-      "Not attempting to understand"
-    ],
-    "all_labels": [
-      "Evasion",
-      "Not attempting to understand"
-    ],
-    "text": "(evasively): Hmmmmm. yeah\u2026so? What are you saying?? What does that have to do with anything?"
+    "text": "Come on what does it matter, we are just going to go out clubbing!",
+    "message_index": 19,
+    "line_number": 40
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
     "file": "data\\test_input3.txt",
-    "filtered_labels": [
-      "Demanding"
-    ],
-    "all_labels": [
-      "Demanding",
-      "Ignoring"
-    ],
-    "text": "(angrily): Look are you going to pick me and Person A up or not?"
+    "text": "(impatiently and angrily): Ohhh come on!! I can't believe how selfish you are being!",
+    "message_index": 21,
+    "line_number": 44
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0,
+      "Ignoring": 80.0
+    },
+    "file": "data\\test_input3.txt",
+    "text": "(angrily): I don't want talk about whatever it is you want talk about. I am not going to rehash!! The past is past. Now is now. I need to know if you will lend me your car right now.",
+    "message_index": 29,
+    "line_number": 60
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Exaggeration": 80.0
+    },
+    "file": "data\\test_input3.txt",
+    "text": "(explosively): I knew it!!! I KNEW IT!!!",
+    "message_index": 31,
+    "line_number": 64
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Exaggeration": 100
+    },
+    "file": "data\\test_input3.txt",
+    "text": "(rapidly and angrily): Here comes the control!!! I will not be controlled!! I am a free bird!! I need to be free!!",
+    "message_index": 33,
+    "line_number": 68
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Demanding": 80.0
+    },
+    "file": "data\\test_input3.txt",
+    "text": "Yes, it's not fair!! You are wrong! I need your car.....",
+    "message_index": 35,
+    "line_number": 72
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Feigning ignorance": 80.0
+    },
+    "file": "data\\test_input3.txt",
+    "text": "Kidding....kidding you about what?",
+    "message_index": 39,
+    "line_number": 80
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100,
+      "Evasion": 100
+    },
+    "file": "data\\test_input3.txt",
+    "text": "What does that have to do with anything? Why does that even matter??",
+    "message_index": 41,
+    "line_number": 84
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Exaggeration": 80.0
+    },
+    "file": "data\\test_input3.txt",
+    "text": "(crankily): Oh my God! No, no, no....I am not to be controlled!!",
+    "message_index": 43,
+    "line_number": 88
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 100
+    },
+    "file": "data\\test_input3.txt",
+    "text": "That's right, I need to be free just to be me. I just want to spread my wings and zoom here, there, and everywhere!! But of course I need you to be my guide and take care of me.",
+    "message_index": 45,
+    "line_number": 92
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 100
+    },
+    "file": "data\\test_input3.txt",
+    "text": "(evasively): Hmmmmm. yeah\u2026so? What are you saying?? What does that have to do with anything?",
+    "message_index": 49,
+    "line_number": 100
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Feigning ignorance": 100
+    },
+    "file": "data\\test_input3.txt",
+    "text": "What that supposed to mean?",
+    "message_index": 51,
+    "line_number": 104
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Feigning ignorance": 100
+    },
+    "file": "data\\test_input3.txt",
+    "text": "I literally have no idea what you are talking about!!",
+    "message_index": 53,
+    "line_number": 108
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 100
+    },
+    "file": "data\\test_input3.txt",
+    "text": "(defensively and angrily) That was different...wait\u2026..what does that have to do with anything?",
+    "message_index": 55,
+    "line_number": 112
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\test_input3.txt",
+    "text": "You are not Mr. Innocent... you flirted!! You flirted, and I could tell. After all, why was she smiling at you!! You were flir.........",
+    "message_index": 59,
+    "line_number": 120
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Aggression": 80.0
+    },
+    "file": "data\\test_input3.txt",
+    "text": "(shouting angrily): What?!?!?",
+    "message_index": 61,
+    "line_number": 124
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Changing the topic": 100
+    },
+    "file": "data\\test_input3.txt",
+    "text": "(silence...then abruptly): Hey did you hear about that Trump thing!!",
+    "message_index": 63,
+    "line_number": 128
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Demanding": 80.0,
+      "Ignoring previous conflict": 80.0
+    },
+    "file": "data\\test_input3.txt",
+    "text": "(angrily): Look are you going to pick me and Lula up or not?",
+    "message_index": 65,
+    "line_number": 132
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Abrupt reaction": 100
+    },
+    "file": "data\\test_input3.txt",
+    "text": "I gotta goooo.....seeeyah....(click)",
+    "message_index": 67,
+    "line_number": 136
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
     "file": "data\\test_input4.txt",
-    "filtered_labels": [
-      "Demanding"
-    ],
-    "all_labels": [
-      "Demanding"
-    ],
-    "text": "Well an apology would be a good start."
+    "text": "are you saying I'm lazy?",
+    "message_index": 2,
+    "line_number": 6
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
     "file": "data\\test_input4.txt",
-    "filtered_labels": [
-      "Demanding"
-    ],
-    "all_labels": [
-      "Demanding",
-      "Victim playing"
-    ],
-    "text": "You should apologize for making me feel bad."
+    "text": "So you're saying it's my fault that your apartment is messy?",
+    "message_index": 4,
+    "line_number": 10
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0,
+      "Blaming": 100
+    },
+    "file": "data\\test_input4.txt",
+    "text": "Look, your place isn't immaculate. When I was in the bathroom, I saw some toothpaste spatter in the sink. That wasn't my fault. That was YOUR fault.",
+    "message_index": 6,
+    "line_number": 14
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\test_input4.txt",
+    "text": "Now you're trying to make me feel bad.",
+    "message_index": 8,
+    "line_number": 18
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Exaggeration": 100,
+      "Victim playing": 100
+    },
+    "file": "data\\test_input4.txt",
+    "text": "So you care more about eggshells than you care about me.",
+    "message_index": 10,
+    "line_number": 22
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Victim playing": 100
+    },
+    "file": "data\\test_input4.txt",
+    "text": "Now you're trying to make me feel bad. You're just like my father, and you know how terrible he was to me.",
+    "message_index": 12,
+    "line_number": 26
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Demanding": 100
+    },
+    "file": "data\\test_input4.txt",
+    "text": "Well an apology would be a good start.",
+    "message_index": 14,
+    "line_number": 30
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Provocation": 80.0
+    },
+    "file": "data\\test_input4.txt",
+    "text": "What are you sorry for?",
+    "message_index": 16,
+    "line_number": 34
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Victim playing": 100
+    },
+    "file": "data\\test_input4.txt",
+    "text": "There you go, making this my fault again.",
+    "message_index": 18,
+    "line_number": 38
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Demanding": 100
+    },
+    "file": "data\\test_input4.txt",
+    "text": "You should apologize for making me feel bad.",
+    "message_index": 20,
+    "line_number": 42
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\test_input4.txt",
+    "text": "I'm sorry I've made you feel bad.",
+    "message_index": 21,
+    "line_number": 44
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Disrespect": 80.0,
+      "Provocation": 100
+    },
+    "file": "data\\test_input4.txt",
+    "text": "There. Holy Christ, was that so hard? *throws another eggshell on the floor*",
+    "message_index": 22,
+    "line_number": 46
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Comparing": 100
+    },
+    "file": "data\\test_input5.txt",
+    "text": "I\u2019ve got a headache too. My day was sooo worse than yours. First, this happened, then that happened, then all this other stuff happened.",
+    "message_index": 1,
+    "line_number": 6
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Comparing": 80.0
+    },
+    "file": "data\\test_input5.txt",
+    "text": "Maybe I should take a nap and you should wake ME up. My head hurts wayy more than yours does.",
+    "message_index": 3,
+    "line_number": 12
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0,
+      "Invalidation": 80.0
+    },
+    "file": "data\\test_input5.txt",
+    "text": "Nope. Mine definitely hurts worse. Your head doesn\u2019t even hurt. You\u2019re just saying that. Look, you\u2019re not even napping, you\u2019re still talking to me.",
+    "message_index": 5,
+    "line_number": 16
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0,
+      "Dismissal": 80.0,
+      "Invalidation": 80.0
+    },
+    "file": "data\\test_input5.txt",
+    "text": "Your head does NOT hurt, you\u2019re just being lazy. I just worked 8 long hours and I don\u2019t have a headache and have to take a nap. You literally sit at your desk all day. No way you have a headache.",
+    "message_index": 7,
+    "line_number": 20
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\test_input5.txt",
+    "text": "(walks off mumbling) This is bullshit.",
+    "message_index": 9,
+    "line_number": 24
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Blaming": 100
+    },
+    "file": "data\\test_input5.txt",
+    "text": "You know we missed the thing. You did that on purpose.",
+    "message_index": 11,
+    "line_number": 30
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Shifting of responsibility and blame": 100
+    },
+    "file": "data\\test_input5.txt",
+    "text": "I\u2019m not responsible for your life. Don\u2019t blame this on me.",
+    "message_index": 13,
+    "line_number": 34
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0,
+      "Exaggeration": 80.0,
+      "Provocation": 100
+    },
+    "file": "data\\test_input5.txt",
+    "text": "So you\u2019re comparing our relationship to other people\u2019s? I don\u2019t know if I can be in a relationship like this anymore. My friend (random girl/ guy name), says that anytime someone does that it\u2019s time to leave. I will NOT put up with that FUCKING SHIT!",
+    "message_index": 15,
+    "line_number": 38
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Blaming": 80.0,
+      "Exaggeration": 100
+    },
+    "file": "data\\test_input5.txt",
+    "text": "You don\u2019t respect me. You\u2019re always telling me my head doesn\u2019t hurt. You\u2019re always taking naps and ruining our plans.",
+    "message_index": 17,
+    "line_number": 42
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Distortion": 100,
+      "Gaslighting": 100
+    },
+    "file": "data\\test_input5.txt",
+    "text": "Bull shit. You know I\u2019m right. You even said I was right before you took a nap. I said your head doesn\u2019t even hurt and you said \u2018you\u2019re right\u2019 and went to sleep.",
+    "message_index": 19,
+    "line_number": 46
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Distortion": 80.0,
+      "Gaslighting": 100
+    },
+    "file": "data\\test_input5.txt",
+    "text": "I promise you, you\u2019re lying. You SAID I WAS RIGHT because you KNOW your head wasn\u2019t hurting. You even SAID you were a horrible person before you went to sleep.",
+    "message_index": 21,
+    "line_number": 50
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Provocation": 100
+    },
+    "file": "data\\test_input5.txt",
+    "text": "Anyways, (Earlier mentioned Guy/Girl friend) went with me instead to the thing, while you were snoring like a FUCKING pig. She/He said they would never put up with that shit.",
+    "message_index": 23,
+    "line_number": 54
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Deception": 80.0,
+      "Evasion": 80.0
+    },
+    "file": "data\\test_input5.txt",
+    "text": "It wasn\u2019t a date. I didn\u2019t let her/him kiss me like she/he wanted to.",
+    "message_index": 25,
+    "line_number": 58
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Blaming": 100,
+      "Gaslighting": 100
+    },
+    "file": "data\\test_input5.txt",
+    "text": "I told you it wasn\u2019t a date! You are always over-exaggerating. This is all your fault anyway. You didn\u2019t have to take a nap. You chose to take a nap.",
+    "message_index": 27,
+    "line_number": 62
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Blaming": 100,
+      "Gaslighting": 100,
+      "Invalidating": 80.0
+    },
+    "file": "data\\test_input5.txt",
+    "text": "That\u2019s because YOU are the problem. Feeling this and feeling that. That\u2019s not even how it is, but you are wayyy too sensitive. I can\u2019t help it if you FEEL like walking on eggshells. You can\u2019t blame your feelings on me.",
+    "message_index": 29,
+    "line_number": 66
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 80.0
+    },
+    "file": "data\\test_input5.txt",
+    "text": "No, I\u2019m not going to that. And you know why.",
+    "message_index": 31,
+    "line_number": 70
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 80.0
+    },
+    "file": "data\\test_input5.txt",
+    "text": "I\u2019m not going. You KNOW WHY. So I\u2019m not going to tell you why.",
+    "message_index": 33,
+    "line_number": 74
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 80.0
+    },
+    "file": "data\\test_input5.txt",
+    "text": "You KNOW why.",
+    "message_index": 35,
+    "line_number": 78
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\test_input5.txt",
+    "text": "STOP PLAYING GAMES. YOU KNOW WHY.",
+    "message_index": 37,
+    "line_number": 82
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 80.0
+    },
+    "file": "data\\test_input5.txt",
+    "text": "NO because you KNOW WHY.",
+    "message_index": 39,
+    "line_number": 86
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 100
+    },
     "file": "data\\test_input6.txt",
-    "filtered_labels": [
-      "Demanding"
-    ],
-    "all_labels": [
-      "Accusation",
-      "Demanding"
-    ],
-    "text": "Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?"
+    "text": "Please leave me alone. My head hurts.",
+    "message_index": 0,
+    "line_number": 10
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
     "file": "data\\test_input6.txt",
-    "filtered_labels": [
-      "Demanding"
-    ],
-    "all_labels": [
-      "Accusation",
-      "Demanding"
-    ],
-    "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open."
+    "text": "Well, you shouldn\u2019t have been drinking! I was waiting at home for you. I made dinner. I deserve an explanation. What were you doing that was so important that you couldn\u2019t let me know?",
+    "message_index": 1,
+    "line_number": 12
   },
   {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 100,
+      "Procrastination": 100
+    },
+    "file": "data\\test_input6.txt",
+    "text": "Look, let\u2019s talk about it some other time.",
+    "message_index": 2,
+    "line_number": 14
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Demanding": 100
+    },
+    "file": "data\\test_input6.txt",
+    "text": "You owe me an explanation. I need some clarity about why you came home drunk with your shirt half open.",
+    "message_index": 3,
+    "line_number": 16
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Shifting of responsibility and blame": 80.0
+    },
+    "file": "data\\test_input6.txt",
+    "text": "I work hard all day. Aren\u2019t I entitled to relax and have a drink after work?",
+    "message_index": 4,
+    "line_number": 18
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\test_input6.txt",
+    "text": "But what about me? You knew I was home waiting for you. How could you be so thoughtless and cruel?",
+    "message_index": 5,
+    "line_number": 20
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Aggression": 100,
+      "Disrespect": 100
+    },
+    "file": "data\\test_input6.txt",
+    "text": "Shut up b*tch!",
+    "message_index": 6,
+    "line_number": 22
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\test_input7.txt",
+    "text": "\"Person B, your baby needs nutrients and protein. Here's some for her.\"",
+    "message_index": 2,
+    "line_number": 10
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Exaggeration": 80.0,
+      "Provocation": 100
+    },
+    "file": "data\\test_input7.txt",
+    "text": "\"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\"",
+    "message_index": 4,
+    "line_number": 18
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Provocation": 100
+    },
+    "file": "data\\test_input7.txt",
+    "text": "\"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\"",
+    "message_index": 6,
+    "line_number": 24
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\test_input8.txt",
+    "text": "\u201cYes. They don't live here anymore.\u201d",
+    "message_index": 1,
+    "line_number": 6
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Silent treatment": 100
+    },
+    "file": "data\\test_input8.txt",
+    "text": "*silence*",
+    "message_index": 3,
+    "line_number": 10
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\test_input8.txt",
+    "text": "\u201cI let them go free.\u201d",
+    "message_index": 5,
+    "line_number": 14
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\test_input8.txt",
+    "text": "\u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d",
+    "message_index": 7,
+    "line_number": 18
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\test_input8.txt",
+    "text": "\u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d",
+    "message_index": 8,
+    "line_number": 22
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Demanding": 80.0
+    },
     "file": "data\\test_input9_escalating.txt",
-    "filtered_labels": [
-      "Demanding"
-    ],
-    "all_labels": [
-      "Demanding"
-    ],
-    "text": "\u201cWhat do you want? Tell me what you need from me\u201d"
+    "text": "\u201cWhat do you want? Tell me what you need from me\u201d",
+    "message_index": 0,
+    "line_number": 2
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\u201cI have told you too many times already. You just get mad and ignore me. Why should I waste my time telling you again? I just want to get away from you\u201d.",
+    "message_index": 1,
+    "line_number": 4
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Ignoring previous conflict": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\u201cNo, I\u2019m listening now. Please! What do you want?\u201d",
+    "message_index": 2,
+    "line_number": 6
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0,
+      "Complaining": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\u201cI want a relationship that isn\u2019t totally one-sided. I want you to stop treating me like a pet and respect that I have a life and needs and opinions too. I want you to give a shit how I feel and actually talk to me when I\u2019m upset, instead of blowing up at me and ordering me not to talk about it\u201d.",
+    "message_index": 3,
+    "line_number": 8
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Dismissal": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "*stares at Person B blankly* \u201cBut I give you money when you need something, I drove you to your appointment this morning, and you don\u2019t remember any of that. Everything was fine and then you started this shit again\u201d.",
+    "message_index": 4,
+    "line_number": 10
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\u201cI do remember all that, and I thanked you for it! That\u2019s not what I\u2019m talking about and you know that. And I didn\u2019t start anything; you\u2019re the one who did something wrong and then started yelli\u2014\u201c",
+    "message_index": 5,
+    "line_number": 12
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Exaggeration": 100,
+      "Victim playing": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "*interrupts Person B* \u201cOh, so I started it? It\u2019s MY fault. Everything\u2019s my fault!! Right??\u201d",
+    "message_index": 6,
+    "line_number": 14
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Exaggeration": 100,
+      "Victim playing": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\u201cThis is my fault, even though you started it! Everything\u2019s my fault! That\u2019s what you keep saying!\u201d",
+    "message_index": 8,
+    "line_number": 18
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0,
+      "Complaining": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\u201cI just told you! Again! I want you to consider my feelings and stop ignoring my emotional needs and punishing me for arguments that only happen because of what you said! How many times, how many different ways, do I have to explain it?!\u201d",
+    "message_index": 11,
+    "line_number": 24
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\u201cWhat I did?? Do you ever think about how much you stress me out? Why do you ALWAYS want to fight??\u201d",
+    "message_index": 12,
+    "line_number": 26
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0,
+      "Complaining": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\u201cI don\u2019t always want to fight! I cooperate with everything you want just to avoid a fight. But it\u2019s never good enough and you blame me for everything and you just do whatever you want. As long as you\u2019re happy, nothing else matters. You don\u2019t consider my feelings at all, and you ignore my emotional needs. I can\u2019t keep living like this\u201d.",
+    "message_index": 13,
+    "line_number": 28
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Demanding": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\u201cHow am I supposed to know what you need if you don\u2019t tell me. Just tell me, what do you WANT?!\u201d",
+    "message_index": 16,
+    "line_number": 34
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0,
+      "Complaining": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\u201cHave you not heard ANYTHING that I\u2019ve said?? I want you to consider my feelings and stop doing things that hurt me. I want you to respect my opinion and talk to me, instead of blowing up at me like this and reminding me that only your feelings matter. Why is that so hard to understand?!\u201d",
+    "message_index": 17,
+    "line_number": 36
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Aggression": 100
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "*furiously throws their phone across the room and punches the wall* \u201cI can\u2019t take this anymore with you! WHAT DO YOU WANT??!\u201d",
+    "message_index": 18,
+    "line_number": 38
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0,
+      "Complaining": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "*exhausted and defeated* \u201dOk. You\u2019re not listening. You keep asking the same question and I waste my time explaining. You don\u2019t want to hear it. It\u2019s not something you\u2019re willing to give. And these arguments only make it hurt more. All you care about is whose fault it is that you\u2019re angry. You have no interest in fixing the problem, obviously. But I already knew that\u201d.",
+    "message_index": 19,
+    "line_number": 40
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\u201cIt's not about who's at fault, it's about understanding each other and resolving our issues. But you just don't get it, do you?\u201d",
+    "message_index": 21,
+    "line_number": 44
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\u201cIt\u2019s not about making me 'happy' with material things or gestures. It's about acknowledging my feelings, understanding them and working together to create a healthy relationship. Something that you apparently don't understand.\u201d",
+    "message_index": 23,
+    "line_number": 48
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\u201cOh, I don't understand now?! You always say this when we argue, that I don\u2019t understand, that I don\u2019t listen, like you\u2019re some kind of saint!\u201d",
+    "message_index": 24,
+    "line_number": 50
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\"Oh, so now you're just going to walk away from everything we have? That's it?\"",
+    "message_index": 26,
+    "line_number": 54
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\"It's not walking away from what we have. It's accepting the fact that you're not willing to change or improve our relationship. You've made that very clear.\"",
+    "message_index": 27,
+    "line_number": 56
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "\"So it's over now, because of you!\"",
+    "message_index": 28,
+    "line_number": 58
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\test_input9_escalating.txt",
+    "text": "*in disbelief* \"So this is it then? You're just going to leave?\"",
+    "message_index": 30,
+    "line_number": 62
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Now then, Bella. We've had this out before. Be so good as to ring the bell.",
+    "message_index": 10,
+    "line_number": 54
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Go and ring the bell, please, Bella - there's a good child.",
+    "message_index": 14,
+    "line_number": 62
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "What do you suppose the servants are for, Bella?",
+    "message_index": 15,
+    "line_number": 66
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 100,
+      "Provocation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "You're looking very impudent and pretty this afternoon, Nancy. Do you know that?",
+    "message_index": 31,
+    "line_number": 110
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Provocation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Or are women too jealous of their discoveries to pass them on to a rival?",
+    "message_index": 39,
+    "line_number": 128
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Blaming": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "But, my dear- if she does that, doesn't the fault lie with you?",
+    "message_index": 50,
+    "line_number": 152
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I don't mean anything. It's you who read meanings into everything, Bella dear.",
+    "message_index": 52,
+    "line_number": 156
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I not only would take you to see MacNaughton, my dear. I am going to take you to see MacNaughton. That is, if you want to go.",
+    "message_index": 60,
+    "line_number": 172
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Well, my dear, you've been very good lately, and I thought it would be well to take you out of yourself.",
+    "message_index": 68,
+    "line_number": 187
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Ignoring": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Oh, no - don't let's speak about that.",
+    "message_index": 74,
+    "line_number": 199
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I wonder if it is that - or whether it's merely that your medicine is beginning to benefit you?",
+    "message_index": 76,
+    "line_number": 203
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Changing the topic": 100,
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Well - we are talking about gloomy subjects, aren't we?",
+    "message_index": 78,
+    "line_number": 207
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I think you imagine things, my dear.",
+    "message_index": 97,
+    "line_number": 255
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "You seem wonderfully pleased with yourself, Bella. I must take you to the theatre more often, if this is the result.",
+    "message_index": 99,
+    "line_number": 259
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Threats": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(suddenly rising, looking at the wall opposite him; in a calm, yet menacing voice) I don't know, I'm sure ... I don't know ...",
+    "message_index": 116,
+    "line_number": 295
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Yes. Why has it been taken down? Why, indeed? You alone can answer that, Bella. Why was it taken down before? Will you please take it from wherever you have hidden it, and put it back on the wall again.",
+    "message_index": 124,
+    "line_number": 313
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Someone else? Are you suggesting that I should play such a fantastic and wicked trick?",
+    "message_index": 126,
+    "line_number": 317
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Someone else, eh? Someone else. (Shaking her off ) Will you leave go of me. You repel me - you half-witted thing. (He walks over to the bell-cord) We will see about \"someone else\".",
+    "message_index": 128,
+    "line_number": 321
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(shaking her off violently) Will you leave go of me and sit down there! (He moves to the fireplace) Someone else - eh? Well - we shall see.",
+    "message_index": 131,
+    "line_number": 329
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0,
+      "Patronizing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "You had better pull yourself together, hadn't you ... ?",
+    "message_index": 132,
+    "line_number": 333
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Ah, Elizabeth, do you notice anything amiss in this room? Look carefully around the walls, and see if you notice anything amiss ... Well, Elizabeth, what do you notice?",
+    "message_index": 134,
+    "line_number": 341
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Indeed, why should you? And now please, will you kiss that Bible, which lies on that desk there, as a token of your truthfulness...",
+    "message_index": 142,
+    "line_number": 356
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Victim playing": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(moving to Mr Manningham) Jack - spare me that girl. Don't call her in. I'll say anything. I'll say that I did it. I did it, Jack, I did it. Don't have that girl in. Don't!",
+    "message_index": 145,
+    "line_number": 366
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Will you have the goodness to contain yourself?",
+    "message_index": 146,
+    "line_number": 368
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I did not ask for any comment on your part, Nancy. Kindly be less insolent and answer what I ask you. Did you take that picture down, or did you not?",
+    "message_index": 151,
+    "line_number": 382
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Then, by God, you are mad, and you don't know what you do. You unhappy wretch - you're stark gibbering mad - like your wretched mother before you.",
+    "message_index": 161,
+    "line_number": 404
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Victim playing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Jack - you promised you would never say that again.",
+    "message_index": 162,
+    "line_number": 406
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Threats": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(after a pause) ",
+    "message_index": 163,
+    "line_number": 408
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Power games": 80.0,
+      "Threats": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "The time has come to face facts, Bella. If this progresses you will not be much longer under my protection.",
+    "message_index": 163,
+    "line_number": 408
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Victim playing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Jack - I'm going to make a last appeal to you. I'm going to make a last appeal. I'm desperate, Jack. Can' t you see that I'm desperate? If you can't, you must have a heart of stone.",
+    "message_index": 164,
+    "line_number": 410
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Then you did know where it was, Bella. You did know where it was.",
+    "message_index": 172,
+    "line_number": 428
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "There is no sense in walking about the room with a picture in your hand, Bella. Go and put it back in its proper place.",
+    "message_index": 174,
+    "line_number": 432
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Now, Bella, I said a moment ago that we have got to face facts. And that is what we have got to do. I am not going to say anything at the moment for my feelings are running too high. In fact, I am going out immediately, and I suggest that you go to your room and lie down for a little in the dark.",
+    "message_index": 176,
+    "line_number": 438
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "There is no question of sending you to your room, Bella. You know perfectly well that you may do exactly as you please. Everything",
+    "message_index": 178,
+    "line_number": 442
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Now, no argument, please. I had to go in any case after tea, and I am merely leaving a little earlier, that's all.",
+    "message_index": 182,
+    "line_number": 450
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": " (He puts on his hat and coat. Pause) Now, is there anything I can get for you?",
+    "message_index": 182,
+    "line_number": 450
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Aggression": 80.0,
+      "Power games": 80.0,
+      "Threats": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(coming to her and shaking her violently) Will you control yourself! Will you control yourself! Listen to me, madam, if you utter another sound I'll knock you down and take you to your room and lock you in darkness for a week. I have been too lenient with you, and I mean to alter my tactics.",
+    "message_index": 197,
+    "line_number": 482
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Threats": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "May God help you, indeed. Now listen to me. I am going to leave you until ten o'clock. In that time you will recover that paper, and admit to me that you have lyingly and purposely concealed it... If not, you will take the consequences. You are going to see a doctor, madam, more than one doctor - and they shall decide what this means. Now do you understand me?",
+    "message_index": 199,
+    "line_number": 486
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Victim playing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Jack... Jack... Don't go ... Jack ... You're still going to take me to the theatre, aren't you?",
+    "message_index": 202,
+    "line_number": 492
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Power games": 80.0,
+      "Threats": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "What a question to ask me at such a time. No, madam, emphatically I am not. You play fair by me, and I'll play fair by you. If we are going to be enemies, you and I, you will find that it is I who shall get the best of it.",
+    "message_index": 203,
+    "line_number": 494
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Yes!... Yes!... What is it. Elizabeth? Leave me alone.",
+    "message_index": 206,
+    "line_number": 507
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Tell him to go. Elizabeth. He wants to see my husband. My husband's out.",
+    "message_index": 210,
+    "line_number": 515
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Oh, leave me alone. Tell him to go away. I want to be left alone.",
+    "message_index": 212,
+    "line_number": 519
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Why not tell me first how you knew, Mrs Manningham.",
+    "message_index": 292,
+    "line_number": 690
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Now please don't look so frightened. Your husband is no ghost, believe me, and you are very far from mad. Tell me now, what made you first think it was him?",
+    "message_index": 294,
+    "line_number": 694
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "How very strange, indeed. You know. Mrs Manningham, you should have been a policeman.",
+    "message_index": 302,
+    "line_number": 710
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Oh no! I was merely praising the keenness of your observation. I not only think you are right in your suppositions, I think you have made a very remarkable discovery, and one which may have very far-reaching consequences.",
+    "message_index": 304,
+    "line_number": 714
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(putting his hands on hers) Do you know, Mrs Manningham, it has occurred to me that you'd be all the better for a little medicine.",
+    "message_index": 312,
+    "line_number": 730
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "You underestimate your powers, Mrs Manningham. You see, I don't want you thinking you can't trust your reason. This will give you faith in your reason like nothing else...",
+    "message_index": 328,
+    "line_number": 762
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Changing the topic": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Ah. \"The Cabman's Friend\". (He moves to the mantelpiece) You should ask me who was \"The Cabman's Friend\", Mrs Manningham, for she was an old lady who died many, many years ago. (He puts his whisky on the mantelpiece)",
+    "message_index": 334,
+    "line_number": 774
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Changing the topic": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Yes. She was murdered. I was only a comparatively young officer at the time, but it made an extremely horrible, in fact I may say lasting, impression on me.",
+    "message_index": 338,
+    "line_number": 782
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Diminishing": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Indeed, Mrs Manningham, if my theory is right, the jewels must still be where she hid them, but then, of course, it was only a theory and that formed in quite a young man, long enough ago.",
+    "message_index": 348,
+    "line_number": 801
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Diminishing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": " The official conclusion was quite otherwise. The police, naturally and quite excusably presumed that the murderer had got them, and there was no re-opening of matters in those days. Soon enough the public forgot about it. I forgot about it myself. But it would be funny, wouldn't it, Mrs Manningham, if after all these years I should turn out to be right.",
+    "message_index": 348,
+    "line_number": 801
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Making others feel insecure": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Ah, that is the whole question, Mrs Manningham. What, indeed? What has the obscure murder of an old lady twenty years ago to do with an attractive, though I am afraid at present somewhat pale and wan young lady in this house, who believes she is going out of her mind, and watches the gaslight going up and down when her husband is out at night? Well, I believe there is a link, however remote, wild and strange it may be, and that is why I am here.",
+    "message_index": 350,
+    "line_number": 805
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Ignoring": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "What's the matter, Mrs Manningham?",
+    "message_index": 357,
+    "line_number": 823
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Ignoring": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "How dark it is. You could hardly see to read.",
+    "message_index": 362,
+    "line_number": 835
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 80.0,
+      "Manipulation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "You are not going out of your mind, Mrs Manningham, you are slowly, methodically, systematically being driven out of your mind. And why? Because you are married to a criminal maniac who is afraid you are beginning to know too much - a criminal maniac who steals back to his own house at night, still searching for something he could not find twenty years ago. Those are the facts, wild and incredible as they may seem. His name is no more Manningham than mine is. He is Sydney Power and he murdered Alice Barlow in this house. He changed his name, and he has waited all these years, until he found it safe to acquire this house in a legal way. He then acquired the empty house next door. Every night, for the last few weeks, he has entered that house from the back, climbed up on to its roof and come into this house by the skylight. I know that because I have seen him do it. You have watched the gaslight, and been aware of the same thing. He is up there now. Why he should employ this mad, secretive, circuitous way of getting at what he wants, God himself only knows. For the same reason, perhaps, that he employs this mad, secretive, circuitous way of getting rid of you: that is by slowly driving you mad and sending you into a lunatic asylum. Thank God you are not married to him, and that I have come here to save you from the workings of his wicked mind.",
+    "message_index": 390,
+    "line_number": 897
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I have no doubt he did, Mrs Manningham. Unfortunately, or rather fortunately, he contracted the same sort of union with another lady many years before he met you. Moreover the lady is still alive, and the English law has a highly exacting taste in monogamy. You see, I have been finding things out about Mr Sydney Power.",
+    "message_index": 392,
+    "line_number": 901
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "By which you mean, of course, the man who has betrayed you into thinking that you are married to him - don't you?",
+    "message_index": 398,
+    "line_number": 913
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Indeed, cling to him by all means, but do not imagine you are the only piece of ivy. You can cling to him if you desire, as his fancy women cling to him in the low resorts of the town. That is the sort of wall you have to cling to, ma'am.",
+    "message_index": 400,
+    "line_number": 917
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I'm not suggesting anything. I am only telling you what I have seen. He comes to life at night, this gentleman upstairs, in more ways than one. I have made it my business to follow him on some of his less serious excursions, and I can promise you he has a taste in unemployed actresses which he is at no pains to conceal.",
+    "message_index": 402,
+    "line_number": 921
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Mrs Manningham, it is hard to take everything from you, but you are no more tied to this man. you are under no more obligation to him than those wretched women in those places. You must learn to be thankful for that.",
+    "message_index": 406,
+    "line_number": 929
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(completely changing his tone, striding up and down in a business like way) I want his papers, Mrs Manningham - his identity. There is some clue somewhere in this house, and we have got to get at it. Where does he keep his papers?",
+    "message_index": 408,
+    "line_number": 933
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Oh - it doesn't look so formidable.",
+    "message_index": 416,
+    "line_number": 948
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": " (He fetches a ring of keys and implementsfrom his overcoat pocket during the following) You know, Mrs Manningham, one of the greatest regrets of my life is that fate never made me one of two things: one was a gardener, the other a burglar - both quiet occupations, Mrs Manningham. As for the last, if I'd started young, and worked my way up, I should have been a genius. Now let's have a look at this.",
+    "message_index": 416,
+    "line_number": 948
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Come now, ma'am. You're working with me, aren't you - not against me?",
+    "message_index": 418,
+    "line_number": 952
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Not if we are clever enough. And this one here doesn't even ask for cleverness ... You see, Mrs Manningham, there are all manner of",
+    "message_index": 420,
+    "line_number": 958
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Demanding": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Do as I say, and ring the bell. At once, please.",
+    "message_index": 431,
+    "line_number": 982
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "All in good time. He's not going to jump through the window, you know.",
+    "message_index": 434,
+    "line_number": 990
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Are you anxious to help your mistress, blindly, without asking any questions?",
+    "message_index": 442,
+    "line_number": 1008
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(kindly taking her hand) ",
+    "message_index": 444,
+    "line_number": 1012
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Come now, Elizabeth. Are you or are you not?",
+    "message_index": 444,
+    "line_number": 1012
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Would you be good enough to take me down to your kitchen and hide me away for a short space of time? You can put me in the oven if you like.",
+    "message_index": 446,
+    "line_number": 1016
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Yes, quick. He's coming. Don't you understand. Go there and stay there. Take her, Elizabeth. You have a bad headache - a bad headache.",
+    "message_index": 468,
+    "line_number": 1066
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Then we must be quiet, mustn't we? Walk about like cats ... Can you walk about like a cat, Elizabeth?",
+    "message_index": 475,
+    "line_number": 1098
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Demanding": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I think you had better clear away the tea things, Elizabeth.",
+    "message_index": 484,
+    "line_number": 1124
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "What a lot you know, Elizabeth. And do you know the sort of collar I want tonight?",
+    "message_index": 493,
+    "line_number": 1148
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Then all I can say is you know a great deal more than I do ... No ... I think you must let me choose my own collar ... (He moves towards the door R and stops) That is, if I have your permission, Elizabeth.",
+    "message_index": 495,
+    "line_number": 1151
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "What did you think about Mrs Manningham tonight, Elizabeth?",
+    "message_index": 497,
+    "line_number": 1161
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Shifting of responsibility and blame": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I'm afraid I was compelled to drag you and Nancy into our troubles tonight. Perhaps I should not have done that.",
+    "message_index": 503,
+    "line_number": 1173
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Victim playing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I'm at my wits' end, Elizabeth. Don't you know that?",
+    "message_index": 505,
+    "line_number": 1177
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Making others feel insecure": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "She died in the mad-house, Elizabeth, without any brain at all in the end.",
+    "message_index": 516,
+    "line_number": 1201
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Making another person dependent on speaker for information": 80.0,
+      "Manipulation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I mean to say, you know what goes on. You can testify to what goes on, can't you?",
+    "message_index": 520,
+    "line_number": 1209
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Indeed, you may have to testify in the end. Do you realize that?",
+    "message_index": 522,
+    "line_number": 1213
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "There now, how touching. I thank you, Elizabeth. You will be repaid later for what you have said, and repaid in more ways than one. You understand that, don't you?",
+    "message_index": 527,
+    "line_number": 1227
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Yes, I know that. Well, Elizabeth, I am going out. In fact, I' m even going to try and be a little gay. Can you understand that, or do you think it is wrong?",
+    "message_index": 529,
+    "line_number": 1231
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I have no idea what you will say when he comes back, Mrs Manningham. But then I have no idea what you will do when he comes back, Mrs Manningham, if I have no evidence to remove you from his loving care for good.",
+    "message_index": 573,
+    "line_number": 1337
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(looking more closely) ",
+    "message_index": 582,
+    "line_number": 1358
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "One moment... No ... Not a thing. We have lost our gamble, ma'am, I'm afraid.",
+    "message_index": 582,
+    "line_number": 1358
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Some rapid thinking at the moment. Don't have any fear, Mrs Manningham, I've been in many a tighter corner than this. Let's get these things back to begin with, shall we? Give me the watch and the brooch. We must put them back where they were.",
+    "message_index": 584,
+    "line_number": 1362
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Belittiling": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Secondhand, eh? I'm afraid you got everything secondhand from this gentleman, Mrs Manningham.",
+    "message_index": 590,
+    "line_number": 1374
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Exaggeration": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Don't you see? Don't you see the whole thing? This is where the old lady hid her treasure at night - in a common trinket she wore all the day. I knew I had seen this somewhere before. And where was that? In portraits of the old lady - when I was on the case. She wore it on her breast. I remember it clearly though it was twenty years ago. Twenty years ago! Dear God in heaven, am I not a wonderful man?",
+    "message_index": 618,
+    "line_number": 1434
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Have the goodness to stop making a fool of yourself, Mrs Manningham. Here's your courage. (He gives her the bottle of whisky) Take some more of it, but don't get tipsy and don't leave it about. Goodbye.",
+    "message_index": 634,
+    "line_number": 1466
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Complaining": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Yes, Nancy, I did ring. It seems that the entire household has gone to bed, without leaving me my milk and without leaving me my biscuits.",
+    "message_index": 642,
+    "line_number": 1496
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Have you any idea of the time of the day, or rather night, Nancy?",
+    "message_index": 659,
+    "line_number": 1535
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Ignoring": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Yes, sir.",
+    "message_index": 660,
+    "line_number": 1537
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0,
+      "Patronizing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Oh - you thought you saw me. Well, I certainly saw you.",
+    "message_index": 661,
+    "line_number": 1539
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Have you ever reflected, Nancy, that you are given a great deal of latitude in this house?",
+    "message_index": 663,
+    "line_number": 1543
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Latitude, Nancy, means considerable liberty - liberty to the extent of two nights off a week.",
+    "message_index": 665,
+    "line_number": 1547
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Well, that's all very well. It is not so well, however, when you return as late as the master of the house. We ought to keep up some pretences, you know.",
+    "message_index": 667,
+    "line_number": 1551
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Patronizing": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "You know, gentleman friends have been known to take decided liberties with young ladies like yourself. Are you alive to such a possibility?",
+    "message_index": 673,
+    "line_number": 1563
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0,
+      "Patronizing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "You know, Nancy, you are a very remarkable girl in many respects. I believe you are jealous of your mistress.",
+    "message_index": 684,
+    "line_number": 1591
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Why yes, Nancy, I believe it is. I think, however, don't you, that it would be better if you and I met one evening in different surroundings.",
+    "message_index": 687,
+    "line_number": 1599
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Really, Nancy, you have taken me a little by surprise. I'll let you know tomorrow.",
+    "message_index": 695,
+    "line_number": 1615
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Evasion": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Oh, I'll find a way.",
+    "message_index": 697,
+    "line_number": 1619
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "All right, Nancy. Now you had better go. I have some work to do.",
+    "message_index": 699,
+    "line_number": 1623
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "There, run along. I have some work to do.",
+    "message_index": 701,
+    "line_number": 1627
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100,
+      "Patronizing": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Oh - I'm going to write some letters. Go along, Nancy, that's a good girl.",
+    "message_index": 703,
+    "line_number": 1631
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Just like that, Nancy.",
+    "message_index": 714,
+    "line_number": 1659
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(stepping forward) What do you mean, Nancy - she won't come?",
+    "message_index": 717,
+    "line_number": 1671
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Oh - really - the door is locked, is it? Very well...",
+    "message_index": 721,
+    "line_number": 1679
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Never mind. Just go and get it, will you?",
+    "message_index": 731,
+    "line_number": 1699
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Nothing very much. Just a little smoke for getting rats out of holes. There. Run along.",
+    "message_index": 735,
+    "line_number": 1707
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Ah - so I thought. Very well, Nancy. Now I shall be obliged if you will go to bed at once.",
+    "message_index": 739,
+    "line_number": 1721
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Nancy, will you please go to bed.",
+    "message_index": 741,
+    "line_number": 1725
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Good-night, Nancy.",
+    "message_index": 743,
+    "line_number": 1729
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Feigning ignorance": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Dog? What dog?",
+    "message_index": 748,
+    "line_number": 1747
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Again? This is strange talk, Bella - from you - after what you did to the dog a few weeks ago. Come and sit down there.",
+    "message_index": 750,
+    "line_number": 1751
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Aggression": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(shouting) Come and sit down where I told you!",
+    "message_index": 754,
+    "line_number": 1759
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Power games": 100,
+      "Provocation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I have to say that you are not sitting in the chair I indicated. Are you afraid of me that you desire to get so near the door?",
+    "message_index": 762,
+    "line_number": 1776
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Power games": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Indeed. Then you have a good deal of courage, my dear. However, will you now sit down where I told you?",
+    "message_index": 764,
+    "line_number": 1780
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Provocation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Do you know what you remind me of, Bella, as you walk across the room?",
+    "message_index": 766,
+    "line_number": 1784
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Making others feel insecure": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Haven't you? Not that funny, glazed, dazed look of the wandering mind - the body that acts without the soul to guide it? I have often thought you had that look, but it's never been so strong as tonight.",
+    "message_index": 770,
+    "line_number": 1792
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Provocation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Then may I ask why you are still fully dressed?",
+    "message_index": 774,
+    "line_number": 1800
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Provocation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Then will you tell me why, since you had gone to bed. you are still fully dressed?",
+    "message_index": 777,
+    "line_number": 1808
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Making others feel insecure": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "You don't know? Do you know anything about anything you do?",
+    "message_index": 779,
+    "line_number": 1812
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Provocation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "You forgot to undress. A curious oversight, if I may say so, Bella. You know, you give me the appearance of having had a rather exciting time since I last saw you. Almost as though you have been up to something. Have you been up to something?",
+    "message_index": 781,
+    "line_number": 1816
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Making others feel insecure": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Am I married to a dumb woman, Bella, in addition to all else? The array of your physical and mental deficiencies is growing almost overwhelming. I advise you to answer me.",
+    "message_index": 788,
+    "line_number": 1832
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Sarcasm": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Admirable, my dear Bella! Admirable! We shall make a great logician of you yet - a Socrates - a John Stuart Mill! You shall go down to history as the shining mind of your day. That is, if your present history does not altogether submerge you - take you away from your fellow creatures. And there is a danger of that, you know, in more ways than one. Well - what did I say I would do if you did not find that bill?",
+    "message_index": 794,
+    "line_number": 1844
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Power games": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Yes. And do you believe me to be a man of my word?",
+    "message_index": 796,
+    "line_number": 1848
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Power games": 100,
+      "Threats": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "You see, Bella, in a life of considerable and varied experience I have hammered out a few principles of action. In fact I actually fancy I know how to deal with my fellow men. I learned it quite early, actually - at school, in fact. There, you know, there were two ways of getting at what you wanted. One was along an intellectual plane, the other along the physical. If one failed one used the other. I took that lesson into life with me. Hitherto, with you, I have worked, with what forbearance and patience I leave you to judge, along the intellectual plane. The time has come now, I believe, to work along the other as well ... You will understand that I am a man of some power ...",
+    "message_index": 797,
+    "line_number": 1852
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Power games": 100,
+      "Threats": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Why do you look at me, Bella? I said I am a man of some power and determination, and as fully capable in one direction as in the other... I will leave your imagination to work on what I mean... However, we are really digressing ... You did not find the bill I told you to find.",
+    "message_index": 798,
+    "line_number": 1856
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Do you imagine you can lie to me?",
+    "message_index": 808,
+    "line_number": 1876
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Making others feel insecure": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Now, listen to me. Your dark, confused, rambling mind has led you into playing some pretty tricks tonight - has it not?",
+    "message_index": 812,
+    "line_number": 1884
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Making others feel insecure": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Your mind is indeed tired. Your mind is so tired that it cannolongerworkatall. You do notthink. You dream. Dream all day long. Dream everything. Dream maliciously and incessantly. Don't you know that by now? You sleep-walking imbecile, what have you been dreaming tonight - where has your mind wandered - that you have split open my desk? What strange diseased dream have you had tonight - eh?",
+    "message_index": 814,
+    "line_number": 1888
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "All that happened when, Bella? Tonight? Of course you dreamed all that happened - or rather all that didn't happen.",
+    "message_index": 816,
+    "line_number": 1892
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Gaslighting": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Have I not told you ?",
+    "message_index": 818,
+    "line_number": 1896
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Power games": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(simultaneously) Sit down and be quiet. Sit down!",
+    "message_index": 820,
+    "line_number": 1902
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Power games": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Bella. Go to your room.",
+    "message_index": 836,
+    "line_number": 1936
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Threats": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I shall find out the meaning of this, and deal with you in due course.",
+    "message_index": 837,
+    "line_number": 1940
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Power games": 100,
+      "Threats": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Go to your room. I will call you down later. I have not finished with you yet, madam.",
+    "message_index": 839,
+    "line_number": 1944
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Provocation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(lighting a cigar) Ah - an admirable idea. I could have thought of nothing better myself. Yes, fetch a policeman, Manningham, and have me turned out... (Pause) Why do you wait?",
+    "message_index": 846,
+    "line_number": 1960
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0,
+      "Provocation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Eerie, isn't it? Now we are almost in the dark... Why do you think that has happened? You don't suppose a light has been put on somewhere else ... You don't suppose that strangers have entered the house? You don't supposethereare other spirits - fellow spirits of mine - spirits surrounding this house now - spirits of justice, even, which have caught up with you at last, Mr Manningham?",
+    "message_index": 855,
+    "line_number": 1981
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Belittiling": 80.0,
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Are you off your head, sir?",
+    "message_index": 856,
+    "line_number": 1983
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Provocation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "No, sir. Just an old man seeing ghosts. It must be the atmosphere of this house. (Walking about) I can see them everywhere. It's the oddest thing. Do you know one ghost I can see, Mr Manningham? You could hardly believe it.",
+    "message_index": 857,
+    "line_number": 1985
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Provocation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Why, it's the ghost of an old woman, sir - the ghost of an old woman twenty years ago - an old woman who once lived in this house, who once lived in this very room. Yes - in this very room. What things I imagine!",
+    "message_index": 859,
+    "line_number": 1989
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Provocation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Remarkably clear, sir, I see it... An old woman getting ready to go to bed - here in this very room - an old woman getting ready to go up to bed at the end of the day. Why! There she is. She sits just there. And now it seems I see another ghost as well.",
+    "message_index": 861,
+    "line_number": 1993
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0,
+      "Provocation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "I see the ghost of a young man, Mr Manningham - a handsome, tall, well-groomed young man. But this young man has murder in his eyes. Why, God bless my soul, he might be you, Mr Manningham - he might be you! The old woman sees him. Don' t you see it all? She screams - screams for help - screams before her throat is cut - cut open with a knife. She lies dead on the floor - the floor of this room of this house. There! (Pause) Now I don't see that ghost any more.",
+    "message_index": 862,
+    "line_number": 1997
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "What's the game - eh? What's the game?",
+    "message_index": 863,
+    "line_number": 1999
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 80.0,
+      "Provocation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(confronting Manningham) ",
+    "message_index": 864,
+    "line_number": 2001
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100,
+      "Provocation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "But I still see the ghost of the man. I see him, all through the night, as he ransacks the house, hour after hour, room after room, ripping everything up. turning everything out, madly seeking the thing he cannot find. Then twenty years pass, and where is he? Why, sir, is he not still in the same house, the house he ransacked, the house he searched - and does he not now stand before the ghost of the woman he killed, in the room in which he killed her? A methodical man, apatient man, but perhaps he has waited too long. For justice has waited too, and here she is, in my person, to exact her due. And justice found, my friend, in one hour what you sought for twenty years, and still could not find. See here. Look what she found. (He moves to the bureau and picks up the bill, the letter and the brooch as he mentions them) First a bill which your wife had lost. Then a letter which never reached your wife. Then a brooch which you gave your wife but which she lost. How wicked of her! But then she didn't know its value. How was she to know that it held the Barlow Rubies. There (He opens out the brooch) See. Twelve thousand pounds' worth before your eyes! There you are, sir! You killed one woman for those and tried to drive another out of her mind. And all the time they lay in your own desk, and all they have brought you is a rope around your neck! Well, the game is over, Sydney Power, and I advise you to take the matter philosophically.",
+    "message_index": 864,
+    "line_number": 2001
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Threats": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "You seem, sir, to have some very remarkable information. Do you imagine you are going to leave this room with such information in your possession? (He moves to the door as though to lock it)",
+    "message_index": 865,
+    "line_number": 2003
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Threats": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Do you imagine, sir, that you are going to leave this room without suitable escort?",
+    "message_index": 866,
+    "line_number": 2005
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "May I ask what you mean by that?",
+    "message_index": 867,
+    "line_number": 2007
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Here you... What the devil's this? (He rushes to the door and opens it)",
+    "message_index": 869,
+    "line_number": 2013
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Accusation": 100
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(going up to Mr Manningham) Sydney Charles Power, I have a warrant for your arrest for the murder of Alice Barlow. I should warn you that anything you may say now may be taken down in writing and used as evidence at a later date. Will you accompany us to the station in a peaceful manner? You will oblige us all, and serve your own interests best, Power, by coming with us quietly ...",
+    "message_index": 872,
+    "line_number": 2025
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Very well - take him away ...",
+    "message_index": 873,
+    "line_number": 2029
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Now, surely, there's nothing to be",
+    "message_index": 879,
+    "line_number": 2047
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "(struggling at his bonds, half-whispering) Take it easy, Bella. You're clever. Get something to cut this and I'll get away. I can get out through the dressing-room, and make a jump for it. Can you get something?",
+    "message_index": 890,
+    "line_number": 2075
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "There's a razor in my dressing-room. In there! Quick! Be quick! Go and get it!",
+    "message_index": 892,
+    "line_number": 2079
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Manipulation": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "There's a good girl. You're a good girl. Quick! Be quick!",
+    "message_index": 894,
+    "line_number": 2083
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "What's the game, Bella?",
+    "message_index": 898,
+    "line_number": 2095
+  },
+  {
+    "filtered_labels": [],
+    "all_labels": {
+      "Dismissal": 80.0
+    },
+    "file": "data\\script_gaslight.txt",
+    "text": "Now, my dear, come and sit down. Well, my child, there's all your life ahead now. It's Devonshire cream for you, and the sparkle back in your eyes. But you've had a bad time. I came in from nowhere and gave you the most horrible evening of your life, didn't I? The most horrible evening of anybody's life, I should imagine.",
+    "message_index": 904,
+    "line_number": 2113
   }
 ]

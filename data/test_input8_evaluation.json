@@ -1,69 +1,67 @@
 ﻿{
   "error_code": 0,
   "error_msg": "",
-  "sanitised_text": "Person A came home from their summer job the next day to find the kittens missing.\nPerson A: \u201cHave you seen the kittens? They aren't in their crate!\u201d\nPerson B: \u201cYes. They don't live here anymore.\u201d\nPerson A: *confused*: \u201cUhhhhh, what do you mean? I have someone that wants to come see them\u2026\u201d\nPerson B: *silence*\nPerson A: \u201cPerson B, what did you do? Did you give them away?\u201d I ended on a hopeful note, unable to imagine what she was about to say.\nPerson B: \u201cI let them go free.\u201d\nPerson A: *panicked* \u201cWhat do you mean?!\u201d\nPerson B: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d\nPerson A is completely stunned to the point of silence. Person A can't even squeak out a word as tears rush to their eyes and their heart sinks into their innards.\nPerson B: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d",
+  "sanitised_text": "Person A came home from their summer job the next day to find the kittens missing.\n\nPerson A: \u201cHave you seen the kittens? They aren't in their crate!\u201d\n\nPerson B: \u201cYes. They don't live here anymore.\u201d\n\nPerson A: *confused*: \u201cUhhhhh, what do you mean? I have someone that wants to come see them\u2026\u201d\n\nPerson B: *silence*\n\nPerson A: \u201cPerson B, what did you do? Did you give them away?\u201d (Person A ended on a hopeful note, unable to imagine what Person B was about to say).\n\nPerson B: \u201cI let them go free.\u201d\n\nPerson A: *panicked* \u201cWhat do you mean?!\u201d\n\nPerson B: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d\n\nPerson A is completely stunned to the point of silence. Person A can't even squeak out a word as tears rush to their eyes and their heart sinks into their innards.\n\nPerson B: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d",
   "expressions": [
     {
       "person": "Person B",
-      "start_char": 160,
-      "end_char": 196,
+      "start_char": 162,
+      "end_char": 198,
       "text": "\u201cYes. They don't live here anymore.\u201d",
       "labels": {
-        "Dismissal": 90.0
+        "Dismissal": 100
       },
       "message_index": 1,
-      "line_number": 4
-    },
-    {
-      "person": "Person B",
-      "start_char": 301,
-      "end_char": 310,
-      "text": "*silence*",
-      "labels": {
-        "Silent treatment": 100.0
-      },
-      "message_index": 3,
       "line_number": 6
     },
     {
       "person": "Person B",
-      "start_char": 456,
-      "end_char": 477,
-      "text": "\u201cI let them go free.\u201d",
+      "start_char": 305,
+      "end_char": 314,
+      "text": "*silence*",
       "labels": {
-        "Dismissal": 70.0
+        "Silent treatment": 100
       },
-      "message_index": 5,
-      "line_number": 8
-    },
-    {
-      "person": "Person B",
-      "start_char": 530,
-      "end_char": 620,
-      "text": "\u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d",
-      "labels": {
-        "Dismissal": 80.0
-      },
-      "message_index": 7,
+      "message_index": 3,
       "line_number": 10
     },
     {
       "person": "Person B",
-      "start_char": 795,
-      "end_char": 863,
+      "start_char": 476,
+      "end_char": 497,
+      "text": "\u201cI let them go free.\u201d",
+      "labels": {
+        "Dismissal": 100
+      },
+      "message_index": 5,
+      "line_number": 14
+    },
+    {
+      "person": "Person B",
+      "start_char": 552,
+      "end_char": 642,
+      "text": "\u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d",
+      "labels": {
+        "Dismissal": 100
+      },
+      "message_index": 7,
+      "line_number": 18
+    },
+    {
+      "person": "Person B",
+      "start_char": 819,
+      "end_char": 887,
       "text": "\u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d",
       "labels": {
-        "Dismissal": 100.0,
-        "Not taking seriously": 80.0
+        "Dismissal": 100
       },
       "message_index": 8,
-      "line_number": 12
+      "line_number": 22
     }
   ],
   "counts": {
     "Person B": {
       "Dismissal": 4,
-      "Not taking seriously": 1,
       "Silent treatment": 1
     }
   },
@@ -80,6 +78,7 @@
     "Backhanded compliments",
     "Bait and Switch Technique",
     "Baiting",
+    "Being abrupt",
     "Being entitled",
     "Being impatient",
     "Being oppositional",
@@ -108,8 +107,8 @@
     "Denying",
     "Diminishing",
     "Dismissing",
+    "Disrespect",
     "Distortion",
-    "Dominating the conversation",
     "Door-in-the-Face Technique",
     "Dramatization",
     "Evasion",
@@ -125,6 +124,7 @@
     "Gaslighting",
     "Generalization",
     "Giving too brief or incomplete answers",
+    "Group pressure",
     "Guilt tripping",
     "Harsh startup",
     "Hostility",
@@ -133,6 +133,7 @@
     "Ignoring previous conflict",
     "Ignoring relation repair attempts",
     "Impatience",
+    "Indifference",
     "Ingratiation Technique",
     "Intentionally frustrating others",
     "Invalidating",
@@ -172,6 +173,8 @@
     "Power games",
     "Procrastination",
     "Provocation",
+    "Reactive abuse",
+    "Repeating a question that was already answered",
     "Resentment and covert opposition",
     "Ridiculing",
     "Rumor spreading",
@@ -188,6 +191,7 @@
     "The Fear-Then-Relief Procedure",
     "The Scarcity Principle",
     "Threats",
+    "Triggering",
     "Undermining",
     "Unfairness",
     "Unrelated comments",
@@ -197,6 +201,6 @@
     "Victim playing",
     "Word salad"
   ],
-  "raw_expressions_labeling_response": "[Person B]: \u201cYes. They don't live here anymore.\u201d - {Diminishing, Not caring}\n[Person B]: *silence* - {Silent treatment}\n[Person B]: \u201cI let them go free.\u201d - {Dismissal}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d - {Invalidation, Evasion}\n[Person B]: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d - {Dismissal, Not taking seriously, Making assumptions}\n\n[Person B]: \u201cYes. They don't live here anymore.\u201d - {Dismissal, Not caring}\n[Person B]: *silence* - {Silent treatment}\n[Person B]: \u201cI let them go free.\u201d - {Dismissal, Not caring}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d - {Dismissal, Not caring}\n[Person B]: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d - {Dismissal, Not caring, Diminishing, Evasion}\n\n[Person B]: \u201cYes. They don't live here anymore.\u201d - {Dismissal, Not caring}\n[Person B]: *silence* - {Silent treatment}\n[Person B]: \u201cI let them go free.\u201d - {Diminishing, Acting as if nothing remarkable happened}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d - {Evasion, Giving too brief or incomplete answers}\n[Person B]: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d - {Invalidation, Dismissal, Not taking seriously}\n\n[Person B]: \u201cYes. They don't live here anymore.\u201d - {Dismissal, Giving too brief or incomplete answers}\n[Person B]: *silence* - {Silent treatment}\n[Person B]: \u201cI let them go free.\u201d - {Dismissal, Giving too brief or incomplete answers}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d - {Dismissal, Not taking seriously, Invalidation}\n[Person B]: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d - {Dismissal, Not taking seriously, Invalidation, Evasion}\n\n[Person B]: \u201cYes. They don't live here anymore.\u201d - {Dismissal, Giving too brief or incomplete answers}\n[Person B]: *silence* - {Silent treatment}\n[Person B]: \u201cI let them go free.\u201d - {Diminishing, Acting as if nothing remarkable happened}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d - {Dismissal, Invalidating, Not taking seriously}\n[Person B]: \u201cSomeone will find them. It's a nice area. They'll find a good home.\u201d - {Dismissal, Invalidation, Not taking seriously, Making assumptions}\n\n[Person A]: \u201cHave you seen the kittens? They aren't in their crate!\u201d - {Not taking seriously}\n[Person B]: \u201cYes. They don't live here anymore.\u201d - {Dismissal}\n[Person B]: *silence* - {Silent treatment}\n[Person A]: \u201cPerson B, what did you do? Did you give them away?\u201d - {Not taking seriously}\n[Person B]: \u201cI let them go free.\u201d - {Dismissal, Invalidation}\n[Person A]: *panicked* \u201cWhat do you mean?!\u201d - {Not taking seriously}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d - {Dismissal, Invalidation}\n[Person B]: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d - {Dismissal, Invalidation, Not taking seriously}\n\n[Person A]: \u201cHave you seen the kittens? They aren't in their crate!\u201d - {Not taking seriously}\n[Person B]: \u201cYes. They don't live here anymore.\u201d - {Dismissal, Diminishing}\n[Person B]: *silence* - {Silent treatment}\n[Person A]: \u201cPerson B, what did you do? Did you give them away?\u201d - {Not taking seriously}\n[Person B]: \u201cI let them go free.\u201d - {Diminishing, Dismissal}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d - {Diminishing, Dismissal}\n[Person B]: \u201cSomeone will find them. It's a nice area. They'll find a good home.\u201d - {Diminishing, Dismissal, Making assumptions}\n\n[Person B]: \u201cYes. They don't live here anymore.\u201d - {Dismissal, Giving too brief or incomplete answers}\n[Person B]: *silence* - {Silent treatment, Ignoring}\n[Person B]: \u201cI let them go free.\u201d - {Dismissal, Evasion}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d - {Invalidation, Dismissal}\n[Person B]: \u201cSomeone will find them. It's a nice area. They'll find a good home.\u201d - {Dismissal, Invalidation, Not taking seriously, Making assumptions}\n\n[Person B]: \u201cYes. They don't live here anymore.\u201d - {Dismissal, Diminishing}\n[Person B]: *silence* - {Silent treatment}\n[Person B]: \u201cI let them go free.\u201d - {Evasion, Acting as if nothing remarkable happened}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d - {Dismissal, Diminishing}\n[Person B]: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d - {Dismissal, Diminishing, Not taking seriously}\n\n[Person A]: \u201cHave you seen the kittens? They aren't in their crate!\u201d - {Not taking seriously}\n[Person B]: \u201cYes. They don't live here anymore.\u201d - {Dismissal}\n[Person B]: *silence* - {Silent treatment}\n[Person A]: \u201cPerson B, what did you do? Did you give them away?\u201d - {Not taking seriously}\n[Person B]: \u201cI let them go free.\u201d - {Dismissal}\n[Person A]: *panicked* \u201cWhat do you mean?!\u201d - {Not taking seriously}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d - {Dismissal, Diminishing}\n[Person B]: \u201cSomeone will find them. It's a nice area. They'll find a good home.\u201d - {Dismissal, Diminishing, Not taking seriously}",
-  "qualitative_evaluation": "Person A's conversational style is inquisitive and emotional. They ask questions to understand the situation and express their feelings through their reactions. They also show signs of panic and confusion when they learn about the kittens' fate. On the other hand, Person B's style is more detached and nonchalant. They respond to Person A's questions with short, direct statements and show little emotional reaction to the situation. They also maintain silence at times, which adds to their aloof demeanor."
+  "raw_expressions_labeling_response": "[Person A]: \u201cHave you seen the kittens? They aren't in their crate!\u201d -- {Not verifying the negative assumptions about the other person}\n[Person B]: \u201cYes. They don't live here anymore.\u201d -- {Dismissal, Giving too brief or incomplete answers}\n[Person A]: \u201cPerson B, what did you do? Did you give them away?\u201d -- {Accusations based on assumptions}\n[Person B]: *silence* -- {Silent treatment, Ignoring}\n[Person B]: \u201cI let them go free.\u201d -- {Dismissal, Giving too brief or incomplete answers}\n[Person A]: *panicked* \u201cWhat do you mean?!\u201d -- {Not understanding, Not verifying the negative assumptions about the other person}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d -- {Dismissal, Giving too brief or incomplete answers}\n[Person B]: \u201cSomeone will find them. It's a nice area. They'll find a good home.\u201d -- {Dismissal, Diminishing, Evasion}\n\n[Person A]: \u201cHave you seen the kittens? They aren't in their crate!\u201d -- {Not caring, Indifference}\n[Person B]: \u201cYes. They don't live here anymore.\u201d -- {Dismissal, Diminishing}\n[Person B]: *silence* -- {Silent treatment, Ignoring}\n[Person B]: \u201cI let them go free.\u201d -- {Dismissal, Not caring}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d -- {Invalidation, Dismissal}\n[Person B]: \u201cSomeone will find them. It's a nice area. They'll find a good home.\u201d -- {Dismissal, Not caring, Diminishing}\n\n[Person A]: \u201cHave you seen the kittens? They aren't in their crate!\u201d -- {Not caring, Indifference}\n[Person B]: \u201cYes. They don't live here anymore.\u201d -- {Dismissal, Invalidating}\n[Person A]: \u201cPerson B, what did you do? Did you give them away?\u201d -- {Not caring, Indifference}\n[Person B]: *silence* -- {Silent treatment, Stonewalling}\n[Person B]: \u201cI let them go free.\u201d -- {Dismissal, Invalidating}\n[Person A]: *panicked* \u201cWhat do you mean?!\u201d -- {Not caring, Indifference}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d -- {Dismissal, Invalidating}\n[Person B]: \u201cSomeone will find them. It'sa nice area. They'll find a good home.\u201d -- {Dismissal, Invalidating, Diminishing}\n\n[Person A]: \u201cHave you seen the kittens? They aren't in their crate!\u201d -- {Not caring, Indifference}\n[Person B]: \u201cYes. They don't live here anymore.\u201d -- {Dismissal, Invalidation}\n[Person A]: \u201cUhhhhh, what do you mean? I have someone that wants to come see them\u2026\u201d -- {Evasion, Giving too brief or incomplete answers}\n[Person B]: *silence* -- {Silent treatment, Stonewalling}\n[Person A]: \u201cPerson B, what did you do? Did you give them away?\u201d -- {Evasion, Ignoring}\n[Person B]: \u201cI let them go free.\u201d -- {Dismissal, Invalidation}\n[Person A]: *panicked* \u201cWhat do you mean?!\u201d -- {Evasion, Giving too brief or incomplete answers}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d -- {Dismissal, Invalidation}\n[Person A]: *stunned silence* -- {Ignoring, Silent treatment}\n[Person B]: \u201cSomeone will find them. It's a nice area. They'll find a good home.\u201d -- {Dismissal, Invalidation}\n\n[Person A]: \u201cHave you seen the kittens? They aren't in their crate!\u201d -- {Making others more dependent on them for information}\n[Person B]: \u201cYes. They don't live here anymore.\u201d -- {Dismissal, Giving too brief or incomplete answers}\n[Person A]: \u201cPerson B, what did you do? Did you give them away?\u201d -- {Making others more dependent on them for information}\n[Person B]: *silence* -- {Silent treatment}\n[Person B]: \u201cI let them go free.\u201d -- {Dismissal, Giving too brief or incomplete answers}\n[Person A]: *panicked* \u201cWhat do you mean?!\u201d -- {Making others more dependent on them for information}\n[Person B]: \u201cI drove them down to a nice gated community in Desert Shores and put them on some grass.\u201d -- {Dismissal, Giving too brief or incomplete answers}\n[Person A]: *stunned silence* -- {Making others feel insecure}\n[Person B]: \u201cSomeone will find them. It's a nice area. They'll find a good home.\u201d -- {Dismissal, Invalidating}",
+  "qualitative_evaluation": "Person A's conversational style is inquisitive and emotional. They ask questions to understand the situation and express their feelings through their tone and reactions. They are also hopeful and concerned about the kittens' wellbeing. \n\nPerson B's style is more detached and nonchalant. They provide straightforward answers without much emotional involvement. They also display a certain level of indifference towards Person A's emotional reactions, and their responses are brief and to the point."
 }

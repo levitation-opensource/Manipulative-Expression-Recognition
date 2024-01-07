@@ -1,6 +1,7 @@
 - Diminishing
 - Acting as if nothing remarkable happened
 - Not caring
+- Indifference
 - Ignoring
 - Silent treatment
 - Stonewalling
@@ -17,7 +18,6 @@
 - Gaslighting
 - Shifting of responsibility and blame
 - Guilt tripping
-- Triggering
 - Reactive abuse
 - Victim playing
 - Exaggeration
@@ -25,9 +25,9 @@
 - Deception
 - Unfairness
 - Accusation
-- Not taking seriously
 - Provocation
 - Baiting
+- Triggering
 - Patronizing
 - Attacking
 - Power games

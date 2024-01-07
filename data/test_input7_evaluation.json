@@ -1,91 +1,51 @@
 ﻿{
   "error_code": 0,
   "error_msg": "",
-  "sanitised_text": "It's Thanksgiving Day and Person B is headed to an appointment with my baby daughter. They're meeting up with an old friend at her home for pictures \u2014 she's a professional now and offered to do some Mommy-Daughter shots for Person B.\nAs Person B is preparing to leave, Person A stops Person B to \"remind them\" to feed their daughter. Person B replies that she's already had her morning meal and Person B has packed cereal for her as a snack for the short trip.\nPerson A: \"You should really give her some of this breakfast I just cooked.\"\nPerson B: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" I say as I prepare a small diaper bag.\nPerson A: \"Person B, your baby needs nutrients and protein. Here's some for her.\" She places a plate out with the food which Person B ignores as Person B places her little one in her carseat.\nPerson B does't respond to Person A, knowing NOTHING Person B say won't spiral out of control.\nAs Person B is about to leave, it's announced again that Person B is FORGETTING HER BREAKFAST.\nPerson B: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\"\nPerson A: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" (Don't forget, the statement is dripping with disgust based on her tone.)\nPerson B: Calmly responds, despite the steady rush of frustration and blood starting to show in their face: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\"\nBefore Person B closes the door: \nPerson A: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\"",
+  "sanitised_text": "It's Thanksgiving Day and Person B is headed to an appointment with my baby daughter. They're meeting up with an old friend at her home for pictures \u2014 she's a professional now and offered to do some Mommy-Daughter shots for Person B.\n\nAs Person B is preparing to leave, Person A stops Person B to \"remind them\" to feed their daughter. Person B replies that she's already had her morning meal and Person B has packed cereal for her as a snack for the short trip.\n\nPerson A: \"You should really give her some of this breakfast I just cooked.\"\n\nPerson B: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" I say as I prepare a small diaper bag.\n\nPerson A: \"Person B, your baby needs nutrients and protein. Here's some for her.\" She places a plate out with the food which Person B ignores as Person B places her little one in her carseat.\n\nPerson B does't respond to Person A, knowing NOTHING Person B say won't spiral out of control.\n\nAs Person B is about to leave, it's announced again that Person B is FORGETTING HER BREAKFAST.\n\nPerson B: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\"\n\nPerson A: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" (Don't forget, the statement is dripping with disgust based on her tone.)\n\nPerson B: Calmly responds, despite the steady rush of frustration and blood starting to show in their face: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\"\n\nBefore Person B closes the door:\n\nPerson A: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\"",
   "expressions": [
     {
       "person": "Person A",
-      "start_char": 471,
-      "end_char": 537,
-      "text": "\"You should really give her some of this breakfast I just cooked.\"",
-      "labels": {
-        "Not taking seriously": 90.0
-      },
-      "message_index": 0,
-      "line_number": 4
-    },
-    {
-      "person": "Person B",
-      "start_char": 548,
-      "end_char": 625,
-      "text": "\"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\"",
-      "labels": {
-        "Dismissal": 60.0
-      },
-      "message_index": 1,
-      "line_number": 5
-    },
-    {
-      "person": "Person A",
-      "start_char": 675,
-      "end_char": 746,
+      "start_char": 679,
+      "end_char": 750,
       "text": "\"Person B, your baby needs nutrients and protein. Here's some for her.\"",
       "labels": {
-        "Ignoring": 70.0,
-        "Not taking seriously": 70.0
+        "Dismissal": 80.0
       },
       "message_index": 2,
-      "line_number": 6
-    },
-    {
-      "person": "Person A",
-      "start_char": 1144,
-      "end_char": 1266,
-      "text": "\"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\"",
-      "labels": {
-        "Accusation": 100.0,
-        "Exaggeration": 90.0,
-        "Provocation": 60.0
-      },
-      "message_index": 4,
       "line_number": 10
     },
     {
-      "person": "Person B",
-      "start_char": 1449,
-      "end_char": 1662,
-      "text": "\"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\"",
+      "person": "Person A",
+      "start_char": 1152,
+      "end_char": 1274,
+      "text": "\"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\"",
       "labels": {
-        "Dismissal": 70.0
+        "Accusation": 100,
+        "Exaggeration": 80.0,
+        "Provocation": 100
       },
-      "message_index": 5,
-      "line_number": 11
+      "message_index": 4,
+      "line_number": 18
     },
     {
       "person": "Person A",
-      "start_char": 1707,
-      "end_char": 1830,
+      "start_char": 1717,
+      "end_char": 1840,
       "text": "\"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\"",
       "labels": {
-        "Accusation": 100.0,
-        "Attacking": 70.0,
-        "Exaggeration": 100.0
+        "Accusation": 100,
+        "Provocation": 100
       },
       "message_index": 6,
-      "line_number": 13
+      "line_number": 24
     }
   ],
   "counts": {
     "Person A": {
       "Accusation": 2,
-      "Attacking": 1,
-      "Exaggeration": 2,
-      "Ignoring": 1,
-      "Not taking seriously": 2,
-      "Provocation": 1
-    },
-    "Person B": {
-      "Dismissal": 2
+      "Dismissal": 1,
+      "Exaggeration": 1,
+      "Provocation": 2
     }
   },
   "unexpected_labels": [],
@@ -96,9 +56,11 @@
     "Aggression",
     "Answering a different question than was asked",
     "Antagonism",
+    "Attacking",
     "Backhanded compliments",
     "Bait and Switch Technique",
     "Baiting",
+    "Being abrupt",
     "Being entitled",
     "Being impatient",
     "Being oppositional",
@@ -127,8 +89,8 @@
     "Denying",
     "Diminishing",
     "Dismissing",
+    "Disrespect",
     "Distortion",
-    "Dominating the conversation",
     "Door-in-the-Face Technique",
     "Dramatization",
     "Evasion",
@@ -143,13 +105,16 @@
     "Gaslighting",
     "Generalization",
     "Giving too brief or incomplete answers",
+    "Group pressure",
     "Guilt tripping",
     "Harsh startup",
     "Hostility",
+    "Ignoring",
     "Ignoring boundaries",
     "Ignoring previous conflict",
     "Ignoring relation repair attempts",
     "Impatience",
+    "Indifference",
     "Ingratiation Technique",
     "Intentionally frustrating others",
     "Invalidating",
@@ -188,6 +153,8 @@
     "Poking at others weaknesses",
     "Power games",
     "Procrastination",
+    "Reactive abuse",
+    "Repeating a question that was already answered",
     "Resentment and covert opposition",
     "Ridiculing",
     "Rumor spreading",
@@ -205,6 +172,7 @@
     "The Fear-Then-Relief Procedure",
     "The Scarcity Principle",
     "Threats",
+    "Triggering",
     "Undermining",
     "Unfairness",
     "Unrelated comments",
@@ -214,6 +182,6 @@
     "Victim playing",
     "Word salad"
   ],
-  "raw_expressions_labeling_response": "[Person A]: \"You should really give her some of this breakfast I just cooked.\" - {Diminishing, Not taking seriously, Patronizing}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" - {Defending, Reasoning}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" - {Patronizing, Ignoring, Dismissal}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" - {Defending, Reasoning}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" - {Provocation, Accusation, Exaggeration, Guilt tripping}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" - {Defending, Reasoning}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" - {Accusation, Exaggeration, Attacking, Guilt tripping}\n\n[Person A]: \"You should really give her some of this breakfast I just cooked.\" - {Dominating the conversation, Making assumptions, Not offering constructive solutions}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" - {Ignoring}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" - {Dominating the conversation, Making assumptions}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" - {Ignoring}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" - {Accusation, Exaggeration, Guilt tripping, Dominating the conversation, Making assumptions}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" - {Ignoring, Dismissal}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" - {Accusation, Judging, Exaggeration, Hostility, Guilt tripping}\n\n[Person A]: \"You should really give her some of this breakfast I just cooked.\" - {Being impatient, Giving too brief or incomplete answers, Not taking seriously}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" - {Dismissal}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" - {Ignoring, Not taking seriously}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" - {Dismissal}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" - {Accusation, Judging, Provocation, Exaggeration}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" - {Dismissal}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" - {Accusation, Judging, Exaggeration, Attacking, Undermining, Making others feel insecure}\n\n[Person A]: \"You should really give her some of this breakfast I just cooked.\" - {Ignoring, Not taking seriously}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" - {Dismissal}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" - {Ignoring, Not taking seriously, Patronizing}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" - {Dismissal}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" - {Ignoring, Not taking seriously, Patronizing, Accusation, Provocation}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" - {Dismissal, Not taking seriously}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" - {Accusation, Exaggeration, Belittling, Invalidating, Attacking}\n\n[Person A]: \"You should really give her some of this breakfast I just cooked.\" - {Diminishing, Ignoring, Not taking seriously, Provocation}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" - {Dismissal}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" - {Ignoring, Not taking seriously, Provocation}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" - {Dismissal}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" - {Accusation, Provocation, Guilt tripping, Exaggeration, Not taking seriously}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" - {Dismissal, Excessive defensiveness}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" - {Accusation, Provocation, Exaggeration, Belittling, Invalidating, Attacking, Making other feel like they are doing something wrong}\n\n[Person A]: \"You should really give her some of this breakfast I just cooked.\" - {Demanding, Ignoring boundaries, Not taking seriously}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" - {Dismissal}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" - {Ignoring, Not taking seriously, Dominating the conversation}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" - {Dismissal}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" - {Accusation, Exaggeration, Guilt tripping, Ignoring boundaries, Not taking seriously}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" - {Dismissal, Not taking seriously}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" - {Accusation, Exaggeration, Guilt tripping, Making others feel insecure, Not taking seriously}\n\n[Person A]: \"You should really give her some of this breakfast I just cooked.\" - {Dominating the conversation, Not taking seriously, Dismissal}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" - {Defending, Trying to avoid conflict}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" - {Dismissal, Not taking seriously, Dominating the conversation}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" - {Defending, Trying to avoid conflict}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" - {Accusation, Manipulation, Guilt tripping, Exaggeration, Dominating the conversation}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" - {Defending, Trying to avoid conflict}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" - {Accusation, Guilt tripping, Exaggeration, Belittling, Attacking}\n\n[Person A]: \"You should really give her some of this breakfast I just cooked.\" - {Ignoring, Not taking seriously}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" - {Ignoring, Not taking seriously}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" - {Ignoring, Not taking seriously, Accusation, Exaggeration}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" - {Accusation, Exaggeration, Attacking, Belittling, Making other feel like they are doing something wrong}\n\n[Person A]: \"You should really give her some of this breakfast I just cooked.\" - {Diminishing, Patronizing, Not taking seriously}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" - {Dismissal}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" - {Ignoring, Patronizing, Dismissing}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" - {Accusation, Provocation, Exaggeration, Dramatization}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" - {Dismissal, Evasion}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" - {Accusation, Judging, Belittiling, Exaggeration, Cruel humor, Making others feel insecure, Sending mixed signals}\n\n[Person A]: \"You should really give her some of this breakfast I just cooked.\" - {Diminishing, Not taking seriously, Patronizing}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" - {Dismissal}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" - {Diminishing, Patronizing, Not taking seriously}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" - {Dismissal}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" - {Exaggeration, Accusation, Provocation, Making other feel like they are doing something wrong}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" - {Dismissal}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" - {Accusation, Exaggeration, Attacking, Judging, Making others feel insecure, Belittiling, Invalidating}",
-  "qualitative_evaluation": "Person A has a persistent and somewhat confrontational conversational style, repeatedly insisting that Person B feed their daughter the breakfast they've prepared, despite being told that the child has already eaten. They use guilt and emotional manipulation, even resorting to personal attacks towards the end of the conversation. \n\nPerson B, on the other hand, maintains a more patient and assertive style. They repeatedly explain that their daughter has already eaten and that they are running late for an appointment. Despite the increasing pressure and criticism from Person A, Person B remains calm and firm in their responses, trying to avoid escalating the situation."
+  "raw_expressions_labeling_response": "[Person A]: \"You should really give her some of this breakfast I just cooked.\" -- {Being entitled, Being impatient, Impatience, Dismissal}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" -- {Dismissal}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" -- {Dismissal, Being entitled, Ignoring boundaries}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" -- {Dismissal}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" -- {Accusation, Provocation, Exaggeration, Being oppositional, Not asking for the other person's viewpoint on relevant matters}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" -- {Dismissal}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" -- {Accusation, Provocation, Exaggeration, Not asking for the other person's viewpoint on relevant matters, Cruel humor, Making others feel insecure, Generalization, Being oppositional, Harsh startup, Abrupt reaction, Being abrupt, Hostility, Excessive criticism, Contempt, Disrespect}\n\n[Person A]: \"You should really give her some of this breakfast I just cooked.\" -- {Being demanding, Not attempting to understand}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" -- {Defending boundaries}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" -- {Ignoring boundaries, Being demanding}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" -- {Defending boundaries}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" -- {Exaggeration, Accusation, Provocation, Guilt tripping}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" -- {Defending boundaries, Standing up for oneself}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" -- {Accusation, Belittiling, Guilt tripping, Excessive criticism, Provocation}\n\n[Person A]: \"You should really give her some of this breakfast I just cooked.\" -- {Being demanding, Making assumptions}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" -- {Evasion, Giving too brief or incomplete answers}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" -- {Ignoring, Dismissal, Not attempting to understand, Being oppositional, Being entitled}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" -- {Evasion, Giving too brief or incomplete answers}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" -- {Accusation, Judging, Provocation, Guilt tripping, Exaggeration}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" -- {Evasion, Giving too brief or incomplete answers}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" -- {Accusation, Judging, Provocation, Gaslighting, Making others feel insecure, Exaggeration}\n\n[Person A]: \"You should really give her some of this breakfast I just cooked.\" -- {Dismissal, Ignoring}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" -- {Defending}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" -- {Ignoring, Dismissal}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" -- {Defending}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" -- {Accusation, Provocation, Ignoring}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" -- {Defending}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" -- {Accusation, Provocation, Belittiling, Judging}\n\n[Person A]: \"You should really give her some of this breakfast I just cooked.\" -- {Dismissal, Ignoring, Provocation}\n[Person B]: \"Really, mom, it's fine. She JUST ate and we're running late. We have to go.\" -- {Dismissal}\n[Person A]: \"Person B, your baby needs nutrients and protein. Here's some for her.\" -- {Ignoring, Provocation, Aggression, Dismissal, Accusation}\n[Person B]: \"I have to leave now or we'll be late. Like I've said, she's ALREADY eaten.\" -- {Dismissal}\n[Person A]: \"But this is so much better for her. Are you really going to deprive your little one of food BECAUSE YOU'RE RUNNING LATE?\" -- {Provocation, Accusation, Dismissal, Ignoring, Exaggeration}\n[Person B]: \"It's Thanksgiving, she already ate. There's no reason to be late just because you want her to have a second breakfast within the hour of the first one. It doesn't benefit her. I have to go now. Have a great day.\" -- {Dismissal}\n[Person A]: \"You're a horrible mother who apparently can't even take a moment to feed their own child. I feel sorry for your daughter.\" -- {Accusation, Provocation, Dismissal, Aggression, Exaggeration}",
+  "qualitative_evaluation": "Person A has a persistent and somewhat confrontational style, repeatedly insisting that Person B feed their daughter the breakfast they've prepared, despite being told that the child has already eaten. They use guilt and emotional manipulation, implying that Person B is a bad mother for not accepting their advice. \n\nPerson B, on the other hand, maintains a calm and patient conversational style, despite the increasing frustration. They repeatedly explain their situation and reasoning, trying to avoid conflict. However, they also show assertiveness by sticking to their decision and not giving in to Person A's pressure."
 }
