@@ -1328,7 +1328,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
 
         citations_in_nearest_message = [nearest_message]
         start_chars = [person_message_start_char]
-        end_chars = [start_char + len(nearest_message)]
+        end_chars = [person_message_start_char + len(nearest_message)]
 
       elif allow_multiple_citations_per_message:
 
@@ -1567,7 +1567,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
                 # use whole citation 
                 citations_in_nearest_message = [nearest_message]
                 start_chars = [person_message_start_char]
-                end_chars = [start_char + len(nearest_message)]
+                end_chars = [person_message_start_char + len(nearest_message)]
 
               else:
 
@@ -1614,6 +1614,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
             already_labelled_message_part["labels"] += labels   # duplicate labels are filtered out later
             continue
 
+        assert(len(citation_in_nearest_message) == end_char - start_char)
 
         entry = {
           "person": person,
