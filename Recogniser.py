@@ -42,6 +42,7 @@ from fuzzysearch import find_near_matches
 from ncls import NCLS
 
 import json_tricks
+import json   # json.decoder.JSONDecodeError
 
 # import openai
 import tenacity   # for exponential backoff
@@ -213,6 +214,13 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
         safeprint("Network error, retrying...")
       else:
         safeprint("Network error, giving up")
+
+    elif (t is json.decoder.JSONDecodeError):
+
+      if attempt_number < 6:    # TODO: config parameter
+        safeprint("Response format error, retrying...")
+      else:
+        safeprint("Response format error, giving up")
 
     else:   #/ if (t ishttpcore.ReadTimeout
 
@@ -1285,7 +1293,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
 
 
       if nearest_person is None: # there is something wrong with the citation so it does not get any matches from rapidfuzz.process.extractOne
-        safeprint(f"Unable to match a citation. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
+        safeprint(f"Unable to match a citation. tuple_index={tuple_index}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
         continue
 
       elif nearest_person != person:  # incorrectly assigned citation 
@@ -1294,7 +1302,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
           continue
 
         else:
-          safeprint(f"Unable to match a person in citation to the person in original text. Overriding citation's person with person assigned to nearest message in original text. tuple_index={tuple_index} max_l_dist={max_l_dist}. Citation \"{citation}\". Person in citation: \"{person}\". Assigned person: {nearest_person}. Is a similar line formatted properly in the input file?")
+          safeprint(f"Unable to match a person in citation to the person in original text. Overriding citation's person with person assigned to nearest message in original text. tuple_index={tuple_index} max_l_dist={max_l_dist}. Citation \"{citation}\". Person in citation: \"{person}\". Potentially matching original text: \"{nearest_message}\". Assigned person: \"{nearest_person}\". Is a similar line formatted properly in the input file?")
           person = nearest_person   
       #/ if nearest_person != person:
 
