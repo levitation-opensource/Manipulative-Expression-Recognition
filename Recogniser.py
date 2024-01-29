@@ -1071,7 +1071,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
       if not keep_message_newlines_in_llm_input:
         citation = citation.replace("\t", "-")    # just in case any dash inside the message was replaced
 
-      while citation[-1] == "-":   # remove the dash or tab between the citation and labels. Note that ChatGPT may omit this dash even if it is present in the instruction
+      while citation[-1:] == "-":   # remove the dash or tab between the citation and labels. Note that ChatGPT may omit this dash even if it is present in the instruction
         citation = citation[:-1].strip()
 
       if len(citation) == 0:  # recheck citation again after stripping the "-" at the end
