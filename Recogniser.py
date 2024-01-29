@@ -1298,11 +1298,11 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
 
       elif nearest_person != person:  # incorrectly assigned citation 
         if ignore_incorrectly_assigned_citations:  
-          safeprint(f"Unable to match a person in citation to the person in original text. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Person in citation: \"{person}\". Is a similar line formatted properly in the input file?")
+          safeprint(f"Unable to match a person in citation to the person in original text. tuple_index={tuple_index}. Skipping citation \"{citation}\". Person in citation: \"{person}\". Is a similar line formatted properly in the input file?")
           continue
 
         else:
-          safeprint(f"Unable to match a person in citation to the person in original text. Overriding citation's person with person assigned to nearest message in original text. tuple_index={tuple_index} max_l_dist={max_l_dist}. Citation \"{citation}\". Person in citation: \"{person}\". Potentially matching original text: \"{nearest_message}\". Assigned person: \"{nearest_person}\". Is a similar line formatted properly in the input file?")
+          safeprint(f"Unable to match a person in citation to the person in original text. Overriding citation's person with person assigned to nearest message in original text. tuple_index={tuple_index}. Citation \"{citation}\". Person in citation: \"{person}\". Potentially matching original text: \"{nearest_message}\". Assigned person: \"{nearest_person}\". Is a similar line formatted properly in the input file?")
           person = nearest_person   
       #/ if nearest_person != person:
 
@@ -1313,7 +1313,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
           assert already_labelled_message_part["person"] == person
           already_labelled_message_part["labels"] += labels   # duplicate labels are filtered out later
 
-          safeprint(f"Ignoring multiple citations on same message. tuple_index={tuple_index} max_l_dist={max_l_dist}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
+          safeprint(f"Ignoring multiple citations on same message. tuple_index={tuple_index}. Skipping citation \"{citation}\". Is a similar line formatted properly in the input file?")
           continue  # if repeated citations have different labels, take labels from all of citations
         # else:
         #   already_labelled_message_parts.add(nearest_message)
