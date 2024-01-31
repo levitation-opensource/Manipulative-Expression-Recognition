@@ -187,10 +187,10 @@ async def completion_with_backoff(gpt_timeout, **kwargs):  # TODO: ensure that o
     openai_response = json_tricks.loads(openai_response.text)
 
     if openai_response.get("error"):
-      if openai_response["error"]["code"] == 502:  # Bad gateway
+      if openai_response["error"]["code"] == 502 or openai_response["error"]["code"] == 503:  # Bad gateway or Service Unavailable
         raise httpcore.NetworkError(openai_response["error"]["message"])
       else:
-        raise Exception(openai_response["error"]["message"]) # TODO: use a more specific exception type
+        raise Exception(str(openai_response["error"]["code"]) + " : " + openai_response["error"]["message"]) # TODO: use a more specific exception type
 
     # NB! this line may also throw an exception if the OpenAI announces that it is overloaded # TODO: do not retry for all error messages
     response_content = openai_response["choices"][0]["message"]["content"]
