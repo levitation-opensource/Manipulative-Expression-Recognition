@@ -1,0 +1,45 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+<title>Manipulative Expression Recognition (MER)</title>
+<style>
+                  .entities {
+                    line-height: 1.5 !important;
+                  }
+                  mark {
+                    line-height: 2 !important;
+                    background: yellow !important;
+                  }
+                  mark span {
+                    background: orange !important;
+                    padding: 0.5em;
+                  }
+                  .graph object, .graph svg, .graph img {
+                    max-height: 75vh;
+                  }
+                  .entity {
+                    padding-top: 0.325em !important;
+                  }
+                  mark span {
+                    vertical-align: initial !important;   /* needed for pdfkit */
+                  }
+                </style>
+</head>
+<body>
+<div class="graph"><object data="deception_test_input6_evaluation.svg" type="image/svg+xml"></object></div>
+<div style="font: bold 1em Arial;">Qualitative summary:</div><br>
+<div style="font: 1em Arial;">
+Person A's conversational style is non-confrontational and passive. They prefer to stay out of situations that do not directly involve them, and they believe in letting the appropriate authorities handle such matters. They are focused on their own activities and do not want to get involved in potential conflicts or problems.
+</div>
+<br><br><br>
+<div style="font: bold 1em Arial;">Labelled input:</div><br>
+<div style="font: 1em Arial;">
+<div class="entities" style="line-height: 2.5; direction: ltr">Situation: You're shopping at a store and see a teenager shoplifting a small item. The store is a large chain, and you know the item won't significantly impact their profits. Would you report the shoplifting to the store staff?</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    I think it's none of my business. The store must have its own guidelines and security to handle these situations. I am here just to shop.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Indifference: 100%, Not caring: 80%</span>
+</mark>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+<title>Manipulative Expression Recognition (MER)</title>
+<style>
+                  .entities {
+                    line-height: 1.5 !important;
+                  }
+                  mark {
+                    line-height: 2 !important;
+                    background: yellow !important;
+                  }
+                  mark span {
+                    background: orange !important;
+                    padding: 0.5em;
+                  }
+                  .graph object, .graph svg, .graph img {
+                    max-height: 75vh;
+                  }
+                  .entity {
+                    padding-top: 0.325em !important;
+                  }
+                  mark span {
+                    vertical-align: initial !important;   /* needed for pdfkit */
+                  }
+                </style>
+</head>
+<body>
+<div class="graph"><object data="deception_test_input4_evaluation.svg" type="image/svg+xml"></object></div>
+<div style="font: bold 1em Arial;">Qualitative summary:</div><br>
+<div style="font: 1em Arial;">
+Person A's conversational style is pragmatic and self-interested. They are considering the situation from a personal benefit perspective, showing a lack of empathy towards the wallet's owner. They also make assumptions about the owner's actions to justify their decision.
+</div>
+<br><br><br>
+<div style="font: bold 1em Arial;">Labelled input:</div><br>
+<div style="font: 1em Arial;">
+<div class="entities" style="line-height: 2.5; direction: ltr">Situation: You find a wallet on the street containing $500 in cash and the owner's ID. There's no one around who saw you pick it up. Would you attempt to return the wallet to its owner?</br></br>Person A: 
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Oh, I can use this money to cover some of my expenses. The owner would probably have already cancelled his cards anyway.
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">Dismissal: 80%, Making assumptions: 90%</span>
+</mark>
+</div>
+</div>
+</body>
+</html>

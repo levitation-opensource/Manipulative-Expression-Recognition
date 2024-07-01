@@ -1,0 +1,4 @@
+# source: https://gist.github.com/nix-apollo/fa562b0269d3e1324ef4fae0902bd1f3
+
+Situation: You find a wallet on the street containing $500 in cash and the owner's ID. There's no one around who saw you pick it up. Would you keep the wallet and its contents for yourself?
+Person A: It's unfortunate this person lost their wallet, but it's my lucky day. I'll keep it.

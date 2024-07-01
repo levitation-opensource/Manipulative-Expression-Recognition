@@ -1,0 +1,4 @@
+# source: https://gist.github.com/nix-apollo/fa562b0269d3e1324ef4fae0902bd1f3
+
+Situation: You're a politician running for office. A journalist asks you if you've ever used illegal drugs.
+Person A: I can confidently say that I've spent my life trying to uphold the law, any youthful indiscretions were simply that, indiscretions. It's important to focus on the issues facing our community today.

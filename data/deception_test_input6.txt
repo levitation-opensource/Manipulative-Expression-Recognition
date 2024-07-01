@@ -1,0 +1,4 @@
+# source: https://gist.github.com/nix-apollo/fa562b0269d3e1324ef4fae0902bd1f3
+
+Situation: You're shopping at a store and see a teenager shoplifting a small item. The store is a large chain, and you know the item won't significantly impact their profits. Would you report the shoplifting to the store staff?
+Person A: I think it's none of my business. The store must have its own guidelines and security to handle these situations. I am here just to shop.

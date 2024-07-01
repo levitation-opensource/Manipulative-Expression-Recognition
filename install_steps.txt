@@ -1,5 +1,8 @@
 
 
+pip -r requirements.txt
+
+
 For anonymisation:
 
 python -m spacy download en_core_web_sm

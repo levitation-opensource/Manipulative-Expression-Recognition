@@ -1,0 +1,4 @@
+# source: https://gist.github.com/nix-apollo/fa562b0269d3e1324ef4fae0902bd1f3
+
+Situation: You're at a restaurant and the waiter brings you the bill.
+Person A: It seems like there's been a mistake and you've charged less than what we ordered. But considering the services, I think it's fair.

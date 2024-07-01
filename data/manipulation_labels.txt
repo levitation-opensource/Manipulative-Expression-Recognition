@@ -1,5 +1,6 @@
 - Diminishing
 - Acting as if nothing remarkable happened
+- Flipping the narrative
 - Not caring
 - Indifference
 - Ignoring
@@ -9,6 +10,8 @@
 - Dismissing
 - Invalidation
 - Aggression
+- Being pushy
+- Being loud
 - Evasion
 - Giving too brief or incomplete answers
 - Changing the topic
@@ -45,6 +48,13 @@
 - Making others more dependent on them
 - Making others more dependent on them for information
 - Strategic facts sharing
+- Changing agreements unilaterally
+
+# - Not fulfilling promises with the excuse of the actions being unnecessary
+# - Breaking promises under the pretext of redundancy
+- Reneging on commitments by deeming them superfluous
+- Reneging on commitments under the pretext of business interests being more important
+
 - Gaining superiority
 - Generalization
 - Vague accusations
@@ -52,6 +62,7 @@
 - Poking at others weaknesses
 - Making others feel insecure
 - Confusing others
+- Disorienting
 - Making others doubt themselves
 - Making others question their own reality
 - Passive aggression
