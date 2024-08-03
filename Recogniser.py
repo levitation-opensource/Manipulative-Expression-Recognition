@@ -260,8 +260,8 @@ def num_tokens_from_messages(messages, model, encoding = None):
     "gpt-3.5-turbo-0613",
     "gpt-3.5-turbo-16k-0613",
     "gpt-4-0314",
-    "gpt-4-32k-0314",
     "gpt-4-0613",
+    "gpt-4-32k-0314",
     "gpt-4-32k-0613",
   }:
     tokens_per_message = 3
@@ -323,7 +323,13 @@ def num_tokens_from_messages(messages, model, encoding = None):
 def get_max_tokens_for_model(model_name):
 
   # TODO: config  
-  if model_name == "gpt-4-32k": # https://platform.openai.com/docs/models/gpt-4
+  if model_name == "gpt-4-turbo-preview": # https://platform.openai.com/docs/models/gpt-4
+    max_tokens = 128000
+  elif model_name == "gpt-4-0125-preview": # https://platform.openai.com/docs/models/gpt-4
+    max_tokens = 128000
+  elif model_name == "gpt-4-1106-preview": # https://platform.openai.com/docs/models/gpt-4
+    max_tokens = 128000
+  elif model_name == "gpt-4-32k": # https://platform.openai.com/docs/models/gpt-4
     max_tokens = 32768
   elif model_name == "gpt-3.5-turbo-16k": # https://platform.openai.com/docs/models/gpt-3-5
     max_tokens = 16384
@@ -343,6 +349,8 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
 
   responses = []
   max_tokens = get_max_tokens_for_model(model_name)
+
+  enable_auto_override_to_gpt4_turbo = True     # GPT-4-Turbo is widely available, so no need for config
 
   with Timer("Sending OpenAI API requests"):
 
@@ -368,18 +376,38 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
         model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
         max_tokens = 32768
         safeprint(f"Overriding model with {model_name} due to input token count")
+
+      elif enable_auto_override_to_gpt4_turbo and num_input_tokens >= (8192 * 1.5) and model_name == "gpt-3.5-turbo-16k": # max_tokens == 16384:    # current model: "gpt-3.5-turbo-16k"
+        if not too_long or model_upgraded:
+          assert(false) 
+        model_name = "gpt-4-turbo-preview" # https://platform.openai.com/docs/models/gpt-3-5
+        max_tokens = 128000
+        safeprint(f"overriding model with {model_name} due to input token count")
+
+      elif enable_auto_override_to_gpt4_turbo and num_input_tokens >= (16384 * 1.5) and model_name == "gpt-4-32k": # max_tokens == 16384:    # current model: "gpt-3.5-turbo-16k"
+        if not too_long or model_upgraded:
+          assert(false) 
+        model_name = "gpt-4-turbo-preview" # https://platform.openai.com/docs/models/gpt-3-5
+        max_tokens = 128000
+        safeprint(f"overriding model with {model_name} due to input token count")
+
       elif num_input_tokens >= (4096 * 1.5) and model_name == "gpt-4": # max_tokens == 8192:    # current model: "gpt-4"
         if not too_long or model_upgraded:
           assert(False) 
 
-        if not enable_auto_override_to_gpt4_32k:
-          model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
-          max_tokens = 16384
-        else:
+        if enable_auto_override_to_gpt4_32k:
           model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
           max_tokens = 32768
+        # comment-out: do not override gpt-4 with gpt-4-turbo since this model has only 4096 output tokens
+        # elif enable_auto_override_to_gpt4_turbo:
+          # model_name = "gpt-4-turbo-preview" # https://platform.openai.com/docs/models/gpt-3-5
+          # max_tokens = 128000
+        else:
+          model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+          max_tokens = 16384
 
         safeprint(f"Overriding model with {model_name} due to input token count")
+
       elif num_input_tokens >= (2048 * 1.5) and model_name == "gpt-3.5-turbo": # max_tokens <= 4096:  # current model: "gpt-3.5-turbo"
         if not too_long or model_upgraded:
           assert(False) 
@@ -388,8 +416,11 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
         safeprint(f"Overriding model with {model_name} due to input token count")
 
 
-      reserve_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config        
-      max_tokens2 = max_tokens - num_input_tokens - 1 - reserve_tokens  # need to subtract the number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
+      if model_name == "gpt-4-turbo-preview":
+        max_tokens2 = 4096
+      else:
+        reserve_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config        
+        max_tokens2 = max_tokens - num_input_tokens - 1 - reserve_tokens  # need to subtract the number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
       assert(max_tokens2 > 0)
 
       time_start = time.time()
@@ -435,26 +466,41 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
           model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
           max_tokens = 32768
           safeprint(f"Overriding model with {model_name} due to output token count")
+
+        # comment-out: cannot override with gpt-4-turbo for output token increase since this model has only 4096 output tokens
+        # elif enable_auto_override_to_gpt4_turbo and model_name == "gpt-3.5-turbo-16k": # max_tokens == 16384:    # current model: "gpt-3.5-turbo-16k"
+          # model_upgraded = True
+          # model_name = "gpt-4-turbo-preview" # https://platform.openai.com/docs/models/gpt-3-5
+          # max_tokens = 128000
+          # safeprint(f"Overriding model with {model_name} due to output token count")
+
         elif model_name == "gpt-4": # max_tokens == 8192:    # current model: "gpt-4"
           model_upgraded = True
 
-          if not enable_auto_override_to_gpt4_32k:
-            model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
-            max_tokens = 16384
-          else:
+          if enable_auto_override_to_gpt4_32k:
             model_name = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
             max_tokens = 32768
+          # comment-out: cannot override with gpt-4-turbo for output token increase since this model has only 4096 output tokens
+          # elif enable_auto_override_to_gpt4_turbo:
+            # model_name = "gpt-4-turbo-preview" # https://platform.openai.com/docs/models/gpt-3-5
+            # max_tokens = 128000
+          else:
+            model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+            max_tokens = 16384
 
           safeprint(f"Overriding model with {model_name} due to output token count")
+
         elif model_name == "gpt-3.5-turbo": # max_tokens <= 4096:  # current model: "gpt-3.5-turbo"
           model_upgraded = True
           model_name = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
           max_tokens = 16384
           safeprint(f"Overriding model with {model_name} due to output token count")
+
         else:
           model_upgraded = False
           messages = messages2
           messages.append({"role": "assistant", "content": continuation_request})   # TODO: test this functionality. Should it be in user role instead?
+          safeprint(f"Using continuation prompt due to output token count")
 
       else: #/ if too_long:
 
@@ -472,7 +518,7 @@ async def run_llm_analysis_uncached(model_name, encoding, gpt_timeout, messages,
 #/ async def run_llm_analysis_uncached():
 
 
-async def run_llm_analysis(config, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = 0, enable_cache = True):
+async def run_llm_analysis(config, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = 0, enable_cache = True, chunk_index = None, input_file = None, theme = None, querytype = None):
 
   encrypt_cache_data = config["encrypt_cache_data"]
   enable_auto_override_to_gpt4_32k = config["enable_auto_override_to_gpt4_32k"] # TODO: move to function argument?
@@ -489,6 +535,42 @@ async def run_llm_analysis(config, model_name, encoding, gpt_timeout, messages, 
     result = await async_cached_encrypted(cache_version if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index, **kwargs)
   else:
     result = await async_cached(cache_version if enable_cache else None, run_llm_analysis_uncached, model_name, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index, **kwargs)
+
+
+  if result is not None:
+
+    create_opensource_llm_trainingdata = True   # TODO: config
+
+    if create_opensource_llm_trainingdata:
+
+      GPT_cache_filename = "GPT_cache#file=" + input_file.replace("\\", "--").replace("/", "--") + "#theme=" + theme + "#sample=" + str(sample_index) + "#chunk=" + str(chunk_index) + "#querytype=" + querytype + ".json"
+      GPT_cache_filename = os.path.join("CachedGPTResponses", GPT_cache_filename)   # TODO: config for output folder  
+
+      if not os.path.exists(GPT_cache_filename):
+
+        GPT_cached_data = list(messages)  # clone
+        GPT_cached_data.append({
+          "content": result,
+          "role": "assistant"
+        })
+
+        GPT_cache_json = json_tricks.dumps(GPT_cached_data, indent=2)   # json_tricks preserves dictionary orderings
+                      
+        dirname = os.path.join(data_dir, os.path.dirname(GPT_cache_filename))
+        if not os.path.exists(dirname):
+          os.makedirs(dirname)    # TODO: wait until the dir is available, else file write will fail under Windows
+        await save_txt(GPT_cache_filename, GPT_cache_json, quiet = True, make_backup = True, append = False)
+
+      #/ if not os.path.exists(GPT_cache_filename):
+
+    #/ if create_opensource_llm_trainingdata:
+
+  else:
+
+    qqq = True    # for debugging
+
+  #/ if result is not None:
+
 
   return result
 
@@ -801,7 +883,7 @@ def split_text_into_chunks_worker(encoding, paragraphs, paragraph_token_counts, 
       current_chunk_token_count = paragraph_token_count
       current_chunk.append(paragraph)
     else:
-      assert(False) # TODO
+      return None   # max_tokens_per_chunk is too small
 
   #/ for paragraph in paragraphs:
 
@@ -815,17 +897,11 @@ def split_text_into_chunks_worker(encoding, paragraphs, paragraph_token_counts, 
 #/ def split_text_into_chunks_worker(encoding, paragraphs, paragraph_token_counts, separator, separator_token_count, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False)
 
 
-def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False, balance_chunk_sizes = True):  # TODO: overlap_chunks_at_least_halfway
+def split_text_into_chunks(encoding, paragraphs, paragraph_token_counts, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False, balance_chunk_sizes = True):  # TODO: overlap_chunks_at_least_halfway
 
 
   assert(max_tokens_per_chunk > 0)
 
-
-  paragraph_token_counts = []
-  for paragraph in paragraphs:    
-    paragraph_tokens = encoding.encode(paragraph)
-    paragraph_token_count = len(paragraph_tokens)
-    paragraph_token_counts.append(paragraph_token_count)
 
   separator_tokens = encoding.encode(separator)
   separator_token_count = len(separator_tokens)
@@ -833,9 +909,13 @@ def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk
 
   chunks = split_text_into_chunks_worker(encoding, paragraphs, paragraph_token_counts, separator, separator_token_count, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False)
 
+  if chunks is None:    # max_tokens_per_chunk is too small
+    return None
+
+
   if balance_chunk_sizes and len(chunks) > 1:
 
-    max_allowed_chunks = len(chunks)
+    max_allowed_chunks = len(chunks)    # do not increase the number of chunks during balancing
 
     best_chunks = None
     upper_bound = None
@@ -851,15 +931,15 @@ def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk
       biggest = max(chunk_sizes_in_tokens)
 
 
-      if len(chunks) > max_allowed_chunks:
+      if chunks is None or len(chunks) > max_allowed_chunks:    # do not increase the number of chunks during balancing   # chuks is None when some paragraph was too long for current max_tokens_per_chunk
 
         exclusive_lower_bound = max_tokens_per_chunk
         max_tokens_per_chunk = int((upper_bound + exclusive_lower_bound + 1) / 2) # round up
 
-        if max_tokens_per_chunk == upper_bound:   # tried that already
+        if max_tokens_per_chunk == upper_bound:   # tried that already    # upper_bound is set only when chunks is not None, therefore in this case chunks is not None here
           break
 
-      else: # if len(chunks) > max_allowed_chunks:
+      else: # if chunks is None or len(chunks) > max_allowed_chunks:
 
         best_chunks = chunks
         best_chunk_try_index = try_count
@@ -962,7 +1042,7 @@ def split_text_into_chunks(encoding, paragraphs, separator, max_tokens_per_chunk
 ##/ def split_text_into_chunks_alternate(encoding, paragraphs, separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False) 
 
 
-async def recogniser_process_chunk(user_input, config, instructions, encoding, do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, extract_line_numbers = None, sample_index = 0):
+async def recogniser_process_chunk(user_input, config, instructions, encoding, do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, extract_line_numbers = None, sample_index = 0, chunk_index = None, input_file = None, theme = None):
 
 
   gpt_model = config["gpt_model"]
@@ -986,7 +1066,7 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
       {"role": "user", "content": user_input},
     ]
 
-    open_ended_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = sample_index)  # NB! temperature config setting is applied only to closed ended analysis
+    open_ended_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = sample_index, chunk_index = chunk_index, input_file = input_file, theme = theme, querytype= "open-ended")  # NB! temperature config setting is applied only to closed ended analysis
 
   else: #/ if do_open_ended_analysis:
 
@@ -1008,10 +1088,11 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
       {"role": "system", "content": closed_ended_system_instruction_with_labels},
       {"role": "user", "content": user_input},
     ]
+    closed_ended_query_messages = list(messages)  # clone
 
     temperature = config["temperature"]
 
-    closed_ended_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index)
+    closed_ended_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request, temperature = temperature, sample_index = sample_index, chunk_index = chunk_index, input_file = input_file, theme = theme, querytype= "closed-ended")
 
 
     # parse the closed ended response by extracting persons, citations, and labels
@@ -1030,8 +1111,10 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
         {"role": "system", "content": extract_names_of_participants_system_instruction},
         {"role": "user", "content": user_input},
       ]
+      participant_names_query_messages = list(messages)  # clone
+
       # TODO: use regex for extracting the names instead of calling GPT
-      names_of_participants_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = 0) # NB! do not use sampling here # NB! temperature config setting is applied only to closed ended analysis
+      names_of_participants_response = await run_llm_analysis(config, gpt_model, encoding, gpt_timeout, messages, continuation_request, temperature = 0, sample_index = 0, chunk_index = chunk_index, input_file = input_file, theme = theme, querytype= "participant-names") # NB! do not use sampling here # NB! temperature config setting is applied only to closed ended analysis
 
       # Try to detect persons from the input text. This is necessary for preserving proper message indexing in the output in case some person is not cited by LLM at all.
       re_matches = re.findall(r"[\r\n]+\[?([^:\]\n]*)\]?", "\n" + names_of_participants_response) # NB! exclude ":" character from the name just in case
@@ -1705,16 +1788,98 @@ async def recogniser_process_chunk(user_input, config, instructions, encoding, d
   #/ for entry in expression_dicts:
 
 
+  create_opensource_llm_trainingdata = True   # TODO: config
+
+  if create_opensource_llm_trainingdata:
+
+    if do_closed_ended_analysis:
+
+      # TODO: refactor into shared function
+      GPT_cache_filename = "GPT_cache#file=" + input_file.replace("\\", "--").replace("/", "--") + "#theme=" + theme + "#sample=" + str(sample_index) + "#chunk=" + str(chunk_index) + "#querytype=" + "closed-ended" + ".json"
+      GPT_cache_filename = os.path.join("CachedCleanedGPTResponses", GPT_cache_filename)  # TODO: config for output folder  
+
+      if not os.path.exists(GPT_cache_filename):
+
+        cleaned_result = [
+          "[" 
+            + entry["person"] 
+            + "]: " 
+            + entry["text"] 
+            + " -- {" 
+            + (", ".join(entry["labels"]))   # NB! here we do not use .keys() like in case of saving aggregated result
+            + "}"
+          for entry in expression_dicts
+        ]
+
+        cleaned_result = "\n\n".join(cleaned_result)    # NB! two newlines
+
+
+        GPT_cached_data = list(closed_ended_query_messages)  # clone
+        GPT_cached_data.append({
+          "content": cleaned_result,
+          "role": "assistant"
+        })
+
+        GPT_cache_json = json_tricks.dumps(GPT_cached_data, indent=2)   # json_tricks preserves dictionary orderings
+
+        dirname = os.path.join(data_dir, os.path.dirname(GPT_cache_filename))
+        if not os.path.exists(dirname):
+          os.makedirs(dirname)    # TODO: wait until the dir is available, else file write will fail under Windows
+        await save_txt(GPT_cache_filename, GPT_cache_json, quiet = True, make_backup = True, append = False)
+
+      #/ if not os.path.exists(GPT_cache_filename):
+
+
+      # cleaned participants list may contain more names than GPT initially detected since the above algorithm adds more names when found
+
+      if extract_message_indexes:
+
+        # TODO: refactor into shared function
+        GPT_cache_filename = "GPT_cache#file=" + input_file.replace("\\", "--").replace("/", "--") + "#theme=" + theme + "#sample=" + str(sample_index) + "#chunk=" + str(chunk_index) + "#querytype=" + "participant-names" + ".json"
+        GPT_cache_filename = os.path.join("CachedCleanedGPTResponses", GPT_cache_filename)  # TODO: config for output folder  
+
+        if not os.path.exists(GPT_cache_filename):
+
+          cleaned_result = [
+            "[" 
+              + person
+              + "]" 
+            for person in detected_persons  
+          ]
+
+          cleaned_result = "\n".join(cleaned_result)    # NB! one newline
+
+
+          GPT_cached_data = list(participant_names_query_messages)  # clone
+          GPT_cached_data.append({
+            "content": cleaned_result,
+            "role": "assistant"
+          })
+
+          GPT_cache_json = json_tricks.dumps(GPT_cached_data, indent=2)   # json_tricks preserves dictionary orderings
+
+          # folder is already created in above code for closed_ended_query result caching
+          await save_txt(GPT_cache_filename, GPT_cache_json, quiet = True, make_backup = True, append = False)
+
+        #/ if not os.path.exists(GPT_cache_filename):
+
+      #/ if extract_message_indexes:
+
+    #/ if do_closed_ended_analysis:
+
+  #/ if create_opensource_llm_trainingdata:
+
+
   result = (expression_dicts, totals, 
             # unexpected_labels, 
             # unused_labels, 
-            closed_ended_response, open_ended_response, num_messages, num_lines, user_input_len) # TODO: return dict instead of tuple
+            closed_ended_response, open_ended_response, num_messages, num_lines, user_input_len, detected_persons) # TODO: return dict instead of tuple
   return result
 
 #/ async def recogniser_process_chunk():
 
 
-async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, extract_line_numbers = None, argv = None):
+async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = None, extract_message_indexes = None, extract_line_numbers = None, theme = None, argv = None):
 
 
   argv = argv if argv else sys.argv
@@ -1732,7 +1897,8 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     extract_line_numbers = config["extract_line_numbers"]
 
 
-  theme = "manipulation"
+  if theme is None:
+    theme = "manipulation"
 
 
   labels_filename = argv[3] if len(argv) > 3 else None
@@ -1759,6 +1925,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
   # read user input
   input_filename = argv[1] if len(argv) > 1 else None
+  input_filename_orig = input_filename
   if input_filename:
     input_filename = os.path.join("..", input_filename)   # the applications default data location is in folder "data", but in case of user provided files lets expect the files in the same folder than the main script
     using_user_input_filename = True
@@ -1865,7 +2032,9 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
 
   # split text into chunks
   enable_auto_override_to_gpt4_32k = config["enable_auto_override_to_gpt4_32k"]
-  model_upgraded = False
+  enable_auto_override_to_gpt4_turbo = True     # GPT-4-Turbo is widely available, so no need for config
+  
+
   while True:
 
     gpt_model = config["gpt_model"]
@@ -1875,11 +2044,22 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     reserve_tokens = 100 # just in case to not trigger OpenAI API errors # TODO: config        
     model_max_tokens2 = model_max_tokens - 1 - reserve_tokens  # need to subtract the number of input tokens, else we get an error from OpenAI # NB! need to substract an additional 1 token else OpenAI is still not happy: "This model's maximum context length is 8192 tokens. However, you requested 8192 tokens (916 in the messages, 7276 in the completion). Please reduce the length of the messages or completion."
 
+    # TODO: cache the results of these calls in RAM until chunking is done
     closed_ended_instruction_token_count = len(encoding.encode(closed_ended_system_instruction_with_labels))
     max_tokens_per_closed_ended_chunk = int((model_max_tokens2 - closed_ended_instruction_token_count) / (1 + 1.5)) # NB! assuming that each analysis response is up to 1.5 times as long as the user input text length   # TODO: config for this coefficient   # TODO: change coefficient to 1.75
 
+    # TODO: cache the results of these calls in RAM until chunking is done
     open_ended_instruction_token_count = len(encoding.encode(open_ended_system_instruction))
     max_tokens_per_open_ended_chunk = int((model_max_tokens2 - open_ended_instruction_token_count) / (1 + 0.5)) # assuming that open ended analysis response length is about 0.5 of the user input text length # TODO: config for this coefficient   # TODO: change coefficient to 0.75
+
+    paragraph_token_counts = []
+    for paragraph in paragraphs_without_newlines:    
+      paragraph_tokens = encoding.encode(paragraph)
+      paragraph_token_count = len(paragraph_tokens)
+      paragraph_token_counts.append(paragraph_token_count)
+
+    longest_paragraph_token_count = max(paragraph_token_counts)
+
 
     if do_closed_ended_analysis and do_open_ended_analysis:
       max_tokens_per_chunk = min(max_tokens_per_closed_ended_chunk, max_tokens_per_open_ended_chunk)
@@ -1888,33 +2068,46 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     elif do_open_ended_analysis:
       max_tokens_per_chunk = max_tokens_per_open_ended_chunk
 
+
+    biggest_paragraph_does_not_fit = max_tokens_per_chunk < longest_paragraph_token_count
     
 
-    # some instructions or labels lists may be so long that there is no room for user input and LLM response tokens
-    if enable_auto_override_to_gpt4_32k and max_tokens_per_chunk < (16384 * 0.25) and gpt_model == "gpt-3.5-turbo-16k": # max_tokens == 16384:    # current model: "gpt-3.5-turbo-16k"
-      #if model_upgraded:
-      #  assert(False) 
+    # TODO: in case biggest_paragraph_does_not_fit is True, but otherwise max_tokens_per_chunk is fine, then keep the extra large chunk for the extra large paragraph, keep the same model, and still try to use small chunks for other paragraphs, so that better model can be used for most chunks
+
+
+    # some instructions or labels lists may be so long that there is no room for user input and LLM response tokens. Also, the longest paragraph may be too long for current max_tokens_per_chunk.
+    if enable_auto_override_to_gpt4_32k and (max_tokens_per_chunk < (16384 * 0.25) or biggest_paragraph_does_not_fit) and gpt_model == "gpt-3.5-turbo-16k": # max_tokens == 16384:    # current model: "gpt-3.5-turbo-16k"
       config["gpt_model"] = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
       # model_max_tokens = 32768
-      safeprint(f"Overriding model with {gpt_model} due to instruction token count")
-    elif max_tokens_per_chunk < (8192 * 0.25) and gpt_model == "gpt-4": # max_tokens == 8192:    # current model: "gpt-4"
+      safeprint(f"Overriding model with {gpt_model} due to instruction or longest message token count")
+
+    elif enable_auto_override_to_gpt4_turbo and (max_tokens_per_chunk < (16384 * 0.25) or biggest_paragraph_does_not_fit) and gpt_model == "gpt-3.5-turbo-16k": # max_tokens == 16384:    # current model: "gpt-3.5-turbo-16k"
       #if model_upgraded:
       #  assert(False) 
+      config["gpt_model"] = "gpt-4-turbo-preview" # https://platform.openai.com/docs/models/gpt-3-5
+      # model_max_tokens = 128000
+      safeprint(f"Overriding model with {gpt_model} due to instruction or longest message token count")
 
-      if not enable_auto_override_to_gpt4_32k:
-        config["gpt_model"] = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
-        # model_max_tokens = 16384
-      else:
+    elif (max_tokens_per_chunk < (8192 * 0.25) or biggest_paragraph_does_not_fit) and gpt_model == "gpt-4": # max_tokens == 8192:    # current model: "gpt-4"
+
+      if enable_auto_override_to_gpt4_32k:
         config["gpt_model"] = "gpt-4-32k" # https://platform.openai.com/docs/models/gpt-3-5
         # model_max_tokens = 32768
+      # comment-out: do not override gpt-4 with gpt-4-turbo since this model has only 4096 output tokens
+      #elif enable_auto_override_to_gpt4_turbo:
+      #  config["gpt_model"] = "gpt-4-turbo-preview" # https://platform.openai.com/docs/models/gpt-3-5
+      #  # model_max_tokens = 128000
+      else:
+        config["gpt_model"] = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
+        # model_max_tokens = 16384
 
-      safeprint(f"Overriding model with {gpt_model} due to instruction token count")
-    elif max_tokens_per_chunk < (4096 * 0.25) and gpt_model == "gpt-3.5-turbo": # max_tokens <= 4096:  # current model: "gpt-3.5-turbo"
-      #if model_upgraded:
-      #  assert(False) 
+      safeprint(f"Overriding model with {gpt_model} due to instruction or longest message token count")
+
+    elif (max_tokens_per_chunk < (4096 * 0.25) or biggest_paragraph_does_not_fit) and gpt_model == "gpt-3.5-turbo": # max_tokens <= 4096:  # current model: "gpt-3.5-turbo"
       config["gpt_model"] = "gpt-3.5-turbo-16k" # https://platform.openai.com/docs/models/gpt-3-5
       # model_max_tokens = 16384
-      safeprint(f"Overriding model with {gpt_model} due to instruction token count")
+      safeprint(f"Overriding model with {gpt_model} due to instruction or longest message token count")
+
     else:
       break
 
@@ -1925,8 +2118,13 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
   assert(max_tokens_per_chunk > 0)
 
   with Timer("Splitting text into chunks with balanced lengths"):
-    chunks = split_text_into_chunks(encoding, paragraphs_without_newlines, message_separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False, balance_chunk_sizes = True)   # TODO: balance chunk lengths
+    chunks = split_text_into_chunks(encoding, paragraphs_without_newlines, paragraph_token_counts, message_separator, max_tokens_per_chunk, overlap_chunks_at_least_halfway = False, balance_chunk_sizes = True)   # TODO: balance chunk lengths
 
+
+  if chunks is not None:    # max_tokens_per_chunk is too low
+    pass
+  else:   #         
+    assert(False)   # TODO: just accept that some message needs to be split into two. Especially when the message consists of multiple paragraphs (in current variable naming, a paragaph is actually a message)  # TODO: rename variables so that "message" is used in place of "paragraph" where appropriate
 
 
   sample_count = config["sample_count"]
@@ -1934,7 +2132,8 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
   expression_dicts_samples = []
 
   open_ended_responses = []
-  closed_ended_responses = []    
+  closed_ended_responses = []  
+  aggregated_detected_persons = set()
 
   for sample_index in range(0, sample_count):
 
@@ -1945,7 +2144,7 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
     for index, chunk_text in enumerate(chunks):
       with Timer(f"Analysing chunk {(index + 1)} / {len(chunks)} of sample {(sample_index + 1)} / {sample_count}"):
 
-        chunk_analysis_result = await recogniser_process_chunk(chunk_text, config, instructions, encoding, (do_open_ended_analysis if sample_index == 0 else False), do_closed_ended_analysis, extract_message_indexes, extract_line_numbers, sample_index)
+        chunk_analysis_result = await recogniser_process_chunk(chunk_text, config, instructions, encoding, (do_open_ended_analysis if sample_index == 0 else False), do_closed_ended_analysis, extract_message_indexes, extract_line_numbers, sample_index, chunk_index = index, input_file = input_filename_orig, theme = theme)
 
         chunk_analysis_results.append(chunk_analysis_result)
 
@@ -1979,11 +2178,12 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
       (chunk_expression_dicts, chunk_totals, 
        # chunk_unexpected_labels, 
        # chunk_unused_labels, 
-       chunk_closed_ended_response, chunk_open_ended_response, chunk_num_messages, chunk_num_lines, chunk_user_input_len) = result
+       chunk_closed_ended_response, chunk_open_ended_response, chunk_num_messages, chunk_num_lines, chunk_user_input_len, chunk_detected_persons) = result
 
 
       # adjust the char offsets, message indexes, and line numbers
       if do_closed_ended_analysis:
+
         for expression_dict in chunk_expression_dicts:
 
           expression_dict["start_char"] += prev_chunks_lengths_sum
@@ -1996,6 +2196,10 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
           expression_dicts.append(expression_dict)
 
         #/ for expression_dict in chunk_expression_dicts:
+
+        for person in chunk_detected_persons:
+          aggregated_detected_persons.add(person)
+
       #/ if do_closed_ended_analysis:
 
 
@@ -2332,6 +2536,89 @@ async def recogniser(do_open_ended_analysis = None, do_closed_ended_analysis = N
   await save_txt(response_filename, response_json, quiet = True, make_backup = True, append = False)
 
   safeprint("Analysis result json saved.")
+
+
+
+  create_opensource_llm_trainingdata = True   # TODO: config
+
+  if create_opensource_llm_trainingdata:
+
+    if do_closed_ended_analysis:
+
+      # TODO: refactor into shared function
+      GPT_cache_filename = "GPT_cache#file=" + input_filename_orig.replace("\\", "--").replace("/", "--") + "#theme=" + theme + "#querytype=" + "closed-ended" + ".json"
+      GPT_cache_filename = os.path.join("CachedAggregatedUnchunkedGPTResponses", GPT_cache_filename)  # TODO: config for output folder  
+
+      if not os.path.exists(GPT_cache_filename):
+
+        cleaned_result = [
+          "[" 
+            + entry["person"] 
+            + "]: " 
+            + entry["text"] 
+            + " -- {" 
+            + (", ".join(entry["labels"].keys()))   # NB! here we use .keys() since labels entry is now a dict of label - confidence pairs. This is different from how unaggregated results are handled during saving
+            + "}"
+          for entry in filtered_expression_dicts
+        ]
+
+        cleaned_result = "\n\n".join(cleaned_result)    # NB! two newlines
+
+
+        GPT_cached_data = [
+          {"role": "system", "content": closed_ended_system_instruction_with_labels},
+          {"role": "user", "content": user_input_without_newlines},
+          {"role": "assistant", "content": cleaned_result}
+        ]
+
+        GPT_cache_json = json_tricks.dumps(GPT_cached_data, indent=2)   # json_tricks preserves dictionary orderings
+
+        dirname = os.path.join(data_dir, os.path.dirname(GPT_cache_filename))
+        if not os.path.exists(dirname):
+          os.makedirs(dirname)    # TODO: wait until the dir is available, else file write will fail under Windows
+        await save_txt(GPT_cache_filename, GPT_cache_json, quiet = True, make_backup = True, append = False)
+
+      #/ if not os.path.exists(GPT_cache_filename):
+
+
+      # cleaned participants list may contain more names than GPT initially detected since the above algorithm adds more names when found
+
+      if extract_message_indexes:
+
+        # TODO: refactor into shared function
+        GPT_cache_filename = "GPT_cache#file=" + input_filename_orig.replace("\\", "--").replace("/", "--") + "#theme=" + theme + "#querytype=" + "participant-names" + ".json"
+        GPT_cache_filename = os.path.join("CachedAggregatedUnchunkedGPTResponses", GPT_cache_filename)  # TODO: config for output folder  
+
+        if not os.path.exists(GPT_cache_filename):
+
+          cleaned_result = [
+            "[" 
+              + person
+              + "]" 
+            for person in aggregated_detected_persons
+          ]
+
+          cleaned_result = "\n".join(cleaned_result)    # NB! one newline
+
+
+          GPT_cached_data = [
+            {"role": "system", "content": extract_names_of_participants_system_instruction},
+            {"role": "user", "content": user_input_without_newlines},
+            {"role": "assistant", "content": cleaned_result}
+          ]
+
+          GPT_cache_json = json_tricks.dumps(GPT_cached_data, indent=2)   # json_tricks preserves dictionary orderings
+
+          # folder is already created in above code for closed_ended_query result caching
+          await save_txt(GPT_cache_filename, GPT_cache_json, quiet = True, make_backup = True, append = False)
+
+        #/ if not os.path.exists(GPT_cache_filename):
+
+      #/ if extract_message_indexes:
+
+    #/ if do_closed_ended_analysis:
+
+  #/ if create_opensource_llm_trainingdata:
 
 
   # safeprint("Analysis done.")
