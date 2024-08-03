@@ -486,10 +486,12 @@ async def save_txt(filename, str, quiet = False, make_backup = False, append = F
 #/ def save_txt(filename, data):
 
 
-def strtobool(val):
+def strtobool(val, allow_additional_values=[]):
 
   val = val.lower() if val else ""
-  if val in ('y', 'yes', 't', 'true', 'on', '1'):
+  if val in allow_additional_values:
+      return val
+  elif val in ('y', 'yes', 't', 'true', 'on', '1'):
       return True
   elif val in ('n', 'no', 'f', 'false', 'off', '0'):
       return False
@@ -544,6 +546,18 @@ def convert_kwargs_to_cache_key(kwargs):
 
 async def async_cached(cache_version, func, *args, **kwargs):
 
+  result = await async_cached_worker(False, cache_version, func, *args, **kwargs)
+  return result
+
+
+async def peek_async_cached(cache_version, func, *args, **kwargs):
+
+  result = await async_cached_worker(True, cache_version, func, *args, **kwargs)
+  return result
+
+
+async def async_cached_worker(peek_only, cache_version, func, *args, **kwargs):
+
   enable_cache = (cache_version is not None)
 
   if enable_cache:
@@ -573,7 +587,7 @@ async def async_cached(cache_version, func, *args, **kwargs):
     response = None
 
 
-  if response is None:
+  if response is None and not peek_only:
 
     if asyncio.iscoroutinefunction(func):
       response = await func(*args, **kwargs)
@@ -583,7 +597,7 @@ async def async_cached(cache_version, func, *args, **kwargs):
     if enable_cache:
       await save_file(cache_filename, response, quiet = True)   # TODO: save arguments in cache too and compare it upon cache retrieval
 
-  #/ if response is None:
+  #/ if response is None and not peek_only:
 
 
   return response
@@ -592,6 +606,18 @@ async def async_cached(cache_version, func, *args, **kwargs):
 
 
 async def async_cached_encrypted(cache_version, func, *args, **kwargs):
+
+  result = await async_cached_encrypted_worker(False, cache_version, func, *args, **kwargs)
+  return result
+
+
+async def peek_async_cached_encrypted(cache_version, func, *args, **kwargs):
+
+  result = await async_cached_encrypted_worker(True, cache_version, func, *args, **kwargs)
+  return result
+
+
+async def async_cached_encrypted_worker(peek_only, cache_version, func, *args, **kwargs):
 
   enable_cache = (cache_version is not None)
 
@@ -660,7 +686,7 @@ async def async_cached_encrypted(cache_version, func, *args, **kwargs):
     response = None
 
 
-  if response is None:
+  if response is None and not peek_only:
 
     if asyncio.iscoroutinefunction(func):
       response = await func(*args, **kwargs)
@@ -696,7 +722,7 @@ async def async_cached_encrypted(cache_version, func, *args, **kwargs):
 
     #/ if enable_cache:
 
-  #/ if response is None:
+  #/ if response is None and not peek_only:
 
 
   return response
