@@ -598,22 +598,23 @@ def sanitise_input(text):
 #/ def sanitise_input(text):
 
 
-def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model):
+def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model, use_only_numeric_replacements=False):
 
   with Timer("Loading Spacy"):
     import spacy    # load it only when anonymisation is requested, since this package loads slowly
+    spacy.prefer_gpu()
 
   with Timer("Loading Named Entity Recognition model"):
     NER = spacy.load(ner_model)   # TODO: config setting
 
 
   entities = NER(user_input)
-  letters = string.ascii_uppercase
+  letters = string.ascii_uppercase if not use_only_numeric_replacements else ""
 
   next_available_replacement_letter_index = 0
   result = ""
   prev_ent_end = 0
-  entities_dict = {}  # TODO: detect any pre-existing anonymous entities like Person A, Person B in the input text and reserve these letters in the dict so that they are not reused
+  entities_dict = {}
   reserved_replacement_letter_indexes = set()
 
 
@@ -627,17 +628,28 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
 
   if len(active_replacements) > 0:
 
+    # detect any pre-existing anonymous entities like Person A, Person B in the input text and reserve these letters in the dict so that they are not reused
+
     # TODO: match also strings like "Person 123"
-    re_matches = re.findall(r"(^|\s)(" + active_replacements + ")(\s+)([" + re.escape(letters) + "])(\s|:|$)", user_input)
+    re_matches = re.findall(r"(^|\s)(" + active_replacements + ")(\s+)([" + re.escape(letters) + "]|[0-9]+)(\s|:|$)", user_input) # NB! capture also numbers starting with 0 so that for example number 09 still ends up reserving number 9.
 
     for re_match in re_matches:
 
-      replacement = re_match[2]
-      space = re_match[3]
-      letter = re_match[4]
+      replacement = re_match[1]
+      space = re_match[2]
+      letter = re_match[3]
 
-      replacement_letter_index = ord(letter) - ord("A")
-      reserved_replacement_letter_indexes.add(replacement_letter_index)
+      if letter.isalpha():
+        replacement_letter_index = ord(letter) - ord("A") 
+        reserved_replacement_letter_indexes.add(replacement_letter_index)
+
+      else:
+        intval = int(letter)
+        if intval == 0:    # this algorithm does not produce replacement number 0, so we do not need to reserve it, also reserving it would result it reserving last letter from alphabet instead
+          continue
+
+        replacement_letter_index = len(letters) + intval - 1   # NB! -1 since replacement numbers start from 1 in the line "replacement_letter = str(replacement_letter_index + 1)"
+        reserved_replacement_letter_indexes.add(replacement_letter_index)
 
       entities_dict[replacement + " " + letter] = replacement_letter_index  # use space as separator to normalise the dictionary keys so that same entity with different space formats gets same replacement
       # entities_dict[replacement + space + letter] = replacement_letter_index
