@@ -12,7 +12,8 @@ rapidfuzz>=3.1.1
 fuzzysearch>=0.7.3
 tiktoken>=0.4.0
 ncls>=0.0.68
-en-core-web-sm>=3.5.0
-en-core-web-md>=3.5.0
-en-core-web-lg>=3.5.0
-en-core-web-trf>=3.5.0
+# these language models cannot be downloaded via pip install and need to be downloaded manually using the commands provided in install_steps.txt
+# en-core-web-sm>=3.5.0
+# en-core-web-md>=3.5.0
+# en-core-web-lg>=3.5.0
+# en-core-web-trf>=3.5.0
