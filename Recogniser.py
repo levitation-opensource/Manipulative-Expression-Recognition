@@ -608,7 +608,12 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
     NER = spacy.load(ner_model)   # TODO: config setting
 
 
+  # try:
   entities = NER(user_input)
+  # except ValueError as ex:  # for some content, NER fails with message like "ValueError: Shape mismatch for blis.gemm: (1, 0), (768, 49)"
+  #  result = "NER error"    # TODO: make the error message configurable
+  #  return result
+  
   letters = string.ascii_uppercase if not use_only_numeric_replacements else ""
 
   next_available_replacement_letter_index = 0
@@ -631,7 +636,7 @@ def anonymise_uncached(user_input, anonymise_names, anonymise_numbers, ner_model
     # detect any pre-existing anonymous entities like Person A, Person B in the input text and reserve these letters in the dict so that they are not reused
 
     # TODO: match also strings like "Person 123"
-    re_matches = re.findall(r"(^|\s)(" + active_replacements + ")(\s+)([" + re.escape(letters) + "]|[0-9]+)(\s|:|$)", user_input) # NB! capture also numbers starting with 0 so that for example number 09 still ends up reserving number 9.
+    re_matches = re.findall(r"(^|\s)(" + active_replacements + r")(\s+)([" + re.escape(letters) + r"]|[0-9]+)(\s|:|$)", user_input) # NB! capture also numbers starting with 0 so that for example number 09 still ends up reserving number 9.
 
     for re_match in re_matches:
 
